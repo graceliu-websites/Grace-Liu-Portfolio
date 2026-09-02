@@ -24,22 +24,21 @@
                     const container = document.getElementById('sidebar-container');
                     container.innerHTML = data;
                     
-                    // Highlight the active page link based on URL content
-                    const path = window.location.pathname;
+                    // Logic to highlight the active link
+                        const currentPage = window.location.pathname.split("/").pop() || "index.html";                    const links = {
+                        "index.html": "nav-dashboard",
+                        "techtornics/techtronics.html": "nav-techtronics",
+                        "shellfund/shellfund.html": "nav-shellfund",
+                        "simulator/simulator.html": "nav-simulator",
+                    //    "feastly.html": "nav-feastly"
+                    };
                     
-                    if (path.includes('techtronics')) {
-                        document.getElementById('nav-techtronics')?.classList.add('active');
-                    } else if (path.includes('shellfund')) {
-                        document.getElementById('nav-shellfund')?.classList.add('active');
-                    } else if (path.includes('simulator')) {
-                        document.getElementById('nav-simulator')?.classList.add('active');
-                    } else if (path.includes('about')) {
-                        document.getElementById('nav-about')?.classList.add('active');
-                    } else {
-                        document.getElementById('nav-dashboard')?.classList.add('active');
+                    if (links[currentPage]) {
+                        const activeLink = document.getElementById(links[currentPage]);
+                        if(activeLink) activeLink.classList.add('active');
                     }
                 })
-                .catch(err => console.error("Error loading sidebar:", err));
+                .catch(err => console.error(err));
         </script>
 
         <main class="content">

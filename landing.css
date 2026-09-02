@@ -1,0 +1,983 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* Standard font for everything */
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+}
+
+:root {
+    --bg-dark: #000000;
+    --sidebar-bg: #0a0a0a;
+    --card-bg: #141414;
+    --accent-blue: #3d4ef5;
+    --accent-teal: #00f2ea;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 288px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid #222;
+    padding: 2rem 1.5rem;
+
+    position: fixed;
+    height: 100vh; 
+    left: 0;
+    top: 0;
+    
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 6px; 
+    padding: 20px 0;
+    min-height: 60px; /* Give the bold font room to breathe */
+}
+
+.brand-logo {
+    width: 70px; 
+    height: 70px;
+    object-fit: contain;
+    margin-right: -10px; /* This pulls the text closer to the image */
+}
+
+.logo-text {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 800 !important; /* This is the "bulge" - 800 is much thicker than Inter's default */
+    font-size: 1.8rem;
+    letter-spacing: -0.05em; /* Tightening the letters makes it look like a custom logo */
+    color: var(--accent-blue);
+    line-height: 1;
+}
+
+.content {
+    flex: 1;
+    margin-left: 240px; 
+    padding: 2rem 4rem;
+}
+
+.sidebar-footer {
+    margin-top: auto; 
+    padding-bottom: 1.5rem;
+}
+
+.nav-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; 
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-top: 2rem;    /* Extra breathing room above headers (e.g., CASE STUDIES) */
+    margin-bottom: 0.5rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 20px;
+    margin: 8px 12px; 
+    color: #888;
+    text-decoration: none;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.nav-item i {
+    font-size: 1.1rem;
+    width: 20px; 
+    text-align: center;
+}
+
+/* The Active Highlight Style */
+.nav-item.active {
+    background-color: rgba(255, 255, 255, 0.1); /* The grey/white transparent pill */
+    color: #ffffff;
+}
+
+/* Blue Indicator */
+.nav-item.active::before {
+    content: "";
+    position: absolute;
+    left: -12px; /* Moves it to the very edge of the sidebar */
+    top: 20%;
+    height: 60%;
+    width: 4px;
+    background-color: #3d5cff;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Hover effect for non-active items */
+.nav-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #bbb;
+}
+
+/* Status badge */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1); /* Soft glass effect */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 100px; /* Perfect pill shape */
+    
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    80%, 100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Hero Section */
+
+.hero-card {
+    background-color: var(--accent-blue);
+    border-radius: 32px;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-height: 550px; 
+    color: white;
+    overflow: hidden;
+}
+
+.hero-content-left {
+    flex: 1.5;
+    min-width: 450px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 1.5rem 0;
+    padding-top: 0px;
+    color: #ffffff !important;
+}
+
+h2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 16px;
+}
+
+.role-a {color: #FFD23F;}
+.role-b {color: #49E7FF;}
+.role-c {color: #26F7A3;}
+
+.hero-specialization {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fcfcfc;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    line-height: 1.1;
+}
+
+.badge {
+    background: rgba(255,255,255,0.1);
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+}
+
+/* Fix title line-height to prevent wrapping 'builder' */
+h2 {
+    line-height: 1.8 !important;
+}
+
+.role-a, .role-b, .role-c {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin: 4px 2px;
+}
+
+/* Keyframe for ambient pulse & inner light */
+@keyframes role-glow-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+/* Role A: Designer (Yellow Accent) */
+.role-a {
+    background: rgba(255, 210, 63, 0.12);
+    border: 1px solid rgba(255, 210, 63, 0.5);
+    animation: role-glow-pulse 3s infinite ease-in-out 0s, glow-yellow 3s infinite ease-in-out 0s;
+}
+
+/* Role B: Researcher (Cyan Accent) */
+.role-b {
+    background: rgba(73, 231, 255, 0.12);
+    border: 1px solid rgba(73, 231, 255, 0.5);
+    animation: role-glow-pulse 3s infinite ease-in-out 1s, glow-cyan 3s infinite ease-in-out 1s;
+}
+
+/* Role C: Builder (Green Accent) */
+.role-c {
+    background: rgba(38, 247, 163, 0.12);
+    border: 1px solid rgba(38, 247, 163, 0.5);
+    animation: role-glow-pulse 3s infinite ease-in-out 2s, glow-green 3s infinite ease-in-out 2s;
+}
+
+/* Color-specific glow keyframes */
+@keyframes glow-yellow {
+    50% { box-shadow: 0 0 14px rgba(255, 210, 63, 0.5); border-color: #FFD23F; }
+}
+@keyframes glow-cyan {
+    50% { box-shadow: 0 0 14px rgba(73, 231, 255, 0.5); border-color: #49E7FF; }
+}
+@keyframes glow-green {
+    50% { box-shadow: 0 0 14px rgba(38, 247, 163, 0.5); border-color: #26F7A3; }
+}
+
+/* Main Speech Bubble */
+
+.profile-container {
+    position: relative;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.imessage-bubble-link {
+    text-decoration: none;
+    position: absolute;
+    top: 5px;        /* Moves bubble vertically relative to the image */
+    left: -100px;      /* Pulls bubble slightly over the left edge of avatar */
+    z-index: 10;
+}
+
+.imessage-bubble {
+    background-color: #3191f7;
+    color: #ffffff;
+    padding: 14px 28px; /* Increased padding (top/bottom left/right) */
+    border-radius: 26px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    position: relative;
+    top: -30px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+}
+
+.imessage-bubble::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+    height: 18px;
+    width: 15px;
+    background-color: #3d4ef5; /* IMPORTANT: Must match your exact Hero Blue */
+    border-bottom-left-radius: 15px;
+    z-index: 0;
+}
+
+.imessage-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -7px;
+    height: 15px;
+    width: 15px;
+    background-color: #3191f7;
+    border-bottom-left-radius: 12px;
+    z-index: -1;
+}
+
+
+.imessage-bubble-link:hover .imessage-bubble {
+    transform: scale(1.08);
+    background-color: #227bd9;
+}
+
+.imessage-bubble-link:hover .imessage-bubble::after {
+    background-color: #227bd9;
+}
+
+/* Profile Image Styles (Hover zoom removed) */
+.image-wrapper img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+}
+
+.image-wrapper a {
+    display: block;
+    line-height: 0; /* Prevents tiny gaps at the bottom of the image */
+}
+
+.quote-text .highlight {
+    color: #3d4ef5;
+    font-weight: 700; 
+}
+
+/* Specialization Layout */
+.specialization-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.spec-item {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.spec-item i {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.spec-item strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.academic-journey {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 2rem;
+    margin-top: auto; /* Pushes it to the bottom of the text area */
+}
+
+/* The "ACADEMIC JOURNEY" Label */
+.academic-journey .label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6); /* Slightly dimmed white */
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.degree-container {
+    display: flex;
+    gap: 4rem; /* Keeps them from touching when window is small */
+}
+
+.degree {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.degree-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.degree-status {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+}
+
+/* Image Handling */
+.hero-image-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.image-wrapper img {
+    width: 320px; /* Keep this constant so it doesn't jump sizes */
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Core Mission */
+.mission-bar {
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.mission-content p {
+    display: flex;
+    flex-direction: column; /* Stacks label above the quote */
+    gap: 4px;
+}
+
+.mission-icon {
+    background: rgba(61, 78, 245, 0.1);
+    color: var(--accent-blue);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+/* The Label */
+.mission-content strong {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666; /* Dimmed color for secondary info */
+    font-weight: 700;
+}
+
+/* The Quote */
+.mission-content {
+    font-size: 1.25rem; /* Larger font for the actual mission statement */
+    font-weight: 500;
+    color: #eeeeee;
+}
+
+/* Projects */
+.projects-section h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.project-card-link, 
+.project-card-link:visited {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.project-card {
+    position: relative;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #222;
+    transition: transform 0.4s ease;
+}
+
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.2) 60%, transparent);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Typography Hierarchy */
+.project-grid {
+    display: flex;            
+    flex-direction: column;    
+    gap: 2rem;           
+    margin-top: 2rem;
+}
+
+/* Project Overlay Hierarchy */
+.project-overlay h4 {
+    font-size: 1.8rem; /* Make the title much larger */
+    font-weight: 700;
+    color: #ffffff !important; /* Force white */
+    margin-top: 0.5rem;
+}
+
+.project-overlay .category {
+    color: var(--accent-blue);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.view-project {
+    font-size: 0.85rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0; /* Hidden until hover */
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .view-project {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+    border-color: #444;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #ffffff;
+    
+    /* Create the dashed border */
+    border: 1px dashed rgba(255, 255, 255, 0.3); 
+    
+    /* Pill shape (use a large number like 50px or 100px) */
+    border-radius: 100px;
+    
+    /* Layout and Spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between the icon and text */
+    padding: 12px 24px;
+    
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    width: 100%; /* If you want it to fill the sidebar width */
+}
+
+/* Hover effect to make it feel interactive */
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Bottom Grid */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* General Card Styling Improvements */
+.card {
+    background-color: #141414; /* Dark grey card bg */
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 2rem; /* Give the content room to breathe */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Skills Card UI */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a0a0a0;
+    padding: 6px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: var(--accent-blue);
+    color: #fff;
+    border-color: var(--accent-blue);
+}
+
+/* Testimonial Card UI */
+.quote-icon {
+    font-family: serif;
+    font-size: 3rem;
+    color: var(--accent-blue);
+    line-height: 1;
+    margin-bottom: -10px;
+}
+
+.quote-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.author-name {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, #0a0a0a 0%, #0d1137 100%); /* Deep blue tint instead of teal */
+    border: 1px solid rgba(61, 78, 245, 0.3); /* Uses your primary blue */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* base button styles */
+.btn-primary, .btn-secondary, .btn-outline {
+    padding: 18px 24px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 14px; /* Slightly more rounded for the taller height */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    border: none;
+}
+
+/* Primary Button (Send a Message) */
+.btn-primary {
+    background-color: var(--accent-blue); /* Using your theme blue */
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* Secondary Button (Download CV) */
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure the CTA card buttons have proper spacing */
+.cta-button-group {
+    display: flex;
+    flex-direction: column;
+    padding: 10rem; /* Space between the two stacked buttons */
+    margin-top: 24px;
+}
+
+/* Project Specific Styles */
+.accent-text {
+    color: var(--accent-blue);
+}
+
+.project-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Balanced columns */
+    gap: 3rem;
+    padding-bottom: 5rem;
+    align-items: center;
+}
+
+.meta-info {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.meta-item span {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+}
+
+/* Design Tools */
+.tools-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.tool-box {
+    background: rgba(255, 255, 255, 0.05); /* Matches your dark theme */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tool-content {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between logo and text */
+}
+
+.tool-icon {
+    width: 25px; /* Adjust size to match text height */
+    height: 25px;
+    object-fit: contain;
+}
+
+.tool-label {
+    font-size: 9px;
+    color: #888;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.tool-name {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.grid-item {
+    background: none;
+    border: 0px solid #222;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.grid-item .caption {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* Sections */
+.details-section {
+    margin-top: 4rem;
+    border-top: 1px solid #222;
+    padding-top: 3rem;
+    line-height: 1.4;
+}
+
+/* Header with Icon */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* The Boxed Items */
+.obj-item {
+    background-color: #24262d; /* Lighter box color */
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 16px;
+    transition: transform 0.2s ease;
+}
+
+.obj-item:last-child {
+    margin-bottom: 0;
+}
+
+.obj-item strong {
+    display: block;
+    color: #4fd1d9; 
+    font-size: 1 rem;
+    margin-bottom: 6px;
+}
+
+.obj-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #b0b3b8; /* Muted description text */
+    line-height: 1.5;
+}
+
+/*Techtronics Wireframes*/
+.section-intro {
+    color: #a0a0a0;
+    margin-bottom: 32px;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.wireframe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.wireframe-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wireframe-item .image-wrapper {
+    background-color: #ffffff; /* Matches the white background in your screenshot */
+    border-radius: 24px; /* Matches the rounded corners in your screenshot */
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wireframe-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wireframe-item .caption {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    text-align: center;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .wireframe-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ShellFund */
+
+.accent-text-2 {
+    color: var(--accent-red);
+}
+
+/* Constrain the container size */
+.poster-container {
+    max-width: 450px; /* Adjust this number to your liking */
+    width: 100%;
+    margin-left: auto; /* Pushes it to the right to balance the hero section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Make the image fill the container without overflowing */
+.poster-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px; /* Optional: matches your other card styles */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* Optional: adds depth */
+}
+
+/* Responsive fix for tablets/mobile */
+@media (max-width: 992px) {
+    .poster-container {
+        max-width: 350px;
+        margin: 0 auto; /* Centers it when the hero stacks vertically */
+    }
+}

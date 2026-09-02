@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feastly Case Study</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="shellfund.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <script>
+            fetch('sidebar.html')
+                .then(response => {
+                    if (!response.ok) throw new Error("Sidebar file not found");
+                    return response.text();
+                })
+                .then(data => {
+                    const container = document.getElementById('sidebar-container');
+                    container.innerHTML = data;
+                    
+                    // Logic to highlight the active link
+                    const currentPage = window.location.pathname.split("/").pop() || "landing.html";
+                    const links = {
+                        "landing.html": "nav-dashboard",
+                        "techtronics.html": "nav-techtronics",
+                        "shellfund.html": "nav-shellfund",
+                        "feastly.html": "nav-feastly",
+                        "simulator.html": "nav-simulator"
+                    };
+                    
+                    if (links[currentPage]) {
+                        const activeLink = document.getElementById(links[currentPage]);
+                        if(activeLink) activeLink.classList.add('active');
+                    }
+                })
+                .catch(err => console.error(err));
+        </script>

@@ -1,0 +1,2581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShellFund Case Study</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="shellfund.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <script>
+            fetch('../sidebar.html')
+                .then(response => {
+                    if (!response.ok) throw new Error("Sidebar file not found");
+                    return response.text();
+                })
+                .then(data => {
+                    const container = document.getElementById('sidebar-container');
+                    container.innerHTML = data;
+                    
+                    const currentPage = window.location.pathname.split("/").pop() || "landing.html";
+                    const links = {
+                        "landing.html": "nav-dashboard",
+                        "techtronics.html": "nav-techtronics",
+                        "shellfund.html": "nav-shellfund",
+                        "simulator.html": "nav-simulator",
+                    //    "feastly.html": "nav-feastly"
+                    };
+                    
+                    if (links[currentPage]) {
+                        const activeLink = document.getElementById(links[currentPage]);
+                        if(activeLink) activeLink.classList.add('active');
+                    }
+                })
+                .catch(err => console.error(err));
+        </script>
+
+        <main class="content">
+        <section class="project-hero">
+            <div class="hero-left">
+                <div class="hero-badge-wrapper">
+                <span class="badge red">Gen AI in UX</span>
+                </div>
+                <h1 class="project-title">ShellFund: <br><span class="accent-text">Personal Finance App for College Students</span></h1>
+                <p class="hero-description-text">By leveraging Large Language Model Tools for key workflows such as market research and design process, we seek to make managing personal finance for College students smooth and comprehensible.</p>
+                
+                <div class="meta-group">
+                    <div class="meta-item">
+                    <span class="meta-label">MY ROLE</span>
+                    <strong class="meta-value">Product Designer, User Researcher</strong>
+                    </div>
+                    <div class="meta-item">
+                    <span class="meta-label">DURATION</span>
+                    <strong class="meta-value">3 Months (2025)</strong>
+                    </div>
+                </div>
+
+                <div class="tools-container">
+                    <div class="tool-box">
+                        <span class="tool-label">DESIGN TOOL</span>
+                        <div class="tool-content">
+                            <img src="../images/tools/figma-logo.png" alt="Figma" class="tool-icon">
+                            <span class="tool-name">Figma</span>
+                        </div>
+                    </div>
+                    <div class="tool-box">
+                        <span class="tool-label">AI PROTOTYPING</span>
+                        <div class="tool-content">
+                            <img src="../images/tools/visily-logo.png" alt="Visily" class="tool-icon">
+                            <span class="tool-name">Visily</span>
+                        </div>
+                    </div>
+                    <div class="tool-box">
+                        <span class="tool-label">AI INTERVIEWS</span>
+                        <div class="tool-content">
+                            <img src="../images/tools/whyser-logo.png" alt="Whyser" class="tool-icon">
+                            <span class="tool-name">Whyser</span>
+                        </div>
+                    </div>
+                    <div class="tool-box">
+                        <span class="tool-label">GENERATIVE AI</span>
+                        <div class="tool-content">
+                            <img src="../images/tools/chatgpt-logo.png" alt="ChatGPT" class="tool-icon">
+                            <span class="tool-name">ChatGPT</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="hero-right">
+                <div class="poster-container">
+                    <img src="../images/shellfund/visual/shellposter-1.png" alt="App Poster">
+                </div>
+            </div>
+        </section>
+
+        <div class="menu">
+            <div class="menu-header">
+                <h2 class="menu-title">The Design Process</h2>
+                <span class="ai-badge">ChatGPT-assisted</span>
+            </div>
+            
+            <div class="grid-container">
+                <button class="menu-item active" onclick="openSlot('define-problem')">
+                    <span class="step-num">01</span>
+                    <span class="label">The Problem</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('identify-users')">
+                    <span class="step-num">02</span>
+                    <span class="label">User Research</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('ethics-guidelines')">
+                    <span class="step-num">03</span>
+                    <span class="label">Ethical Ideation</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('requirements-blueprint')">
+                    <span class="step-num">04</span>
+                    <span class="label">Requirements Blueprint</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('user-journey')">
+                    <span class="step-num">05</span>
+                    <span class="label">The User Journey</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('visual-exploration')">
+                    <span class="step-num">06</span>
+                    <span class="label">Visual Exploration</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('high-fidelity-mockup')">
+                    <span class="step-num">07</span>
+                    <span class="label">High-Fidelity Mockup</span>
+                    <div class="indicator"></div>
+                </button>                    
+                
+                <button class="menu-item" onclick="openSlot('accessibility-redesign')">
+                    <span class="step-num">08</span>
+                    <span class="label">Accessibility Redesign</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('cognitive-walkthrough')">
+                    <span class="step-num">09</span>
+                    <span class="label">Cognitive Walkthrough</span>
+                    <div class="indicator"></div>
+                </button>
+                
+                <button class="menu-item" onclick="openSlot('post-launch')">
+                    <span class="step-num">10</span>
+                    <span class="label">Post-launch Evaluation Plan</span>
+                    <div class="indicator"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-sections-container">
+
+            <div id="define-problem" class="menu-tab-content active">
+                <section class="details-section">
+                    <div class="content-container">
+
+                        <div class="section-header">
+                            <span class="product-badge tool-chatgpt">
+                                <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                            </span>
+                            <h2 class="section-title">Preliminary Problem Statement</h2>
+                        </div>
+
+                        <div class="section-intro">
+                            <p>College students face unique financial challenges: irregular income, tight budgets, student loans, shared living expenses, limited credit history, and low financial literacy. A well-designed personal-finance app for this audience must empower students to:</p>
+                        </div>
+
+                        <div class="poster-slot">
+                            <img src="../images/shellfund/visual/shellposter-2.png" alt="Poster">
+                            <div class="ai-caption">
+                                <i class="fa-solid fa-sparkles"></i> Image generated by ChatGPT-5.1
+                            </div>
+                        </div>
+
+                        <div class="pillars-grid">
+                            <div class="pillar-card">
+                                <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+                                <h3>Track Cash Flow</h3>
+                                <p>Monitor fluctuating income, daily expenses, refunds, and financial aid disbursements in one unified view.</p>
+                            </div>
+                            <div class="pillar-card">
+                                <div class="card-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+                                <h3>Build Safe Habits</h3>
+                                <p>Establish healthy money habits through adaptive budgeting, personal saving goals, and credit-building tracks.</p>
+                            </div>
+                            <div class="pillar-card">
+                                <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+                                <h3>Manage Shared Expenses</h3>
+                                <p>Easily co-manage shared living spaces, split bills with roommates, and handle group expenses transparently.</p>
+                            </div>
+                            <div class="pillar-card">
+                                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <h3>Student Loans &amp; Tuition</h3>
+                                <p>Gain absolute clarity over complex tuition timelines, outstanding student loans, and debt payoff planning.</p>
+                            </div>
+                            <div class="pillar-card">
+                                <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                                <h3>Contextual Learning</h3>
+                                <p>Master complex financial concepts using bite-sized micro-learning steps and proactive contextual nudges.</p>
+                            </div>
+                        </div>
+
+                        <div class="problem-separator"></div>
+
+                        <div class="design-goal-banner">
+                            <h4 class="goal-tag">THE DESIGN GOAL</h4>
+                            <p>To build an experience that is <strong>helpful, low-friction, non-judgmental, privacy-respecting, and mobile-first</strong> — beautifully tuned to students' complex schedules and mental models.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="identify-users" class="menu-tab-content">
+                <section class="details-section">
+                    <div class="content-container">
+
+                        <div class="section-header">
+                            <span class="product-badge tool-whyser">
+                                <i class="fa-solid fa-microphone-lines"></i> GenAI Tool: Whyser
+                            </span>
+                            <h2 class="section-title">User Interviews</h2>
+                            <p class="section-subtitle">Whyser conducts user interviews with the AI as the interviewer. </p>
+                            <div class="methodology-card">
+                                <div class="methodology-header">
+                                    <span class="methodology-tag"><i class="fa-solid fa-clipboard-list"></i> Study Methodology</span>
+                                </div>
+                                <p class="methodology-text">
+                                    Using Whyser's interview guide to set up study questions, <strong>4 participants</strong> completed an unmoderated 1:1 voice interview with Whyser's AI. Whyser automated and synthesized the transcripts, extracting the core user needs and feature opportunities for ShellFund.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive-wrapper">
+                            <table class="insights-table">
+                                <thead>
+                                    <tr>
+                                        <th>Participants</th>
+                                        <th>AI Interview Summary</th>
+                                        <th>User Needs</th>
+                                        <th>Suggested Features</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="col-participant">
+                                            <div class="profile-card">
+                                                <div class="profile-name">Male, 22</div>
+
+                                                <div class="profile-details">
+                                                    <span class="edu-badge">Undergrad</span>
+                                                    <span class="job-title">Part-time Tutor</span>
+                                                </div>
+
+                                                <div class="profile-expenses">
+                                                    <i class="fa-solid fa-receipt"></i> Housing, Tuition
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="col-summary">
+                                            The interview highlighted the participant's need for better understanding of interest and credit scores, as well as a desire for a financial app that offers predictive budgeting and expense tracking features.
+                                        </td>
+                                        <td class="col-needs">
+                                            <span class="need-pill">Higher Financial Literacy</span>
+                                        </td>
+                                        <td class="col-features">
+                                            <ul class="cell-feature-list">
+                                                <li><i class="fa-solid fa-star"></i> Predictive budgeting insights</li>
+                                                <li><i class="fa-solid fa-star"></i> Categorized expense tracking</li>
+                                                <li><i class="fa-solid fa-star"></i> Bill reminders &amp; alerts</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-participant">
+                                            <div class="profile-card">
+                                                <div class="profile-name">Female, 23</div>
+
+                                                <div class="profile-details">
+                                                    <span class="edu-badge">Post-Grad</span>
+                                                    <span class="job-title">Orthodontist Assistant</span>
+                                                </div>
+
+                                                <div class="profile-expenses">
+                                                    <i class="fa-solid fa-receipt"></i> Travel, Gas
+                                                </div>
+                                            </div> 
+                                        </td>
+                                        <td class="col-summary">
+                                            The interview highlighted the need for a user-friendly financial app that simplifies tracking and goal-setting, addressing the participant's current challenges and unmet needs.
+                                        </td>
+                                        <td class="col-needs">
+                                            <span class="need-pill">Simplicity &amp; Ease of Use</span>
+                                        </td>
+                                        <td class="col-features">
+                                            <ul class="cell-feature-list">
+                                                <li><i class="fa-solid fa-star"></i> Simple spending tracker</li>
+                                                <li><i class="fa-solid fa-star"></i> At-a-glance dashboard</li>
+                                                <li><i class="fa-solid fa-star"></i> Goal-tracking features</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-participant">
+                                            <div class="profile-card">
+                                                <div class="profile-name">Male, 21</div>
+
+                                                <div class="profile-details">
+                                                    <span class="edu-badge">Undergrad</span>
+                                                    <span class="job-title">Part-time Tutor</span>
+                                                </div>
+
+                                                <div class="profile-expenses">
+                                                    <i class="fa-solid fa-receipt"></i> Orchestra Instruments
+                                                </div>
+                                            </div>                                              
+                                        </td>
+                                        <td class="col-summary">
+                                            The participant emphasized the importance of user-centric design and transparency in financial tools to enhance their financial management experience.
+                                        </td>
+                                        <td class="col-needs">
+                                            <span class="need-pill">Transparency &amp; Trust</span>
+                                        </td>
+                                        <td class="col-features">
+                                            <ul class="cell-feature-list">
+                                                <li><i class="fa-solid fa-star"></i> Simple, secure experience</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-participant">
+                                            <div class="profile-card">
+                                                <div class="profile-name">Female, 22</div>
+
+                                                <div class="profile-details">
+                                                    <span class="edu-badge">Post-grad</span>
+                                                    <span class="job-title">Campus Lab Researcher</span>
+                                                </div>
+
+                                                <div class="profile-expenses">
+                                                    <i class="fa-solid fa-receipt"></i> Fine-dining, Books
+                                                </div>
+                                            </div>                                              </td>
+                                        <td class="col-summary">
+                                            The participant expressed a need for a financial app that is both practical and engaging, with features that support consistent budgeting and provide personalized financial advice.
+                                        </td>
+                                        <td class="col-needs">
+                                            <span class="need-pill">Personalized Engagement</span>
+                                        </td>
+                                        <td class="col-features">
+                                            <ul class="cell-feature-list">
+                                                <li><i class="fa-solid fa-star"></i> AI budgeting guidance</li>
+                                                <li><i class="fa-solid fa-star"></i> Gamified rewards</li>
+                                                <li><i class="fa-solid fa-star"></i> Motivating notifications</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="content-container">
+                        <div class="persona-header">
+                            <span class="product-badge tool-chatgpt">
+                                <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                            </span>
+                            <h2 class="section-title">User Persona</h2>
+                            <p class="section-subtitle">AI-Generated Persona representing the financially independent student demographic</p>
+                        </div>
+
+                        <div class="persona-grid">
+                            
+                            <div class="persona-sidebar">
+                                <div class="photo-wrapper">
+                                    <img src="../images/shellfund/prototype_persona.png" alt="Maya Lopez Persona Photo" class="persona-photo">
+                                </div>
+                                
+                                <div class="quote-block">
+                                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                                    <p class="persona-quote">"I want to start saving for grad school, but I have no idea if I can afford to spare $50 a month right now."</p>
+                                </div>
+
+                                <div class="demographics-card">
+                                    <div class="demo-row">
+                                        <span class="demo-label"><i class="fa-solid fa-calendar"></i> Age</span>
+                                        <span class="demo-value">19</span>
+                                    </div>
+                                    <div class="demo-row">
+                                        <span class="demo-label"><i class="fa-solid fa-earth-americas"></i> Lives In</span>
+                                        <span class="demo-value">USA</span>
+                                    </div>
+                                    <div class="demo-row">
+                                        <span class="demo-label"><i class="fa-solid fa-briefcase"></i> Job Title</span>
+                                        <span class="demo-value">College Student</span>
+                                    </div>
+                                    <div class="demo-row">
+                                        <span class="demo-label"><i class="fa-solid fa-university"></i> Education</span>
+                                        <span class="demo-value">Sophomore • Biology (Transfer Track)</span>
+                                    </div>
+                                    <div class="demo-row">
+                                        <span class="demo-label"><i class="fa-solid fa-wallet"></i> Finances</span>
+                                        <span class="demo-value">Independent • Pell Grant &amp; Min-Wage Job</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="persona-content">
+                                
+                                <div class="content-section">
+                                    <h3 class="section-heading"><i class="fa-solid fa-user"></i> Biography</h3>
+                                    <p class="bio-text">Maya is a sophomore studying Biology in Community College on a transfer track. She is financially independent, working a minimum wage job, and relying on a Pell Grant. She relies heavily on advice from family and friends, and is only familiar with Cash Envelope budgeting systems and Venmo.</p>
+                                </div>
+
+                                <div class="content-section">
+                                    <h3 class="section-heading"><i class="fa-solid fa-sliders"></i> Financial &amp; Tool Metrics</h3>
+                                    <div class="metrics-grid">
+                                        <div class="metric-item">
+                                            <div class="metric-info">
+                                                <span>Financial Literacy</span>
+                                                <span class="metric-score">Low-Mid</span>
+                                            </div>
+                                            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 35%;"></div></div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <div class="metric-info">
+                                                <span>Awareness</span>
+                                                <span class="metric-score">Mid</span>
+                                            </div>
+                                            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 50%;"></div></div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <div class="metric-info">
+                                                <span>Financial Management Complexity</span>
+                                                <span class="metric-score">Low</span>
+                                            </div>
+                                            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 25%;"></div></div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <div class="metric-info">
+                                                <span>Digital Tool Sophistication</span>
+                                                <span class="metric-score">Mid-High</span>
+                                            </div>
+                                            <div class="metric-bar-bg"><div class="metric-bar-fill" style="width: 65%;"></div></div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <div class="metric-info text-accent">
+                                                <span>Financial Control Anxiety</span>
+                                                <span class="metric-score">Extremely High</span>
+                                            </div>
+                                            <div class="metric-bar-bg"><div class="metric-bar-fill accent-fill" style="width: 85%;"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dual-grid">
+                                    <div class="dual-column">
+                                        <h3 class="section-heading text-green"></i> Goals &amp; Motivations</h3>
+                                        <ul class="bullet-list green-bullets">
+                                            <li>Determine a safe, small amount she can reliably save each month toward a future goal (grad school application fees).</li>
+                                            <li>Build foundational financial habits; start small but consistent wealth building.</li>
+                                            <li>Prefers simple, visual interfaces.</li>
+                                            <li>Establishes a $50/month automated savings plan and sees her savings balance grow for 6 months.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="dual-column">
+                                        <h3 class="section-heading text-red"><i class="fa-solid fa-triangle-exclamation"></i> Pain Points</h3>
+                                        <ul class="bullet-list red-bullets">
+                                            <li>Feels too overwhelmed and poor to even attempt saving.</li>
+                                            <li>Lacks knowledge about saving strategies beyond a simple bank account.</li>
+                                            <li>Has minimal financial safety net; every dollar saved has a high opportunity cost for immediate needs (food/transportation).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <div id="ethics-guidelines" class="menu-tab-content">
+                <section class="details-section">
+
+                <div class="content-container">
+
+                    <div class="table-header-block">
+                        <span class="product-badge tool-chatgpt">
+                            <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                        </span>
+                        <h2 class="section-title">Persona Ethical Considerations</h2>
+                        <p class="section-subtitle">Mapping User Personas, Core Values, and Ethical Considerations to UX Solutions</p>
+                    </div>
+
+                    <div class="table-responsive-wrapper">
+                        <table class="insights-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 18%;">Persona</th>
+                                    <th style="width: 18%;">Core Values</th>
+                                    <th style="width: 32%;">Ethical Considerations (Concerns / Expectations)</th>
+                                    <th style="width: 32%;">Design Features or UX Principles to Address Them</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Maya -->
+                                <tr>
+                                    <td>
+                                        <div class="profile-name">Maya</div>
+                                        <div class="profile-meta">The Overwhelmed Freshman</div>
+                                    </td>
+                                    <td>
+                                        <div class="values-list">
+                                            <span class="value-tag">Security</span>
+                                            <span class="value-tag">Guidance</span>
+                                            <span class="value-tag">Simplicity</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <ul class="table-bullet-list warning-bullets">
+                                            <li>Feels anxious about money and data privacy.</li>
+                                            <li>Needs clear consent and nonjudgmental tone.</li>
+                                            <li>Risk of shame or guilt from overspending alerts.</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="table-bullet-list feature-bullets">
+                                            <li>Use plain-language privacy agreements.</li>
+                                            <li>Positive, supportive feedback language (“You’re learning!”).</li>
+                                            <li>Calm visual design and “financial well-being” framing.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="recommendation-banner">
+                        <div class="rec-header">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>Maya's Suggested Alignment Features</span>
+                        </div>
+                        <div class="rec-tags-container">
+                            <div class="rec-tag">
+                                <i class="fa-solid fa-piggy-bank"></i>
+                                <span><strong>Micro-Savings Planner</strong> with Safe Monthly Amount Guidance</span>
+                            </div>
+                            <div class="rec-tag">
+                                <i class="fa-solid fa-wallet"></i>
+                                <span><strong>Visual Cash Envelope + Digital Tracker</strong> Hybrid System</span>
+                            </div>
+                            <div class="rec-tag">
+                                <i class="fa-solid fa-trophy"></i>
+                                <span><strong>Small Wins Builder</strong> Savings Habit Feature</span>
+                            </div>
+                        </div>
+
+                        <div class="rec-feature-preview">
+                            <div class="preview-image-wrapper">
+                                <img src="../images/shellfund/ideation/piggy-bank.png" alt="Micro-Savings Planner Vision - Piggy Bank Progress" onerror="this.style.display='none'">
+                            </div>
+                            <div class="preview-label">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span>Micro-Savings Planner Vision</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="content-container">
+
+                    <div class="section-header">
+                        <span class="product-badge tool-chatgpt">
+                                <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                            </span>
+                        <h2 class="section-title">Positive Design Guidelines</h2>
+                        <p class="section-subtitle">Using common ethical concerns in technology and in UX design, and based on ethical considerations of generated personas, ChatGPT is asked to play as devil's advocate to identify dark patterns that will be countered by a positive design framework supporting ShellFund's ethics.</p>
+                    </div>
+
+                    <div class="ethics-matrix">
+                        
+                        <div class="matrix-column">
+                            <div class="column-theme">
+                                <div class="theme-icon"><i class="fa-solid fa-shield"></i></div>
+                                <h3>Data Privacy &amp; Security</h3>
+                            </div>
+                            
+                            <div class="practice-card dark-pattern">
+                                <span class="card-label"><i class="fa-solid fa-circle-exclamation"></i> Dark Pattern</span>
+                                <p>Coerced or hidden data practices paired with difficult platform exit paths and poor user control.</p>
+                            </div>
+                            
+                            <div class="practice-card positive-guideline">
+                                <span class="card-label"><i class="fa-solid fa-circle-check"></i> Positive Guideline</span>
+                                <p>Autonomy and transparency paired with purposeful, values-aligned, and inclusive privacy design.</p>
+                            </div>
+                        </div>
+
+                        <div class="matrix-column">
+                            <div class="column-theme">
+                                <div class="theme-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                                <h3>Financial Transparency &amp; Advice Integrity</h3>
+                            </div>
+                            
+                            <div class="practice-card dark-pattern">
+                                <span class="card-label"><i class="fa-solid fa-circle-exclamation"></i> Dark Pattern</span>
+                                <p>Disguised or biased financial recommendations, misdirection, and high ambiguity in financial advice.</p>
+                            </div>
+                            
+                            <div class="practice-card positive-guideline">
+                                <span class="card-label"><i class="fa-solid fa-circle-check"></i> Positive Guideline</span>
+                                <p>Purposeful guidance paired with deep financial understanding and transparent advisory pathways.</p>
+                            </div>
+                        </div>
+
+                        <div class="matrix-column">
+                            <div class="column-theme">
+                                <div class="theme-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                                <h3>Psychological &amp; Behavioral Design</h3>
+                            </div>
+                            
+                            <div class="practice-card dark-pattern">
+                                <span class="card-label"><i class="fa-solid fa-circle-exclamation"></i> Dark Pattern</span>
+                                <p>Emotional manipulation, forced gamification, and harmful social comparison mechanics.</p>
+                            </div>
+                            
+                            <div class="practice-card positive-guideline">
+                                <span class="card-label"><i class="fa-solid fa-circle-check"></i> Positive Guideline</span>
+                                <p>Emotional support, positive affect, and joyful, non-pressuring exploration of money habits.</p>
+                            </div>
+                        </div>
+
+                        <div class="matrix-column">
+                            <div class="column-theme">
+                                <div class="theme-icon"><i class="fa-solid fa-universal-access"></i></div>
+                                <h3>Accessibility &amp; Inclusivity</h3>
+                            </div>
+                            
+                            <div class="practice-card dark-pattern">
+                                <span class="card-label"><i class="fa-solid fa-circle-exclamation"></i> Dark Pattern</span>
+                                <p>Exclusionary interfaces, rigid normative defaults, and strong majority demographic bias.</p>
+                            </div>
+                            
+                            <div class="practice-card positive-guideline">
+                                <span class="card-label"><i class="fa-solid fa-circle-check"></i> Positive Guideline</span>
+                                <p>Inclusive, highly accessible design flexible enough to accommodate human-diverse financial experiences.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="content-container">
+                    <div class="table-header-block">
+                        <span class="product-badge tool-chatgpt">
+                            <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                        </span>
+            
+                        <h2 class="section-title">Summary: The AI Vision for ShellFund</h2>
+                        <p class="section-subtitle">How intelligent system roles drive emotional connection and ethical accountability</p>
+                    </div>
+
+                    <!-- Responsive Table Wrapper -->
+                    <div class="table-responsive-wrapper">
+                        <table class="insights-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%;">Feature</th>
+                                    <th style="width: 25%;">Core Role</th>
+                                    <th style="width: 25%;">Emotional Outcome</th>
+                                    <th style="width: 25%;">Ethical Anchor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- AI Financial Coach -->
+                                <tr>
+                                    <td>
+                                        <div class="feature-title">
+                                            <i class="fa-solid fa-robot feature-icon"></i>
+                                            AI Financial Coach ("Ocean Flow")
+                                        </div>
+                                    </td>
+                                    <td class="role-cell">Conversational mentor</td>
+                                    <td>
+                                        <div class="outcome-tags">
+                                            <span class="outcome-tag"><i class="fa-solid fa-face-smile"></i> Confidence</span>
+                                            <span class="outcome-tag"><i class="fa-solid fa-book-open"></i> Learning</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="anchor-tags">
+                                            <span class="anchor-tag">Transparency</span>
+                                            <span class="anchor-tag">Empathy</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Adaptive Insights -->
+                                <tr>
+                                    <td>
+                                        <div class="feature-title">
+                                            <i class="fa-solid fa-chart-line feature-icon"></i>
+                                            Adaptive Insights
+                                        </div>
+                                    </td>
+                                    <td class="role-cell">Context-aware support</td>
+                                    <td>
+                                        <div class="outcome-tags">
+                                            <span class="outcome-tag"><i class="fa-solid fa-brain"></i> Self-awareness</span>
+                                            <span class="outcome-tag"><i class="fa-solid fa-wind"></i> Calm</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="anchor-tags accent-anchors">
+                                            <span class="anchor-tag">Non-manipulative nudging</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- AI Dream Builder -->
+                                <tr>
+                                    <td>
+                                        <div class="feature-title">
+                                            <i class="fa-solid fa-seedling feature-icon"></i>
+                                            AI Dream Builder
+                                        </div>
+                                    </td>
+                                    <td class="role-cell">Purpose-driven planner</td>
+                                    <td>
+                                        <div class="outcome-tags">
+                                            <span class="outcome-tag"><i class="fa-solid fa-fire-flame-curved"></i> Motivation</span>
+                                            <span class="outcome-tag"><i class="fa-solid fa-route"></i> Meaning</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="anchor-tags">
+                                            <span class="anchor-tag">Autonomy</span>
+                                            <span class="anchor-tag">Aspiration</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="feature-preview">
+                        <div class="preview-images-row">
+                            <div class="img-wrapper-portrait">
+                                <img src="../images/shellfund/ideation/ocean-flow.png" alt="Ocean Flow Concept" onerror="this.style.display='none'">
+                            </div>
+
+                            <div class="img-wrapper-landscape">
+                                <img src="../images/shellfund/ideation/ocean-flow2.png" alt="Ocean Flow Mentor" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+
+                        <div class="preview-label">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>AI Financial Coach Vision</span>
+                        </div>
+                    </div>
+
+                </div>      
+                </section>
+            </div>
+
+            <div id="requirements-blueprint" class="menu-tab-content">
+                <section class="details-section">
+
+                <div class="blueprint-container">
+
+                    <span class="product-badge tool-chatgpt">
+                        <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                    </span>
+
+                    <div class="blueprint-header">
+                        <h2 class="section-title">ShellFund Requirements Blueprint</h2>
+                        <p class="section-subtitle">System Architecture &amp; Structural Directives</p>
+                    </div>
+
+                    <div class="blueprint-list">
+                        
+                        <!-- Section 1: Root Concept -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-lightbulb"></i> 01 | Root Concept</h3>
+                            <p class="item-body">A mobile-first personal finance app designed for college students who are new to money management; blends security, transparency, motivation, and accessibility into a single student-centered experience.</p>
+                        </div>
+
+                        <!-- Section 2: Business Goals -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-bullseye"></i> 02 | Business Goals</h3>
+                            <ul class="blueprint-sublist target-goals">
+                                <li>Empower students to develop lifelong financial literacy and independence.</li>
+                                <li>Reduce student overspending and missed payment incidents.</li>
+                                <li>Encourage consistent savings behavior through ease-of-use.</li>
+                                <li>Establish partnerships with universities, banks, and loan service providers as trusted financial integration points.</li>
+                                <li>Position ShellFund as the go-to financial wellness app for the student market.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 3: Target Users -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-user"></i> 03 | Target Users</h3>
+                            <p class="item-body">ShellFund serves U.S.-based college students across diverse age ranges, including financially stressed, low-literacy users needing basic control, high-income independent students seeking advanced tools, and those managing complex finances such as aid, loans, and disbursements.</p>
+                        </div>
+
+                        <!-- Section 4: Target System Configuration -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-mobile-screen-button"></i> 04 | Target System Configuration</h3>
+                            <ul class="blueprint-sublist">
+                                <li><strong>Platform:</strong> Mobile App (iOS &amp; Android - prototype iPhone 14)</li>
+                                <li><strong>Design System:</strong> Interactive HTML Specimens</li>
+                                <li><strong>Integrations:</strong> Financial Aid Systems, Loan Servicer APIs, bank APIs, Payment Processors, University Billing Systems</li>
+                                <li><strong>Accessibility:</strong> WCAG 2.2 AA compliance, screen-reader friendly, high-contrast themes</li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 5: Usability Objectives -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-hand-pointer"></i> 05 | Usability Objectives</h3>
+                            <ul class="blueprint-sublist">
+                                <li><strong>Task success rate:</strong> 90% of first-time users can set up a budget within 10 minutes.</li>
+                                <li><strong>Efficiency:</strong> 80% of users can link at least one bank or loan account within 5 minutes.</li>
+                                <li><strong>Engagement:</strong> At least 60% of users return to check their budget weekly after 1 month.</li>
+                                <li><strong>Satisfaction:</strong> Average rating of 4.0/5 or higher on the System Usability Scale (SUS).</li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 6: Functional Specs -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-piggy-bank"></i> 06 | Functional Specs</h3>
+                            <ul class="blueprint-sublist">
+                                <li>Dashboard financial overview</li>
+                                <li>ShellAI financial mentor</li>
+                                <li>Spending insights and trends</li>
+                                <li>Budget setup, tracking, and category manager</li>
+                                <li>Savings goals tracking with progress visuals</li>
+                                <li>Quick money actions</li>
+                                <li>Notification system for personalized smart alerts and reminders</li>
+                                <li>Adjust settings and personalize the app</li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 7: User Goals -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-list-check"></i> 07 | User Goals</h3>
+                            <ul class="blueprint-sublist target-goals">
+                                <li>Get an overview of their finances from the Dashboard</li>
+                                <li>Review and understand their spending patterns</li>
+                                <li>Manage their budget and spending categories</li>
+                                <li>Track and update their savings goals</li>
+                                <li>Use ShellAl for financial guidance or questions</li>
+                                <li>Adjust settings and personalize the app</li>
+                                <li>Transact money or take quick financial actions</li>
+                            </ul>
+                        </div>
+
+                        <!-- Section 8: Constraints -->
+                        <div class="blueprint-item">
+                            <h3 class="item-heading"><i class="fa-solid fa-triangle-exclamation"></i> 08 | Constraints</h3>
+                            <ul class="blueprint-sublist constraints-item">
+                                <li><strong>Limited student attention span:</strong> UI must be simple, intuitive, and playful.</li>
+                                <li><strong>Privacy:</strong> Students control account access at a granular level.</li>
+                                <li><strong>Technical dependency:</strong> Relies on third-party APIs (banks, loan servicers, universities) that may limit real-time functionality.</li>
+                                <li><strong>Time-to-value:</strong> Onboarding must deliver visible utility within first session.</li>
+                                <li><strong>Scope control:</strong> Prioritize essential MVP features (e.g., budgeting, expense tracking, financial health view).</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                </section>
+            </div>
+
+            <div id="user-journey" class="menu-tab-content">
+                <div class="details-section">
+
+                    <div class="content-container">
+                        <span class="product-badge tool-visily">
+                            <i class="fa-solid fa-compass"></i> GenAI Tool: Visily
+                        </span>
+                        <div class="draft-section">
+                            <h2 class="section-title"> User Flow </h2>
+                                <div class="section-subtitle">
+                                    <p>Using User goals generated, a user flow diagram for ShellFund was prompted using Visily.</p>
+                                </div>
+                                <div class="flow-image-container">
+                                <img src="../images/shellfund/ideation/user-flow.png" alt="ShellFund App User Flow Diagram" class="flow-image">
+                                <div class="ai-caption">
+                                    <i class="fa-solid fa-sparkles"></i> Image generated by ChatGPT-5.1
+                                </div>
+                                </div>
+                        </div>
+
+                        <div class="draft-section">
+                            <h2 class="section-title">Wireframes</h2>
+                            
+                            <div class="section-subtitle">
+                                <p>Low-fi wireframes of the ShellFund App are illustrated and imported into Visily's AI-assisted tools: Sketch-to-Design Conversion and Smart Editing via Prompts. Transform these sketches into refined, high-fidelity prototype designs.</p>
+                            </div>
+
+                            <div class="wireframe-row">
+                            <div class="wireframe-container">
+                                <div class="wireframe-image-container">
+                                <img src="../images/shellfund/ideation/wireframe.png" alt="ShellFund App Wireframe" class="flow-image">
+                                <div class="ai-caption">
+                                    <i class="fa-solid fa-sparkles"></i> Image generated by ChatGPT-5.1
+                                </div>
+                            </div>
+
+                                <div class="annotation-sidebar-card">
+                                    <div class="annotation-item">
+                                    <h5><i class="fa-solid fa-home"></i>Dashboard</h5>
+                                    <p> The financial dashboard includes the shell-themed mascot (ShellAI); overall financial health score; Quick summary cards for ‘Current Budget’, ‘Recent Spending’, ‘Next Bill Due’, and ‘Income Status’; a bottom navigation bar showcasing Dashboard, Transactions, Insights, Budget, Profile; and color-coded spending indicators for income and expenses.</p>
+                                    </div>
+                                    <hr class="separator-line">
+                                    <div class="annotation-item">
+                                    <h5><i class="fa-solid fa-wand-magic-sparkles"></i>AI Mentor</h5>
+                                    <p>functions as a step-by-step assistant that asks simple questions to understand the user's needs, then provides 3-5 personalized product recommendations, and finally guides the user through the checkout process.</p>
+                                    </div>
+                                    <hr class="separator-line">
+                                    <div class="annotation-item">
+                                    <h5><i class="fa-solid fa-receipt"></i>Transactions</h5>
+                                    <p>This transactions feed screen includes date groups; icons for categorized daily expenditures; tabs for: ‘All’, ‘Bills’, ‘Subscriptions’, ‘Income’; and a search bar and filter.</p>
+                                    </div>
+                                    <hr class="separator-line">
+                                    <div class="annotation-item">
+                                    <h5><i class="fa-solid fa-chart-pie"></i>Insights</h5>
+                                    <p>This spending insights screen includes a pie/donut chart of expense categories, trend predictions panel showing estimated spending for upcoming week; paycheck tracker; category list with icons, and color-coded progress bars.</p>
+                                    </div>
+                                    <hr class="separator-line">
+                                    <div class="annotation-item">
+                                    <h5><i class="fa-solid fa-piggy-bank"></i>Budgeting</h5>
+                                    <p>This financial goals screen allows users to track budgeting goals e.g., paying off tuition, saving for a trip. It includes large progress bars for each goal; visual icons as markers of progress; options to set goal reminders and customize notifications; and personalized tips/suggested savings plan from ShellAI.</p>
+                                    </div>
+                                    <hr class="separator-line">
+                                    <div class="annotation-item">
+                                    <h5><i class="fa-solid fa-user"></i>Profile</h5>
+                                    <p>This settings & profile screen is for personalization and multi-income source management. It includes notification customization settings (etc. bill reminders, spending alerts, AI check-ins); a user profile photo; and a ShellAI mascot illustration at the bottom with encouraging message for users.</p>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="visual-exploration" class="menu-tab-content">
+                <section class="details-section">
+                    <div class="content-container">
+
+                        <div class="section-header">
+                            <span class="product-badge tool-chatgpt">
+                                <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                            </span>
+                            <h2 class="section-title">Visual Exploration</h2>
+                            <p class="section-subtitle">Developing mood boards, iconography, color palettes, typography specs, and AI-generated campaign imagery for ShellFund.</p>
+                        </div>
+
+                        <div class="visual-block">
+                            <h3 class="subsection-title"><i class="fa-solid fa-cloud"></i> Mood Boards</h3>
+                            <p class="text-block">Exploration of visual themes based on three different branding & styling perspectives, each contains inspirational references to help guide and determine a design direction.</p>
+                            
+                            <div class="moodboard-grid">
+                                <div class="media-card">
+                                    <div class="poster-slot">
+                                        <img src="../images/shellfund/visual/moodboard-1.png" alt="Moodboard 1: Student Lifestyle & College Finance" onerror="this.parentElement.classList.add('img-placeholder')">
+                                    </div>
+                                    <div class="media-meta">
+                                        <div class="media-meta-header">
+                                            <span class="meta-tag">Concept 01</span>
+                                        </div>
+                                        <span class="media-title">Warm Community</span>
+                                        <span class="media-caption">Friendly, human, relationship-driven finance for students who value belonging.</span>
+                                    </div>
+                                </div>
+
+                                <div class="media-card selected">
+                                    <div class="poster-slot">
+                                        <img src="../images/shellfund/visual/moodboard-2.png" alt="Moodboard 2: Modern Dark-Mode FinTech" onerror="this.parentElement.classList.add('img-placeholder')">
+                                    </div>
+                                    <div class="media-meta">
+                                        <div class="media-meta-header">
+                                            <span class="meta-tag">Concept 02</span>
+                                            <span class="selected-badge"><i class="fa-solid fa-circle-check"></i> Selected</span>
+                                        </div>
+                                        <span class="media-title">Bold Momentum</span>
+                                        <span class="media-caption">Energetic, youthful, high-contrast design for ambitious college students.</span>
+                                    </div>
+                                </div>
+
+                                <div class="media-card">
+                                    <div class="poster-slot">
+                                        <img src="../images/shellfund/visual/moodboard-3.png" alt="Moodboard 3: Playful AI Companion" onerror="this.parentElement.classList.add('img-placeholder')">
+                                    </div>
+                                    <div class="media-meta">
+                                        <div class="media-meta-header">
+                                            <span class="meta-tag">Concept 03</span>
+                                        </div>
+                                        <span class="media-title">Calm Clarity</span>
+                                        <span class="media-caption">Minimal, breathable, confidence-building financial design.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="problem-separator"></div>
+
+                        <div class="visual-block">
+                            <h3 class="subsection-title"><i class="fa-solid fa-shapes"></i> Iconography</h3>
+                            <p class="text-block">Iterating on compact format 3 Google Material Icon options for each icon generated via ChatGPT to establish a unified, 2D flat visual language across core app features.</p>
+
+                            <div class="table-header-block">
+                                <span class="spec-pill"><i class="fa-solid fa-sparkles"></i> AI Icon Generation Log</span>
+                            </div>
+
+                            <div class="table-responsive-wrapper" style="margin-bottom: 36px;">
+                                <table class="insights-table icon-matrix-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 5%;">#</th>
+                                            <th style="width: 25%;">Icon Label</th>
+                                            <th style="width: 23%;">Option A</th>
+                                            <th style="width: 23%;">Option B</th>
+                                            <th style="width: 24%;">Option C</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="label">Home (main dashboard)</td>
+                                            <td class="icon-cell"><span class="mat-icon">home</span><span class="code">home</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">space_dashboard</span><span class="code">space_dashboard</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">analytics</span><span class="code">analytics</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="label">Budget</td>
+                                            <td class="icon-cell"><span class="mat-icon">pie_chart</span><span class="code">pie_chart</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">account_balance_wallet</span><span class="code">account_balance_wallet</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">savings</span><span class="code">savings</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="label">Insights / Analytics</td>
+                                            <td class="icon-cell"><span class="mat-icon">query_stats</span><span class="code">query_stats</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">bar_chart</span><span class="code">bar_chart</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">insights</span><span class="code">insights</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="label">Profile / Me</td>
+                                            <td class="icon-cell"><span class="mat-icon">person</span><span class="code">person</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">account_circle</span><span class="code">account_circle</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">face</span><span class="code">face</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td class="label">Transactions</td>
+                                            <td class="icon-cell"><span class="mat-icon">receipt_long</span><span class="code">receipt_long</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">list_alt</span><span class="code">list_alt</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">payments</span><span class="code">payments</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td class="label">Add Transaction / Add Item</td>
+                                            <td class="icon-cell"><span class="mat-icon">add_circle</span><span class="code">add_circle</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">add_box</span><span class="code">add_box</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">note_add</span><span class="code">note_add</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td class="label">Savings / Piggy Bank</td>
+                                            <td class="icon-cell"><span class="mat-icon">savings</span><span class="code">savings</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">account_balance</span><span class="code">account_balance</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">wallet</span><span class="code">wallet</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td class="label">Goals</td>
+                                            <td class="icon-cell"><span class="mat-icon">flag</span><span class="code">flag</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">emoji_events</span><span class="code">emoji_events</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">star</span><span class="code">star</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td class="label">Notifications</td>
+                                            <td class="icon-cell"><span class="mat-icon">notifications</span><span class="code">notifications</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">notifications_active</span><span class="code">notifications_active</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">campaign</span><span class="code">campaign</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td class="label">Settings</td>
+                                            <td class="icon-cell"><span class="mat-icon">settings</span><span class="code">settings</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">tune</span><span class="code">tune</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">manage_accounts</span><span class="code">manage_accounts</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</td>
+                                            <td class="label">Search</td>
+                                            <td class="icon-cell"><span class="mat-icon">search</span><span class="code">search</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">manage_search</span><span class="code">manage_search</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">travel_explore</span><span class="code">travel_explore</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td class="label">Categories / Tags</td>
+                                            <td class="icon-cell"><span class="mat-icon">sell</span><span class="code">sell</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">category</span><span class="code">category</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">style</span><span class="code">style</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</td>
+                                            <td class="label">Round-Up Savings</td>
+                                            <td class="icon-cell"><span class="mat-icon">change_circle</span><span class="code">change_circle</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">timeline</span><span class="code">timeline</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">upgrade</span><span class="code">upgrade</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>14</td>
+                                            <td class="label">Calendar / Due Dates</td>
+                                            <td class="icon-cell"><span class="mat-icon">calendar_today</span><span class="code">calendar_today</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">event</span><span class="code">event</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">calendar_month</span><span class="code">calendar_month</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>15</td>
+                                            <td class="label">Education Tips</td>
+                                            <td class="icon-cell"><span class="mat-icon">lightbulb</span><span class="code">lightbulb</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">menu_book</span><span class="code">menu_book</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">school</span><span class="code">school</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td class="label">Community Tips / Chat</td>
+                                            <td class="icon-cell"><span class="mat-icon">forum</span><span class="code">forum</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">chat</span><span class="code">chat</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">groups</span><span class="code">groups</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td class="label">Support / Help</td>
+                                            <td class="icon-cell"><span class="mat-icon">help</span><span class="code">help</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">help_center</span><span class="code">help_center</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">support_agent</span><span class="code">support_agent</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td class="label">Dark Mode</td>
+                                            <td class="icon-cell"><span class="mat-icon">dark_mode</span><span class="code">dark_mode</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">nightlight</span><span class="code">nightlight</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">nights_stay</span><span class="code">nights_stay</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td class="label">Secure / Lock</td>
+                                            <td class="icon-cell"><span class="mat-icon">lock</span><span class="code">lock</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">lock_person</span><span class="code">lock_person</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">verified_user</span><span class="code">verified_user</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20</td>
+                                            <td class="label">Bank Connection / Accounts</td>
+                                            <td class="icon-cell"><span class="mat-icon">account_balance</span><span class="code">account_balance</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">account_balance_wallet</span><span class="code">account_balance_wallet</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">credit_card</span><span class="code">credit_card</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>21</td>
+                                            <td class="label">Rewards / Achievements</td>
+                                            <td class="icon-cell"><span class="mat-icon">military_tech</span><span class="code">military_tech</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">workspace_premium</span><span class="code">workspace_premium</span></td>
+                                            <td class="icon-cell"><span class="mat-icon">emoji_events</span><span class="code">emoji_events</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="sub-header-block">
+                                <h4>Key Icon Set</h4>
+                                <p>A flat design system of 8 primary icons chosen for main app navigation features</p>
+                            </div>
+
+                            <div class="icon-grid-8">
+                                <!-- 1. Home / Dashboard (Outline House) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:home"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">Home</span>
+                                </div>
+
+                                <!-- 2. Transactions (Checklist / List with Checkmarks) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:list-checks"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">Transactions</span>
+                                </div>
+
+                                <!-- 3. Insights (Outline Lightbulb) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:lightbulb"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">Insights</span>
+                                </div>
+
+                                <!-- 4. Budget (Wallet) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:wallet"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">Budget</span>
+                                </div>
+
+                                <!-- 5. Goals (Piggy Bank) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:piggy-bank"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">Goals</span>
+                                </div>
+
+                                <!-- 6. ShellAI Chat (Chat / Message Square Lines) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:message-square-text"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">ShellAI Chat</span>
+                                </div>
+
+                                <!-- 7. Notifications (Bell) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:bell"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">Notifications</span>
+                                </div>
+
+                                <!-- 8. Mascot / Settings (Gear) -->
+                                <div class="flat-icon-card selected">
+                                    <div class="flat-icon-box">
+                                        <iconify-icon icon="lucide:settings"></iconify-icon>
+                                    </div>
+                                    <span class="flat-icon-name">Settings</span>
+                                </div>
+                            </div>                             
+                        </div>
+
+                        <div class="problem-separator"></div>
+
+                        <div class="visual-block">
+                            <h3 class="subsection-title"><i class="fa-solid fa-palette"></i> Color Palette</h3>
+                            <p class="text-block">Color palettes are generated for ShellFund. Each palette name conveys a brand impression motivated by a brand style to fit ShellFund.</p>
+
+                            <div class="palette-comparison-container">
+                                <!-- 1 -->
+                                <div class="palette-compare-row">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">1.</span>
+                                        <span class="palette-label">Calm Clarity</span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#FAFAF8;" title="#FAFAF8"></div>
+                                        <div class="color-chip" style="background:#EDE6DB;" title="#EDE6DB"></div>
+                                        <div class="color-chip" style="background:#3F5D9C;" title="#3F5D9C"></div>
+                                        <div class="color-chip" style="background:#8FD6C3;" title="#8FD6C3"></div>
+                                        <div class="color-chip" style="background:#1E2A3A;" title="#1E2A3A"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 2 -->
+                                <div class="palette-compare-row">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">2.</span>
+                                        <span class="palette-label">Warm Campus Community</span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#FFF7EC;" title="#FFF7EC"></div>
+                                        <div class="color-chip" style="background:#E07A5F;" title="#E07A5F"></div>
+                                        <div class="color-chip" style="background:#8CA38C;" title="#8CA38C"></div>
+                                        <div class="color-chip" style="background:#5E4B43;" title="#5E4B43"></div>
+                                        <div class="color-chip" style="background:#F2C94C;" title="#F2C94C"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 3 -->
+                                <div class="palette-compare-row">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">3.</span>
+                                        <span class="palette-label">Sand &amp; Sea Shell</span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#FFF6EB;" title="#FFF6EB"></div>
+                                        <div class="color-chip" style="background:#E0C9A6;" title="#E0C9A6"></div>
+                                        <div class="color-chip" style="background:#2F6F9F;" title="#2F6F9F"></div>
+                                        <div class="color-chip" style="background:#2AA198;" title="#2AA198"></div>
+                                        <div class="color-chip" style="background:#FF7763;" title="#FF7763"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 4 -->
+                                <div class="palette-compare-row selected">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">4.</span>
+                                        <span class="palette-label">Bold Study Red <span class="selected-badge"><i class="fa-solid fa-circle-check"></i> Selected</span></span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#FFFFFF;" title="#FFFFFF"></div>
+                                        <div class="color-chip" style="background:#E63C3C;" title="#E63C3C"></div>
+                                        <div class="color-chip" style="background:#7A1C24;" title="#7A1C24"></div>
+                                        <div class="color-chip" style="background:#F2F2F2;" title="#F2F2F2"></div>
+                                        <div class="color-chip" style="background:#1F1F1F;" title="#1F1F1F"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 5 -->
+                                <div class="palette-compare-row">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">5.</span>
+                                        <span class="palette-label">Midnight Focus</span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#050816;" title="#050816"></div>
+                                        <div class="color-chip" style="background:#0F172A;" title="#0F172A"></div>
+                                        <div class="color-chip" style="background:#18A999;" title="#18A999"></div>
+                                        <div class="color-chip" style="background:#7C3AED;" title="#7C3AED"></div>
+                                        <div class="color-chip" style="background:#9CA3AF;" title="#9CA3AF"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 6 -->
+                                <div class="palette-compare-row">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">6.</span>
+                                        <span class="palette-label">Notebook Pastels</span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#FFFDF7;" title="#FFFDF7"></div>
+                                        <div class="color-chip" style="background:#A0C4FF;" title="#A0C4FF"></div>
+                                        <div class="color-chip" style="background:#FFB5A7;" title="#FFB5A7"></div>
+                                        <div class="color-chip" style="background:#CDB4DB;" title="#CDB4DB"></div>
+                                        <div class="color-chip" style="background:#2D6A4F;" title="#2D6A4F"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 7 -->
+                                <div class="palette-compare-row">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">7.</span>
+                                        <span class="palette-label">Graph Paper Neutral</span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#FFFFFF;" title="#FFFFFF"></div>
+                                        <div class="color-chip" style="background:#E5E7EB;" title="#E5E7EB"></div>
+                                        <div class="color-chip" style="background:#9CA3AF;" title="#9CA3AF"></div>
+                                        <div class="color-chip" style="background:#2563EB;" title="#2563EB"></div>
+                                        <div class="color-chip" style="background:#10B981;" title="#10B981"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 8 -->
+                                <div class="palette-compare-row">
+                                    <div class="palette-compare-meta">
+                                        <span class="palette-rank">8.</span>
+                                        <span class="palette-label">Charcoal Minimal</span>
+                                    </div>
+                                    <div class="palette-compare-chips">
+                                        <div class="color-chip" style="background:#F9FAFB;" title="#F9FAFB"></div>
+                                        <div class="color-chip" style="background:#6B7280;" title="#6B7280"></div>
+                                        <div class="color-chip" style="background:#111827;" title="#111827"></div>
+                                        <div class="color-chip" style="background:#06B6D4;" title="#06B6D4"></div>
+                                        <div class="color-chip" style="background:#F97316;" title="#F97316"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="problem-separator"></div>
+
+                        <div class="visual-block">
+                            <h3 class="subsection-title"><i class="fa-solid fa-font"></i> Typography</h3>
+                            <p class="text-block">Each option previews a full typographic hierarchy (Display, H1–H3, Body, Caption) alongside contextual micro-UI components evaluated for student reading comfort and mobile data density.</p>
+                            
+                            <div class="typography-specimens-grid">
+                                
+                                <!-- Option 1: Inter -->
+                                <div class="type-card opt-inter selected">
+                                    <div class="type-card-header">
+                                        <div class="type-card-title">1. Inter – Calm Fintech Clarity</div>
+                                        <div class="type-card-meta">Font: Inter 400 / 500 / 600 / 700</div>
+                                    </div>
+                                    <div class="type-card-body">
+                                        <div class="type-hierarchy-col">
+                                            <div class="type-hierarchy-item" style="font-weight: 700; font-size: 20px;">
+                                                <span class="type-h-label">Display</span>
+                                                <p class="type-h-text">“ShellFund helps you see your month clearly.”</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 16px;">
+                                                <span class="type-h-label">H1</span>
+                                                <p class="type-h-text">Monthly overview</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 14px;">
+                                                <span class="type-h-label">H2</span>
+                                                <p class="type-h-text">Budgets &amp; goals</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 500; font-size: 13px;">
+                                                <span class="type-h-label">H3</span>
+                                                <p class="type-h-text">Recent transactions</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 400; font-size: 13px;">
+                                                <span class="type-h-label">Body</span>
+                                                <p class="type-h-text">Track spending, stay under your limits, and grow your savings each month.</p>
+                                            </div>
+                                            <div class="type-hierarchy-item type-caption">
+                                                <span class="type-h-label">Caption</span>
+                                                Updated 3 hours ago · Student account
+                                            </div>
+                                        </div>
+
+                                        <div class="type-ui-col">
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">App bar</div>
+                                                <div style="font-size: 14px; font-weight: 600; color: #ffffff;">Dashboard</div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Primary button</div>
+                                                <span class="type-chip-btn">Add transaction</span>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Transaction row</div>
+                                                <div class="type-trans-row">
+                                                    <span>Cafe latte · Today</span>
+                                                    <span class="amount-neg">−$4.85</span>
+                                                </div>
+                                                <div class="type-trans-row">
+                                                    <span>Scholarship · Posted</span>
+                                                    <span class="amount-pos">+$500.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Chip / tag</div>
+                                                <span class="type-pill-tag">This week · 53% of budget</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class="selected-badge"><i class="fa-solid fa-circle-check"></i> Selected</span>
+                                </div>
+
+                                <!-- Option 2: SF-like / Nunito Sans -->
+                                <div class="type-card opt-sflike">
+                                    <div class="type-card-header">
+                                        <div class="type-card-title">2. SF Pro Style – Mobile Native</div>
+                                        <div class="type-card-meta">Font: Nunito Sans 400 / 600 / 700</div>
+                                    </div>
+                                    <div class="type-card-body">
+                                        <div class="type-hierarchy-col">
+                                            <div class="type-hierarchy-item" style="font-weight: 700; font-size: 20px;">
+                                                <span class="type-h-label">Display</span>
+                                                <p class="type-h-text">“Your money, right where you are.”</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 700; font-size: 16px;">
+                                                <span class="type-h-label">H1</span>
+                                                <p class="type-h-text">Hello, Alex</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 14px;">
+                                                <span class="type-h-label">H2</span>
+                                                <p class="type-h-text">Today's snapshot</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 13px;">
+                                                <span class="type-h-label">H3</span>
+                                                <p class="type-h-text">Bills due soon</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 400; font-size: 13px;">
+                                                <span class="type-h-label">Body</span>
+                                                <p class="type-h-text">Stay on top of upcoming payments and never miss a due date again.</p>
+                                            </div>
+                                            <div class="type-hierarchy-item type-caption">
+                                                <span class="type-h-label">Caption</span>
+                                                Next bill in 2 days · Auto-pay on
+                                            </div>
+                                        </div>
+                                        <div class="type-ui-col">
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Tab bar</div>
+                                                <div style="display: flex; gap: 8px; font-size: 11px; color: var(--text-muted);">
+                                                    <span style="font-weight: 700; color: #ffffff;">Home</span>
+                                                    <span>Budget</span>
+                                                    <span>Insights</span>
+                                                    <span>Profile</span>
+                                                </div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Primary button</div>
+                                                <span class="type-chip-btn">Start budget</span>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Input field</div>
+                                                <div style="font-size: 12px; color: var(--text-muted);">
+                                                    Amount<br/>
+                                                    <span style="display: inline-block; margin-top: 3px; padding: 3px 8px; border-radius: 4px; border: 1px solid #2d313f; background: #0b0c0e; color: #ffffff;">$ 120.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Secondary label</div>
+                                                <span class="type-caption">Safe to spend: $64 today</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 3: Lexend -->
+                                <div class="type-card opt-lexend">
+                                    <div class="type-card-header">
+                                        <div class="type-card-title">3. Lexend – Study-Friendly Legibility</div>
+                                        <div class="type-card-meta">Font: Lexend 300 / 400 / 500 / 600</div>
+                                    </div>
+                                    <div class="type-card-body">
+                                        <div class="type-hierarchy-col">
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 20px;">
+                                                <span class="type-h-label">Display</span>
+                                                <p class="type-h-text">“Understand your money in one glance.”</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 16px;">
+                                                <span class="type-h-label">H1</span>
+                                                <p class="type-h-text">Weekly spending</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 500; font-size: 14px;">
+                                                <span class="type-h-label">H2</span>
+                                                <p class="type-h-text">By category</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 500; font-size: 13px;">
+                                                <span class="type-h-label">H3</span>
+                                                <p class="type-h-text">Top insights</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 400; font-size: 13px;">
+                                                <span class="type-h-label">Body</span>
+                                                <p class="type-h-text">You spent less than last week in Dining Out and increased savings by 8%.</p>
+                                            </div>
+                                            <div class="type-hierarchy-item type-caption">
+                                                <span class="type-h-label">Caption</span>
+                                                Based on last 7 days of activity
+                                            </div>
+                                        </div>
+                                        <div class="type-ui-col">
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">App bar</div>
+                                                <div style="font-size: 14px; font-weight: 600; color: #ffffff;">Insights</div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Pills / filters</div>
+                                                <div style="display: flex; gap: 4px; flex-wrap: wrap; font-size: 11px;">
+                                                    <span class="type-pill-tag">This week</span>
+                                                    <span class="type-pill-tag" style="background: rgba(255,255,255,0.05); color: #a0a5b5; border-color: rgba(255,255,255,0.1);">Last week</span>
+                                                    <span class="type-pill-tag" style="background: rgba(255,255,255,0.05); color: #a0a5b5; border-color: rgba(255,255,255,0.1);">30 days</span>
+                                                </div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Transaction row</div>
+                                                <div class="type-trans-row">
+                                                    <span>Dining Out</span>
+                                                    <span class="amount-neg">−$32.80</span>
+                                                </div>
+                                                <div class="type-trans-row">
+                                                    <span>Groceries</span>
+                                                    <span class="amount-neg">−$54.10</span>
+                                                </div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Primary button</div>
+                                                <span class="type-chip-btn">Set weekly limit</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 4: Manrope + Fraunces -->
+                                <div class="type-card opt-manrope">
+                                    <div class="type-card-header">
+                                        <div class="type-card-title">4. Manrope + Fraunces – Expressive Brand</div>
+                                        <div class="type-card-meta">Fonts: Fraunces &amp; Manrope</div>
+                                    </div>
+                                    <div class="type-card-body">
+                                        <div class="type-hierarchy-col">
+                                            <div class="type-hierarchy-item fraunces-heading" style="font-weight: 600; font-size: 20px;">
+                                                <span class="type-h-label">Display (Fraunces)</span>
+                                                <p class="type-h-text">“Money that feels a little more human.”</p>
+                                            </div>
+                                            <div class="type-hierarchy-item fraunces-heading" style="font-weight: 600; font-size: 16px;">
+                                                <span class="type-h-label">H1 (Fraunces)</span>
+                                                <p class="type-h-text">Your month in review</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 14px;">
+                                                <span class="type-h-label">H2 (Manrope)</span>
+                                                <p class="type-h-text">Highlights</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 500; font-size: 13px;">
+                                                <span class="type-h-label">H3 (Manrope)</span>
+                                                <p class="type-h-text">Where your money went</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 400; font-size: 13px;">
+                                                <span class="type-h-label">Body (Manrope)</span>
+                                                <p class="type-h-text">ShellFund gently nudges you toward your goals with clear, friendly guidance.</p>
+                                            </div>
+                                            <div class="type-hierarchy-item type-caption">
+                                                <span class="type-h-label">Caption</span>
+                                                Generated automatically · You can adjust categories anytime
+                                            </div>
+                                        </div>
+                                        <div class="type-ui-col">
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Card title</div>
+                                                <div style="font-size: 13px; font-weight: 600; color: #ffffff;">Savings progress</div>
+                                                <div class="type-caption">Goal: $2,000 · Current: $1,240</div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Primary button</div>
+                                                <span class="type-chip-btn">Boost savings</span>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Empty state copy</div>
+                                                <div class="type-caption">No goals yet. Start with one small thing you want to save for this semester.</div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Tag</div>
+                                                <span class="type-pill-tag">Community tip</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 5: Roboto Flex -->
+                                <div class="type-card opt-roboflex">
+                                    <div class="type-card-header">
+                                        <div class="type-card-title">5. Roboto Flex – Systematic &amp; Data-Ready</div>
+                                        <div class="type-card-meta">Font: Roboto Flex Variable (300–700)</div>
+                                    </div>
+                                    <div class="type-card-body">
+                                        <div class="type-hierarchy-col">
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 20px;">
+                                                <span class="type-h-label">Display</span>
+                                                <p class="type-h-text">“All your numbers in one clear system.”</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 600; font-size: 16px;">
+                                                <span class="type-h-label">H1</span>
+                                                <p class="type-h-text">Budget summary</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 500; font-size: 14px;">
+                                                <span class="type-h-label">H2</span>
+                                                <p class="type-h-text">Spending vs. plan</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 500; font-size: 13px;">
+                                                <span class="type-h-label">H3</span>
+                                                <p class="type-h-text">Alerts</p>
+                                            </div>
+                                            <div class="type-hierarchy-item" style="font-weight: 400; font-size: 13px;">
+                                                <span class="type-h-label">Body</span>
+                                                <p class="type-h-text">You are on track for the month. Keep groceries under $250 to hit your goal.</p>
+                                            </div>
+                                            <div class="type-hierarchy-item type-caption">
+                                                <span class="type-h-label">Caption</span>
+                                                Data refreshed less than 1 minute ago
+                                            </div>
+                                        </div>
+                                        <div class="type-ui-col">
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Metric tiles</div>
+                                                <div class="type-trans-row">
+                                                    <span>Spent</span>
+                                                    <span class="amount-neg">-$420.30</span>
+                                                </div>
+                                                <div class="type-trans-row">
+                                                    <span>Remaining</span>
+                                                    <span class="amount-pos">$779.70</span>
+                                                </div>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Primary button</div>
+                                                <span class="type-chip-btn">Adjust budget</span>
+                                            </div>
+                                            <div class="type-ui-sample-block">
+                                                <div class="type-ui-label">Tiny label</div>
+                                                <span class="type-caption">Auto-sync with bank · 3 accounts linked</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="problem-separator"></div>
+
+                        <div class="visual-block">
+                            <h3 class="subsection-title"><i class="fa-solid fa-wand-magic-sparkles"></i>Advertisement Images</h3>
+                            <p class="text-block">Image generation was used to create promotional web ads that illustrate top user pain points which ShellFund intends to solve for them, framing ShellFund as an empowering companion for university students.</p>
+
+                            <div class="moodboard-grid">
+                                <div class="media-card">
+                                    <div class="poster-slot">
+                                        <img src="../images/shellfund/visual/shellposter-4.png" alt="ShellFund Ad 1 - Campus Living" onerror="this.parentElement.classList.add('img-placeholder')">
+                                    </div>
+                                    <div class="media-meta">
+                                        <div class="media-meta-header">
+                                            <span class="meta-tag">Ad Concept 01</span>
+                                        </div>
+                                        <span class="media-title">"Up to your neck in debt?"</span>
+                                        <div class="ai-caption"><i class="fa-solid fa-sparkles"></i> Modern Cartoonistic style</div>
+                                    </div>
+                                </div>
+
+                                <div class="media-card selected">
+                                    <div class="poster-slot">
+                                        <img src="../images/shellfund/visual/shellposter-2.png" alt="ShellFund Ad 2 - AI Mentor" onerror="this.parentElement.classList.add('img-placeholder')">
+                                    </div>
+                                    <div class="media-meta">
+                                        <div class="media-meta-header">
+                                            <span class="meta-tag">Ad Concept 02</span>
+                                            <span class="selected-badge"><i class="fa-solid fa-circle-check"></i> Selected</span>
+                                        </div>
+                                        <span class="media-title">"Confused by your finances?"</span>
+                                        <div class="ai-caption"><i class="fa-solid fa-sparkles"></i> Photorealistic style</div>
+                                    </div>
+                                </div>
+
+                                <div class="media-card">
+                                    <div class="poster-slot">
+                                        <img src="../images/shellfund/visual/shellposter-3.png" alt="ShellFund Ad 3 - Graduation Goals" onerror="this.parentElement.classList.add('img-placeholder')">
+                                    </div>
+                                    <div class="media-meta">
+                                        <div class="media-meta-header">
+                                            <span class="meta-tag">Ad Concept 03</span>
+                                        </div>
+                                        <span class="media-title">"Can't manage spending"</span>
+                                        <div class="ai-caption"><i class="fa-solid fa-sparkles"></i> Old Cartoonistic style</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+            <div id="high-fidelity-mockup" class="menu-tab-content">
+                <section class="details-section">  
+                <div class="content-container">
+
+                    <div class="section-header">
+                        <span class="product-badge tool-chatgpt">
+                                <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                            </span>
+                            <span class="product-badge tool-visily">
+                                <i class="fa-solid fa-compass"></i> GenAI Tool: Visily
+                            </span>
+                        <h2 class="section-title">ShellFund Mobile Prototype</h2>
+                    </div>
+
+                    <div class="section-subtitle">
+                        <p>Sketched wireframes were transfored in high-fedelity prototypes.</p>
+                    </div>
+    
+                    <div class="portfolio-showcase-context">
+                        <div class="showcase-container">
+                            
+                            <div class="showcase-caption">
+                                <div class="showcase-header">
+                                    <div class="header-main">
+                                        <h2 class="showcase-main-title">
+                                            <i class="fa-solid fa-circle title-dot"></i>
+                                            Initial Prototype
+                                        </h2>
+                                        <p class="section-subtitle">
+                                            Hand-sketched wireframes were transformed into high-fidelity prototypes through Visily's AI-assisted Sketch-to-Design tool and smart prompting tool.
+                                        </p>
+                                    </div>
+                                    <div class="header-meta">
+                                        <span class="spec-badge">
+                                            <i class="fa-solid fa-mobile-screen"></i>
+                                            iPhone 13 mini
+                                            <span class="badge-divider">•</span> 
+                                            375 × 812 Viewport
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="journey-carousel-grid">
+                                <div class="slider-track">
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/first-prototype/dashboard.png" alt="Home Screen" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Main Dashboard</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/first-prototype/insight.png" alt="Gizmo Screen" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Guided Shopping</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/first-prototype/mentor-chat.png" alt="Product Catalogue" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Product Catalogue</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/first-prototype/goals-page.png" alt="Product Details" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Product Details</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/first-prototype/settings.png" alt="Shopping Cart" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Shopping Cart</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/first-prototype/transactions.png" alt="Shopping Cart" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Shopping Cart</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accessibility-section failure">
+                        <div class="table-header-block">
+                            <h3 class="subsection-title">Original Version (Before)</h3>
+                            <p class="text-block">Identified accessibility friction points, contrast failures, and navigational barriers in the initial UI.</p>
+                        </div>
+
+                        <div class="table-responsive-wrapper">
+                            <table class="insights-table a11y-single-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <i class="fa-solid fa-layer-group"></i> Feature Area
+                                        </th>
+                                        <th>
+                                            <i class="fa-solid fa-circle-xmark"></i> Inaccessible Issue / Friction Point
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="col-feature"><strong>Color Contrast</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Low contrast in pill labels, progress bar, and some text elements.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Color Reliance</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Status indicators (Completed, Pending) rely heavily on color alone.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Button Hierarchy</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Primary action uses bright red, which can be misinterpreted as error/danger.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Touch Target Size</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Small icons and tap areas (notifications, profile).</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 5. Focus Indicators -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Focus Indicators (Keyboard / Switch)</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>No visible focus cues shown.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Semantic Structure</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Visual sections may not map to screen-reader navigation landmarks.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Payment Status Indicators</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Green, gold, and gray signal status without alternative cues.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Progress Indicator</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Very low-contrast red bar; hard to interpret.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Terminology &amp; Clarity</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>No help text for complex terms (APR, payoff progress).</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>Navigation Icons</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Some icons low contrast and small.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-feature"><strong>General Layout</strong></td>
+                                        <td>
+                                            <div class="status-indicator before">
+                                                <i class="fa-solid fa-xmark"></i>
+                                                <span>Dense and visually heavy, especially in the Quick Actions area.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Key Risk Matrix Table -->
+                    <div class="revisions-header">
+                        <h3><i class="fa-solid fa-wrench list-icon"></i>Accessibility Review (WCAG 2.2)</h3>
+                        <p>A table of Issues, WCAG Principles Violated, Users Excluded, and Recommended Fixes are prompted through ChatGPT-5 based on the initial high-fidelity mockup of ShellFund.</p>
+                    </div>
+                    <div class="table-responsive-wrapper">
+                        <table class="insights-table a11y-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 24%;">Key Risk Area</th>
+                                    <th style="width: 20%;">WCAG Principles</th>
+                                    <th style="width: 24%;">Users Potentially Excluded</th>
+                                    <th style="width: 32%;">Targeted Remediation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Risk 1: Low Vision & Screen Readers -->
+                                <tr>
+                                    <td class="col-issue">
+                                        <div class="risk-title"><i class="fa-solid fa-circle-exclamation text-accent"></i> Visual Contrast &amp; Hierarchy</div>
+                                        <span class="table-subtext">Low contrast on progress bars/pill tags, text truncation at 200% zoom, and DOM order speech mismatches.</span>
+                                    </td>
+                                    <td>
+                                        <span class="wcag-pill perceivable">Perceivable 1.4.3</span>
+                                        <span class="wcag-pill robust">Robust 4.1.2</span>
+                                    </td>
+                                    <td class="col-users">
+                                        <strong>Low-vision, color-blind, &amp; screen-reader users</strong>
+                                        <span class="table-subtext">Users in bright ambient light or utilizing screen magnifiers.</span>
+                                    </td>
+                                    <td class="col-fix">
+                                        <ul class="cell-feature-list">
+                                            <li><i class="fa-solid fa-circle-check"></i> Enforce &ge; 4.5:1 contrast ratios across progress fills &amp; badges.</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Support text scaling up to 200% without container clipping.</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Align the DOM speech order with visual card reading hierarchy.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                <!-- Risk 2: Color Alone as Status Indicator -->
+                                <tr>
+                                    <td class="col-issue">
+                                        <div class="risk-title"><i class="fa-solid fa-circle-exclamation text-accent"></i> Sole Reliance on Color</div>
+                                        <span class="table-subtext">Payment statuses (green check, grey pending) and active navigation tabs distinguished strictly by color.</span>
+                                    </td>
+                                    <td>
+                                        <span class="wcag-pill perceivable">Perceivable 1.4.1</span>
+                                    </td>
+                                    <td class="col-users">
+                                        <strong>Color-deficient &amp; monochrome users</strong>
+                                        <span class="table-subtext">Users unable to perceive red/green financial indicators.</span>
+                                    </td>
+                                    <td class="col-fix">
+                                        <ul class="cell-feature-list">
+                                            <li><i class="fa-solid fa-circle-check"></i> Pair every status color with explicit icons &amp; text (✔ Completed, ⚠ Late).</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Add underlines or filled icon variants to active navigation tabs.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                <!-- Risk 3: Tap Areas & Focus Visibility -->
+                                <tr>
+                                    <td class="col-issue">
+                                        <div class="risk-title"><i class="fa-solid fa-circle-exclamation text-accent"></i> Tap Targets &amp; Focus Indicators</div>
+                                        <span class="table-subtext">Small icon buttons (bell, profile) below 44&times;44px and missing focus outlines during keyboard/switch navigation.</span>
+                                    </td>
+                                    <td>
+                                        <span class="wcag-pill operable">Operable 2.5.5</span>
+                                        <span class="wcag-pill operable">Operable 2.4.7</span>
+                                    </td>
+                                    <td class="col-users">
+                                        <strong>Motor-impaired &amp; keyboard users</strong>
+                                        <span class="table-subtext">Users with tremors, older adults, and switch-device navigators.</span>
+                                    </td>
+                                    <td class="col-fix">
+                                        <ul class="cell-feature-list">
+                                            <li><i class="fa-solid fa-circle-check"></i> Expand all interactive touch footprints to 44&times;44px minimum.</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Add high-contrast 2px focus indicator rings on all interactive elements.</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Convert flat history rows into distinct keyboard-accessible list items.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                <!-- Risk 4: Financial Literacy & Cognitive Load -->
+                                <tr>
+                                    <td class="col-issue">
+                                        <div class="risk-title"><i class="fa-solid fa-circle-exclamation text-accent"></i> Financial Jargon &amp; Action Stress</div>
+                                        <span class="table-subtext">Complex formulas (APR, interest payoff) lack micro-help, generic button labels, and harsh error-red CTA buttons.</span>
+                                    </td>
+                                    <td>
+                                        <span class="wcag-pill understandable">Understandable 3.1.3</span>
+                                        <span class="wcag-pill understandable">Understandable 3.3.2</span>
+                                    </td>
+                                    <td class="col-users">
+                                        <strong>ESL, neurodivergent, &amp; new users</strong>
+                                        <span class="table-subtext">First-generation college students and anxiety-prone learners.</span>
+                                    </td>
+                                    <td class="col-fix">
+                                        <ul class="cell-feature-list">
+                                            <li><i class="fa-solid fa-circle-check"></i> Provide contextual tooltips explaining financial jargon and payoff math.</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Use explicit action labels (“View Loan Details” vs. “Details”).</li>
+                                            <li><i class="fa-solid fa-circle-check"></i> Replace alarming red CTA buttons with calm, supportive brand hues.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-block">A Summary of Key Risks the initial prototype posts for Users with Accessibility issues.</p>
+                    <div class="pillars-grid">
+                        <div class="pillar-card">
+                            <div class="card-icon"><i class="fa-solid fa-eye-low-vision"></i></div>
+                            <h3>Contrast &amp; Hierarchy Friction</h3>
+                            <p>Users with low vision, color-blindness, motor impairments, and screen-reader users may struggle.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+                            <h3>Color Overreliance</h3>
+                            <p>Payment statuses and navigation tabs rely solely on color alone(WCAG failure); secondary icon/text cues are needed.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="card-icon"><i class="fa-solid fa-hand-pointer"></i></div>
+                            <h3>Undersized &amp; Missing Tap Targets</h3>
+                            <p>Tap areas and focus indicators (e.g, touch footprints (&lt;44px) and focus indicators) exclude motor &amp; switch users and need improvement.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                            <h3>Cognitive &amp; Language Unexplained</h3>
+                            <p>Some financial terms (e.g, APR, payoff) lack clarity for ESL , neurodivergent, low-literacy users, or even new users.</p>
+                        </div>
+                    </div>
+                </div>       
+                </section>
+            </div>
+
+            <div id="accessibility-redesign" class="menu-tab-content">
+                <section class="details-section">  
+                <div class="content-container">
+
+                    <div class="section-header">
+                        <span class="product-badge tool-chatgpt">
+                                <i class="fa-solid fa-brain"></i> GenAI Tool: ChatGPT-5.1
+                            </span>
+                            <span class="product-badge tool-visily">
+                                <i class="fa-solid fa-compass"></i> GenAI Tool: Visily
+                            </span>
+                        <h2 class="section-title">Accessibility Expert Review</h2>
+                        <div class="section-subtitle">
+                            <p>Conducted WCAG accessibility review, created before–after improvements, documented VPAT compliance, and outlined future-proof accessibility strategies for a student loans screen.</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-showcase-context">
+                        <div class="showcase-container">
+
+                            <div class="showcase-caption">
+                                <div class="showcase-header">
+                                    <div class="header-main">
+                                        <h2 class="showcase-main-title">
+                                            <i class="fa-solid fa-star title-dot"></i>
+                                            Accessible Prototype
+                                        </h2>
+                                        <p class="section-subtitle">
+                                            Visiy's redesign was transported to Figma for final touches; this new version has high-contrast colors meeting WCAG minimums, improved spacing and layout, and simplified button styling.
+                                        </p>
+                                    </div>
+                                    <div class="header-meta">
+                                        <span class="spec-badge">
+                                            <i class="fa-solid fa-mobile-screen"></i>
+                                            iPhone 13 mini
+                                            <span class="badge-divider">•</span> 
+                                            375 × 812 Viewport
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="journey-carousel-grid">
+                                <div class="slider-track">
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/final-prototype/dashboard.png" alt="Shellfund Dashboard" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Main Dashboard</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/final-prototype/insights.png" alt="Spending insights" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Spending Insights</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/final-prototype/mentor-chat.png" alt="ShellAI Mentor Chat" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>ShellAI Mentor Chat</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/final-prototype/goals.png" alt="Savings Goals" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Savings Goals</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/final-prototype/settings.png" alt="Profile Settings" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Profile/Settings</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mobile-frame-card">
+                                        <div class="iphone-mockup-wrapper">
+                                            <div class="iphone-camera-notch"></div>
+                                            <div class="iphone-scroll-viewport">
+                                                <img src="../images/shellfund/final-prototype/transactions.png" alt="Transactions" class="long-screen-img">
+                                            </div>
+                                        </div>
+                                        <div class="frame-meta">
+                                            <h3>Transactions</h3>
+                                            <p>Scroll to explore</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accessibility-section success">
+                        <div class="accessibility-table-header-block">
+                            <h3 class="subsection-title">Accessible Version (After)</h3>
+                            <p class="text-block">Inclusive enhancements, high-contrast states, assistive tech support, and improved target ergonomics.</p>
+                        </div>
+
+                        <div class="table-responsive-wrapper">
+                            <table class="insights-table a11y-single-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <i class="fa-solid fa-layer-group"></i> Feature Area
+                                        </th>
+                                        <th>
+                                            <i class="fa-solid fa-circle-check"></i> Implemented Inclusive Solution
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- 1. Color Contrast -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Color Contrast</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>High-contrast colors meeting WCAG minimums. Clearer labels and darker text.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 2. Color Reliance -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Color Reliance</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Additional icons and descriptive text reinforce meaning beyond color.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 3. Button Hierarchy -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Button Hierarchy</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Neutral high-contrast button with clear border and accessible label (“View Loan Details”).</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 4. Touch Target Size -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Touch Target Size</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Expanded touch zones with more padding for motor accessibility.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 5. Focus Indicators -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Focus Indicators (Keyboard / Switch)</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Added clear focus outlines for interactive elements.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 6. Semantic Structure -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Semantic Structure</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Clearer section headings and structural cues (e.g., “Payment History”) for AT.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 7. Payment Status Indicators -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Payment Status Indicators</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Icons + text with improved contrast and accessibility-friendly formatting.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 8. Progress Indicator -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Progress Indicator</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>High-contrast teal/gray bar with percentage labeling for clarity.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 9. Terminology & Clarity -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Terminology &amp; Clarity</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Improved labels, spacing, and layout support quicker comprehension.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 10. Navigation Icons -->
+                                    <tr>
+                                        <td class="col-feature"><strong>Navigation Icons</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>Larger, high-contrast icons with improved readability of labels.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 11. General Layout -->
+                                    <tr>
+                                        <td class="col-feature"><strong>General Layout</strong></td>
+                                        <td>
+                                            <div class="status-indicator after">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>More whitespace, clearer touch areas, and simplified button style.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="revisions-wrapper">
+                        <div class="revisions-header">
+                            <h3><i class="fa-solid fa-wrench list-icon"></i>Accessibility Design Revisions</h3>
+                            <p>Visily's prompting feature was used to make accessibility enhancements to the initial prototype screens, whilst retaining the overall functionality and layout.</p>
+                        </div>
+
+                        <div class="revisions-grid">
+                            <!-- Main Dashboard -->
+                            <div class="revision-card">
+                                <div class="revision-card-header">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h4>Main Dashboard</h4>
+                                </div>
+                                <ul>
+                                    <li>Enlarged quick-action touch targets with clear border outlines.</li>
+                                    <li>Added explicit text labels and high-contrast teal balance indicators.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Spending Insights -->
+                            <div class="revision-card">
+                                <div class="revision-card-header">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h4>Spending Insights</h4>
+                                </div>
+                                <ul>
+                                    <li>Replaced color-only charts with percentage labels and icon tags.</li>
+                                    <li>Increased whitespace around category breakdowns for fast scanning.</li>
+                                </ul>
+                            </div>
+
+                            <!-- ShellAI Chat -->
+                            <div class="revision-card">
+                                <div class="revision-card-header">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h4>ShellAI Chat</h4>
+                                </div>
+                                <ul>
+                                    <li>Boosted chat bubble contrast ratios to meet WCAG AA standards.</li>
+                                    <li>Added clear keyboard focus outlines and voice-input cues.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Savings Goals -->
+                            <div class="revision-card">
+                                <div class="revision-card-header">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h4>Savings Goals</h4>
+                                </div>
+                                <ul>
+                                    <li>Paired goal progress bars with explicit numerical ratios.</li>
+                                    <li>Upgraded CTA buttons to high-contrast, padded touch targets.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Profile & Settings -->
+                            <div class="revision-card">
+                                <div class="revision-card-header">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h4>Profile & Settings</h4>
+                                </div>
+                                <ul>
+                                    <li>Grouped settings controls using ARIA structural cues.</li>
+                                    <li>Darkened body labels and enlarged navigation icons.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Transactions -->
+                            <div class="revision-card">
+                                <div class="revision-card-header">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h4>Transactions</h4>
+                                </div>
+                                <ul>
+                                    <li>Paired status indicators with distinct icons for non-color meaning.</li>
+                                    <li>Increased vertical row padding for screen-reader and touch precision.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>       
+                </section>
+            </div>
+
+            <div id="cognitive-walkthrough" class="menu-tab-content">
+                <section class="details-section">  
+                <div class="content-container">
+                    The content for cognitive walkthrough goes here...
+                </div>
+                </section>
+            </div>
+
+            <div id="post-launch" class="menu-tab-content">
+                <section class="details-section">  
+                <div class="content-container">
+                    The content for post launch goes here...
+                </div>
+                </section>
+            </div>
+
+        </div>
+
+        <div class="accordion-container">
+            <div class="accordion-item">
+                <section class="details-section">
+                    <h2 class="preview-title">Project Summary Video</h2>
+                        <div class="video-container">
+                            <video id="myVideo" width="100%" controls poster="../images/shellfund/shellfund-thumbnail.png">
+                                <source src="../images/shellfund/shellfund summary.mp4" type="video/mp4">
+                                <source src="movie.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="video-intro"> This case study examines how Generative Artificial Intelligence (Gen AI) can be used to enhance the design process for ShellFund (a personal finance app for college students) by supporting key workflow stages: from framing the problem space + preliminary user research  to early ideation + rapid prototyping. The integration of Gen AI tools enabled faster exploration, clearer insights, and efficient iteration, demonstrating how GenAI Tools can function as a practical, high-quality, and user-centered design partner, boosting both the UX process and the final product outcome.</p>
+                        </p>
+                </section>
+            </div>
+        </div>
+
+        <section class="next-project-section">
+            <div class="card next-project-card">
+                <div class="next-content">
+                    <span class="badge badge-pink">NEXT PROJECT</span>
+                    <h2>Ben & Jerry's Ice Cream Simulator</h2>
+                    <p>A simulating 3-Dimentional game in which users explore more than twenty different flavors offered by the global ice cream brand of Ben & Jerry's.</p>
+                    <a href="../simulator/simulator.html" class="btn-primary" style="width: auto; padding: 12px 30px;">View Project →</a>
+                </div>
+            </div>
+        </section>
+
+        </main>
+    </div>
+    <script src="../main.js"></script>
+</body>
+</html>

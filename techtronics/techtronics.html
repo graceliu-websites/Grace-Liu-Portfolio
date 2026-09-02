@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techtronics Case Study</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="techtronics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <script>
+            fetch('../sidebar.html')
+                .then(response => {
+                    if (!response.ok) throw new Error("Sidebar file not found");
+                    return response.text();
+                })
+                .then(data => {
+                    const container = document.getElementById('sidebar-container');
+                    container.innerHTML = data;
+                    
+                    // Logic to highlight the active link
+                    const currentPage = window.location.pathname.split("/").pop() || "landing.html";
+                    const links = {
+                        "landing.html": "nav-dashboard",
+                        "about.html": "nav-about",
+                        "techtronics.html": "nav-techtronics",
+                        "shellfund.html": "nav-shellfund",
+                        "simulator.html": "nav-simulator",
+                    //   "feastly.html": "nav-feastly"
+                    };
+                    
+                    if (links[currentPage]) {
+                        const activeLink = document.getElementById(links[currentPage]);
+                        if(activeLink) activeLink.classList.add('active');
+                    }
+                })
+                .catch(err => console.error(err));
+        </script>
+
+        <main class="content">
+            <section class="project-hero">
+                <div class="hero-left">
+                    <div class="hero-badge-wrapper">
+                    <span class="badge teal">UX CASE STUDY</span>
+                    </div>
+                    <h1 class="project-title">Techtronics: <br><span class="accent-text">Electronics & E-commerce UX</span></h1>
+                    <p class="hero-description-text">By automating user interviews and auditing existing e-commerce experiences - Amazon and BestBuy, we aim to design an interface that helps users shop electronic products more confidently and efficiently.</p>
+                    
+                    <div class="meta-group">
+                        <div class="meta-item">
+                        <span class="meta-label">MY ROLE</span>
+                        <strong class="meta-value">Lead Product Designer</strong>
+                        </div>
+                        <div class="meta-item">
+                        <span class="meta-label">DURATION</span>
+                        <strong class="meta-value">2 Months (2025)</strong>
+                        </div>
+                    </div>
+
+                    <div class="tools-container">
+                        <div class="tool-box">
+                            <span class="tool-label">DESIGN TOOL</span>
+                            <div class="tool-content">
+                                <img src="../images/tools/figma-logo.png" alt="Figma" class="tool-icon">
+                                <span class="tool-name">Figma, FigJam</span>
+                            </div>
+                        </div>
+                        <div class="tool-box">
+                            <span class="tool-label">AI PROTOTYPING</span>
+                            <div class="tool-content">
+                                <img src="../images/tools/visily-logo.png" alt="Visily" class="tool-icon">
+                                <span class="tool-name">Visily</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="hero-right">
+                    <div class="mockup-container">
+                        <img src="../images/techtronics/gizmo-thumbnail.png" alt="Techtronics Mockup" id="greenRobot" class="bounce-in-img">
+                            <div class="gizmo-speech-bubble">
+                                <p><strong>Hello!</strong> I'm Gizmo,<br>your personal shopping assistant.</p>
+                            </div>
+                    </div>
+                </div>
+            </section> 
+
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="badge gray">01</span>
+                            <i class="fa-solid fa-search"></i>
+                            <h2>User Research</h2>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <section class="details-section">
+                                <p class="section-subtitle">Conducting market-fit research via customer interviews to get a gut-check from real customers to help set up a foundation for our main objectives.</p>
+                                <div class="overview-grid">
+                                    <div class="overview-card">
+                                        <h3>Methods</h3>
+                                        <ul>
+                                            <li>3 initial interviews (30-45 mins)</li>
+                                            <li>User Personas</li>
+                                            <li>Competitive Audit</li>
+                                        </ul>
+                                    </div>
+                                    <div class="overview-card">
+                                        <h3>Participants</h3>
+                                        <p>Inidividuals age 18 and above residing in the United States who partake in shopping for digital products on online platforms.</p>
+                                    </div>
+                                    <div class="overview-card">
+                                        <h3>Key Findings</h3>
+                                        <p>75% users either postpone or abandon their purchases on an e-commerce platform due to the overwhelming information presented to them.</p>
+                                    </div>
+                                </div>
+
+                                <div class="affinity-container">
+                                    <h1 class="section-title">Affinity Map</h1>
+                                    <p class="section-subtitle">Preliminary, scattered notes from user interviews that revealed how tech shoppers often feel when shopping on e-commerce platforms.</p>
+
+
+                                    <div class="sticky-grid">
+                                    
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User get stressed from having too much shopping data to think about</p>
+                                        <span class="note-author">Interview I</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User overthink during the process of doing research on deals, reviews causes headache</p>
+                                        <span class="note-author">Interview I</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User is busy and finds it handy to be able to get as much as they can from just one platform.</p>
+                                        <span class="note-author">Interview I</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User needs <span class="highlight-underlined">group consensus</span>/good reviews before purchasing something.</p>
+                                        <span class="note-author">Interview I</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User prefers the notion of e-commerce platforms providing <span class="highlight-underlined">services beyond just retail</span></p>
+                                        <span class="note-author">Interview II</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User feels <span class="highlight-underlined">inconvenienced</span> when there are too many options to choose from</p>
+                                        <span class="note-author">Interview II</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User likes to receive advice or <span class="highlight-underlined">recommendations</span> from trusted/experienced individuals</p>
+                                        <span class="note-author">Interview II</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User wants to know that they are getting <span class="highlight-underlined">a great deal</span> without needing to go looking for the best deal</p>
+                                        <span class="note-author">Interview II</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User seeks <span class="highlight">personalized</span> recommendations based on past purchases and interests.</p>
+                                        <span class="note-author">Interview III</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User values platforms that facilitate official business transactions and provide <span class="highlight-underlined">financial advantages</span></p>
+                                        <span class="note-author">Interview III</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User relies on AI-powered tools for pre-purchase research, but wishes for <span class="highlight-underlined">automation</span> in the final buying step.</p>
+                                        <span class="note-author">Interview III</span>
+                                    </div>
+
+                                    <div class="sticky-note yellow">
+                                        <p class="note-content">User prefers platforms with quick and reliable <span class="highlight-underlined">deliver</span>, even in high-traffic, urban environments.</p>
+                                        <span class="note-author">Interview III</span>
+                                    </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="affinity-container">
+                                    <div class="section-heading"> 
+                                        <h3 class="section-title">Pain Points</h3>
+                                        <p class="section-subtitle">Messy qualitative data from user interviews were organized into related groups based on their natural relationships.</p>
+                                    </div>
+                                    <div class="sticky-grid">
+                                        <div class="sticky-note red">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/emojis/sad-emoji.svg" alt="Confused Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Overwhelmed Choices</h4>
+                                            <p class="note-content">User get stressed from having too much shopping data to think about.</p>
+                                            <span class="note-author">Research Note A</span>
+                                        </div>
+                                        <div class="sticky-note red">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/hand gestures/thumbs-up.svg" alt="Trust Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Social Proof & Trust</h4>
+                                            <p class="note-content">User needs group consensus/good reviews before purchasing something.</p>
+                                            <span class="note-author">Research Note B</span>
+                                        </div>
+                                        <div class="sticky-note red">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/zap.svg" alt="Efficient Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Convenience & Efficiency</h4>
+                                            <p class="note-content">User is busy and finds it handy to get as much as they can from one platform.</p>
+                                            <span class="note-author">Research Note C</span>
+                                        </div>
+                                        <div class="sticky-note red">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/e-commerce/bag-2.svg" alt="Personalization Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Personalized Value</h4>
+                                            <p class="note-content">User prefers the notion of e-commerce platforms providing services beyond just retail.</p>
+                                            <span class="note-author">Research Note D</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="badge gray">02</span>
+                            <i class="fa-solid fa-user-group"></i>
+                            <h2>User Personas</h2>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <section class="details-section">
+                                <p class="section-subtitle">We developed detailed persona profiles for 2 distinct user personas; each uniquely represented a specific segment of our target audience.</p>
+                                    <div class="personas-container">
+                                        <div class="persona-card">
+                                            <div class="persona-left">
+                                                <div class="persona-avatar">
+                                                    <img src="../images/techtronics/ideation/harrypham.png" alt="Harry Pham">
+                                                </div>
+                                                <p class="persona-quote">I just want something good that fits my budget without the hassle.</p>
+                                            </div>
+                                            <div class="persona-right">
+                                                <div class="persona-demogrpahics">
+                                                    <div class="persona-header">
+                                                        <span class="persona-name">Harry Pham</span>
+                                                        <div class="persona-badges">
+                                                            <span class="persona-badge-role"><i class="fa-solid fa-paint-brush"></i> Freelance Artist</span>
+                                                            <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 26</span>
+                                                            <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Austin, TX</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="persona-details-grid">
+                                                    <div class="detail-block">
+                                                        <h4><i class="fa-solid fa-brain detail-icon"></i>Bio Summary</h4>
+                                                        <p>A digital artist, frugal spender, who relies on experienced friends on searching for new digital products.</p>
+                                                    </div>
+                                                    <div class="detail-block">
+                                                        <h4><i class="fa-solid fa-heart detail-icon"></i>Key Wants</h4>
+                                                        <ul class="persona-bullet-list">
+                                                            <li>Trusted Expert recommendations.</li>
+                                                            <li>Frictionless search tools.</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="detail-block">
+                                                        <h4><i class="fa-solid fa-heart-crack detail-icon"></i>Pain Points</h4>
+                                                        <ul class="persona-bullet-list">
+                                                            <li>Feels inconvenienced when there are too many options to choose from on e-commerce sites.</li>
+                                                            <li>Finds independent third-party sellers and previously used items untrustworthy.</li>
+                                                            <li>annoyed when trusted sellers or verified listings are hard to identify on online platforms.</li>
+                                                            <li>Little understanding on tech jargon or specifications used in product descriptions.</li>
+                                                            <li>Finds comparison tools on e-commerce sites hard to use or not detailed enough.</li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="detail-block">
+                                                        <div class = "detail-rating">
+                                                            <h4>Tech Literacy</h4>
+                                                            <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class = "detail-rating">
+                                                            <h4>Online Shopping Frequency</h4>
+                                                                <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class = "detail-rating">
+                                                            <h4>Price Consciousness</h4>
+                                                                <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class = "detail-rating">
+                                                            <h4>Tech Specs Knowledge</h4>
+                                                                <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="persona-card">
+                                            <div class="persona-left">
+                                                <div class="persona-avatar">
+                                                    <img src="../images/techtronics/ideation/zoeylin.png" alt="Zoey Lin">
+                                                </div>
+                                                <p class="persona-quote">I tend to overthink. I need to do a lot of research for expensive tech.</p>
+                                            </div>
+                                            <div class="persona-right">
+                                                <div class="persona-demogrpahics">
+                                                    <div class="persona-header">
+                                                        <span class="persona-name">Zoey Lin</span>
+                                                        <div class="persona-badges">
+                                                            <span class="persona-badge-role"><i class="fa-solid fa-graduation-cap"></i>Postgrad Student</span>
+                                                            <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 30</span>
+                                                            <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Greenbelt, MD</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="persona-details-grid">
+                                                    <div class="detail-block">
+                                                        <h4><i class="fa-solid fa-brain detail-icon"></i>Bio Summary</h4>
+                                                        <p>A student who needs home electronic products for her new apartment, selective spender also frequently returns items.</p>
+                                                    </div>
+                                                    <div class="detail-block">
+                                                        <h4><i class="fa-solid fa-heart detail-icon"></i>Key Wants</h4>
+                                                        <ul class="persona-bullet-list">
+                                                            <li>Group consensus and reviews.</li>
+                                                            <li>Transparent specifications.</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="detail-block">
+                                                        <h4><i class="fa-solid fa-heart-crack detail-icon"></i>Pain Points</h4>
+                                                        <ul class="persona-bullet-list">
+                                                            <li>Gets stressed out by having too many tabs open when she is doing research comparing different products online.</li>
+                                                            <li>Overthinks during the process of doing research on deals, reviews causes headache.</li>
+                                                            <li>Often returns items because the quality of product is not what was expected.</li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="detail-block">
+                                                        <div class = "detail-rating">
+                                                            <h4>Tech Literacy</h4>
+                                                            <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class = "detail-rating">
+                                                            <h4>Online Shopping Frequency</h4>
+                                                                <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class = "detail-rating">
+                                                            <h4>Price Consciousness</h4>
+                                                                <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class = "detail-rating">
+                                                            <h4>Tech Specs Knowledge</h4>
+                                                                <div class="rating-scale">
+                                                                <span class="scale-text">Low</span>
+                                                                    <div class="rating-dots">
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot active"></span>
+                                                                        <span class="dot"></span>
+                                                                        <span class="dot"></span>
+                                                                    </div>
+                                                                <span class="scale-text">High</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="badge gray">03</span>
+                            <i class="fa-solid fa-circle-xmark list-icon"></i>
+                            <h2>Problem Statement</h2>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <section class="details-section">
+                                <p class="section-subtitle">By gauging market-fit, we ensure there is market need for the product involved with our startup as we get closer to building a product that people love .</p>
+                                <div class="two-col">
+                                    <div class="problem-card">
+                                        <div class="card-header">
+                                            <i class="fas fa-exclamation-circle icon-danger"></i>
+                                            <h4>Main Problems</h4>
+                                        </div>
+                                        <p class="text-block">According to research findings, online shoppers often face:</p>
+                                        <ul class="problems-bullet-list">
+                                            <li>
+                                                <i class="fa-regular fa-circle-question list-icon"></i>
+                                                <span>Information overload when evaluating endless products.</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa-regular fa-face-tired list-icon"></i>
+                                                <span>Decision fatigue when faced with too many purchase options.</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa-regular fa-trash-can list-icon"></i>
+                                                <span>Postponing or abandoning purchases on an e-commerce platform altogether.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="objectives-card">
+                                        <div class="card-header">
+                                            <i class="fa-solid fa-circle-check header-icon"></i>
+                                            <h4>Main Objectives</h4>
+                                        </div>
+
+                                        <p class="text-block">Through our workflow and app, we aim to help online shoppers achieve:</p>
+                                        <ul class="objectives-bullet-list">
+                                            <li>
+                                                <i class="fa-solid fa-bolt list-icon"></i>
+                                                <span>Streamlined Browsing with reduced need to compare products across countless tabs.</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa-regular fa-face-smile list-icon"></i>
+                                                <span>Confident Check-outs with surfacing consensus reviews and expert advice on each product.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="problem-intro">
+                                    <span class="intro-tag"><i class="fa-solid fa-star list-icon"></i>Core Takeaway</span>
+                                    <p>Online shoppers need a reliable, efficient, and personalized way to find products that genuinely fit their needs without the cognitive overwhelm that hinders confident purchases.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="badge gray">04</span>
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <h2>App Audit</h2>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <section class="details-section">
+                                <p class="section-subtitle">Comparing the user journey across two largest competitor e-commerce apps to identify strengths, weaknesses, and design strategies to inform our e-commerce app.</p>
+
+                                    <div class="comp-cards-grid">
+                                        <article class="comp-brand-card">
+                                            <div class="comp-card-top">
+                                                <div class="comp-icon-box-amazon comp-icon-amazon">
+                                                    <img src="../images/techtronics/ideation/amazon-logo.png" alt="amazon-logo" class="audit-icon">
+                                                </div>
+                                                <div class="comp-brand-text-group">
+                                                    <h4 class="comp-brand-title">
+                                                        <i class="fa-brands fa-amazon brand-title-icon"></i> Amazon
+                                                    </h4>
+                                                    <span class="comp-brand-tag">GLOBAL GENERALIST MARKETPLACE</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="comp-features-area">
+                                                <h5 class="comp-label-heading">
+                                                    <i class="fa-solid fa-list-check"></i> KEY FEATURES
+                                                </h5>
+                                                <ul class="comp-feature-bubbles">
+                                                    <li><i class="fa-solid fa-robot"></i> Virtual assistant</li>
+                                                    <li><i class="fa-solid fa-truck-fast"></i> Shipping options</li>
+                                                    <li><i class="fa-solid fa-sliders"></i> Product filters</li>
+                                                    <li><i class="fa-solid fa-star"></i> Extensive review system</li>
+                                                    <li><i class="fa-solid fa-crown"></i> Prime membership benefits</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="comp-sw-split">
+                                                <div class="comp-sw-card comp-sw-strength">
+                                                    <h6 class="comp-sw-heading comp-text-green">
+                                                        <i class="fa-solid fa-circle-check"></i> STRENGTHS
+                                                    </h6>
+                                                    <ul class="comp-bullet-list strength-list">
+                                                        <li>Unmatched variety</li>
+                                                        <li>Frictionless checkout</li>
+                                                        <li>Efficient logistics</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="comp-sw-card comp-sw-weakness">
+                                                    <h6 class="comp-sw-heading comp-text-red">
+                                                        <i class="fa-solid fa-circle-xmark"></i> WEAKNESSES
+                                                    </h6>
+                                                    <ul class="comp-bullet-list weakness-list">
+                                                        <li>Counterfeit risks</li>
+                                                        <li>UI visual clutter</li>
+                                                        <li>Fragmented search</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                        <article class="comp-brand-card">
+                                            <div class="comp-card-top">
+                                                <div class="comp-icon-box-bestbuy comp-icon-bestbuy">
+                                                    <img src="../images/techtronics/ideation/bestbuy-logo.png" alt="bestbuy-logo" class="audit-icon">
+                                                </div>
+                                                <div class="comp-brand-text-group">
+                                                    <h4 class="comp-brand-title">
+                                                        <i class="fa-solid fa-tag brand-title-icon"></i> Best Buy
+                                                    </h4>
+                                                    <span class="comp-brand-tag">U.S. ELECTRONICS SPECIALIST RETAILER</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="comp-features-area">
+                                                <h5 class="comp-label-heading">
+                                                    <i class="fa-solid fa-list-check"></i> KEY FEATURES
+                                                </h5>
+                                                <ul class="comp-feature-bubbles">
+                                                    <li><i class="fa-solid fa-robot"></i> Virtual assistant</li>
+                                                    <li><i class="fa-solid fa-store"></i> In-store pickup option</li>
+                                                    <li><i class="fa-solid fa-magnifying-glass"></i> Large search categories</li>
+                                                    <li><i class="fa-solid fa-headset"></i> Live chat & expert support</li>
+                                                    <li><i class="fa-solid fa-file-lines"></i> Detailed product pages</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="comp-sw-split">
+                                                <div class="comp-sw-card comp-sw-strength">
+                                                    <h6 class="comp-sw-heading comp-text-green">
+                                                        <i class="fa-solid fa-circle-check"></i> STRENGTHS
+                                                    </h6>
+                                                    <ul class="comp-bullet-list strength-list">
+                                                        <li>Quick tech discovery</li>
+                                                        <li>Easy returns management</li>
+                                                        <li>Omnichannel ease</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="comp-sw-card comp-sw-weakness">
+                                                    <h6 class="comp-sw-heading comp-text-red">
+                                                        <i class="fa-solid fa-circle-xmark"></i> WEAKNESSES
+                                                    </h6>
+                                                    <ul class="comp-bullet-list weakness-list">
+                                                        <li>Narrow inventory</li>
+                                                        <li>Slower app speed</li>
+                                                        <li>Higher price floor</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+
+                                    <div class="comp-brand-stream-column">
+                                        <div class="comp-label-heading">
+                                            <i class="fa-solid fa-mobile-screen-button"></i> INTERACTIVE PROTOTYPES
+                                        </div>
+
+                                        <div class="brand-scroll-viewport">
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">amazon.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/amazon-assistant.jpg" alt="Virtual Assistant">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Virtual Assistant</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">amazon.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/amazon-shipping.jpg" alt="Fast Shipping">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Fast Shipping Options</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">amazon.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/amazon-filter.jpg" alt="Smart Filters">                            
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Smart Filters</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">amazon.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/amazon-reviews.jpg" alt="Customer Reviews">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Extensive Customer Reviews</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">amazon.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/amazon-benefits.jpg" alt="Prime Benefits">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Prime Membership Benefits</figcaption>
+                                            </figure>
+
+                                        </div>
+
+                                        <div class="brand-scroll-viewport">
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">bestbuy.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/bestbuy-assistant.jpg" alt="Virtual Assistant">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Virtual Assistant</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">bestbuy.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/bestbuy-pickup.jpg" alt="In-Store Pickup">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">In-store pickup Options</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">bestbuy.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/bestbuy-catgories.jpg" alt="Search Categories">                            
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Large Search Categories</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">bestbuy.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/bestbuy-support.jpg" alt="Customer Support">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Customer Support</figcaption>
+                                            </figure>
+
+                                            <figure class="comp-shot-card">
+                                                <div class="prototype-device-frame">
+                                                    <div class="prototype-top-bar">
+                                                        <span class="proto-dots"><i></i><i></i><i></i></span>
+                                                        <span class="proto-url">bestbuy.com</span>
+                                                    </div>
+                                                    <div class="comp-img-frame">
+                                                        <img src="../images/techtronics/comp-features/bestbuy-specs.jpg" alt="Product Specs">
+                                                    </div>
+                                                </div>
+                                                <figcaption class="comp-shot-caption">Detailed Product Pages</figcaption>
+                                            </figure>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="comp-sub-group">                
+                                    <div class="comp-split-workspace-row">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="badge gray">05</span>
+                            <i class="fa-solid fa-star"></i>
+                            <h2>Competitive Analysis</h2>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <section class="details-section">
+                                <p class="section-subtitle">Evaluating how well each competitor e-commerce app caters to the needs and preferences, goals and pain points, as well as areas for improvement based on our user personas.</p>
+                            
+                                <div class="comp-matrix-container">
+                                    <div class="comp-criteria-sidebar-column">
+                                    <h5 class="showcase-main-title">EVALUATION CRITERIA</h5>
+                                        <div class="overview-grid">
+                                            <div class="overview-card card-blue">
+                                                <div class="overview-card-icon">
+                                                    <i class="fa-solid fa-door-open"></i>
+                                                </div>
+                                                <h3>Onboarding Experience</h3>
+                                                <p>How quickly can users start browsing?<br>What tools are in place to help guide new users on the platform?</p>
+                                            </div>
+                                            <div class="overview-card card-peach">
+                                                <div class="overview-card-icon">
+                                                    <i class="fa-solid fa-bars"></i>
+                                                </div>
+                                                <h3>Navigation Structure</h3>
+                                                <p>How intuitive is the navigation of the system?<br>Are important functionalities easily found?</p>
+                                            </div>
+                                            <div class="overview-card card-yellow">
+                                                <div class="overview-card-icon">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </div>
+                                                <h3>Product Discovery</h3>
+                                                <p>How efficient are the search tools, categorical filters, visual hierarchy of product listings, and content layouts of product specs?</p>
+                                            </div>
+                                            <div class="overview-card card-green">
+                                                <div class="overview-card-icon">
+                                                    <i class="fa-solid fa-credit-card"></i>
+                                                </div>            
+                                                <h3>Checkout Experience</h3>
+                                                <p>How smooth is the checkout process, guest checkout, shopping cart management? Is there cost transparency and various types of payment options?</p>
+                                            </div>
+                                            <div class="overview-card card-teal">
+                                                <div class="overview-card-icon">
+                                                    <i class="fa-solid fa-gear"></i>
+                                                </div>
+                                                <h3>Personalization</h3>
+                                                <p>How easy can users do new account setup, account personalization, view availability of order history and active order status, and use wish list features?</p>
+                                            </div>
+                                            <div class="overview-card card-purple">
+                                                <div class="overview-card-icon">
+                                                    <i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <h3>Unique Value</h3>
+                                                <p>What special features, tools, or services does the platform offer?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comp-persona-matrix-column">
+                                        <h5 class="showcase-main-title">PERSONA ALLIGNMENT</h5>
+
+                                        <div class="comp-matrix-user-card">
+                                            <div class="comp-matrix-user-header">
+                                                <div class="comp-matrix-user-avatar">
+                                                    <img src="../images/techtronics/ideation/harrypham.png" alt="Harry Pham">
+                                                </div>
+                                                <div class="persona-demogrpahics">
+                                                    <div class="persona-header">
+                                                        <div class="persona-badges">
+                                                            <span class="persona-name">Harry Pham</span>
+                                                            <span class="persona-badge-role"><i class="fa-solid fa-paint-brush"></i>Freelance Artist</span>
+                                                            <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 26</span>
+                                                            <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Austin, TX</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <span class="comp-matrix-sub-label"><i class="fa-solid fa-check"></i></i>Harry Wants:</span>
+                                            <div class="comp-matrix-tag-cloud">
+                                                <span class="matrix-pill pill-blue"><i class="fa-solid fa-door-open"></i> Frictionless onboarding process</span>
+                                                <span class="matrix-pill pill-peach"><i class="fa-solid fa-bars"></i> Minimalist information architecture</span>
+                                                <span class="matrix-pill pill-yellow"><i class="fa-solid fa-eye"></i> User-friendly product browsing</span>
+                                                <span class="matrix-pill pill-yellow"><i class="fa-solid fa-thumbs-up"></i> Trusted recommendations</span>
+                                                <span class="matrix-pill pill-purple"><i class="fa-solid fa-star"></i> Features and services beyond retail</span>
+                                            </div>
+
+                                            <div class="comp-matrix-findings-area">
+                                                <span class="comp-matrix-sub-label">
+                                                    <i class="fa-solid fa-magnifying-glass"></i> COMPETITIVE ANALYSIS FINDINGS
+                                                </span>
+
+                                            <div class="comp-matrix-findings-content">
+                                                    <div class="brand-mention">
+                                                    <img src="../images/techtronics/ideation/bestbuy-logo.png" alt="Bestbuy" class="bestbuy-brand-logo-img">
+                                                    </div> 
+                                                    <p class="comp-matrix-findings-text"> 
+                                                        As someone who isn’t particularly knowledgeable in tech products, Harry will likely prefer <span class="brand-text-highlight bestbuy-highlight">Best Buy</span> for its expert recommendations and reliable sellers to make confident purchases.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="comp-matrix-user-card">
+                                            <div class="comp-matrix-user-header">
+                                                <div class="comp-matrix-user-avatar">
+                                                    <img src="../images/techtronics/ideation/zoeylin.png" alt="Zoey Lin">
+                                                </div>
+                                            <div class="persona-demogrpahics">
+                                                <div class="persona-header">
+                                                    <div class="persona-badges">
+                                                    <span class="persona-name">Zoey Lin</span>
+                                                    <span class="persona-badge-role"><i class="fa-solid fa-graduation-cap"></i>Postgrad Student</span>
+                                                    <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 30</span>
+                                                    <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Greenbelt, MD</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            
+                                            <span class="comp-matrix-sub-label"><i class="fa-solid fa-check"></i>ALIGNMENT OF CRITERIA</span>
+                                            <div class="comp-matrix-tag-cloud">
+                                                <span class="matrix-pill pill-blue"><i class="fa-solid fa-door-open"></i> Faster Onboarding Process</span>
+                                                <span class="matrix-pill pill-peach"><i class="fa-solid fa-bars"></i> Simple Information Layout</span>
+                                                <span class="matrix-pill pill-yellow"><i class="fa-solid fa-eye"></i> Well-structured product pages</span>
+                                                <span class="matrix-pill pill-green"><i class="fa-solid fa-credit-card"></i> Streamlined checkout process</span>
+                                                <span class="matrix-pill pill-green"><i class="fa-solid fa-receipt"></i> Price transparency</span>
+                                                <span class="matrix-pill pill-teal"><i class="fa-solid fa-clock-rotate-left"></i> Accessible past orders</span>
+                                            </div>
+
+                                            <div class="comp-matrix-findings-area">
+                                                <span class="comp-matrix-sub-label">
+                                                    <i class="fa-solid fa-magnifying-glass"></i> COMPETITIVE ANALYSIS FINDINGS
+                                                </span>
+                                            
+                                                <div class="comp-matrix-findings-content">
+                                                    <div class="brand-mention">
+                                                    <img src="../images/techtronics/ideation/amazon-logo.png" alt="Amazon" class="amazon-brand-logo-img">
+                                                    </div> 
+                                                    <p class="comp-matrix-findings-text">
+                                                    For someone who conducts a lot of research before purchasing electronics, detailed product pages from <span class="brand-text-highlight amazon-highlight">Amazon</span> would be advantageous for supporting Zoey's shopping goals.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="affinity-container">
+                                    <div class="section-heading"> 
+                                        <h3 class="section-title">Opportunities and Recommendations</h3>
+                                        <p class="section-subtitle">Ideas for how to can make our e-commerce app better, e.g., new features or changes to how things work that would make out app stand out.</p>
+                                    </div>
+                                    <div class="sticky-grid">
+                                        <div class="sticky-note blue">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/grid.svg" alt="Compare Tool Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">A Product Comparison Tool</h4>
+                                            <p class="note-content">Allows users to select items and view them side-by-side, including summarized reviews and key product details.</p>
+                                            <span class="note-author">Recommendation I</span>
+                                        </div>
+                                        <div class="sticky-note blue">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/search.svg" alt="Search Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Smart Search Features</h4>
+                                            <p class="note-content">with result quantity selectors to let users choose how many product options they wish to see that best match their search and filter criteria</p>
+                                            <span class="note-author">Recommendation II</span>
+                                        </div>
+                                        <div class="sticky-note blue">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/menu.svg" alt="Architecture Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Simplified Information Architecture </h4>
+                                            <p class="note-content">and menus that prioritizes core features and less shopping categories</p>
+                                            <span class="note-author">Recommendation III</span>
+                                        </div>
+                                        <div class="sticky-note blue">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/misc/bot.svg" alt="Guided Shopping Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Guided Shopping Wizard (Step by step assistant)</h4>
+                                            <p class="note-content">asks simple questions to gauge the user’s needs, provides 3-5 recommendations, and takes the user through checkout</p>
+                                            <span class="note-author">Recommendation IV</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-left">
+                            <span class="badge gray">06</span>
+                            <i class="fas fa-map"></i>
+                            <h2>User Journey</h2>
+                        </div>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <section class="details-section"> 
+                            <p class="section-subtitle">To enhance the usability and user experience of our e-commerce app, we created an intuitive information architecture based on user needs and industry best practices.</p>
+
+                            <div class="info-card">
+                                <div class="card-grid-2col">
+                                <div class="visual-content">
+                                    <div class="content-header">
+                                    <i class="fas fa-sitemap icon-accent"></i>
+                                    <h3>User Flow</h3>
+                                </div>
+                                <p class="text-block">Shows primary pages on our app and navigation paths that users will follow to access different sections of the app, especially to core features.</p>
+                                </div>
+                                <div class="image-container sitemap">
+                                <img src="../images/techtronics/ideation/techtronics-userflow.png" alt="Sitemap Visual Graph" class="placeholder-img" />
+                                </div>
+                                </div>
+                                <p class="footer-note">Fully connected and step-by-step archi links all primary functional hubs with a flat hierarchy for speed.</p>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="content-header">
+                                <i class="fas fa-edit icon-accent"></i>
+                                <h3>Wireframe Annotations</h3>
+                                </div>
+                                <p class="card-description">Wireframes sketches to visually represent the information architecture of our app.</p>
+                                <div class="wireframe-block">                  
+                                    <div class="wireframe-row">
+                                    <div class="annotation-sidebar-card">
+                                        <div class="annotation-item">
+                                            <h5><i class="fa-solid fa-house"></i> Home</h5>
+                                            <p> “Top products” for easy product exploration, Smart Search (Top rectangle), Guided Shopping Wizard feature (Black square), A navigation bar featuring Home, Categories, Shopping cart, and Account</p>
+                                        </div>
+                                        <hr class="separator-line">
+
+                                        <div class="annotation-item">
+                                            <h5><i class="fa-solid fa-robot"></i>Wizard</h5>
+                                            <p>functions as a step-by-step assistant that asks simple questions to understand the user's needs, then provides 3-5 personalized product recommendations, and finally guides the user through the checkout process.</p>
+                                        </div>
+                                        <hr class="separator-line">
+
+                                        <div class="annotation-item">
+                                            <h5><i class="fa-solid fa-right-to-bracket"></i>Sign In</h5>
+                                            <p>Account entry & guest option</p>
+                                        </div>
+                                        <hr class="separator-line">
+
+                                        <div class="annotation-item">
+                                            <h5><i class="fa-solid fa-layer-group"></i>Category</h5>
+                                            <p>the Product Comparison Tool is accessible. It let users select multiple items and view them side-by-side, including summarized reviews and key product details for easy comparison.</p>
+                                        </div>
+                                        <hr class="separator-line">
+                                        
+                                        <div class="annotation-item">
+                                            <h5><i class="fa-solid fa-solid fa-cart-shopping"></i>Shopping Cart</h5>
+                                            <p>allows users to adjust quantity (small rectangles), Add-ons (Bottom, hidden), Save for Later, and Checkout (Rectangle under “SUM”). </p>
+                                        </div>
+                                        <hr class="separator-line">
+
+                                        <div class="annotation-item">
+                                            <h5><i class="fa-solid fa-credit-card"></i>Payment</h5>
+                                            <p>the steps to complete a successful transactions are 1) Sign In, 2) enter Shipping address or Store Pickup, 3) select Payment method 4) Review and confirm order details. The circles connected in the progress bar at the top each represent these steps.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="wireframe-split-container">
+                                    <h4 class="block-title">Mobile Wireframe</h4>
+                                    <div class="image-container sketch-box">
+                                        <img src="../images/techtronics/ideation/techtronics-app-wireframe.jpg" alt="Application Wireframe Sketches" class="placeholder-img" />
+                                    </div>
+                                    <h4 class="block-title">Desktop Wireframe</h4>
+                                    <div class="image-container sketch-box">
+                                        <img src="../images/techtronics/ideation/techtronics-desktop-wireframe.jpg" alt="Website Wireframe Sketches" class="placeholder-img" />
+                                    </div>
+                                    </div>
+                                    </div>               
+                                </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="content-header">
+                                <i class="fas fa-network-wired icon-accent"></i>
+                                <h3>Information Architecture</h3>
+                                </div>
+                                <p class="card-description">A hierarchical structure is developed to help organize our app content and functionality by determining the main categories and subcategories of navigation hierarchy.</p>
+                                <div class="architecture-grid">
+
+                                <div class="graph-section-wrapper">
+                                    <div class="graph-toggle-container">
+                                        <div class="segmented-control">
+                                            <button class="toggle-btn active" id="btn-desktop" onclick="switchGraph('desktop')">
+                                                <i class="fa-solid fa-desktop"></i> Desktop IA
+                                            </button>
+                                            <button class="toggle-btn" id="btn-mobile" onclick="switchGraph('mobile')">
+                                                <i class="fa-solid fa-mobile-screen-button"></i> Mobile IA
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="graph-viewport">
+                                        <div class="graph-slide active" id="slide-desktop">
+                                            <img src="../images/techtronics/ideation/desktop-info-architecture.png" alt="Desktop Information Architecture" class="graph-img">
+                                        </div>
+
+                                        <div class="graph-slide" id="slide-mobile">
+                                            <img src="../images/techtronics/ideation/mobile-info-architecture.png" alt="Mobile Information Architecture" class="graph-img">
+                                        </div>
+                                    </div>
+
+                                    <div class="graph-legend">
+                                    <div class="legend-item">
+                                        <svg class="legend-icon" viewBox="0 0 52 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="2" y1="7" x2="42" y2="7" stroke="#424856" stroke-width="3" stroke-linecap="round"/>
+                                        <circle cx="44" cy="7" r="5" fill="#424856"/>
+                                        </svg>
+                                        <span>Same page</span>
+                                    </div>
+
+                                    <div class="legend-item">
+                                        <svg class="legend-icon" viewBox="0 0 52 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="2" y1="7" x2="38" y2="7" stroke="#424856" stroke-width="3" stroke-linecap="round"/>
+                                        <polygon points="36,1 50,7 36,13" fill="#424856"/>
+                                        </svg>
+                                        <span>Next page</span>
+                                    </div>
+
+                                    <div class="legend-item">
+                                        <svg class="legend-icon" viewBox="0 0 52 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="2" y1="7" x2="50" y2="7" stroke="#EE5351" stroke-width="3" stroke-linecap="round"/>
+                                        </svg>
+                                        <span>Overlapping lines</span>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="graph-modal" id="graphModal" onclick="closeGraphModal(event)">
+                                    <button class="modal-close-btn" onclick="closeGraphModal(event)" aria-label="Collapse Image">
+                                        <i class="fa-solid fa-compress"></i> Collapse
+                                    </button>
+                                    <img class="modal-content" id="modalImg" alt="Expanded View">
+                                </div>
+
+                                </div>
+                            </div>
+                            </section>  
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="header-left">
+                        <span class="badge gray">07</span>
+                        <i class="fa-solid fa-laptop"></i>
+                        <h2>Initial Prototype</h2>
+                    </div>
+                    <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                </div>
+                
+                    <div class="accordion-content">
+                        <div class="accordion-inner">                  
+                            <section class="details-section">
+                            <p class="section-subtitle">High-fidelity prototypes are designed (based on our finalized information architecture) to create a realistic user experience showcasing the key screens and interactions of our e-commerce app.</p>
+
+                                <div class="portfolio-showcase-context">
+                                    <div class="showcase-container">
+                                        <div class="showcase-caption">
+                                            <h2 class="showcase-main-title">Mobile Experience Journey</h2>
+                                            <span class="spec-badge">
+                                                iPhone 13 mini Environment <span class="badge-divider">•</span> 375 × 812 Figma Viewport
+                                            </span>
+                                        </div>
+                                        <div class="journey-carousel-grid">
+                                            <div class="slider-track">
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/home-screen.png" alt="Home Screen" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Main Dashboard</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/gizmo-screen.png" alt="Gizmo Screen" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Guided Shopping</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/product-catalogue.png" alt="Product Catalogue" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Product Catalogue</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/product-details.png" alt="Product Details" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Product Details</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/shopping-cart.png" alt="Shopping Cart" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Shopping Cart</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="showcase-container">
+                                        <div class="showcase-caption">
+                                            <h2 class="showcase-main-title">Guided Shopping</h2>   
+                                        </div>     
+                                        <div class="journey-carousel-grid">
+                                            <div class="slider-track">
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/gizmo-screen.png" alt="Home Screen" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Gizmo Hub</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/guided-shopping-1.png" alt="Gizmo Screen" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Guided Shopping</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/guided-shopping-2.png" alt="Product Catalogue" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Guided Shopping</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/guided-shopping-3.png" alt="Product Details" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Guided Shopping</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mobile-frame-card">
+                                                    <div class="iphone-mockup-wrapper">
+                                                        <div class="iphone-camera-notch"></div>
+                                                        <div class="iphone-scroll-viewport">
+                                                            <img src="../images/techtronics/first-prototype/shopping-cart.png" alt="Shopping Cart" class="long-screen-img">
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Gizmo Express Checkout</h3>
+                                                        <p>Scroll to explore</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="showcase-container">
+                                        <div class="showcase-caption">
+                                            <h2 class="showcase-main-title">Desktop Experience Journey</h2>
+                                            <span class="spec-badge">
+                                                MacBook Air Environment <span class="badge-divider">•</span> 1280 × 837 Figma Viewport
+                                            </span> 
+                                        </div>
+                                        <div class="desktop-journey-grid">
+                                            <div class="slider-track">
+                                                <div class="laptop-frame-card">
+                                                    <div class="laptop-mockup-wrapper">
+                                                        <div class="laptop-screen-viewport">
+                                                            <img src="../images/techtronics/desktop-first-prototype/homepage-desktop.png" alt="Desktop Dashboard" class="laptop-long-screen-img">
+                                                        </div>
+                                                        <div class="laptop-base-deck">
+                                                            <div class="laptop-display-notch-groove"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Main Dashboard</h3>
+                                                        <p>Scroll to explore platform layout</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="laptop-frame-card">
+                                                    <div class="laptop-mockup-wrapper">
+                                                        <div class="laptop-screen-viewport">
+                                                            <img src="../images/techtronics/desktop-first-prototype/gizmo-page-desktop.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                        </div>
+                                                        <div class="laptop-base-deck">
+                                                            <div class="laptop-display-notch-groove"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Guided Shopping</h3>
+                                                        <p>Scroll to explore data matrices</p>
+                                                    </div>
+                                                </div>
+                                
+                                                <div class="laptop-frame-card">
+                                                    <div class="laptop-mockup-wrapper">
+                                                        <div class="laptop-screen-viewport">
+                                                            <img src="../images/techtronics/desktop-first-prototype/product-catalogue-desktop.png" alt="Desktop Product Catalogue" class="laptop-long-screen-img">
+                                                        </div>
+                                                        <div class="laptop-base-deck">
+                                                            <div class="laptop-display-notch-groove"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Product Catalogue</h3>
+                                                        <p>Scroll to explore data matrices</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="laptop-frame-card">
+                                                    <div class="laptop-mockup-wrapper">
+                                                        <div class="laptop-screen-viewport">
+                                                            <img src="../images/techtronics/desktop-first-prototype/gizmo-page-desktop.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                        </div>
+                                                        <div class="laptop-base-deck">
+                                                            <div class="laptop-display-notch-groove"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Product Details</h3>
+                                                        <p>Scroll to explore data matrices</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="laptop-frame-card">
+                                                    <div class="laptop-mockup-wrapper">
+                                                        <div class="laptop-screen-viewport">
+                                                            <img src="../images/techtronics/desktop-first-prototype/shopping-cart-desktop.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                        </div>
+                                                        <div class="laptop-base-deck">
+                                                            <div class="laptop-display-notch-groove"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="frame-meta">
+                                                        <h3>Shopping Cart</h3>
+                                                        <p>Scroll to explore data matrices</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="showcase-container">
+                                        <div class="showcase-caption">
+                                            <h2 class="showcase-main-title">Guided Shopping</h2>   
+                                        </div>
+                                        <div class="slider-track">
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-first-prototype/gizmo-page-desktop.png" alt="Desktop Dashboard" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Gizmo Hub</h3>
+                                                    <p>Scroll to explore platform layout</p>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-first-prototype/guided-shopping-desktop-1.png" alt="Desktop Product Catalogue" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-first-prototype/guided-shopping-desktop-2.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-first-prototype/guided-shopping-desktop-3.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-first-prototype/product-recs-desktop.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Gizmo Recommendations</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-first-prototype/gizmo-express-checkout-desktop.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Express Checkout</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                                                                              
+                                </div>
+                            </section>
+                        </div>
+                    </div> 
+                </div> 
+
+                <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="header-left">
+                        <span class="badge gray">08</span>
+                        <i class="fa-solid fa-flask"></i>
+                        <h2>User Testing</h2>
+                    </div>
+                    <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                </div>
+                
+                    <div class="accordion-content">
+                        <div class="accordion-inner">  
+                            <section class="details-section">
+                            <p class="section-subtitle">Conducting user testing through structured interviews to evaluate the usability and effectiveness of our high-fidelity prototypes and identify areas for improvement and validation of design decisions.</p>
+                                <div class="user-testing-overview-grid">
+                                    <div class="overview-card">
+                                        <h3>Objective</h3>
+                                        <p>Gather user feedback and insights through structured interviews to evaluate the usability and effectiveness of Techtronics high-fidelity prototypes.</p>
+                                    </div>
+                                    <div class="overview-card">
+                                        <h3>Scope</h3>
+                                        <p>Assess design strategy for early prototyping phase addressing key challenges: confusing site architecture, overwhelming product catalogs, and cluttered product pages.</p>
+                                    </div>
+                                    <div class="overview-card">
+                                        <h3>Methodology</h3>
+                                        <p>Conduct 3 user interviews with targeted participants to observe interactions, validate design assumptions, and identify areas for iterative improvement.</p>
+                                    </div>
+                                    <div class="overview-card">
+                                        <h3>Outcome</h3>
+                                        <p>Generate actionable insights to inform design decisions and enhance user experience across mobile and desktop platforms.</p>
+                                    </div>
+                                </div>
+
+                                <div class="participant-overview-wrapper">
+                                <h1 class="section-title">Participant Overview</h1>
+                                
+                                <div class="participants-list">
+                                <p class="text-block">We targeted participants matching our core personas <span class="participant-highlight">—budget-conscious, tech-savvy—</span> and ensured diversity across technology literacy, product knowledge, and shopping habits.</p>
+                                    
+                                    <div class="participant-block">
+                                    <div class="participant-header">Participant #1</div>
+                                    <div class="participant-content">
+                                        <div class="demographics-card">
+                                            <img src="../images/techtronics/ideation/participant-1.png" alt="Participant 1 Profile" class="participant-avatar">
+                                            <div class="demographics-info">
+                                            <h3 class="column-title">Demographics:</h3>
+                                                <ul class="info-list">
+                                                    <li><strong>Age:</strong> 40</li>
+                                                    <li><strong>Gender:</strong> Female</li>
+                                                    <li><strong>Occupation:</strong> Retired</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="content-column">
+                                            <h3 class="column-title">Alignment with User Personas:</h3>
+                                            <ul class="info-list">
+                                                <li>Spends a lot of time comparing brands, functions, and pricing of different products</li>
+                                                <li>Not tech savvy, needs assistance when shopping for tech products</li>
+                                                <li>Appreciates e-commerce loyalty membership features like cashback</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="participant-block">
+                                    <div class="participant-header">Participant #2</div>
+                                    <div class="participant-content">
+                                        <div class="demographics-card">
+                                            <img src="../images/techtronics/ideation/participant-2.png" alt="Participant 1 Profile" class="participant-avatar">
+                                            <div class="demographics-info">
+                                            <h3 class="column-title">Demographics:</h3>
+                                            <ul class="info-list">
+                                                <li><strong>Age:</strong> 26</li>
+                                                <li><strong>Gender:</strong> Male</li>
+                                                <li><strong>Occupation:</strong> Product Designer</li>
+                                            </ul>
+                                            </div>
+                                        </div>
+                                        <div class="content-column">
+                                        <h3 class="column-title">Alignment with User Personas:</h3>
+                                        <ul class="info-list">
+                                            <li>Very knowledgeable on tech products</li>
+                                            <li>Frequently does research on products before purchasing from e-commerce platforms</li>
+                                            <li>Appreciates shopping recommendations and personalization features</li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="participant-block">
+                                    <div class="participant-header">Participant #3</div> 
+                                    <div class="participant-content">
+                                        <div class="demographics-card">
+                                            <img src="../images/techtronics/ideation/participant-3.png" alt="Participant 1 Profile" class="participant-avatar">
+                                            <div class="demographics-info">
+                                                <h3 class="column-title">Demographics:</h3>
+                                                <ul class="info-list">
+                                                    <li><strong>Age:</strong> 21</li>
+                                                    <li><strong>Gender:</strong> Male</li>
+                                                    <li><strong>Occupation:</strong> Student</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="content-column">
+                                        <h3 class="column-title">Alignment with User Personas:</h3>
+                                        <ul class="info-list">
+                                            <li>Shops occasionally on e-commerce platforms</li>
+                                            <li>Is not very confident when it comes to shopping for electronic products</li>
+                                            <li>Typically just compares customer reviews and the overall impression of a product</li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                </div>
+                                </div>                            
+
+                                <div class="affinity-container-recs">
+                                    <h3 class="section-title">Actionable Recommendations</h3>
+                                    <div class="sticky-grid">
+                                        <div class="sticky-note green">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/message-2.svg" alt="Pop-up Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Pop-up Message</h4>
+                                            <p class="note-content">A one-time pop-up introducing Gizmo as Techtronics’ AI Shopping Guide to add visual hierarchy and overcome user confusion on Homepage</p>
+                                            <span class="note-author">Recommendation I</span>
+                                        </div>
+                                        <div class="sticky-note green">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/rectangle.svg" alt="Product Cards Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Enriched Product Cards</h4>
+                                            <p class="note-content">Increase card contrast and add rich media, key specs, and accessory clarity to Gizmo Picks to enhance a more personalized, trustworthy, and informed user comparison.</p>
+                                            <span class="note-author">Recommendation II</span>
+                                        </div>
+                                        <div class="sticky-note green">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/photo.svg" alt="Image Options Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Image-based Options</h4>
+                                            <p class="note-content">Replace text-only options with image-based cards in Gizmo Questions to add visual clarity for users when defining their preferences to Gizmo.</p>
+                                            <span class="note-author">Recommendation III</span>
+                                        </div>
+                                        <div class="sticky-note green">
+                                            <div class="icon-wrapper">
+                                                <img src="../images/doodle-icons/interface/filter.svg" alt="Filter Icon" class="doodle-icon">
+                                            </div>
+                                            <h4 class="note-title">Catalogue Filters</h4>
+                                            <p class="note-content">Replace Gizmo Picks in Product Catalog with a persistent filter with an active indicator to satisfy the need for more apparent filter options.</p>
+                                            <span class="note-author">Recommendation IV</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div> 
+                </div> 
+
+                <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="header-left">
+                        <span class="badge gray">09</span>
+                        <i class="fa-solid fa-laptop"></i>
+                        <h2>Final Prototype</h2>
+                    </div>
+                    <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                </div>
+                
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+
+                            <section class="details-section">
+                            <p class="section-subtitle">After our user testing interviews, the synthesized user feedback was incorporated to enhance our final iteration of high-fidelity prototypes for our e-commerce app.</p>
+
+                                <section class="details-section">
+                                    <p class="preview-title">Initial Prototype was imporved based on:</p>
+                                    <div class="principle-row">
+                                        <div class="principle-box">
+                                            <i class="fa-solid fa-user principle-icon"></i>
+                                            <h3>User Centric</h3>
+                                            <p>Personalized AI shopping assistants</p>
+                                        </div>
+                                        <div class="principle-box">
+                                            <i class="fa-solid fa-bolt-lightning principle-icon"></i>
+                                            <h3>Efficiency</h3>
+                                            <p>Streamlined 3-step guided shopping flow</p>
+                                        </div>
+                                        <div class="principle-box">
+                                            <i class="fa-solid fa-eye principle-icon"></i>
+                                            <h3>Inclusive</h3>
+                                            <p>WCAG 2.1 compliant interface</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <div class="portfolio-showcase-context">
+                                <div class="showcase-container">
+                                    <div class="showcase-caption">
+                                        <h2 class="showcase-main-title">Mobile Experience Journey</h2>
+                                        <span class="spec-badge">
+                                            iPhone 13 mini Environment <span class="badge-divider">•</span> 375 × 812 Figma Viewport
+                                        </span>                                </div>
+                                    <div class="journey-carousel-grid">
+                                        <div class="slider-track">
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Popup.png" alt="Home Screen" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Main Dashboard</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Gizmo Screen.png" alt="Gizmo Screen" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Product Catalogue.png" alt="Product Catalogue" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Product Catalogue</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Product Details.png" alt="Product Details" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Product Details</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Shopping Cart.png" alt="Shopping Cart" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Shopping Cart</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="showcase-container">
+                                    <div class="showcase-caption">
+                                        <h2 class="showcase-main-title">Guided Shopping</h2>   
+                                    </div>     
+                                    <div class="journey-carousel-grid">
+                                        <div class="slider-track">
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Gizmo Screen.png" alt="Gizmo Screen" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Gizmo Hub</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Gizmo - Guided Shopping Step 1.png" alt="Gizmo Screen" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Gizmo - Guided Shopping Step 2.png" alt="Product Catalogue" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Gizmo - Guided Shopping Step 3.png" alt="Product Details" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Gizmo - Personalized Recommendations.png" alt="Shopping Cart" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Gizmo Recommendations</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mobile-frame-card">
+                                                <div class="iphone-mockup-wrapper">
+                                                    <div class="iphone-camera-notch"></div>
+                                                    <div class="iphone-scroll-viewport">
+                                                        <img src="../images/techtronics/final-prototype/Gizmo Express Checkout.png" alt="Shopping Cart" class="long-screen-img">
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Gizmo Express Checkout</h3>
+                                                    <p>Scroll to explore</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="showcase-container">
+                                    <div class="showcase-caption">
+                                        <h2 class="showcase-main-title">Desktop Experience Journey</h2>
+                                        <span class="spec-badge">
+                                            MacBook Air Environment <span class="badge-divider">•</span> 1280 × 837 Figma Viewport
+                                        </span> 
+                                    </div>
+                                    <div class="desktop-journey-grid">
+                                        <div class="slider-track">
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-final-prototype/Desktop - Homepage.png" alt="Desktop Dashboard" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Main Dashboard</h3>
+                                                    <p>Scroll to explore platform layout</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-final-prototype/Gizmo Desktop Webpage.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Guided Shopping</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+                            
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-final-prototype/Product Catalogue.png" alt="Desktop Product Catalogue" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Product Catalogue</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-final-prototype/Product Page.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Product Details</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="laptop-frame-card">
+                                                <div class="laptop-mockup-wrapper">
+                                                    <div class="laptop-screen-viewport">
+                                                        <img src="../images/techtronics/desktop-final-prototype/Shopping Cart.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                    </div>
+                                                    <div class="laptop-base-deck">
+                                                        <div class="laptop-display-notch-groove"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="frame-meta">
+                                                    <h3>Shopping Cart</h3>
+                                                    <p>Scroll to explore data matrices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+
+                                <div class="showcase-container">
+                                    <div class="showcase-caption">
+                                        <h2 class="showcase-main-title">Guided Shopping</h2>  
+                                    </div>
+                                    <div class="slider-track">
+                                        <div class="laptop-frame-card">
+                                            <div class="laptop-mockup-wrapper">
+                                                <div class="laptop-screen-viewport">
+                                                    <img src="../images/techtronics/desktop-final-prototype/Product Catalogue.png" alt="Desktop Dashboard" class="laptop-long-screen-img">
+                                                </div>
+                                                <div class="laptop-base-deck">
+                                                    <div class="laptop-display-notch-groove"></div>
+                                                </div>
+                                            </div>
+                                            <div class="frame-meta">
+                                                <h3>Gizmo Hub</h3>
+                                                <p>Scroll to explore platform layout</p>
+                                            </div>
+                                        </div>
+                        
+                                        <div class="laptop-frame-card">
+                                            <div class="laptop-mockup-wrapper">
+                                                <div class="laptop-screen-viewport">
+                                                    <img src="../images/techtronics/desktop-final-prototype/Gizmo Desktop Webpage-2.png" alt="Desktop Product Catalogue" class="laptop-long-screen-img">
+                                                </div>
+                                                <div class="laptop-base-deck">
+                                                    <div class="laptop-display-notch-groove"></div>
+                                                </div>
+                                            </div>
+                                            <div class="frame-meta">
+                                                <h3>Guided Shopping</h3>
+                                                <p>Scroll to explore data matrices</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="laptop-frame-card">
+                                            <div class="laptop-mockup-wrapper">
+                                                <div class="laptop-screen-viewport">
+                                                    <img src="../images/techtronics/desktop-final-prototype/Gizmo Desktop Webpage-3.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                </div>
+                                                <div class="laptop-base-deck">
+                                                    <div class="laptop-display-notch-groove"></div>
+                                                </div>
+                                            </div>
+                                            <div class="frame-meta">
+                                                <h3>Guided Shopping</h3>
+                                                <p>Scroll to explore data matrices</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="laptop-frame-card">
+                                            <div class="laptop-mockup-wrapper">
+                                                <div class="laptop-screen-viewport">
+                                                    <img src="../images/techtronics/desktop-final-prototype/Gizmo Desktop Webpage-4.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                </div>
+                                                <div class="laptop-base-deck">
+                                                    <div class="laptop-display-notch-groove"></div>
+                                                </div>
+                                            </div>
+                                            <div class="frame-meta">
+                                                <h3>Guided Shopping</h3>
+                                                <p>Scroll to explore data matrices</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="laptop-frame-card">
+                                            <div class="laptop-mockup-wrapper">
+                                                <div class="laptop-screen-viewport">
+                                                    <img src="../images/techtronics/desktop-final-prototype/Recommendation Results.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                </div>
+                                                <div class="laptop-base-deck">
+                                                    <div class="laptop-display-notch-groove"></div>
+                                                </div>
+                                            </div>
+                                            <div class="frame-meta">
+                                                <h3>Gizmo Recommendations</h3>
+                                                <p>Scroll to explore data matrices</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="laptop-frame-card">
+                                            <div class="laptop-mockup-wrapper">
+                                                <div class="laptop-screen-viewport">
+                                                    <img src="../images/techtronics/desktop-final-prototype/Gizmo Express Checkout.png" alt="Desktop Product Analytics" class="laptop-long-screen-img">
+                                                </div>
+                                                <div class="laptop-base-deck">
+                                                    <div class="laptop-display-notch-groove"></div>
+                                                </div>
+                                            </div>
+                                            <div class="frame-meta">
+                                                <h3>Express Checkout</h3>
+                                                <p>Scroll to explore data matrices</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div> 
+                </div>
+                
+                <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div class="header-left">
+                        <span class="badge gray">10</span>
+                        <i class="fa-solid fa-circle-check list-icon"></i>
+                        <h2>Next Steps</h2>
+                    </div>
+                    <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                </div>
+                
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <section class="details-section">
+                            <p class="section-subtitle">A strategic teardown comparing the search-to-checkout journey across the two largest tech retailers to identify usability patterns and friction points.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            <section class="next-project-section">
+                <div class="card next-project-card">
+                    <div class="next-content">
+                        <span class="badge badge-red">NEXT PROJECT</span>
+                        <h2>Student Financial App</h2>
+                        <p>Helping college students manage personal finance through integrating Generative Aritifical Intelligence tools into key workflows.</p>
+                        <a href="../shellfund/shellfund.html" class="btn-primary" style="width: auto; padding: 12px 30px;">View Project →</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Your inline snippet runs here!");
+        });
+    </script>
+</body>
+</html>

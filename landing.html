@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Liu Dashboard</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <script>
+            fetch('../sidebar.html')
+                .then(response => {
+                    if (!response.ok) throw new Error("Sidebar file not found");
+                    return response.text();
+                })
+                .then(data => {
+                    const container = document.getElementById('sidebar-container');
+                    container.innerHTML = data;
+                    
+                    // Logic to highlight the active link
+                    const currentPage = window.location.pathname.split("/").pop() || "landing.html";
+                    const links = {
+                        "landing.html": "nav-dashboard",
+                        "techtornics/techtronics.html": "nav-techtronics",
+                        "shellfund/shellfund.html": "nav-shellfund",
+                        "simulator/simulator.html": "nav-simulator",
+                    //    "feastly.html": "nav-feastly"
+                    };
+                    
+                    if (links[currentPage]) {
+                        const activeLink = document.getElementById(links[currentPage]);
+                        if(activeLink) activeLink.classList.add('active');
+                    }
+                })
+                .catch(err => console.error(err));
+        </script>
+
+        <main class="content">
+            <section class="hero-card">
+                <div class="hero-content-left">
+                    <div class="status-badge">
+                        Available for freelance
+                    </div>
+                    
+                    <h1 class="hero-title">Creating <em>fast</em> interfaces for everyone<h1>
+                    <h2>I am a <span class="role-a">designer</span>, <span class="role-b">researcher</span>, and <span class="role-c">builder</span>.</h2>
+                    
+                    <div class="hero-specialization">
+                        <p><strong>Hello! I’m Grace.</strong> I specialize in UX/UI, with proficency in front-end development and visual storytelling. By leveraging PM strategies, technology, design, and AI-assisted workflows, I offer the essential skillset to help companies build functional and memorable digital products.</p>
+                    </div>
+
+                    <div class="academic-journey">
+                        <span class="label">PROFESSIONAL DEGREES</span>
+                        <div class="degree-container">
+                            <div class="degree">
+                                <span class="degree-title">MS in Human-Computer Interaction</span>
+                                <span class="degree-status">UMD, Complete 2027</span>
+                            </div>
+                            <div class="degree">
+                                <span class="degree-title">User Experience Certificate Program</span>
+                                <span class="degree-status">UCLAX, Completed 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="hero-container">
+                        </div>
+                </div>
+                <div class="hero-image-right">
+                    <div class="profile-container">
+                        <a href="about/about.html" class="imessage-bubble-link">
+                            <div class="imessage-bubble">
+                                <span>About Me!</span>
+                            </div>
+                        </a>
+
+                        <div class="image-wrapper">
+                            <img src="../images/profile.png" alt="Grace Liu Profile">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mission-bar">
+                <div class="mission-content">
+                    <div class="mission-icon">
+                        <i class="fas fa-rocket"></i> </div>
+                    <p><strong>The Core Mission</strong> "Closing the gap between attainable user insights and effortless online experiences."</p>
+                </div>
+            </section>
+
+            <section class="projects-section">
+            <div class="section-header">
+                <h3>Featured Projects</h3>
+            </div>
+
+            <div class="project-grid">
+                <a href="techtronics/techtronics.html" class="project-card-link">
+                    <div class="project-card" style="background-image: url('../images/thumbnails/techtronics.png')">
+                        <div class="project-overlay">
+                            <span class="category">WEB APPLICATION</span>
+                            <h4>Techtronics: Electronics E-commerce</h4>
+                            <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="shellfund/shellfund.html" class="project-card-link">
+                <div class="project-card" style="background-image: url('../images/thumbnails/shellfund.png')">
+                    <div class="project-overlay">
+                        <span class="category">MOBILE UX</span>
+                        <h4>ShellFund: Student Finance App</h4>
+                        <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                    </div>
+                </div>
+                </a>
+
+                <a href="simulator/simulator.html" class="project-card-link">
+                <div class="project-card" style="background-image: url('../images/thumbnails/simulator.png')">
+                    <div class="project-overlay">
+                        <span class="category">3D INTERFACE</span>
+                        <h4>Ben & Jerry's Simulator</h4>
+                        <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </section>
+
+            <section class="bottom-grid">
+                <div class="card skills-card">
+                    <div class="card-header">
+                        <i class="fas fa-tools icon"></i>
+                        <h4>Skills & Arsenal</h4>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Javascript</span>
+                        <span class="tag">Figma Prototyping</span>
+                        <span class="tag">Gen-AI Leveraging</span>
+                        <span class="tag">UI Design Systems</span>
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="card testimonial-card">
+                    <div class="quote-icon">“</div>
+                    <p class="quote-text">
+                        If you're waiting to feel ready, you'll design nothing. 
+                        <br><span class="highlight">Start Ugly.</span> 
+                        <br>Ugly is the first step towards obvious.
+                    </p>
+                    <div class="author-info">
+                        <span class="author-name">— David duChemin</span>
+                    </div>
+                </div>
+                <div class="card cta-card">
+                    <h4>Let's build something fast together.</h4>
+                    <a href="mailto:yliu1225@umd.edu?subject=Portfolio%20Inquiry%20-%20Let's%20Connect" class="btn-primary">
+                        Send a Message
+                    </a>
+                    <a href="../assets/2026 Resume (Yan Zhen Liu).pdf" download="Grace_Liu_Resume.pdf" class="btn-secondary">
+                        Download Resume
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

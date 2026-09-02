@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Grace Liu</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+        
+        <script>
+            fetch('../sidebar.html')
+                .then(response => {
+                    if (!response.ok) throw new Error("Sidebar file not found");
+                    return response.text();
+                })
+                .then(data => {
+                    const container = document.getElementById('sidebar-container');
+                    container.innerHTML = data;
+                    
+                    // Logic to highlight the active link
+                    const currentPage = window.location.pathname.split("/").pop() || "landing.html";
+                    const links = {
+                        "landing.html": "nav-dashboard",
+                        "techtronics/techtronics.html": "nav-techtronics",
+                        "shellfund/shellfund.html": "nav-shellfund",
+                        "simulator/simulator.html": "nav-simulator",
+                     //   "feastly.html": "nav-feastly"
+                    };
+                    
+                    if (links[currentPage]) {
+                        const activeLink = document.getElementById(links[currentPage]);
+                        if(activeLink) activeLink.classList.add('active');
+                    }
+                })
+                .catch(err => console.error(err));
+        </script>
+
+        <main class="content">
+            <section class="about-container">
+                <div class="badge-blue">About Me</div>
+                <section class="hero-split">
+                    <div class="hero-image-area">
+                        <div class="circle-frame">
+                            <img src="../images/about/about-me.png" alt="Grace Liu">
+                        </div>
+                    </div>
+                    
+                    <div class="hero-text-area">
+                        <h1 class="main-title">
+                            I'm Grace,<br>
+                            <span>
+                                A UX designer based in Maryland
+                                <img src="../images/about/maryland-crabs-logo.png" alt="Maryland Crab" class="crab-img">
+                            </span>
+                        </h1>
+                    </div>
+                </section>
+
+                <div class="full-bio">
+                    <div class="bio-block">
+                        <span class="bio-subtitle"><i class="fa-solid fa-cat"></i>Background</span>
+                        <p>I am a lifelong learner, an artist, and lover of nature and animals. My degree in history stemmed from my initial plan for pre-law; I learned to contextualize the world critically and think from different perspectives in every situation.</p>
+                    </div>
+
+                    <div class="bio-block">
+                        <span class="bio-subtitle"><i class="fa-solid fa-shuffle list-icon"></i>The Pivot</span>
+                        <p>As I gradually realized that law school was not my path, illustrating for UCLA's <em>Daily Bruin</em> had reignited my passion for design, and front-end development projects sparked a growing interest in coding, which led to my transition into Human-Computer Interaction and User Experience (UX).</p>
+                    </div>
+                    
+                    <div class="bio-block">
+                        <span class="bio-subtitle"><i class="fa-solid fa-star"></i>My Focus</span>
+                        <p>Learning user problems and creating prototypes for them has inspired me to strive to (through tech-levering) transform complicated user experiences into simply practical and beautiful digital solutions that foster meaningful tech usage.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-grid">
+                <div class="grid-section">
+                    <h2 class="sub-label">Education</h2>
+                    <div class="list-card">
+                        <div class="list-row">
+                            <strong>Orange Coast College, Costa Mesa</strong>
+                            <span class="highlight">2020 — 2022</span>
+                        </div>
+                        <p>General History, A.A</p>
+                    </div>
+                    <div class="list-card pink-card">
+                        <div class="list-row">
+                            <strong>University of California, Los Angeles</strong>
+                            <span class="highlight">2022 — 2024</span>
+                        </div>
+                        <p>General History, B.A</p>
+                    </div>
+                    <div class="list-card">
+                        <div class="list-row">
+                            <strong>UCLA Extension</strong>
+                            <span class="highlight">2024 — 2025</span>
+                        </div>
+                        <p>User Experience Certificate</p>
+                    </div>
+                    <div class="list-card">
+                        <div class="list-row">
+                            <strong>Berkely Extension</strong>
+                            <span class="highlight">2024 — 2025</span>
+                        </div>
+                        <p>Python Programming Certificate</p>
+                    </div>
+                    <div class="list-card pink-card">
+                        <div class="list-row">
+                            <strong>University of Maryland, College Park</strong>
+                            <span class="highlight">2025 — 2027</span>
+                        </div>
+                        <p>Human-Computer-Interaction, M.S</p>
+                    </div>
+                </div>
+
+                <div class="grid-section">
+                    <h2 class="sub-label">Experience</h2>
+                    <div class="list-card">
+                        <div class="list-row">
+                            <strong>Daily Bruins Illustrator</strong>
+                            <span class="highlight">2022 — 2024</span>
+                        </div>
+                        <p>UCLA's Student Media</p>
+
+                        <div class="slider-track">
+                            <figure class="illu-card">
+                                <img src="../images/about/model.webp" alt="Illustration i">
+                            </figure>
+                            <figure class="illu-card">
+                                <img src="../images/about/future-dystopia.webp" alt="Illustration ii">
+                            </figure>
+                            <figure class="illu-card">
+                                <img src="../images/about/news.webp" alt="Illustration iii">
+                            </figure>
+                            <figure class="illu-card">
+                                <img src="../images/about/sadgirl.webp" alt="Illustration iv">
+                            </figure>
+                        </div>
+
+                    </div>
+                    <div class="list-card">
+                        <div class="list-row">
+                            <strong>UX Terps Illustrator</strong>
+                            <span class="highlight">2025</span>
+                        </div>
+                        <p>UMD's Interdisciplinary Student Organization</p>
+
+                        <div class="slider-track">
+                            <figure class="illu-card">
+                                <img src="../images/about/graph-illustration.png" alt="Illustration i">
+                            </figure>
+                            <figure class="illu-card">
+                                <img src="../images/about/map-illustration.png" alt="Illustration ii">
+                            </figure>
+                            <figure class="illu-card">
+                                <img src="../images/about/bulb-illustration.png" alt="Illustration iii">
+                            </figure>
+                            <figure class="illu-card">
+                                <img src="../images/about/research-illustration.png" alt="Illustration iv">
+                            </figure>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="illu-section">
+            <h2 class="sub-label">ILLUSTRATIONS</h2>
+            <div class="illu-row">
+                <div class="slider-track">
+                    <figure class="illu-card">
+                    <img src="../images/about/pregnant-cat.jpg" alt="Painting of a sphynx cat">
+                    <figcaption class="illu-caption">Painted in 2024</figcaption>
+                    </figure>
+
+                    <figure class="illu-card">
+                    <img src="../images/about/twin-cats.jpg" alt="Painting of two cats">
+                    <figcaption class="illu-caption">Painted in 2024</figcaption>
+                    </figure>
+
+                    <figure class="illu-card">
+                    <img src="../images/about/baby-cat.jpg" alt="Painting of baby cat">
+                    <figcaption class="illu-caption">Painted in 2024</figcaption>
+                    </figure>
+
+                    <figure class="illu-card">
+                    <img src="../images/about/calico-cat.jpg" alt="Painting of calico cat">
+                    <figcaption class="illu-caption">Painted in 2024</figcaption>
+                    </figure>
+
+                    <figure class="illu-card">
+                    <img src="../images/about/orange-cat.jpg" alt="Painting of yawning cat">
+                    <figcaption class="illu-caption">Painted in 2024</figcaption>
+                    </figure>
+                </div>
+            </div>
+            </section>
+        </main>
+
+    </div>
+</body>
+</html>

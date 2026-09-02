@@ -1,0 +1,347 @@
+:root {
+    --accent: #3d4ef5;
+    --card: #111111;
+    --card-main: #191b22;
+    --card-dark: #111111;
+    --border-color: #1f2026;
+    --text-muted: #a0a5b5;
+    --text-light: #e2e4e9;
+}
+
+body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.badge-blue {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.9rem;
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;                        
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 30px;  
+  font-size: 0.9rem;
+  font-weight: 700;
+    letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+  line-height: 1;
+  user-select: none;
+
+  margin: 0 0 1.5rem 0;
+  align-self: flex-start;
+    margin-bottom: 2rem;
+}
+
+.content {
+  width: 1100px !important;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
+.about-container,
+.info-grid,
+.illu-section {
+    border: 1px solid var(--border-color, #1f2026);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    background: rgba(255, 255, 255, 0.01); /* Optional subtle fill */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.about-container {
+    width: 100% !important;
+    max-width: 1200px; /* Constrains badge, hero, and bio to the same vertical column */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-aligns all top-level children */
+    padding-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-split {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Matches image size directly */
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 900px;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+/* Position image in column 1 */
+.hero-image-area {
+    grid-column: 1;
+    grid-row: 1;
+    filter: drop-shadow(0 0 10px var(--accent));
+}
+
+/* Position main title & badge in column 2 */
+.hero-text-area {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Allow paragraphs to span full width under both image and text */
+.full-bio {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    color: #a0a0a0;
+    line-height: 1.8;
+}
+
+.bio-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps titles & paragraphs aligned to the left within the centered box */
+    gap: 0.6rem;
+    width: 100%;
+}
+
+.bio-block p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.65;
+    color: var(--text-muted, #a0a5b5);
+    max-width: 100%;
+}
+
+/* Styled Section Bubbles */
+.bio-block .bubble {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  margin-bottom: 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Typography Hierarchy */
+.bio-block p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: #d1d5db;
+  max-width: 580px;
+}
+
+.circle-frame {
+    width: 320px;
+    height: 320px;
+    border: 6px solid color-mix(in srgb, var(--accent) 60%, black);
+    border-radius: 100%; 
+    overflow: hidden;
+}
+
+.circle-frame img {
+    width: 100%;  /* Scaled up to cover rotated corners without white space */
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 10px 0;
+    line-height: 1.1;
+}
+
+.main-title span { color: var(--accent); }
+
+.crab-img {
+    height: 1.5em;             /* Scales proportionally with the H1 font size */
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.35rem;
+    transform: translateY(-4px); /* Aligns nicely with the text baseline */
+    transition: transform 0.2s ease;
+}
+
+.main-title:hover .crab-img {
+    transform: translateY(-4px) scale(1.15) rotate(-5deg); /* Subtle hover effect */
+}
+
+.full-bio {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto 30px auto; /* Centered horizontally via auto margins */
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    color: #a0a0a0;
+    line-height: 1.8;
+}
+
+.bio-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.bio-subtitle i {
+    font-size: 1.3rem;
+    color: var(--accent);
+    opacity: 0.9;
+}
+
+/* Content Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 60px;
+    margin-bottom: 2.5rem;
+}
+
+.grid-section {
+  min-width: 0 !important;
+}
+
+.sub-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 25px;
+}
+
+.list-card {
+    background: var(--card);
+    padding: 24px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #222;
+}
+
+.list-card p {
+  color: var(--text-muted);
+}
+
+
+.list-card.pink-card .highlight {
+  color: #f53d77; 
+}
+
+.list-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.highlight { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+
+.list-card .slider-track {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.list-card .illu-card {
+  flex: 0 0 180px; /* Slightly compact card size fitting inside list items */
+  width: 180px;
+}
+
+.list-card .illu-card img {
+  height: 200px;
+}
+
+/* ILLUSTRATION */
+
+.illu-section {
+  width: 100% !important;
+  grid-column: 1 / -1; /* Spans full width if parent uses CSS Grid */
+  margin-top: 0;
+}
+
+.illu-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 1200px;
+}
+
+.illu-placeholder {
+    background: var(--card);
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    border: 1px dashed #333;
+}
+
+.illu-card {
+  flex: 0 0 300px; 
+  scroll-snap-align: start;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.illu-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Caption styling */
+.illu-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Container slider styling */
+.slider-track {
+  display: flex !important;
+  width: 1000px !important;
+  gap: 2.5rem;
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar styling */
+.slider-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slider-track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.slider-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.slider-track::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}

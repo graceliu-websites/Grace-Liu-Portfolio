@@ -1,0 +1,562 @@
+:root {
+    --accent: #E57CB1;
+    --card-main: #191b22;
+    --card-dark: #111111;
+    --border-color: #1f2026;
+    --text-muted: #a0a5b5;
+    --text-light: #e2e4e9;
+}
+
+body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base Layout Center Positioning Container */
+.retro-hero-section {
+  background-color: #000000;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* 1. Interface Top Badge Styling */
+.badge-container {
+  margin-bottom: 24px;
+}
+
+.interface-badge {
+  border: 1px var(--accent);
+  color: var(--accent);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* 2. Headline & Retro Text Glowing Settings */
+.main-title {
+font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  font-size: 38px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.sub-title-glow {
+font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+  font-size: 54px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin: 10px 0 40px 0;
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(255, 95, 162, 0.6), 
+               0 0 20px rgba(255, 95, 162, 0.4);
+}
+
+/* 3. Image Graphic Container & Decorative Corner Bracket Lines */
+.showcase-frame-container {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin-bottom: 40px;
+  padding: 24px;
+}
+
+.rect-mockup, 
+.showcase-img,
+.image-wrapper {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important; /* Removes any dark glow framing the edges */
+  background: transparent !important; /* Clears any hidden backdrop container colors */
+}
+
+.rect-mockup {
+  border-radius: 12px !important; 
+  clip-path: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Structural lines creating the minimal frame details */
+.accent-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: rgba(255, 95, 162, 0.35); /* Soft pink border color accents */
+  border-style: solid;
+  pointer-events: none;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 2px 2px;
+}
+
+/* 4. Paragraph Layout Rules */
+.hero-body-text {
+  color: #a3a3a3;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto 40px auto;
+}
+
+/* 5. Actions: Play Now Custom Bubble Style & Downpress Mechanics */
+.action-links-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.btn-link-wrapper {
+  text-decoration: none;
+}
+
+.retro-play-button {
+  background-color: #f15298; /* Main pink surface */
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 16px 42px;
+  border-radius: 14px;
+  border: 2px solid #ff7ebd; /* Brighter pink internal border line */
+  box-shadow: 0px 6px 0px #b02d66; 
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.retro-play-button:hover {
+  background-color: #f661a3;
+  transform: translateY(-1px);
+  box-shadow: 0px 7px 0px #b02d66;
+}
+
+.retro-play-button:active {
+  transform: translateY(5px); /* Moves downward into its own shadow line on click */
+  box-shadow: 0px 1px 0px #b02d66;
+}
+
+.details-section {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1000px;
+  margin: 48px auto 0 auto;
+  padding: 0 40px; 
+  box-sizing: border-box;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  font-size: 58px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 800;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.section-title-pink {
+    font-family: 'Orbitron', sans-serif;
+  color: var(--accent);
+  font-size: 58px;
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 800;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Interactive Navigation Heading Layout Group */
+.interactive-tab-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.tab-toggle-btn {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  font-size: 38px;
+  letter-spacing: 1px;
+  padding-left: 100px;
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.25; /* Fades unselected headers out cleanly */
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.tab-toggle-btn.pink-accent {
+  color: var(--accent);
+  padding-right: 50px;
+}
+
+.tab-toggle-btn.blue-accent {
+  color: #4fd1d9;
+  padding-right: 50px;
+}
+
+/* Active Status Adjustments */
+.tab-toggle-btn.active {
+  opacity: 1 !important;
+  transform: scale(1.02);
+}
+
+.tab-toggle-btn:hover {
+  opacity: 0.6;
+}
+
+/* 1. Hide ALL tab contents by default */
+.tab-content {
+    display: none;
+}
+
+/* 2. Show ONLY the tab content that has the active-content class */
+.tab-content.active-content {
+    display: block; /* You can also use 'flex' or 'grid' if needed */
+}
+
+/* Structural Tab Content Panel Handlers */
+.sub-tab-panel {
+  display: none; /* Keeps sections closed by default */
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.sub-tab-panel.active-panel {
+  display: block; /* Mounts active wrapper */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Container holds both the model and the info side-by-side */
+.model-container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 30px auto 0 auto;
+}
+
+/* Gives the 3D model column equal breathing room */
+.model-viewer-frame {
+  flex: 1;
+  height: 450px;
+  width: 100%;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles the right column info card */
+.model-info-card {
+  flex: 1;
+  text-align: left;
+}
+
+.character-badge {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #EBB13B; /* Using the gold from your Ben & Jerry's title */
+  font-weight: bold;
+}
+
+.character-name {
+  font-size: 32px;
+  margin: 8px 0 16px 0;
+  color: #fff;
+}
+
+.character-bio {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.card-divider {
+  border: 0;
+  height: 1px;
+  background: #333;
+  margin: 20px 0;
+}
+
+/* Creates a clean 2x2 layout grid for the quick technical specs */
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.spec-item {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.spec-item strong {
+  color: #fff;
+}
+
+/* Responsive design: Stacks vertically on smaller tablet/phone viewports */
+@media (max-width: 768px) {
+  .model-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .model-viewer-frame {
+    height: 350px;
+  }
+}
+
+/* Container Wrapping All Cards */
+.cards-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+    margin-top: 30px;
+}
+
+/* Individual Card Panels */
+.card {
+  background-color: #0b0d11;
+  border: 1px solid #1a1d24;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  gap: 40px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace; 
+  box-sizing: border-box;
+}
+
+/* Left Icon Container Block */
+.card-icon-container {
+  width: 80px;               /* Enlarged from 5px so it's a visible, beautiful square */
+  height: 80px;              /* Enlarged from 5px */
+  background-color: #1c141d;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;          /* Prevents any image spilling */
+  padding: 8px;              /* Gives the logo a clean breathing room border inside the background */
+  box-sizing: border-box;    /* Keeps the padding from expanding the 40px size */
+}
+
+/* Add this rule to force the image to obey the container sizes */
+.card-icon-container img.card-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* Keeps the logo aspect ratio perfect without warping */
+  display: block;
+}
+
+/* Center Content Stack */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-description {
+  color: #a0a5b1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Technical Specs Badge */
+.card-badge {
+  background-color: #171b22;
+  color: #7d8390;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  align-self: flex-start;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.badge-separator {
+  color: #383e4a;
+}
+
+/* Link Actions row */
+.card-links {
+  display: flex;
+  gap: 24px;
+  margin-top: 4px;
+}
+
+.card-link {
+  color: #e65c9c;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.card-link:hover {
+  opacity: 0.8;
+}
+
+/* Targets the font awesome icon inside links */
+.card-link i {
+  font-size: 0.95rem;
+}
+
+/* Container scroll block */
+.excel-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #3a3a3a; /* Darkened border */
+  border-radius: 4px;
+  background-color: #1e1e1e; /* Dark theme container background */
+  margin: 20px 0;
+}
+
+/* Base Spreadsheet Setup */
+.excel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+  font-size: 13px;
+  color: #ffffff; /* Flipped text to white */
+  background-color: #1e1e1e; /* Dark table background */
+}
+
+/* Gray Spreadsheet Header Cells */
+.excel-label-row th {
+  padding: 10px 12px;
+  font-weight: 600;
+  color: #e0e0e0; /* Off-white header text */
+  text-align: left;
+  font-size: 13px;
+  background-color: #2d2d2d; /* Sleek dark gray header background */
+  border: 1px solid #3a3a3a; /* Darkened header border */
+}
+
+/* Excel Sheet Core Grid Lines */
+.excel-table td {
+  border: 1px solid #2a2a2a; /* Muted grid lines so they aren't harsh */
+  padding: 8px 12px;
+  line-height: 1.45;
+  vertical-align: top;
+}
+
+/* Width constraint allocations for descriptions */
+.excel-table th:nth-child(3),
+.excel-table td:nth-child(3),
+.excel-table th:nth-child(7),
+.excel-table td:nth-child(7) {
+  width: 80px;
+  min-width: 80px;
+}
+
+/* Correctly target the descriptions (now columns 4 and 5) */
+.excel-table td:nth-child(4){
+  min-width: 260px;
+  max-width: 380px;
+  font-size: 13px;
+  color: #aaaaaa; /* Soft gray description text to reduce eye strain */
+}
+
+.excel-table td:nth-child(5),
+.excel-table td:nth-child(6){
+  min-width: 150px;
+  max-width: 380px;
+  font-size: 13px;
+  color: #d1d1d1; /* Soft gray description text to reduce eye strain */
+}
+
+/* Formatting layout modifiers */
+.excel-bold {
+  font-weight: 600;
+  color: #4caf50; /* Changed from Excel Green to a neon/vibrant dark-mode green */
+}
+
+.excel-right {
+  text-align: right;
+  font-family: 'Consolas', monospace; 
+}
+
+/* Row Hover Selection Grid Emulation */
+.excel-table tbody tr:hover td {
+  background-color: #252525; /* Subtle deep gray highlight on hover */
+}
+
+/* Container rules to format the thumbnail cell image */
+.excel-thumb {
+  width: 150px;          
+  height: 150px;
+  object-fit: contain;  
+  border-radius: 4px;   
+  background-color: transparent; /* Changed "none" to valid CSS transparent */
+  display: block;
+  margin: 0 auto;       
+}
+
+/* Helper formatting class to center align items */
+.excel-center {
+  text-align: center;
+  vertical-align: middle !important;
+  width: 60px;          
+  min-width: 60px;
+}

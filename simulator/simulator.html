@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Simulator Interface</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="simulator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <script>
+            fetch('../sidebar.html')
+                .then(response => {
+                    if (!response.ok) throw new Error("Sidebar file not found");
+                    return response.text();
+                })
+                .then(data => {
+                    const container = document.getElementById('sidebar-container');
+                    container.innerHTML = data;
+                    
+                    // Logic to highlight the active link
+                    const currentPage = window.location.pathname.split("/").pop() || "landing.html";
+                    const links = {
+                        "landing.html": "nav-dashboard",
+                        "techtronics.html": "nav-techtronics",
+                        "shellfund.html": "nav-shellfund",
+                        "simulator.html": "nav-simulator",
+                    //   "feastly.html": "nav-feastly"
+                    };
+                    
+                    if (links[currentPage]) {
+                        const activeLink = document.getElementById(links[currentPage]);
+                        if(activeLink) activeLink.classList.add('active');
+                    }
+                })
+                .catch(err => console.error(err));
+        </script>
+
+        <main class="content">
+            <section class="retro-hero-section">
+            <div class="badge-container">
+                <span class="interface-badge">Interface Design</span>
+            </div>
+
+            <h1 class="main-title">3D SIMULATOR:</h1>
+            <h2 class="sub-title-glow">BEN & JERRY'S<br>FLAVOR MENU</h2>
+
+            <div class="showcase-frame-container">
+                <div class="accent-corner top-right"></div>
+                <div class="accent-corner bottom-left"></div>
+                
+                <div class="image-wrapper">
+                <img src="../images/simulator/simulator-thumbnail.png" alt="Ben &amp; Jerry's 3D Simulator Truck Layout" class="showcase-img rect-mockup">                
+                </div>
+            </div>
+
+            <p class="hero-body-text">
+                By extracting ice cream flavor specifications from the Ben &amp; Jerry's official website into a database, the product data is visualized into a simulating experience for users to explore and learn different experiences offered by this global ice cream brand.
+            </p>
+
+            <div class="action-links-group">
+                <a href="https://yanzliu1225.github.io/Ben-and-Jerrys-Simulator/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                    <button class="retro-play-button">PLAY NOW (WEB DEMO)</button>
+                </a>
+            </div>
+            </section>
+
+            <section class="details-section">
+            <h2 class="section-title">Simulator <span class="section-title-pink">Components</span></h2>
+
+                <div class="interactive-tab-header">
+                    <span class="tab-toggle-btn active" data-tab-target="models-view">Models</span>
+                    <span class="tab-toggle-btn pink-accent" data-tab-target="libraries-view">Libraries</span>
+                    <span class="tab-toggle-btn blue-accent" data-tab-target="data-view">Database</span>                
+                </div>
+
+                <div id="models-content" class="tab-content active-content">
+                    <p class="section-subtitle">Interact with the 3D asset pipeline. Click and drag the model to inspect optimization, textures, and geometry used in the final simulation engine.</p>
+                    
+                    <div class="model-container">
+                        <div class="model-viewer-frame">
+                            <model-viewer 
+                                src="../models/man.glb" 
+                                alt="A 3D model of an ice cream man"
+                                camera-controls 
+                                auto-rotate 
+                                ar
+                                shadow-intensity="1">
+                            </model-viewer>
+                        </div>
+
+                        <div class="model-info-card">
+                            <span class="character-badge">CULINARY SERVER</span>
+                            <h3 class="character-name">The Swedish Chef</h3>
+                            <p class="character-bio">The official guide of the park sandbox. Users interacte with him to prompt the floating menu interface that displays flavor data and nutritional details directly inside the scene.</p>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="specs-grid">
+                                <div class="spec-item"><strong>Role:</strong> Interactive UI Trigger</div>
+                                <div class="spec-item"><strong>Asset Type:</strong> .GLB (Low-Poly)</div>
+                                <div class="spec-item"><strong>Interactions:</strong> Orbit, Zoom, Pan</div>
+                                <div class="spec-item"><strong>Pipeline:</strong> Blender to WebGL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-container">
+                        <div class="model-viewer-frame">
+                            <model-viewer 
+                                src="../models/truck.glb" 
+                                alt="A 3D model of an ice cream man"
+                                camera-controls 
+                                auto-rotate 
+                                ar
+                                shadow-intensity="1">
+                            </model-viewer>
+                        </div>
+
+                        <div class="model-info-card">
+                            <span class="character-badge">SIMULATOR ENGINE</span>
+                            <h3 class="character-name">The Ice Cream Truck</h3>
+                            <p class="character-bio">Parked right by the ice cream man, this nostalgic, low-poly truck brings the iconic Ben & Jerry's look into the environment.</p>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="specs-grid">
+                                <div class="spec-item"><strong>Role:</strong> Environment Decor</div>
+                                <div class="spec-item"><strong>Asset Type:</strong> .GLB (Low-Poly)</div>
+                                <div class="spec-item"><strong>Interactions:</strong> Orbit, Zoom, Pan</div>
+                                <div class="spec-item"><strong>Pipeline:</strong> Blender to WebGL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-container">
+                        <div class="model-viewer-frame">
+                            <model-viewer 
+                                src="../models/menu.glb" 
+                                alt="A 3D model of an ice cream menu"
+                                camera-controls 
+                                auto-rotate 
+                                ar
+                                shadow-intensity="1">
+                            </model-viewer>
+                        </div>
+
+                        <div class="model-info-card">
+                            <span class="character-badge">SPATIAL SIGNAGE</span>
+                            <h3 class="character-name">Ice Cream Menu</h3>
+                            <p class="character-bio">A static menu board positioned above the counter. It acts as a visual anchor for the shop stall, decorating the park grounds with classic ice cream shop styling.</p>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="specs-grid">
+                                <div class="spec-item"><strong>Role:</strong> Static Scene Decor</div>
+                                <div class="spec-item"><strong>Asset Type:</strong> .GLB (Low-Poly)</div>
+                                <div class="spec-item"><strong>Interactions:</strong> Orbit, Zoom, Pan</div>
+                                <div class="spec-item"><strong>Pipeline:</strong> Blender to WebGL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-container">
+                        <div class="model-viewer-frame">
+                            <model-viewer 
+                                src="../models/monkey.glb" 
+                                alt="A 3D model of a monkey"
+                                camera-controls 
+                                auto-rotate 
+                                ar
+                                shadow-intensity="1">
+                            </model-viewer>
+                        </div>
+
+                        <div class="model-info-card">
+                            <span class="character-badge">PARK MASCOT</span>
+                            <h3 class="character-name">Chunky Monkey</h3>
+                            <p class="character-bio">The simulator's mascot for the B&J Chunky Monkey flavor. He hangs out on the ice creak truck, adding a playful touch of Ben & Jerry's personality to the digital environment.</p>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="specs-grid">
+                                <div class="spec-item"><strong>Role:</strong> Background Mascot</div>
+                                <div class="spec-item"><strong>Asset Type:</strong> .GLB (Low-Poly)</div>
+                                <div class="spec-item"><strong>Interactions:</strong> Orbit, Zoom, Pan</div>
+                                <div class="spec-item"><strong>Pipeline:</strong> Blender to WebGL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-container">
+                        <div class="model-viewer-frame">
+                            <model-viewer 
+                                src="../models/park.glb" 
+                                alt="A 3D model of a park"
+                                camera-controls 
+                                auto-rotate 
+                                ar
+                                shadow-intensity="1">
+                            </model-viewer>
+                        </div>
+
+                        <div class="model-info-card">
+                            <span class="character-badge">SANDBOX STAGE</span>
+                            <h3 class="character-name">The Park Grounds</h3>
+                            <p class="character-bio">A vibrant, low-poly outdoor playground that features paths, trees, fences, and the serving stand, anchoring all the background elements into one cohesive layout.</p>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="specs-grid">
+                                <div class="spec-item"><strong>Role:</strong> Main Environment Mesh</div>
+                                <div class="spec-item"><strong>Asset Type:</strong> .GLB (Low-Poly)</div>
+                                <div class="spec-item"><strong>Interactions:</strong> Orbit, Zoom, Pan</div>
+                                <div class="spec-item"><strong>Pipeline:</strong> Blender to WebGL</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="model-container">
+                        <div class="model-viewer-frame">
+                            <model-viewer 
+                                src="../models/clouds.glb" 
+                                alt="A 3D model of clouds"
+                                camera-controls 
+                                auto-rotate 
+                                ar
+                                shadow-intensity="1">
+                            </model-viewer>
+                        </div>
+
+                        <div class="model-info-card">
+                            <span class="character-badge">SKYBOX CANOPY</span>
+                            <h3 class="character-name">Clouds</h3>
+                            <p class="character-bio">These low-poly clouds drift over the playground and frame the sky to set the perfect backdrop for Ben & Jerry's ice-cream falvor exploration simiulator.</p>
+                            
+                            <hr class="card-divider">
+                            
+                            <div class="specs-grid">
+                                <div class="spec-item"><strong>Role:</strong> Atmospheric Decor</div>
+                                <div class="spec-item"><strong>Asset Type:</strong> .GLB (Low-Poly)</div>
+                                <div class="spec-item"><strong>Interactions:</strong> Orbit, Zoom, Pan</div>
+                                <div class="spec-item"><strong>Pipeline:</strong> Blender to WebGL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="libraries-content" class="tab-content">
+                    <p class="section-subtitle">A deep dive into the JavaScript frameworks and WebGL rendering external libraries powering this simulation.</p>
+                    
+                        <div class="cards-list-container">
+                        
+                        <div class="card">
+                            <div class="card-icon-container">
+                            <img src="../images/simulator/logos/threejs_logo.png" alt="Three.js Engine" class="card-icon">                            </div>
+                            <div class="card-content">
+                            <h3 class="card-title">Three.js Engine</h3>
+                            <p class="card-description">Core 3D rendering library that uses WebGL in the browser to make 3D visualizations and projects, used to visualize the flavor menu and truck assets.</p>
+                            <div class="card-badge">v0.158.0 <span class="badge-separator">|</span> WebGL 2.0</div>
+                            <div class="card-links">
+                                <a href="#" class="card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Docs</a>
+                                <a href="#" class="card-link"><i class="fa-brands fa-github"></i> GitHub</a>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-icon-container">
+                            <img src="../images/simulator/logos/tonejs_logo.png" alt="Tone.js Engine" class="card-icon">                            </div>
+                            <div class="card-content">
+                            <h3 class="card-title">Tone.js</h3>
+                            <p class="card-description">A Web Audio framework for making interactive music in the browser. A mp3 version of lofi ice cream truck song was utilized.</p>
+                            <div class="card-badge">v8.15.0 <span class="badge-separator">|</span> Declarative UI</div>
+                            <div class="card-links">
+                                <a href="#" class="card-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Docs</a>
+                                <a href="#" class="card-link"><i class="fa-brands fa-github"></i> GitHub</a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+
+                <div id="data-content" class="tab-content">
+                    <p class="section-subtitle">This asynchronously loaded data is a static JSON dataset (1Mb) containing an array of Ben & Jerry's flavors, description, nutritional info, allergins, and ingredients that come from the Ben & Jerry's official website.</p>
+
+                <div class="excel-container">
+                <table class="excel-table">
+                    <thead>
+                    <tr class="excel-label-row">
+                        <th>Thumbnail</th>
+                        <th>Flavor</th>
+                        <th>Calories<br>per serving</th>
+                        <th>About this Flavor</th>
+                        <th>Ingredients</th>
+                        <th>Allergens</th>
+                        <th>Ratings</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/americone-dream.png" alt="Americone Dream" class="excel-thumb"></td>
+                        <td class="excel-bold">Americone Dream</td>
+                        <td class="excel-right">380</td>
+                        <td>Founded in fudge-covered waffle cones, this caramel-swirled concoction is the only flavor that gets a s'cream of approval from The Late Show host, Stephen Colbert. What's sweeter is this flavor supports charitable causes through The Stephen Colbert AmeriCone Dream Fund.</td>
+                        <td>Buttery Cinnamon Ice Cream with Churro Pieces & Crunchy Cinnamon Swirls</td>
+                        <td>CONTAINS WHEAT, EGG, SOY AND MILK.</td>
+                        <td class="excel-right">4.6</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/cherry-garcia.png" alt="Cherry Garcia" class="excel-thumb"></td>
+                        <td class="excel-bold">Cherry Garcia</td>
+                        <td class="excel-right">340</td>
+                        <td>We named this flavor in 1987 for the legendary American guitarist Jerry Garcia after one of our fans sent us the idea on a postcard, and it's been one of our top hits ever since. We use only pure cream to make the cherry ice cream smooth and sumptuous. Then we lace the ice cream with plump sweet cherries and dark chocolatey chunks. Enjoy!</td>
+                        <td>Cherry Ice Cream with Cherries & Fudge Flakes</td>
+                        <td>CONTAINS EGG, MILK AND SOY.</td>
+                        <td class="excel-right">4.6</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/caramel-chocolate-cheesecake.png" alt="Caramel Chocolate Cheesecake" class="excel-thumb"></td>
+                        <td class="excel-bold">Caramel Chocolate Cheesecake</td>
+                        <td class="excel-right">380</td>
+                        <td>In your cheesecake dreams, is it like you’re spooning through a world of caramel cheesecake ice cream swirled with chocolate cookies in a wonderland filled with chunks of cheesecake? Hello? You can wake up now…</td>
+                        <td>Caramel Cheesecake Ice Cream with Cheesecake Pieces & Chocolate Cookie Swirls</td>
+                        <td>CONTAINS EGG, MILK, SOY AND WHEAT.</td>
+                        <td class="excel-right">4.2</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/chocolate-fudge-brownie.png" alt="Chocolate Fudge Brownie" class="excel-thumb"></td>
+                        <td class="excel-bold">Chocolate Fudge Brownie</td>
+                        <td class="excel-right">350</td>
+                        <td>This fudge-tastic phenomenon has been a part of our flavor family since 1991 & we’ve always used brownies from the Greyston Bakery in Yonkers, New York. Happy days!</td>
+                        <td>Chocolate Ice Cream with Fudge Brownies</td>
+                        <td>CONTAINS EGG, MILK, AND WHEAT.</td>
+                        <td class="excel-right">4.0</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/chunky-monkey.png" alt="Chunky Monkey" class="excel-thumb"></td>
+                        <td class="excel-bold">Chunky Monkey</td>
+                        <td class="excel-right">400</td>
+                        <td>To come up with a flavor as fun as the name, we monkeyed around with bunches of test batches until we knew we had a winner. Simply put, we think it's the best majorly nutty-&-chocolatey-chunky ice cream gone bananas you'll ever go ape for. A final note, just in case you were wondering: this flavor contains no actual monkeys. That would be wrong...not to mention silly. Enjoy!</td>
+                        <td>Banana Ice Cream with Fudge Chunks & Walnuts</td>
+                        <td>CONTAINS MILK, EGGS, WALNUTS AND SOY. MAY CONTAIN OTHER TREE NUTS.</td>
+                        <td class="excel-right">4.5</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/half-baked.png" alt="Half Baked" class="excel-thumb"></td>
+                        <td class="excel-bold">Half Baked</td>
+                        <td class="excel-right">370</td>
+                        <td>Ben & Jerry’s is proud to partner with fellow B Corps Greyston & Rhino Bakeries to bring you half baked. The incredible stories behind both the fudge brownies & cookie dough make this a flavor that not only tastes good, but does good.</td>
+                        <td>Chocolate & Vanilla Ice Creams mixed with Gobs of... Dough & Fudge Brownies</td>
+                        <td>CONTAINS MILK, EGGS, WHEAT AND SOY.</td>
+                        <td class="excel-right">4.8</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/milk-and-cookies.png" alt="Milk & Cookies" class="excel-thumb"></td>
+                        <td class="excel-bold">Milk & Cookies</td>
+                        <td class="excel-right">380</td>
+                        <td>How do you take classic milk-&-cookie goodness to a whole 'nother level of greatness? We don’t really know what that means, but we know this flavor’s loaded with the most euphoric assortment of cookies we ever dunked, chunked & swirled in our ice cream.</td>
+                        <td>Vanilla Ice Cream with a Chocolate Cookie Swirl, Chocolate Chip & Chocolate Chocolate Chip Cookies</td>
+                        <td>CONTAINS WHEAT, EGG, SOY AND MILK.</td>
+                        <td class="excel-right">4.7</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/phish-food.png" alt="Phish Food" class="excel-thumb"></td>
+                        <td class="excel-bold">Phish Food</td>
+                        <td class="excel-right">390</td>
+                        <td>“Ben was our neighbor through the woods & we're fond of ice cream. So we teamed up to create Phish Food®. A portion of our royalties from this flavor goes toward environmental efforts in Vermont's Lake Champlain Watershed. Enjoy!” - PHISH Certified Gluten-Free.</td>
+                        <td>Chocolate Ice Cream with Gooey Marshmallow Swirls, Caramel Swirls & Fudge Fish</td>
+                        <td>CONTAINS EGG, MILK AND SOY.</td>
+                        <td class="excel-right">4.8</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/vanilla-caramel-fudge.png" alt="Vanilla Caramel Fudge" class="excel-thumb"></td>
+                        <td class="excel-bold">Vanilla Caramel Fudge</td>
+                        <td class="excel-right">390</td>
+                        <td>If you’ve been looking for reasons to try something chunkless, this container holds a Vanilla-rich, fudge-luscious & caramel-gooey pintful of them. Enjoy! Certified Gluten-Free</td>
+                        <td>Vanilla Ice Cream with a Chocolate Cookie Swirl, Chocolate Chip & Chocolate Chocolate Chip Cookies</td>
+                        <td>CONTAINS EGG AND MILK.</td>
+                        <td class="excel-right">4.7</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/strawberry-cheesecake.png" alt="Strawberry Cheesecake" class="excel-thumb"></td>
+                        <td class="excel-bold">Strawberry Cheesecake</td>
+                        <td class="excel-right">350</td>
+                        <td>For strawberry cheesecake lovers who’ve always wanted to have their cheesecake & scoop it, too, we’ve created a flavor jam-packed with strawberry cheesecake-greatness & a fantastic graham-cracker swirl.</td>
+                        <td>Strawberry Cheesecake Ice Cream with Strawberries & a Thick Graham Cracker Swirl</td>
+                        <td>CONTAINS EGG, MILK, SOY AND WHEAT.</td>
+                        <td class="excel-right">4.2</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/peanut-butter-cup.png" alt="Peanut Butter Cup" class="excel-thumb"></td>
+                        <td class="excel-bold">Peanut Butter Cup</td>
+                        <td class="excel-right">460</td>
+                        <td>We interrupt our regularly scheduled programming to remind you how much you love ice cream that’s perfectly peanut buttery & peanut butter cuppity at the same time.</td>
+                        <td>Peanut Butter Ice Cream with Peanut Butter Cups</td>
+                        <td>CONTAINS EGG, MILK, PEANUTS AND SOY.</td>
+                        <td class="excel-right">4.7</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/netflix-chilld.png" alt="Netflix & Chilll’d" class="excel-thumb"></td>
+                        <td class="excel-bold">Netflix & Chilll’d</td>
+                        <td class="excel-right">400</td>
+                        <td>There’s something for everyone to watch on Netflix & flavors for everyone to enjoy from Ben & Jerry’s, so we’ve teamed up to bring you a chillaxing new creation that’s certain to satisfy any sweet or salty snack craving. It’s a flavorful world, and everyone is invited to grab a spoon.</td>
+                        <td>Peanut Butter Ice Cream with Sweet & Salty Pretzel Swirls & Fudge Brownies</td>
+                        <td>CONTAINS EGG, MILK, PEANUTS, SOY AND WHEAT.</td>
+                        <td class="excel-right">4.1</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/karamel-sutra.png" alt="Karamel Sutra" class="excel-thumb"></td>
+                        <td class="excel-bold">Karamel Sutra</td>
+                        <td class="excel-right">370</td>
+                        <td>Find your way to the ultimate ice cream experience with our Cores. Whether your primal urges lead you to the center of soft caramel or directly to the fudge chips, you’ll be in total control of your own ice cream destiny. Certified Gluten-Free.</td>
+                        <td>Chocolate & Caramel Ice Creams with Fudge Chips & a Soft Caramel Core</td>
+                        <td>CONTAINS EGG, MILK AND SOY.</td>
+                        <td class="excel-right">4.5</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/salted-caramel.png" alt="Salted Caramel Core" class="excel-thumb"></td>
+                        <td class="excel-bold">Salted Caramel Core</td>
+                        <td class="excel-right">360</td>
+                        <td>Find your way to the ultimate ice cream experience with our Cores. Whether your primal urges lead you to the center of salted caramel or directly to the blonde brownies, you’ll be in total control of your own ice cream destiny.</td>
+                        <td>Sweet Cream Ice Cream with Blonde Brownies & a Salted Caramel Core</td>
+                        <td>CONTAINS EGG, MILK, SOY AND WHEAT.</td>
+                        <td class="excel-right">4.1</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/new-york-super-fudge.png" alt="New York Super Fudge Chunk" class="excel-thumb"></td>
+                        <td class="excel-bold">New York Super Fudge Chunk</td>
+                        <td class="excel-right">410</td>
+                        <td>In 1958, to make a name for ourselves in New York, we picked a New York kind of name and created a flavor packed with more kinds of chunks than ever before. We figured if the flavor was euphoric in New York, it would be everywhere. It was, and it is. Certified Gluten-Free</td>
+                        <td>Chocolate Ice Cream with White & Dark Fudge Chunks, Pecans, Walnuts & Fudge-Covered Almonds</td>
+                        <td>CONTAINS ALMOND, EGG, MILK, PECAN, SOY AND WALNUT.</td>
+                        <td class="excel-right">4.8</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/churray-for-churros.png" alt="Churray for Churros" class="excel-thumb"></td>
+                        <td class="excel-bold">Churray for Churros</td>
+                        <td class="excel-right">380</td>
+                        <td>When’s the best time to enjoy this cinnamony mix chock full of churros? Any time of day, from breakfast until bed, from now ‘til whenever. It's pretty churr-ific.</td>
+                        <td>Buttery Cinnamon Ice Cream with Churro Pieces & Crunchy Cinnamon Swirls</td>
+                        <td>CONTAINS EGG, MILK, SOY AND WHEAT.</td>
+                        <td class="excel-right">4.6</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/tiramisu-topped.png" alt="Tiramisu" class="excel-thumb"></td>
+                        <td class="excel-bold">Tiramisu</td>
+                        <td class="excel-right">390</td>
+                        <td>There are so many layers to this mascarpone masterpiece, from the espresso-laced fudge flakes embedded in rich ganache topping to the captivating coffee character of the fudge swirls. We'd say this "pick me up" of a flavor is top tier-amisu!</td>
+                        <td>Mascarpone Ice Cream with Fudge Swirls & Shortbread Pieces Topped with Espresso Fudge Chunks & Chocolatey Ganache</td>
+                        <td>CONTAINS WHEAT, EGG, PEANUTS, SOY AND MILK.</td>
+                        <td class="excel-right">4.4</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/gimme-smore.png" alt="Gimme S’more" class="excel-thumb"></td>
+                        <td class="excel-bold">Gimme S’more</td>
+                        <td class="excel-right">410</td>
+                        <td>It’s a gimme: there’s always room for s’more. And we’re pretty sure you’ll want to make s’more room in your freezer for this ‘shmallowy-rich, graham-good-‘n-chocolatey concoction now that it's full time flavor!.</td>
+                        <td>Toasted Marshmallow Ice Cream with Chocolate Cookie Swirls, Graham Cracker Swirls & Fudge Flakes</td>
+                        <td>CONTAINS EGG, MILK, SOY AND WHEAT.</td>
+                        <td class="excel-right">4.5</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/honey-graham-latte-ice-cream.png" alt="Honey Graham Latte" class="excel-thumb"></td>
+                        <td class="excel-bold">Honey Graham Latte</td>
+                        <td class="excel-right">390</td>
+                        <td>If your caramel latte is a hug in a mug, this flavor is a hug in a ... scoop? Enjoy the cozy comfort of honey graham crackers and cinnamon with every scoop - it's a whole latte yum!</td>
+                        <td>Caramel Coffee Ice Cream with Honey Graham Cracker Swirls & Crunchy Cinnamon Swirls</td>
+                        <td>CONTAINS WHEAT, EGG, SOY AND MILK.</td>
+                        <td class="excel-right">5.0</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/topped-mint.png" alt="Topped Mint" class="excel-thumb"></td>
+                        <td class="excel-bold">Topped Mint</td>
+                        <td class="excel-right">440</td>
+                        <td>Our mint cookie medley had a moniker modification but will still top all your expectations. It's the same ganache-covered, cookie-swirled minty bliss, & still deserving of the ice cream chef's kiss.</td>
+                        <td>Mint Ice Cream with Chocolate Cookie Swirls & Mint Chocolate Cookie Balls Topped with Chocolatey Ganache & Chocolate Cookies</td>
+                        <td>CONTAINS EGG, MILK, SOY AND WHEAT. MAY CONTAIN PEANUTS AND TREE NUTS.</td>
+                        <td class="excel-right">4.6</td>
+                    </tr>
+                    <tr>
+                        <td class="excel-center"><img src="../images/simulator/flavors/chubby-hubby.png" alt="Chubby Hubby" class="excel-thumb"></td>
+                        <td class="excel-bold">Chubby Hubby</td>
+                        <td class="excel-right">470</td>
+                        <td>Two tricksters convinced a co-worker this flavor really existed (it didn’t), then felt guilty & made him an actual batch packed with pretzels, peanut butter & fudge. He loved it, so did we, & the rest is history. Enjoy!</td>
+                        <td>Vanilla Malt Ice Cream with Peanutty Fudge-Covered Pretzels with Fudge & Peanut Buttery Swirls</td>
+                        <td>CONTAINS EGG, MILK, PEANUTS, SOY AND WHEAT. MAY CONTAIN TREE NUTS.</td>
+                        <td class="excel-right">4.4</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                </div>
+
+            </section>
+        </main>
+
+        <script src="../main.js"></script>
+        <script src="simulator.js"></script>
+</body>
+</html>

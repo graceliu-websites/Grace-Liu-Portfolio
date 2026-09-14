@@ -30,7 +30,7 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
   background-color: #000000;
   color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 48px auto 0 auto;
   padding: 0 40px; 
   box-sizing: border-box;
@@ -41,7 +41,7 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 .accordion-item,
 .details-section,
 .next-project-section {
-    max-width: 1100px !important;
+    max-width: 950px !important;
     width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -1939,22 +1939,41 @@ comp-icon-box-amazon,
 }
 
 .comp-matrix-user-card {
-   background: #11141d; /* Deep crisp card background */
+  background: #11141d;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  padding: 32px; /* Generous outer padding for proper breathing room */
-  display: flex;
-  flex-direction: column;
-  gap: 28px; /* Strict vertical spacing hierarchy between major sections */
+  padding: 32px;
   margin-bottom: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  
+  /* 1. Turn main card into a 2-column grid layout */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.comp-matrix-user-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comp-matrix-user-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    /* Adjust this pixel value to match the exact height of your Harry Pham header + gap */
+    margin-top: 84px; 
 }
 
 .comp-matrix-user-header {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding-bottom: 20px;
+  gap: 16px;
 }
 
 .comp-matrix-user-card .comp-matrix-user-avatar img {
@@ -2039,8 +2058,7 @@ comp-icon-box-amazon,
 .comp-matrix-tag-cloud {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 16px;
+  gap: 10px;
 }
 
 .matrix-pill {

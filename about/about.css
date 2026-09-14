@@ -46,29 +46,29 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 .about-container,
 .info-grid,
 .illu-section {
-    border: 1px solid var(--border-color, #1f2026);
+    border: 0px solid var(--border-color, #1f2026);
     border-radius: 24px;
     padding: 2.5rem;
     margin-bottom: 2.5rem;
-    background: rgba(255, 255, 255, 0.01); /* Optional subtle fill */
+    background: rgba(255, 255, 255, 0.01);
     box-sizing: border-box;
     overflow: hidden;
 }
 
 .about-container {
     width: 100% !important;
-    max-width: 1200px; /* Constrains badge, hero, and bio to the same vertical column */
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center-aligns all top-level children */
+    align-items: center;
     padding-top: 2rem;
     margin-bottom: 2.5rem;
 }
 
 .hero-split {
     display: grid;
-    grid-template-columns: 320px 1fr; /* Matches image size directly */
+    grid-template-columns: 320px 1fr; 
     gap: 2.5rem;
     width: 100%;
     max-width: 900px;

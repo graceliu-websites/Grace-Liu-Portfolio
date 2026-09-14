@@ -99,9 +99,8 @@ body {
 .nav-item {
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 12px 20px;
-    margin: 8px 12px; 
+    padding: 16px 20px;
+    margin: 4px 12px; 
     color: #888;
     text-decoration: none;
     border-radius: 16px;
@@ -111,7 +110,7 @@ body {
 }
 
 .nav-item i {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     width: 20px; 
     text-align: center;
 }

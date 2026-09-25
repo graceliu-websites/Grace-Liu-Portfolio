@@ -1,3 +1,69 @@
+// SIDE BAR & TOGGLE// 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarContainer = document.getElementById('sidebar-container');
+    const content = document.querySelector('.content');
+    const openBtn = document.getElementById('sidebar-open-btn');
+
+    // Toggle function
+    function toggleSidebar() {
+        if (!sidebarContainer) return;
+        const isCollapsed = sidebarContainer.classList.toggle('collapsed');
+        if (content) content.classList.toggle('expanded');
+        if (openBtn) openBtn.classList.toggle('hidden', !isCollapsed);
+    }
+
+    // Bind open button (visible when sidebar is closed)
+    if (openBtn) {
+        openBtn.addEventListener('click', toggleSidebar);
+    }
+
+    // Determine path prefix for subfolders (e.g. techtronics/techtronics.html vs index.html)
+    const isSubfolder = window.location.pathname.includes('/') && 
+                        window.location.pathname.split('/').filter(Boolean).length > 1;
+    const sidebarPath = isSubfolder ? '../sidebar.html' : './sidebar.html';
+
+    // Fetch and inject sidebar
+    if (sidebarContainer) {
+        fetch(sidebarPath)
+            .then(res => {
+                if (!res.ok) throw new Error("Sidebar file not found");
+                return res.text();
+            })
+            .then(html => {
+                sidebarContainer.innerHTML = html;
+
+                // Bind close button once HTML is injected
+                const toggleBtn = document.getElementById('sidebar-toggle-btn');
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', toggleSidebar);
+                }
+
+                // Highlight active nav item
+                highlightActiveNav();
+            })
+            .catch(err => console.error(err));
+    }
+});
+
+// Helper to highlight the active menu item based on current URL
+function highlightActiveNav() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const linkMap = {
+        'index.html': 'nav-dashboard',
+        'about.html': 'nav-about',
+        'techtronics.html': 'nav-techtronics',
+        'shellfund.html': 'nav-shellfund',
+        'simulator.html': 'nav-simulator'
+    };
+
+    const targetId = linkMap[currentPage];
+    if (targetId) {
+        const activeLink = document.getElementById(targetId);
+        if (activeLink) activeLink.classList.add('active');
+    }
+}
+
 // --------------------------
 
 // SHELLFUND VIDEO TOGGLE

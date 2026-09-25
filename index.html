@@ -11,35 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open Sidebar">
+        <div class="navbar-text">nav bar</div>
+         <i class="fas fa-chevron-right"></i>
+    </button>
+
     <div class="container">
         <aside class="sidebar" id="sidebar-container"></aside>
-
-        <script>
-            fetch('./sidebar.html')
-                .then(response => {
-                    if (!response.ok) throw new Error("Sidebar file not found");
-                    return response.text();
-                })
-                .then(data => {
-                    const container = document.getElementById('sidebar-container');
-                    container.innerHTML = data;
-                    
-                    // Logic to highlight the active link
-                        const currentPage = window.location.pathname.split("/").pop() || "index.html";                    const links = {
-                        "index.html": "nav-dashboard",
-                        "techtornics/techtronics.html": "nav-techtronics",
-                        "shellfund/shellfund.html": "nav-shellfund",
-                        "simulator/simulator.html": "nav-simulator",
-                    //    "feastly.html": "nav-feastly"
-                    };
-                    
-                    if (links[currentPage]) {
-                        const activeLink = document.getElementById(links[currentPage]);
-                        if(activeLink) activeLink.classList.add('active');
-                    }
-                })
-                .catch(err => console.error(err));
-        </script>
 
         <main class="content">
             <section class="hero-card">
@@ -49,10 +27,10 @@
                     </div>
                     
                     <h1 class="hero-title">Creating <em>fast</em> interfaces for everyone</h1>
-                    <h2>I am a <span class="role-a">designer</span>, <span class="role-b">researcher</span>, and <span class="role-c">builder</span>.</h2>
+                    <h2>I am a <span class="role-a">UX/UI designer</span>, <span class="role-b">researcher</span>, and <span class="role-c">developer</span>.</h2>
                     
                     <div class="hero-specialization">
-                        <p><strong>Hello! I’m Grace.</strong> I specialize in UX/UI, with proficency in front-end development and visual storytelling. By leveraging PM strategies, technology, design, and AI-assisted workflows, I offer the essential skillset to help companies build functional and memorable digital products.</p>
+                        <p><strong>Hello! I’m Grace.</strong> I specialize in User experience & User interface design, with proficency in front-end development and user research. By leveraging project management strategies, visual storytelling, and AI-assisted workflows, I offer an essential skillset to help companies build functional and memorable digital experiences.</p>
                     </div>
 
                     <div class="academic-journey">

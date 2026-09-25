@@ -14,36 +14,13 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 </head>
 <body>
+
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open Sidebar">
+         <i class="fas fa-chevron-right"></i>
+    </button>
+
     <div class="container">
         <aside class="sidebar" id="sidebar-container"></aside>
-
-        <script>
-            fetch('../sidebar.html')
-                .then(response => {
-                    if (!response.ok) throw new Error("Sidebar file not found");
-                    return response.text();
-                })
-                .then(data => {
-                    const container = document.getElementById('sidebar-container');
-                    container.innerHTML = data;
-                    
-                    // Logic to highlight the active link
-                    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-                    const links = {
-                        "index.html": "nav-dashboard",
-                        "techtronics.html": "nav-techtronics",
-                        "shellfund.html": "nav-shellfund",
-                        "simulator.html": "nav-simulator",
-                    //   "feastly.html": "nav-feastly"
-                    };
-                    
-                    if (links[currentPage]) {
-                        const activeLink = document.getElementById(links[currentPage]);
-                        if(activeLink) activeLink.classList.add('active');
-                    }
-                })
-                .catch(err => console.error(err));
-        </script>
 
         <main class="content">
             <section class="retro-hero-section">

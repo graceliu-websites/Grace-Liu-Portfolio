@@ -15,38 +15,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open Sidebar">
+         <i class="fas fa-chevron-right"></i>
+    </button>
+
     <div class="container">
         <aside class="sidebar" id="sidebar-container"></aside>
-
-        <script>
-            fetch('../sidebar.html')
-                .then(response => {
-                    if (!response.ok) throw new Error("Sidebar file not found");
-                    return response.text();
-                })
-                .then(data => {
-                    const container = document.getElementById('sidebar-container');
-                    container.innerHTML = data;
-                    
-                    // Logic to highlight the active link
-                    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-                    const links = {
-                        "index.html": "nav-dashboard",
-                        "about.html": "nav-about",
-                        "techtronics.html": "nav-techtronics",
-                        "shellfund.html": "nav-shellfund",
-                        "simulator.html": "nav-simulator",
-                    //   "feastly.html": "nav-feastly"
-                    };
-                    
-                    if (links[currentPage]) {
-                        const activeLink = document.getElementById(links[currentPage]);
-                        if(activeLink) activeLink.classList.add('active');
-                    }
-                })
-                .catch(err => console.error(err));
-        </script>
-
         <main class="content">
             <section class="project-hero">
                 <div class="hero-left">
@@ -877,78 +852,76 @@
                                         <h5 class="showcase-main-title">PERSONA ALLIGNMENT</h5>
 
                                         <div class="comp-matrix-user-card">
-                                            <div class="comp-matrix-user-left">
-                                                <div class="comp-matrix-user-header">
-                                                    <div class="comp-matrix-user-avatar">
-                                                        <img src="../images/techtronics/ideation/harrypham.png" alt="Harry Pham">
-                                                    </div>
-                                                    <div class="persona-demogrpahics">
-                                                        <div class="persona-header">
-                                                            <div class="persona-badges">
-                                                                <span class="persona-name">Harry Pham</span>
-                                                                <span class="persona-badge-role"><i class="fa-solid fa-paint-brush"></i>Freelance Artist</span>
-                                                                <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 26</span>
-                                                                <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Austin, TX</span>
-                                                            </div>
+                                            <div class="comp-matrix-user-header">
+                                                <div class="comp-matrix-user-avatar">
+                                                    <img src="../images/techtronics/ideation/harrypham.png" alt="Harry Pham">
+                                                </div>
+                                                <div class="persona-demogrpahics">
+                                                    <div class="persona-header">
+                                                        <div class="persona-badges">
+                                                            <span class="persona-name">Harry Pham</span>
+                                                            <span class="persona-badge-role"><i class="fa-solid fa-paint-brush"></i>Freelance Artist</span>
+                                                            <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 26</span>
+                                                            <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Austin, TX</span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            
-                                            
-                                                <div class="comp-matrix-sub-label">
-                                                    <i class="fa-solid fa-check"></i></i>NEEDS AND WANTS</span>
-                                                </div>
-
-                                                <div class="comp-matrix-tag-cloud">
-                                                    <span class="matrix-pill pill-blue"><i class="fa-solid fa-door-open"></i> Frictionless onboarding process</span>
-                                                    <span class="matrix-pill pill-peach"><i class="fa-solid fa-bars"></i> Minimalist information architecture</span>
-                                                    <span class="matrix-pill pill-yellow"><i class="fa-solid fa-eye"></i> User-friendly product browsing</span>
-                                                    <span class="matrix-pill pill-yellow"><i class="fa-solid fa-thumbs-up"></i> Trusted recommendations</span>
-                                                    <span class="matrix-pill pill-purple"><i class="fa-solid fa-star"></i> Features and services beyond retail</span>
-                                                </div>
                                             </div>
-                                            
-                                            <div class="comp-matrix-user-right">
-                                                <div class="comp-matrix-sub-label">
-                                                    <i class="fa-solid fa-magnifying-glass"></i> COMPETITIVE ANALYSIS FINDINGS
-                                                </div>
 
-                                                <div class="comp-matrix-findings-area">
+                                            <div class="comp-matrix-user-container">
+                                                <div class="comp-matrix-user-left">
+                                                    <div class="comp-matrix-sub-label">
+                                                        <i class="fa-solid fa-check"></i></i>NEEDS AND WANTS</span>
+                                                    </div>
+
+                                                    <div class="comp-matrix-tag-cloud">
+                                                        <span class="matrix-pill pill-blue"><i class="fa-solid fa-door-open"></i> Frictionless onboarding process</span>
+                                                        <span class="matrix-pill pill-peach"><i class="fa-solid fa-bars"></i> Minimalist information architecture</span>
+                                                        <span class="matrix-pill pill-yellow"><i class="fa-solid fa-eye"></i> User-friendly product browsing</span>
+                                                        <span class="matrix-pill pill-yellow"><i class="fa-solid fa-thumbs-up"></i> Trusted recommendations</span>
+                                                        <span class="matrix-pill pill-purple"><i class="fa-solid fa-star"></i> Features and services beyond retail</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="comp-matrix-user-right">
+                                                    <div class="comp-matrix-sub-label">
+                                                        <i class="fa-solid fa-magnifying-glass"></i>COMPETITIVE FINDINGS
+                                                    </div>
+
                                                     <div class="comp-matrix-findings-content">
-                                                        <div class="brand-mention">
-                                                        <img src="../images/techtronics/ideation/bestbuy-logo.png" alt="Bestbuy" class="bestbuy-brand-logo-img">
-                                                        </div> 
-                                                        <p class="comp-matrix-findings-text"> 
-                                                            As someone who isn’t particularly knowledgeable in tech products, Harry will likely prefer <span class="brand-text-highlight bestbuy-highlight">Best Buy</span> for its expert recommendations and reliable sellers to make confident purchases.</p>
+                                                        <p class="comp-matrix-findings-text">
+                                                            As someone who isn’t particularly knowledgeable in tech products, Harry will likely prefer 
+                                                            <span class="brand-text-highlight bestbuy-highlight">
+                                                                <i class="fa-solid fa-tag"></i> Best Buy
+                                                            </span>
+                                                            for its expert recommendations and reliable sellers to make confident purchases.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="comp-matrix-user-card">
-
-                                            <div class="comp-matrix-user-top">
-                                                <div class="comp-matrix-user-header">
-                                                    <div class="comp-matrix-user-avatar">
-                                                        <img src="../images/techtronics/ideation/zoeylin.png" alt="Zoey Lin">
-                                                    </div>
+                                            <div class="comp-matrix-user-header">
+                                                <div class="comp-matrix-user-avatar">
+                                                    <img src="../images/techtronics/ideation/zoeylin.png" alt="Zoey Lin">
                                                 </div>
                                                 <div class="persona-demogrpahics">
                                                     <div class="persona-header">
                                                         <div class="persona-badges">
-                                                        <span class="persona-name">Zoey Lin</span>
-                                                        <span class="persona-badge-role"><i class="fa-solid fa-graduation-cap"></i>Postgrad Student</span>
-                                                        <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 30</span>
-                                                        <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Greenbelt, MD</span>
+                                                            <span class="persona-name">Zoey Lin</span>
+                                                            <span class="persona-badge-role"><i class="fa-solid fa-graduation-cap"></i>Postgrad Student</span>
+                                                            <span class="persona-badge-age"><i class="fa-solid fa-cake-candles"></i>Age 30</span>
+                                                            <span class="persona-badge-location"><i class="fa-solid fa-location-dot"></i>Greenbelt, MD</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="comp-matrix-content-grid">
+                                            <div class="comp-matrix-user-container">
                                                 <div class="comp-matrix-user-left">
                                                     <div class="comp-matrix-sub-label">
-                                                        <i class="fa-solid fa-check"></i>ALIGNMENT OF CRITERIA
+                                                        <i class="fa-solid fa-check"></i>WANTS AND NEEDS
                                                     </div>
 
                                                     <div class="comp-matrix-tag-cloud">
@@ -963,17 +936,18 @@
 
                                                 <div class="comp-matrix-user-right">
                                                     <div class="comp-matrix-sub-label">
-                                                        <i class="fa-solid fa-magnifying-glass"></i> COMPETITIVE ANALYSIS FINDINGS
+                                                        <i class="fa-solid fa-magnifying-glass"></i> COMPETITIVE FINDINGS
                                                     </div>
-        
+
                                                     <div class="comp-matrix-findings-content">
-                                                        <div class="brand-mention">
-                                                        <img src="../images/techtronics/ideation/amazon-logo.png" alt="Amazon" class="amazon-brand-logo-img">
-                                                        </div> 
                                                         <p class="comp-matrix-findings-text">
-                                                        For someone who conducts a lot of research before purchasing electronics, detailed product pages from <span class="brand-text-highlight amazon-highlight">Amazon</span> would be advantageous for supporting Zoey's shopping goals.
+                                                            For someone who conducts a lot of research before purchasing electronics, detailed product pages from 
+                                                            <span class="brand-text-highlight amazon-highlight">
+                                                                <i class="fa-brands fa-amazon"></i> Amazon
+                                                            </span>
+                                                            would be advantageous for supporting Zoey's shopping goals.
                                                         </p>
-                                                    </div>
+                                                    </div>                                                    
                                                 </div>
                                             </div>
                                         </div>

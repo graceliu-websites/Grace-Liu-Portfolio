@@ -18,14 +18,6 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 }
 
 /* 3. Force content area to fill screen alongside sidebar */
-.content {
-    flex: 1 1 auto !important;
-    width: calc(100% - 240px) !important;
-    max-width: none !important;
-    margin-left: 240px !important;
-    padding: 2.5rem 2rem !important;
-}
-
 .project-hero {
   background-color: #000000;
   color: #ffffff;
@@ -41,7 +33,7 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 .accordion-item,
 .details-section,
 .next-project-section {
-    max-width: 950px !important;
+    max-width: 900px !important;
     width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -1966,8 +1958,6 @@ comp-icon-box-amazon,
     flex-direction: column;
     gap: 16px;
     height: 100%;
-    /* Adjust this pixel value to match the exact height of your Harry Pham header + gap */
-    margin-top: 84px; 
 }
 
 .comp-matrix-user-header {
@@ -2150,37 +2140,52 @@ comp-icon-box-amazon,
 }
 
 .comp-matrix-findings-content {
-  display: flex;
-  align-items: center; /* Vertically aligns logo with the text block */
-  gap: 16px;          /* Space between logo and text */
+  display: block;
+  padding: 8px 0;
 }
 
 .comp-matrix-findings-text {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #d1d5db;
+  color: #c5c8d0;
+  font-size: 14.5px;
+  line-height: 1.75;
   margin: 0;
 }
 
-.brand-text-highlight {
-  font-size: 20px;
-  font-weight: 700;
+.brand-text-highlight.amazon-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  vertical-align: baseline;
+  font-weight: 600;
+  font-size: 25px;
   padding: 2px 8px;
   border-radius: 6px;
-  display: inline-block;
+  line-height: 1.3;
   margin: 0 2px;
 }
 
-.bestbuy-highlight {
-  color: #fff;
-  background: rgba(0, 70, 190, 0.3);
-  border: 1px solid rgba(255, 224, 0, 0.4); /* Best Buy Yellow accent border */
+.brand-text-highlight.amazon-highlight i {
+  font-size: 23px;
+  color: #ff9900;
 }
 
-.amazon-highlight {
-  color: #fff;
-  background: rgba(255, 153, 0, 0.15);
-  border: 1px solid rgba(255, 153, 0, 0.4); /* Amazon Orange accent border */
+.brand-text-highlight.bestbuy-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  vertical-align: baseline;
+  font-weight: 600;
+  font-size: 25px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  line-height: 1.3;
+  margin: 0 2px;
+  color: #ffffff; /* Signature Best Buy Royal Blue */
+}
+
+.brand-text-highlight.bestbuy-highlight i {
+  font-size: 23px;
+  color: #0046be; /* Signature Best Buy Yellow Tag */
 }
 
 .brand-mention {
@@ -2192,7 +2197,7 @@ comp-icon-box-amazon,
   padding: 24px 36px;
 }
 
-.amazon-brand-logo-img {
+.brand-logo-img {
   width: 80%;        /* Sleek proportional size */
   height: 80%;
   object-fit: contain;
@@ -2201,13 +2206,10 @@ comp-icon-box-amazon,
   display: block;
 }
 
-.bestbuy-brand-logo-img {
-  width: 80%;        /* Sleek proportional size */
-  height: 80%;
-  object-fit: contain;
-  border-radius: 10px;
-  padding: 6px;
-  display: block;
+.comp-matrix-user-container {
+  display: flex;
+  align-items: flex-start; /* Forces top alignment for both columns */
+  gap: 32px;         /* Adjust spacing between columns */
 }
 
 /* Tablet and mobile view adaptations */
@@ -3164,22 +3166,32 @@ comp-icon-box-amazon,
 }
 
 .participant-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures both start at the exact same left edge */
   width: 100%;
+  max-width: 900px;
+  margin: 0 auto 36px auto;
+  padding: 0;
 }
 
 /* Teal Header Bars */
 .participant-header {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-  width: fit-content;
-  letter-spacing: 0.5px;
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(79, 209, 217, 0.12); /* Soft teal tint matching your blue/cyan accents */
+  color: #4fd1d9;
+  border: 1px solid rgba(79, 209, 217, 0.35);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  padding: 8px 24px;
-  border-radius: 4px;
-  margin-bottom: 12px;
-  border: 1px solid var(--accent)
+  padding: 6px 16px;
+  border-radius: 9999px; /* Complete pill / bubble shape */
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  width: fit-content;
 }
 
 .participant-header,

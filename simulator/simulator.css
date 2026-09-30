@@ -353,13 +353,26 @@ model-viewer {
 
 /* Container Wrapping All Cards */
 .cards-list-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal columns */
+  gap: 20px;                             /* Space between cards */
+  width: 100%;
+}
+
+/* Individual Card Sizing */
+.cards-list-container .card {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 100%;
-  max-width: 1000px;
+  justify-content: space-between;
+  width: 100%;                           /* Fills its grid column */
   box-sizing: border-box;
-    margin-top: 30px;
+}
+
+/* Mobile Fallback: Stack vertically on small screens */
+@media (max-width: 768px) {
+  .cards-list-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Individual Card Panels */
@@ -372,6 +385,8 @@ model-viewer {
   gap: 40px;
   font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace; 
   box-sizing: border-box;
+  align-items: center;      /* Horizontally centers icon, text, badges, and links */
+  text-align: center;
 }
 
 /* Left Icon Container Block */
@@ -401,7 +416,8 @@ model-viewer {
 .card-content {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  width: 100%;
 }
 
 .card-title {
@@ -425,11 +441,14 @@ model-viewer {
   font-size: 0.8rem;
   padding: 6px 12px;
   border-radius: 6px;
-  align-self: flex-start;
-  display: flex;
   gap: 8px;
+
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  margin: 12px 0 16px 0;
 }
+
 
 .badge-separator {
   color: #383e4a;
@@ -437,9 +456,10 @@ model-viewer {
 
 /* Link Actions row */
 .card-links {
-  display: flex;
-  gap: 24px;
-  margin-top: 4px;
+display: flex;
+  justify-content: center;  /* Centers Docs and GitHub links next to each other */
+  gap: 16px;
+  width: 100%;
 }
 
 .card-link {
@@ -453,6 +473,13 @@ model-viewer {
   transition: opacity 0.2s ease;
 }
 
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0 16px 0; /* Adjust vertical spacing around the badge */
+}
+
 .card-link:hover {
   opacity: 0.8;
 }
@@ -461,6 +488,196 @@ model-viewer {
 .card-link i {
   font-size: 0.95rem;
 }
+
+/* AUDIO SECTION */
+
+.audio-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.audio-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.audio-title {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--pink-primary); /* Pink section accent matching design mockup */
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.header-line {
+  width: 48px;
+  height: 4px;
+  background-color: var(--pink-primary);
+  border-radius: 2px;
+}
+
+.section-subtitle-mono {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* Audio Card Container */
+.audio-card {
+  background: var(--dark-card-bg);
+  border: 1px solid var(--dark-card-border);
+  border-radius: 20px;
+  padding: 32px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+}
+
+/* Spinning Record Visual */
+.record-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vinyl-record {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a1a1a 30%, #000000 70%);
+  border: 4px solid #2a2a2a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px var(--pink-glow);
+  animation: spin 8s linear infinite;
+}
+
+.record-grooves {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.record-center {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--pink-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-note-icon {
+  color: #000;
+  font-size: 1.2rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Audio Details & Embed Player */
+.audio-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.audio-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  color: var(--pink-primary);
+  background: rgba(255, 85, 163, 0.1);
+  border: 1px solid rgba(255, 85, 163, 0.3);
+  padding: 4px 10px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.track-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 4px 0 0 0;
+}
+
+.track-artist {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 12px 0;
+}
+
+/* YouTube Embed Wrapper */
+.player-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--dark-card-border);
+  aspect-ratio: 16 / 9;
+  max-height: 180px;
+}
+
+.player-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.audio-actions {
+  margin-top: 12px;
+}
+
+.btn-pink-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--pink-primary);
+  border: 1px solid var(--pink-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-pink-outline:hover {
+  background-color: var(--pink-primary);
+  color: #000000;
+  box-shadow: 0 0 12px var(--pink-glow);
+}
+
+/* Responsive adjustment for small viewports */
+@media (max-width: 768px) {
+  .audio-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+  .audio-details {
+    align-items: center;
+  }
+}
+
+/* DATABASE SECTION */
 
 /* Container scroll block */
 .excel-container {
@@ -559,4 +776,41 @@ model-viewer {
   vertical-align: middle !important;
   width: 60px;          
   min-width: 60px;
+}
+
+/* Attribution Callout Box */
+.data-attribution {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #161820;
+  border: 1px solid #222630;
+  border-left: 3px solid var(--accent); /* Accent accent highlight bar */
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 45px 0px;
+  font-size: 0.85rem;
+  color: #a0a6b5;
+  line-height: 1.4;
+}
+
+.data-attribution i {
+  color: var(--accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.data-attribution strong {
+  color: #ffffff;
+}
+
+.attribution-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.attribution-link:hover {
+  color: var(--pink-hover)var(--accent);
 }

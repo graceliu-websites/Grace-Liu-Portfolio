@@ -167,12 +167,7 @@ body {
     transition: all 0.2s ease;
     position: relative;
     font-size: 1.1rem;
-}
-
-.nav-item i {
-    font-size: 0.9rem;
-    width: 20px; 
-    text-align: center;
+    gap: 12px;
 }
 
 /* The Active Highlight Style */
@@ -197,6 +192,40 @@ body {
 .nav-item:hover:not(.active) {
     background-color: rgba(255, 255, 255, 0.05);
     color: #bbb;
+}
+
+.nav-item .nav-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: #a0a6b5;
+  flex-shrink: 0;             /* Prevents logo from shrinking if label wraps */
+  transition: color 0.2s ease;
+}
+
+/* Hover & Active States */
+.nav-item:hover {
+  color: #ffffff;
+}
+
+.nav-item:hover .nav-icon {
+  color: #ffffff;             /* Brightens icon on hover */
+}
+
+.nav-item.active .nav-icon {
+  color: #ffffff;
+}
+
+/* Custom Image Icon Styling */
+.nav-custom-icon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;  /* Prevents image distortion */
+  flex-shrink: 0;        /* Prevents shrinking */
+  border-radius: 4px;    /* Optional: slightly rounds corners if using square images */
 }
 
 /* Status badge */
@@ -560,112 +589,159 @@ h2 {
 }
 
 /* Projects */
-.projects-section h3 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.5px;
-}
-
-.project-card-link, 
-.project-card-link:visited {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.project-card {
-    position: relative;
-    height: 350px;
-    border-radius: 20px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    border: 1px solid #222;
-    transition: transform 0.4s ease;
-}
-
-.project-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0.2) 60%, transparent);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-/* Typography Hierarchy */
+/* Projects Layout Setup */
 .project-grid {
-    display: flex;            
-    flex-direction: column;    
-    gap: 2rem;           
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  perspective: 1000px;
+  padding: 20px 0;
 }
 
-/* Project Overlay Hierarchy */
-.project-overlay h4 {
-    font-size: 1.8rem; /* Make the title much larger */
-    font-weight: 700;
-    color: #ffffff !important; /* Force white */
-    margin-top: 0.5rem;
+.project-card-link {
+  flex: 1;
+  text-decoration: none;
+  min-width: 0;
+  display: block; /* Ensures the anchor tag wraps the card completely */
+  position: relative;
+}
+
+/* Base Card Deck Angles */
+.project-card-link:nth-child(1) .project-card {
+  transform: rotate(-3deg) translateY(6px);
+}
+
+.project-card-link:nth-child(2) .project-card {
+  transform: rotate(0deg) translateY(0);
+}
+
+.project-card-link:nth-child(3) .project-card {
+  transform: rotate(3deg) translateY(6px);
+}
+
+/* Card Aesthetics & Smooth Hover Transition */
+.project-card {
+  position: relative;
+  height: 520px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+  pointer-events: none; /* Passes click events directly to the parent <a> tag */
+}
+
+.card-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-no-repeat;
+}
+
+.layer-bg {
+  z-index: 1;
+}
+
+/* Layer 2: Foreground element (e.g., SVG/Robot) */
+.layer-fg {
+  z-index: 2;
+  background-size: contain; /* Prevents stretching floating vectors */
+  background-position: center right; /* Adjust positioning as needed */
+  transition: transform 0.3s ease;
+}
+
+/* Optional Parallax Effect on Hover */
+.project-card-link:hover .layer-fg {
+  transform: translateY(-6px) scale(1.05); /* Slightly pops the top layer when hovered */
+}
+
+/* Hover States (Lifts and maintains angle without continuous animation blocking clicks) */
+.project-card-link:hover {
+  z-index: 10;
+}
+
+.project-card-link:nth-child(1):hover .project-card {
+  transform: translateY(-12px) rotate(-3deg) scale(1.02);
+  border-color: #58a6ff;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(88, 166, 255, 0.3);
+}
+
+.project-card-link:nth-child(2):hover .project-card {
+  transform: translateY(-12px) rotate(0deg) scale(1.02);
+  border-color: #58a6ff;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(88, 166, 255, 0.3);
+}
+
+.project-card-link:nth-child(3):hover .project-card {
+  transform: translateY(-12px) rotate(3deg) scale(1.02);
+  border-color: #58a6ff;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(88, 166, 255, 0.3);
+}
+
+/* Overlay Styling */
+.project-overlay {
+z-index: 3;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(13, 17, 23, 0.92) 100%);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
 }
 
 .project-overlay .category {
-    color: var(--accent-blue);
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #58a6ff;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.view-project {
-    font-size: 0.85rem;
-    color: #888;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    opacity: 0; /* Hidden until hover */
-    transform: translateY(10px);
-    transition: all 0.3s ease;
+.project-overlay h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  color: #ffffff;
+  line-height: 1.3;
+  text-align: center;
 }
 
-.project-card:hover .view-project {
-    opacity: 1;
-    transform: translateY(0);
+.project-overlay .view-project {
+  font-size: 0.85rem;
+  color: #8b949e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.project-card:hover {
-    transform: scale(1.02);
-    border-color: #444;
+.project-card-link:hover .view-project {
+  color: #ffffff;
+  transform: translateX(4px);
 }
 
-.btn-outline {
-    background: transparent;
-    color: #ffffff;
-    
-    /* Create the dashed border */
-    border: 1px dashed rgba(255, 255, 255, 0.3); 
-    
-    /* Pill shape (use a large number like 50px or 100px) */
-    border-radius: 100px;
-    
-    /* Layout and Spacing */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Space between the icon and text */
-    padding: 12px 24px;
-    
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    width: 100%; /* If you want it to fill the sidebar width */
-}
-
-/* Hover effect to make it feel interactive */
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.6);
+/* Mobile responsive fallback */
+@media (max-width: 768px) {
+  .project-grid {
+    flex-direction: column;
+  }
+  .project-card-link:nth-child(1) .project-card,
+  .project-card-link:nth-child(2) .project-card,
+  .project-card-link:nth-child(3) .project-card {
+    transform: none;
+  }
 }
 
 /* Bottom Grid */
@@ -748,11 +824,11 @@ h2 {
 }
 
 .cta-card {
-    background: linear-gradient(135deg, #0a0a0a 0%, #0d1137 100%); /* Deep blue tint instead of teal */
-    border: 1px solid rgba(61, 78, 245, 0.3); /* Uses your primary blue */
+    background: linear-gradient(135deg, #0a0a0a 0%, #0d1137 100%);
+    border: 1px solid rgba(61, 78, 245, 0.3);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Pushes heading to top, buttons to bottom */
 }
 
 /* base button styles */
@@ -802,8 +878,9 @@ h2 {
 .cta-button-group {
     display: flex;
     flex-direction: column;
-    padding: 10rem; /* Space between the two stacked buttons */
-    margin-top: 24px;
+    gap: 12px;         /* Space between the two buttons */
+    margin-top: 24px;  /* Clean, compact gap above the buttons */
+    padding: 0;        /* Removes the huge 10rem padding */
 }
 
 /* Project Specific Styles */
@@ -957,6 +1034,19 @@ h2 {
 }
 
 /*Techtronics Wireframes*/
+.section-header {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px; /* Optional spacing above the project buttons */
+}
+
+.section-header h3 {
+  margin: 30px 0px;
+  font-size: 2rem; /* Clears default margins for exact centering */
+}
+
 .section-intro {
     color: #a0a0a0;
     margin-bottom: 32px;

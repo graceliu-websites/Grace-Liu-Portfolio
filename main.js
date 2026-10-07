@@ -1,11 +1,14 @@
 // SIDE BAR & TOGGLE// 
 
+const SITE_ROOT = document.currentScript
+    ? new URL('./', document.currentScript.src).href
+    : new URL('./', window.location.href).href;
+
 document.addEventListener('DOMContentLoaded', () => {
     const sidebarContainer = document.getElementById('sidebar-container');
     const content = document.querySelector('.content');
     const openBtn = document.getElementById('sidebar-open-btn');
 
-    // Toggle function
     function toggleSidebar() {
         if (!sidebarContainer) return;
         const isCollapsed = sidebarContainer.classList.toggle('collapsed');
@@ -13,33 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (openBtn) openBtn.classList.toggle('hidden', !isCollapsed);
     }
 
-    // Bind open button (visible when sidebar is closed)
     if (openBtn) {
         openBtn.addEventListener('click', toggleSidebar);
     }
 
-    // Determine path prefix for subfolders (e.g. techtronics/techtronics.html vs index.html)
-    const isSubfolder = window.location.pathname.includes('/') && 
-                        window.location.pathname.split('/').filter(Boolean).length > 1;
-    const sidebarPath = isSubfolder ? '../sidebar.html' : './sidebar.html';
-
-    // Fetch and inject sidebar
     if (sidebarContainer) {
-        fetch(sidebarPath)
+        fetch(SITE_ROOT + 'sidebar.html')
             .then(res => {
-                if (!res.ok) throw new Error("Sidebar file not found");
+                if (!res.ok) throw new Error('Sidebar file not found');
                 return res.text();
             })
             .then(html => {
                 sidebarContainer.innerHTML = html;
 
-                // Bind close button once HTML is injected
+                // sidebar.html is written with "../" paths; point them at the site root
+                sidebarContainer.querySelectorAll('[href^="../"], [src^="../"]').forEach(el => {
+                    const attr = el.hasAttribute('href') ? 'href' : 'src';
+                    el.setAttribute(attr, SITE_ROOT + el.getAttribute(attr).slice(3));
+                });
+
                 const toggleBtn = document.getElementById('sidebar-toggle-btn');
                 if (toggleBtn) {
                     toggleBtn.addEventListener('click', toggleSidebar);
                 }
 
-                // Highlight active nav item
                 highlightActiveNav();
             })
             .catch(err => console.error(err));
@@ -208,4 +208,26 @@ document.addEventListener('keydown', function(event) {
             modal.classList.remove('is-open');
         }
     }
+});
+
+// TECHTRONICS Animations
+
+document.addEventListener('DOMContentLoaded', () => {
+  const observerOptions = {
+    root: null,       /* Uses the viewport */
+    rootMargin: '0px',
+    threshold: 0.15   /* Triggers when 15% of the element is visible */
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  // Target all elements you want to animate
+  const animateElements = document.querySelectorAll('.reveal-right');
+  animateElements.forEach(el => observer.observe(el));
 });

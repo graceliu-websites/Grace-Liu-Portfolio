@@ -457,13 +457,25 @@ width: 100%;
   width: 100%;
 }
 
+/* Enable smooth transitions on the accordion containers/items */
 .accordion-item {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 40px;
-  box-sizing: border-box;
-  border-top: 1px solid var(--border-color) !important;
-  border-bottom: none !important;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+/* Hover effect: Move 20px to the right with border highlight and subtle shadow */
+.accordion-item:hover {
+  transform: translateX(20px);
+  border-color: rgba(255, 85, 163, 0.4); /* Optional: matches your theme's highlight color */
+  box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Optional micro-interaction: shift the chevron/arrow indicator when hovered */
+.accordion-item:hover .accordion-arrow {
+  transform: translateX(4px);
+  transition: transform 0.2s ease;
 }
 
 .accordion-header {
@@ -3307,106 +3319,138 @@ comp-icon-box-amazon,
     width: 100%;
 }
 
-/* Base Card - retains dark rounded frame */
+/* Card base transition setup */
 .next-project-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #121318;
-    border: 1px solid #2d313f;
-    border-radius: 16px;
-    padding: 36px 40px;
-    position: relative;
-    box-sizing: border-box;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
+/* Hover state: Translate right + subtle glow */
 .next-project-card:hover {
-    border-color: #3b3f54;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transform: translateX(20px);
+  box-shadow: -4px 8px 24px rgba(0, 0, 0, 0.5), 
+              0 0 15px rgba(255, 85, 163, 0.15); /* Soft trailing glow */
 }
 
-/* Content layout - flex-start prevents button stretching */
+/* Bonus micro-interaction: nudge the button arrow further right on card hover */
+.next-project-btn {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.next-project-card:hover .next-project-btn {
+  letter-spacing: 0.5px; /* Subtle text expansion */
+}
+
+.badge.red {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(228, 70, 47, 0.12);
+  color: #ff5c43;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border: 1px solid rgba(228, 70, 47, 0.3);
+  box-shadow: 0 0 10px rgba(228, 70, 47, 0.1);
+}
+
 .next-content {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Two-column layout for Text (Left) and Image (Right) */
+.next-project-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.next-project-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.next-project-text h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 12px 0 8px 0;
+}
+
+.next-project-text p {
+  color: #8b949e;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.next-project-media {
+  flex: 0 0 280px; /* Adjust width of image container as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-project-img {
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 0px solid #222630;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.next-project-btn {
+  width: 100% !important;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .next-project-body {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+  }
+  
+  .next-project-media {
     width: 100%;
+    flex: auto;
+  }
 }
 
-/* Badge - subtle rounded tag style */
-.badge.badge-red {
-    background-color: rgba(239, 68, 68, 0.15); /* Soft red background */
-    color: #ef4444;                             /* Coral / shell red text */
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
+/* Reveal Animation for Right Slide-in */
 
-    align-self: flex-start;  /* Keeps the badge sized ONLY to its text content */
-    width: fit-content;
+.reveal-right {
+  opacity: 0;
+  transform: translateX(100px); /* Adjust distance as needed */
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
-/* Crisp Headings & Body Copy */
-.next-content h2 {
-    color: #f3f4f6;
-    font-size: 1.85rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin: 0 0 10px 0;
+/* Active state: reset to original position */
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.next-content p {
-    color: #9ca3af; /* Upgraded from dark grey for high readability */
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0 0 24px 0;
-    max-width: 520px;
+/* Accessibility: Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-right {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
-
-/* Primary Button - clean auto-width with smooth hover transform */
-.next-content .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #4f46e5;
-    color: #ffffff;
-    font-weight: 600;
-    border-radius: 8px;
-
-    width: 100%;                /* Fills almost the entire inner width of the card */
-    font-size: 1.1rem;           /* Larger, clear text */
-    padding: 18px 0;             /* Generous height */
-    margin-top: 12px;            /* Breathing room above the button */
-    
-    text-decoration: none;
-    border-radius: 12px;         /* Smooth rounded corners matching card radius */
-    box-sizing: border-box;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.next-content .btn-primary:hover {
-    background-color: #4338ca;
-    transform: translateY(-2px);
-}
-
-/* Subtly animated decorative arrow on right */
-.next-arrow {
-    color: #374151;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 24px;
-    transition: color 0.25s ease, transform 0.25s ease;
-}
-
-.next-project-card:hover .next-arrow {
-    color: #9ca3af;
-    transform: translateX(6px);
-}
-
-

@@ -213,21 +213,16 @@ document.addEventListener('keydown', function(event) {
 // TECHTRONICS Animations
 
 document.addEventListener('DOMContentLoaded', () => {
-  const observerOptions = {
-    root: null,       /* Uses the viewport */
-    rootMargin: '0px',
-    threshold: 0.15   /* Triggers when 15% of the element is visible */
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
+      // Slide in when any part is on screen, reset once fully off screen
+      entry.target.classList.toggle('active', entry.isIntersecting);
     });
-  }, observerOptions);
+  }, {
+    root: null,
+    threshold: 0,
+    rootMargin: '0px 0px -10% 0px' /* waits until the item is slightly inside the viewport */
+  });
 
-  // Target all elements you want to animate
-  const animateElements = document.querySelectorAll('.reveal-right');
-  animateElements.forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal-right').forEach(el => observer.observe(el));
 });

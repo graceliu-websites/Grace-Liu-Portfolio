@@ -55,6 +55,10 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
     overflow: hidden;
 }
 
+.info-grid .reveal-right:nth-child(2).active {
+  animation-delay: 0.2s;
+}
+
 .about-container {
     width: 100% !important;
     max-width: 1200px;

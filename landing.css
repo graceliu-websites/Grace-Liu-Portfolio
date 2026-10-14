@@ -20,6 +20,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-main);
+    overflow-x: hidden;
 }
 
 .container {
@@ -44,13 +45,12 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 100;
-    /* Add transition for sliding */
     transition: transform 0.3s ease;
+    white-space: nowrap;
 }
 
 .content {
     flex: 1;
-    margin-left: 288px; /* Match actual sidebar width (288px) */
     padding: 2rem 4rem;
     transition: margin-left 0.3s ease;
 }
@@ -84,22 +84,34 @@ body {
 
 .sidebar-open-btn {
     position: fixed;
-    top: 65px;
+    top: 35px;
     left: 20px;
     z-index: 90;
-    background: #141414;
-    border: 1px solid #333;
-    color: #fff;
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 1.2rem;
+
+    width: 65px;           /* matches the 4rem left padding of .content, so nothing overlaps */
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.6rem 0 0;
+
+    background: var(--sidebar-bg);
+    border: none;
+    border-right: 1px solid #222;
+    border-radius: 0;
+    box-shadow: none;
+
+    color: var(--text-dim);
+    font-size: 1.1rem;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .sidebar-open-btn:hover {
-    background: #222;
+    background: #111;
+    color: #fff;
 }
 
 /* Hide open button when sidebar is visible */
@@ -285,6 +297,7 @@ body {
     margin: 1.5rem 0;
     padding-top: 0px;
     color: #ffffff !important;
+    width: 90%;
 }
 
 h2 {
@@ -298,7 +311,7 @@ h2 {
 .role-c {color: #26F7A3;}
 
 .hero-specialization {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
     color: #fcfcfc;
     margin: 0;
@@ -775,6 +788,8 @@ z-index: 3;
     margin: 0;
     font-size: 1.1rem;
     color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2.5rem;
 }
 
 .skill-tags {
@@ -1129,4 +1144,39 @@ z-index: 3;
         max-width: 350px;
         margin: 0 auto; /* Centers it when the hero stacks vertically */
     }
+}
+
+/* ---------- Slide-in on scroll ---------- */
+.reveal-right {
+  opacity: 0;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  animation: reveal-slide-right 1.3s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.project-card-link.reveal-right:nth-child(2).active,
+.bottom-grid .reveal-right:nth-child(2).active { animation-delay: 0.2s; }
+
+.project-card-link.reveal-right:nth-child(3).active,
+.bottom-grid .reveal-right:nth-child(3).active { animation-delay: 0.4s; }
+
+@keyframes reveal-slide-right {
+  from {
+    opacity: 0;
+    translate: 100px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-right,
+  .reveal-right.active {
+    opacity: 1;
+    animation: none;
+  }
 }

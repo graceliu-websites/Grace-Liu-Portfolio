@@ -409,7 +409,7 @@ h2 {
 }
 
 .imessage-bubble {
-    background-color: #3191f7;
+    background-color: #1565c0;
     color: #ffffff;
     padding: 14px 28px; /* Increased padding (top/bottom left/right) */
     border-radius: 26px;
@@ -444,7 +444,7 @@ h2 {
     right: -7px;
     height: 15px;
     width: 15px;
-    background-color: #3191f7;
+    background-color: #1565c0;
     border-bottom-left-radius: 12px;
     z-index: -1;
 }
@@ -452,11 +452,11 @@ h2 {
 
 .imessage-bubble-link:hover .imessage-bubble {
     transform: scale(1.08);
-    background-color: #227bd9;
+    background-color: #0d4f9e;
 }
 
 .imessage-bubble-link:hover .imessage-bubble::after {
-    background-color: #227bd9;
+   background-color: #0d4f9e;
 }
 
 /* Profile Image Styles (Hover zoom removed) */
@@ -474,7 +474,7 @@ h2 {
 }
 
 .quote-text .highlight {
-    color: #3d4ef5;
+    color: #7482ff;
     font-weight: 700; 
 }
 
@@ -515,7 +515,7 @@ h2 {
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.6); /* Slightly dimmed white */
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     margin-bottom: 1.2rem;
 }
@@ -539,7 +539,7 @@ h2 {
 
 .degree-status {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9); /* was 0.5 */
     font-weight: 400;
 }
 
@@ -590,7 +590,7 @@ h2 {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #666; /* Dimmed color for secondary info */
+    color: var(--text-dim);
     font-weight: 700;
 }
 
@@ -833,7 +833,7 @@ z-index: 3;
 
 .author-name {
     font-size: 0.85rem;
-    color: #666;
+   color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -847,7 +847,7 @@ z-index: 3;
 }
 
 /* base button styles */
-.btn-primary, .btn-secondary, .btn-outline {
+.btn-primary, .btn-secondary {
     padding: 18px 24px; 
     display: flex;
     align-items: center;
@@ -860,6 +860,17 @@ z-index: 3;
     transition: all 0.3s ease;
     width: 100%;
     border: none;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Primary Button (Send a Message) */

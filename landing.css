@@ -151,8 +151,45 @@ body {
 }
 
 .sidebar-footer {
-    margin-top: auto; 
-    padding-bottom: 1.5rem;
+    margin-top: auto; /* Pushes it to the bottom of the sidebar */
+    padding: 0 1rem 1.5rem; 
+}
+
+.sidebar-footer .btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;         /* centers icon + text as a group */
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 20px;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #ffffff;
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar-footer .btn-outline svg {
+    flex-shrink: 0;
+    display: block;                  /* removes the baseline gap that made the icon sit high */
+}
+
+.sidebar-footer .btn-outline:hover {
+    background: rgba(61, 78, 245, 0.18);
+    border-color: var(--accent-blue, #3d4ef5);
+    transform: translateY(-1px);
+}
+
+.sidebar-footer .btn-outline:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
 }
 
 .nav-row {
@@ -704,7 +741,13 @@ h2 {
 z-index: 3;
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(13, 17, 23, 0.92) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(13, 17, 23, 0) 0%,
+    rgba(13, 17, 23, 0.55) 35%,
+    rgba(13, 17, 23, 0.95) 60%,
+    rgba(13, 17, 23, 0.98) 100%
+  );
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -733,7 +776,7 @@ z-index: 3;
 
 .project-overlay .view-project {
   font-size: 0.85rem;
-  color: #8b949e;
+  color: #c9d1d9; 
   display: flex;
   align-items: center;
   gap: 6px;

@@ -2997,22 +2997,27 @@ display: flex;
   gap: 6px;
 }
 
-/* NEXT PROJECT BUTTON */
+
+/* NEXT PROJECT CARD */
 .next-project-section {
     width: 100%;
 }
 
-/* Base Card - retains dark rounded frame */
+.next-project-card,
+.next-project-card:hover,
+.next-project-card:visited {
+    text-decoration: none;     /* no link underline */
+    color: inherit;
+}
+
 .next-project-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block;
     background-color: #121318;
     border: 1px solid #2d313f;
     border-radius: 16px;
     padding: 36px 40px;
-    position: relative;
     box-sizing: border-box;
+    cursor: pointer;
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -3021,85 +3026,142 @@ display: flex;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Content layout - flex-start prevents button stretching */
-.next-content {
+/* Text on the left, image on the right */
+.next-project-body {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
     width: 100%;
 }
 
-/* Badge - subtle rounded tag style */
+.next-project-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
 .badge.badge-pink {
-    background-color: rgba(229, 124, 177, 0.12); /* Soft magenta-pink glow */
-    color: #E57CB1; /* Brightened soft pink for high contrast */
+    background-color: rgba(229, 124, 177, 0.12);
+    color: #E57CB1;
     border: 1px solid rgba(229, 124, 177, 0.3);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     padding: 6px 14px;
     border-radius: 100px;
-    margin-bottom: 16px;
     text-transform: uppercase;
-
-    align-self: flex-start;  /* Keeps the badge sized ONLY to its text content */
     width: fit-content;
 }
 
-/* Crisp Headings & Body Copy */
-.next-content h2 {
+.next-project-text h2 {
     color: #f3f4f6;
     font-size: 1.85rem;
     font-weight: 700;
     line-height: 1.25;
-    margin: 0 0 10px 0;
+    margin: 12px 0 8px 0;
 }
 
-.next-content p {
-    color: #9ca3af; /* Upgraded from dark grey for high readability */
+.next-project-text p {
+    color: #9ca3af;
     font-size: 0.95rem;
     line-height: 1.5;
-    margin: 0 0 24px 0;
+    margin: 0;
     max-width: 520px;
 }
 
-/* Primary Button - clean auto-width with smooth hover transform */
-.next-content .btn-primary {
+.next-project-media {
+    flex: 0 0 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Small descriptor tags */
+.next-project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.next-project-tags span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #c9ced8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 5px 12px;
+}
+
+/* Call-to-action button */
+.next-project-cta {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background-color: #4f46e5;
-    color: #ffffff;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 12px 24px;
+    font-size: 1rem;
     font-weight: 600;
-    border-radius: 8px;
-
-    width: 100%;                /* Fills almost the entire inner width of the card */
-    font-size: 1.1rem;           /* Larger, clear text */
-    padding: 18px 0;             /* Generous height */
-    margin-top: 12px;            /* Breathing room above the button */
-    
-    text-decoration: none;
-    border-radius: 12px;         /* Smooth rounded corners matching card radius */
-    box-sizing: border-box;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    color: #ffffff;
+    background: #4f46e5;
+    border-radius: 12px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.next-content .btn-primary:hover {
-    background-color: #4338ca;
-    transform: translateY(-2px);
+.next-project-cta i {
+    transition: transform 0.2s ease;
 }
 
-/* Subtly animated decorative arrow on right */
-.next-arrow {
-    color: #374151;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 24px;
-    transition: color 0.25s ease, transform 0.25s ease;
+.next-project-card:hover .next-project-cta {
+    background: #4338ca;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
 }
 
-.next-project-card:hover .next-arrow {
-    color: #9ca3af;
-    transform: translateX(6px);
+.next-project-card:hover .next-project-cta i {
+    transform: translateX(5px);     /* arrow nudges forward on hover */
+}
+
+.next-project-card:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .next-project-media {
+        flex: auto;
+        width: 100%;
+    }
+
+    .next-project-img {
+        height: 180px;
+    }
+}
+
+.next-project-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;            
+    border-radius: 12px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+    transition: transform 0.3s ease;
+}
+
+.next-project-card:hover .next-project-img {
+    transform: scale(1.04);     /* gentle zoom instead of the card sliding */
+}
+
+@media (max-width: 768px) {
+    .next-project-body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .next-project-media {
+        width: 100%;
+        flex: auto;
+    }
 }

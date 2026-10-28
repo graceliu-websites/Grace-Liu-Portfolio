@@ -49,19 +49,21 @@ body {
     white-space: nowrap;
 }
 
-.content {
-    flex: 1;
-    padding: 2rem 4rem;
-    transition: margin-left 0.3s ease;
-}
-
 /* Collapsed state */
 .sidebar.collapsed {
     transform: translateX(-100%);
 }
 
+.content {
+    flex: 1;
+    padding: 2rem 4rem;
+    transition: margin-left 0.3s ease, padding 0.3s ease;
+}
+
+/* Collapsed: leave room for the open-button strip (20px + 65px wide) */
 .content.expanded {
-    margin-left: 0;
+    margin-left: 100px;
+    padding-left: 1.5rem;   /* 65 + 24 = 89px, just clear of the strip's right edge */
 }
 
 /* Sidebar toggle buttons */

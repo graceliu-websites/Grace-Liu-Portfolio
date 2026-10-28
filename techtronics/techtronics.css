@@ -457,19 +457,15 @@ width: 100%;
   width: 100%;
 }
 
-/* Enable smooth transitions on the accordion containers/items */
 .accordion-item {
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              border-color 0.3s ease,
+  transition: border-color 0.3s ease,
               box-shadow 0.3s ease;
-  will-change: transform;
 }
 
-/* Hover effect: Move 20px to the right with border highlight and subtle shadow */
+/* Hover: highlight only, no movement */
 .accordion-item:hover {
-  transform: translateX(20px);
-  border-color: rgba(255, 85, 163, 0.4); /* Optional: matches your theme's highlight color */
-  box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 85, 163, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 /* Optional micro-interaction: shift the chevron/arrow indicator when hovered */
@@ -3137,39 +3133,27 @@ comp-icon-box-amazon,
   }
 }
 
-/* Container Wrapper and Base Reset Styles */
+/* ---------- Participant overview ---------- */
 .participant-overview-wrapper {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px;
-  box-sizing: border-box;
-  border-top: 1px solid #1f232e;   
-  border-bottom: 1px solid #1f232e; 
-  padding: 2.5rem 0rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid #1f232e;
+  border-bottom: 1px solid #1f232e;
 }
 
-.participant-overview-wrapper * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Slide Main Title */
-.overview-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333333;
-  margin-bottom: 24px;
-  letter-spacing: -0.5px;
-}
-
-/* List layout holding blocks */
 .participants-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 0;
   margin-top: 2.5rem;
+}
+
+.participants-list .text-block {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
 .participant-highlight {
@@ -3177,93 +3161,117 @@ comp-icon-box-amazon,
   color: var(--accent);
 }
 
+/* One participant = pill label + a two-column row, all on the same left edge */
 .participant-block {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Ensures both start at the exact same left edge */
+  align-items: flex-start;
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto 36px auto;
-  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem 0;
+  border-top: 1px solid #1f232e;   /* thin divider between participants */
 }
 
-/* Teal Header Bars */
+.participant-block:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Pill label */
 .participant-header {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background-color: rgba(79, 209, 217, 0.12); /* Soft teal tint matching your blue/cyan accents */
+  width: fit-content;
+  background-color: rgba(79, 209, 217, 0.12);
   color: #4fd1d9;
   border: 1px solid rgba(79, 209, 217, 0.35);
-  font-size: 11px;
+  font-size: 0.95rem;                 /* was 11px */
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 9999px; /* Complete pill / bubble shape */
-  margin-bottom: 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  width: fit-content;
+  border-radius: 9999px !important;
+  padding: 8px 20px !important;
+  margin-bottom: 20px !important;
+  box-shadow: none;
 }
 
-.participant-header,
-.participant-title,
-.participant-badge {
-  margin-bottom: 24px !important; 
-  border-radius: 16px !important;
-  padding: 12px 20px !important;
-}
-
-.participant-section,
-.participant-card {
-  display: flex;
-  flex-direction: column;
-  gap: 24px !important; 
+/* Fixed card column on the left, text fills the rest */
+.participant-content {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 40px;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
 }
 
 .demographics-card {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: #1a1e28;
-    padding: 20px;
-    border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  height: 100%;                       /* all three cards match in size */
+  background: #1a1e28;
+  padding: 24px;
+  border-radius: 16px;
 }
 
 .participant-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.participant-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 0 24px;
+.content-column {
+  align-self: center;
 }
 
-@media (max-width: 600px) {
-    .demographics-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* Titles and lists: larger and consistent */
+.column-title {
+  font-size: 1.4rem;                  /* was 1.1rem */
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0 0 12px 0;
 }
 
-@media (min-width: 768px) {
+.info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.info-list li {
+  position: relative;
+  font-size: 1.05rem;                 /* was 14.5px */
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+.info-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4fd1d9;                     /* teal bullets tie into the pills */
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.info-list li strong {
+  font-weight: 700;
+  color: var(--text-light);           /* labels slightly brighter than values */
+}
+
+/* Stack on tablets and phones */
+@media (max-width: 860px) {
   .participant-content {
-    flex-direction: row;
-  }
-  
-  .content-column:first-child {
-    flex: 0 0 280px; /* Gives demographics column a clean fixed alignment width */
-  }
-  
-  .content-column:last-child {
-    flex: 1;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
@@ -3332,6 +3340,13 @@ comp-icon-box-amazon,
   transform: translateX(20px);
   box-shadow: -4px 8px 24px rgba(0, 0, 0, 0.5), 
               0 0 15px rgba(255, 85, 163, 0.15); /* Soft trailing glow */
+}
+
+.next-project-card,
+.next-project-card:hover,
+.next-project-card:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Bonus micro-interaction: nudge the button arrow further right on card hover */

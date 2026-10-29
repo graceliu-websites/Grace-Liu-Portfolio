@@ -137,13 +137,13 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 
 /* --- Expanded Bio Section with Visuals --- */
 .full-bio {
-    max-width: 760px;
+    max-width: 900px;
     gap: 2rem;
 }
 
 .bio-paragraph {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 20px;
     line-height: 1.85;
     color: var(--text-muted);
 }

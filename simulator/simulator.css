@@ -5,6 +5,11 @@
     --border-color: #1f2026;
     --text-muted: #a0a5b5;
     --text-light: #e2e4e9;
+    --pink-primary: #ff55a3;
+    --pink-glow: rgba(255, 85, 163, 0.4);
+    --pink-hover: #f661a3;
+    --dark-card-bg: #0b0d11;
+    --dark-card-border: #1a1d24;
 }
 
 body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
@@ -812,5 +817,18 @@ display: flex;
 }
 
 .attribution-link:hover {
-  color: var(--pink-hover)var(--accent);
+  color: var(--pink-hover);
+}
+
+/* Stagger helpers (same idea as the About page) */
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+/* Stops elements sliding in from the right from creating a horizontal scrollbar */
+.content { overflow-x: clip; }
+
+/* Respect users who turn motion off */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-right { animation: none !important; opacity: 1 !important; translate: none !important; }
 }

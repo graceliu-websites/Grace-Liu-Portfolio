@@ -239,7 +239,7 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 /* Container Grid */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns per row */
+  grid-template-columns: repeat(4, 1fr); /* 5 columns per row */
   gap: 16px;
   width: 100%;
 }
@@ -325,8 +325,6 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
   gap: 8px; /* Space between icon and text label */
 }
 
-/* Simple Icon Styling */
-/* Container aligning step number and icon on the top row */
 /* Container aligning step number and icon on the same horizontal line */
 .number-row {
   display: inline-flex;
@@ -352,6 +350,60 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
   align-items: flex-start;
   justify-content: space-between;
 }
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 200px;
+  text-align: left;
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.menu-item:hover,
+.menu-item:focus-visible {
+  transform: translateY(-4px);
+  border-color: #e8553d;
+}
+.menu-item:focus-visible { outline: 3px solid #ffb4a6; outline-offset: 3px; }
+
+.menu-item .number-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.menu-item .step-num {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #9aa4b2;
+}
+.menu-item .teaser {
+  font-size: .85rem;
+  line-height: 1.4;
+  color: #aeb7c4;
+}
+
+.menu-item .card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 6px 12px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #ff8a73;
+  border: 1px solid rgba(255, 106, 80, .45);
+  border-radius: 999px;
+  transition: background .25s ease, color .25s ease, gap .25s ease;
+}
+.menu-item:hover .card-cta { background: #e8553d; color: #fff; gap: 12px; }
+
+/* active state: filled pill and glow instead of the underline */
+.menu-item.active { box-shadow: 0 0 0 1px #e8553d, 0 8px 24px rgba(232, 85, 61, .18); }
+.menu-item.active .card-cta { background: #e8553d; color: #fff; }
+.menu-item.active .cta-text::after { content: "ing"; }  /* "Explore" becomes "Exploring" */
 
 /* ACCORDION WRAPPER & HEADER STYLING */
 .accordion-container {

@@ -226,3 +226,209 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal-right').forEach(el => observer.observe(el));
 });
+
+  document.addEventListener('DOMContentLoaded', function () {
+(function () {
+    var section = document.querySelector('.holo-section');
+    if (!section) return;
+
+    var ring = section.querySelector('.holo-ring');
+    var cards = Array.prototype.slice.call(ring.querySelectorAll('.holo-card'));
+    var dots = Array.prototype.slice.call(section.querySelectorAll('.holo-dot-btn'));
+    var prevBtn = section.querySelector('#holo-prev');
+    var nextBtn = section.querySelector('#holo-next');
+    var playBtn = section.querySelector('#holo-play');
+    var counter = section.querySelector('#holo-count');
+    var stage = section.querySelector('.holo-stage');
+
+    var count = cards.length;
+    var index = 0;
+    var timer = null;
+    var visible = true;
+    var hovering = false;
+    var userPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function mod(n, m) { return ((n % m) + m) % m; }
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    function render() {
+        ring.style.setProperty('--turn', index);
+        cards.forEach(function (card, i) {
+            card.setAttribute('data-pos', mod(i - index, count));
+        });
+        var active = mod(index, count);
+        dots.forEach(function (d, i) {
+            d.setAttribute('aria-current', i === active ? 'true' : 'false');
+        });
+        counter.textContent = pad(active + 1) + ' / ' + pad(count);
+    }
+
+    function go(delta) { index += delta; render(); }
+
+    function goTo(target) {
+        // take the shortest way round the ring
+        go(mod(target - index + count / 2, count) - count / 2);
+    }
+
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() {
+        stop();
+        if (!userPaused && !hovering && visible) {
+            timer = setInterval(function () { go(1); }, 6000);
+        }
+    }
+
+    function syncPlayButton() {
+        playBtn.innerHTML = userPaused
+            ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+            : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+        playBtn.setAttribute('aria-label', userPaused ? 'Start automatic rotation' : 'Pause automatic rotation');
+        counter.setAttribute('aria-live', userPaused ? 'polite' : 'off');
+    }
+
+    prevBtn.addEventListener('click', function () { go(-1); start(); });
+    nextBtn.addEventListener('click', function () { go(1); start(); });
+    dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { goTo(i); start(); });
+    });
+    cards.forEach(function (card, i) {
+        card.addEventListener('click', function () {
+            if (card.getAttribute('data-pos') !== '0') { goTo(i); start(); }
+        });
+    });
+    playBtn.addEventListener('click', function () {
+        userPaused = !userPaused;
+        syncPlayButton();
+        start();
+    });
+
+    // pause while the pointer or keyboard focus is inside the section
+    stage.addEventListener('mouseenter', function () { hovering = true; stop(); });
+    stage.addEventListener('mouseleave', function () { hovering = false; start(); });
+    section.addEventListener('focusin', function () { hovering = true; stop(); });
+    section.addEventListener('focusout', function () { hovering = false; start(); });
+
+    section.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { go(-1); start(); }
+        if (e.key === 'ArrowRight') { go(1); start(); }
+    });
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            if (visible) { start(); } else { stop(); }
+        }).observe(section);
+    }
+
+    syncPlayButton();
+    render();
+    start();
+})();
+
+  });
+
+/* ===== HOLOGRAPHIC STORYBOARD ===== */
+
+(function () {
+    var section = document.querySelector('.holo-section');
+    if (!section) return;
+
+    var ring = section.querySelector('.holo-ring');
+    var cards = Array.prototype.slice.call(ring.querySelectorAll('.holo-card'));
+    var dots = Array.prototype.slice.call(section.querySelectorAll('.holo-dot-btn'));
+    var prevBtn = section.querySelector('#holo-prev');
+    var nextBtn = section.querySelector('#holo-next');
+    var playBtn = section.querySelector('#holo-play');
+    var counter = section.querySelector('#holo-count');
+    var stage = section.querySelector('.holo-stage');
+
+    var count = cards.length;
+    var index = 0;
+    var timer = null;
+    var visible = true;
+    var hovering = false;
+    var userPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function mod(n, m) { return ((n % m) + m) % m; }
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+    function render() {
+        ring.style.setProperty('--turn', index);
+        cards.forEach(function (card, i) {
+            card.setAttribute('data-pos', mod(i - index, count));
+        });
+        var active = mod(index, count);
+        dots.forEach(function (d, i) {
+            d.setAttribute('aria-current', i === active ? 'true' : 'false');
+        });
+        counter.textContent = pad(active + 1) + ' / ' + pad(count);
+    }
+
+    function go(delta) { index += delta; render(); }
+
+    function goTo(target) {
+        // take the shortest way round the ring
+        go(mod(target - index + count / 2, count) - count / 2);
+    }
+
+    function stop() {
+        if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    function start() {
+        stop();
+        if (!userPaused && !hovering && visible) {
+            timer = setInterval(function () { go(1); }, 6000);
+        }
+    }
+
+    function syncPlayButton() {
+        playBtn.innerHTML = userPaused
+            ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+            : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+        playBtn.setAttribute('aria-label', userPaused ? 'Start automatic rotation' : 'Pause automatic rotation');
+        counter.setAttribute('aria-live', userPaused ? 'polite' : 'off');
+    }
+
+    prevBtn.addEventListener('click', function () { go(-1); start(); });
+    nextBtn.addEventListener('click', function () { go(1); start(); });
+
+    dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { goTo(i); start(); });
+    });
+
+    cards.forEach(function (card, i) {
+        card.addEventListener('click', function () {
+            if (card.getAttribute('data-pos') !== '0') { goTo(i); start(); }
+        });
+    });
+
+    playBtn.addEventListener('click', function () {
+        userPaused = !userPaused;
+        syncPlayButton();
+        start();
+    });
+
+    // pause while the pointer or keyboard focus is inside the section
+    stage.addEventListener('mouseenter', function () { hovering = true; stop(); });
+    stage.addEventListener('mouseleave', function () { hovering = false; start(); });
+    section.addEventListener('focusin', function () { hovering = true; stop(); });
+    section.addEventListener('focusout', function () { hovering = false; start(); });
+
+    section.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { go(-1); start(); }
+        if (e.key === 'ArrowRight') { go(1); start(); }
+    });
+
+    // only rotate while the section is on screen
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            if (visible) { start(); } else { stop(); }
+        }).observe(section);
+    }
+
+    syncPlayButton();
+    render();
+    start();
+})();

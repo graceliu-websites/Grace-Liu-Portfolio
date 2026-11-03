@@ -239,7 +239,7 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 /* Container Grid */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 5 columns per row */
+  grid-template-columns: repeat(5, 1fr); /* 5 columns per row */
   gap: 16px;
   width: 100%;
 }
@@ -379,10 +379,28 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
   letter-spacing: .08em;
   color: #9aa4b2;
 }
+
 .menu-item .teaser {
-  font-size: .85rem;
-  line-height: 1.4;
-  color: #aeb7c4;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #a0a6b5;
+
+  /* hidden until hover */
+  max-height: 0;
+  margin-top: -8px;          /* cancels the flex gap while hidden */
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-4px);
+  transition: max-height .3s ease, margin-top .3s ease,
+              opacity .25s ease, transform .25s ease;
+}
+
+.menu-item:hover .teaser,
+.menu-item:focus-visible .teaser {
+  max-height: 6em;           /* room for 3-4 lines */
+  margin-top: 0;
+  opacity: 1;
+  transform: none;
 }
 
 .menu-item .card-cta {
@@ -403,7 +421,7 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 /* active state: filled pill and glow instead of the underline */
 .menu-item.active { box-shadow: 0 0 0 1px #e8553d, 0 8px 24px rgba(232, 85, 61, .18); }
 .menu-item.active .card-cta { background: #e8553d; color: #fff; }
-.menu-item.active .cta-text::after { content: "ing"; }  /* "Explore" becomes "Exploring" */
+.menu-item.active .cta-text::after { content: "ing"; } /* "Explore" becomes "Exploring" */
 
 /* ACCORDION WRAPPER & HEADER STYLING */
 .accordion-container {
@@ -3052,14 +3070,25 @@ display: flex;
 
 /* NEXT PROJECT CARD */
 .next-project-section {
-    width: 100%;
+    max-width: 900px !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 24px !important;
+}
+
+.next-project-card:hover {
+  transform: translateX(20px);
+  box-shadow: -4px 8px 24px rgba(0, 0, 0, 0.5), 
+              0 0 15px rgba(255, 85, 163, 0.15); /* Soft trailing glow */
 }
 
 .next-project-card,
 .next-project-card:hover,
 .next-project-card:visited {
-    text-decoration: none;     /* no link underline */
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .next-project-card {
@@ -3070,12 +3099,24 @@ display: flex;
     padding: 36px 40px;
     box-sizing: border-box;
     cursor: pointer;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: transform .5s cubic-bezier(.22, 1, .36, 1),
+            border-color .25s ease,
+            box-shadow .25s ease;
 }
 
-.next-project-card:hover {
-    border-color: #3b3f54;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+.next-project-card:hover,
+.next-project-card:focus-visible {
+    transform: translateX(20px);
+    border-color: rgba(229, 124, 177, .55);
+    background-color: #15161c;
+    box-shadow: -4px 10px 28px rgba(0, 0, 0, .5),
+                0 0 24px rgba(255, 85, 163, .14);
+}
+
+.next-project-card:active {
+    transform: translateX(12px);
+    transition-duration: .15s;
 }
 
 /* Text on the left, image on the right */

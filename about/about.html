@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -25,13 +26,24 @@
                 <div class="badge-blue reveal-right">About Me</div>
 
                 <section class="hero-split">
-                    <div class="hero-image-area reveal-right">
-                        <div class="circle-frame">
+                    <section class="paint-banner reveal-right" aria-label="A collage of Grace's paintings">
+                        <!-- left side -->
+                        <figure class="tile tile-l1"><img src="../images/about/paintings/painting-6.jpg" alt="Describe painting 1" loading="lazy"></figure>
+                        <figure class="tile tile-l2"><img src="../images/about/paintings/painting-9.jpg" alt="Describe painting 2" loading="lazy"></figure>
+                        <figure class="tile tile-l3"><img src="../images/about/paintings/painting-2.jpg" alt="Describe painting 3" loading="lazy"></figure>
+
+                        <!-- right side -->
+                        <figure class="tile tile-r3"><img src="../images/about/paintings/painting-7.jpg" alt="Describe painting 4" loading="lazy"></figure>
+                        <figure class="tile tile-r2"><img src="../images/about/paintings/painting-10.jpg" alt="Describe painting 5" loading="lazy"></figure>
+                        <figure class="tile tile-r1"><img src="../images/about/paintings/painting-8.jpg" alt="Describe painting 6" loading="lazy"></figure>
+
+                        <!-- you, in the middle -->
+                        <div class="banner-avatar">
                             <img src="../images/about/about-me.png" alt="Grace Liu">
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="hero-text-area reveal-right delay-1">
+                    <div class="banner-intro reveal-right delay-1">
                         <h1 class="main-title">
                             Hi! I'm Grace,<br>
                             <span>
@@ -40,6 +52,7 @@
                             </span>
                         </h1>
                     </div>
+
                 </section>
 
             <section class="full-bio">
@@ -71,60 +84,96 @@
                 </div>
             </section>
 
-            <section class="illu-section reveal-right">
-                <h2 class="sub-label">STORYBOARDS</h2>
-                <div class="illu-row">
-                    <div class="slider-track">
-                        <figure class="illu-card">
-                            <img src="../images/about/storyboards/sma-voice-control-sketch.jpg" alt="Six-panel storyboard. Kavita, a student with spinal muscular atrophy, can't complete a sketching assignment by hand and worries about falling behind. A voice-controlled sketch tool lets her draw with custom voice commands, and she succeeds academically." loading="lazy">
-                            <figcaption class="illu-caption">
-                                <strong>Voice-controlled sketching</strong>
-                                Kavita has SMA and can't sketch by hand. Custom voice commands let her turn ideas into drawings and keep pace in class.
-                            </figcaption>
-                        </figure>
+            <section class="holo-section reveal-right" aria-roledescription="carousel" aria-label="Accessibility storyboards">
+                <h2 class="holo-heading">Storyboards <span class="holo-tag">// accessibility futures</span></h2>
 
-                        <figure class="illu-card">
-                            <img src="../images/about/storyboards/subway-surfers.jpg" alt="Six-panel storyboard. Bob, who is blind, plays Subway Surfers with left, right and action switches. The game starts with an audio tutorial, uses spatial audio to locate trains and barriers, confirms each move with a sound, and gives consistent audio feedback." loading="lazy">
-                            <figcaption class="illu-caption">
+                <div class="holo-stage">
+                    <div class="holo-beam" aria-hidden="true"></div>
+                    <div class="holo-base" aria-hidden="true"></div>
+
+                    <div class="holo-viewport">
+                        <div class="holo-ring" id="holo-ring">
+
+                            <figure class="holo-card" style="--n:0" data-pos="0" role="group" aria-roledescription="slide" aria-label="1 of 6">
+                                <div class="holo-frame">
+                                    <img src="../images/about/storyboards/sma-voice-control-sketch.jpg" alt="Six-panel storyboard. Kavita, a student with spinal muscular atrophy, can't complete a sketching assignment by hand and worries about falling behind. A voice-controlled sketch tool lets her draw with custom voice commands, and she succeeds academically." loading="lazy">
+                                </div>
+                                <figcaption class="holo-caption">
+                                    <strong>Voice-controlled sketching</strong>
+                                    Kavita has SMA and can't sketch by hand. Custom voice commands let her turn ideas into drawings and keep pace in class.
+                                </figcaption>
+                            </figure>
+
+                        <figure class="holo-card" style="--n:1" data-pos="1" role="group" aria-roledescription="slide" aria-label="2 of 6">
+                            <div class="holo-frame">
+                                <img src="../images/about/storyboards/subway-surfers.jpg" alt="Six-panel storyboard. Bob, who is blind, plays Subway Surfers with left, right and action switches. The game starts with an audio tutorial, uses spatial audio to locate trains and barriers, confirms each move with a sound, and gives consistent audio feedback." loading="lazy">
+                            </div>
+                            <figcaption class="holo-caption">
                                 <strong>Subway Surfers for blind players</strong>
                                 Bob plays with three switches. An audio tutorial, spatial audio cues and forgiving timing give him the context to enjoy the full game.
                             </figcaption>
                         </figure>
 
-                        <figure class="illu-card">
-                            <img src="../images/about/storyboards/blind-wheelchair-navcog.jpg" alt="Six-panel storyboard. Alex, a visually impaired wheelchair user, is routed by NavCog to a stairwell he cannot use. A step-free toggle in the app reroutes him to an elevator, and he feels included." loading="lazy">
-                            <figcaption class="illu-caption">
+                        <figure class="holo-card" style="--n:2" data-pos="2" role="group" aria-roledescription="slide" aria-label="3 of 6">
+                            <div class="holo-frame">
+                                <img src="../images/about/storyboards/blind-wheelchair-navcog.jpg" alt="Six-panel storyboard. Alex, a visually impaired wheelchair user, is routed by NavCog to a stairwell he cannot use. A step-free toggle in the app reroutes him to an elevator, and he feels included." loading="lazy">
+                            </div>
+                            <figcaption class="holo-caption">
                                 <strong>Step-free routes in NavCog</strong>
                                 Alex is visually impaired and uses a wheelchair, but NavCog sends him to stairs. A step-free toggle routes him through elevators instead.
                             </figcaption>
                         </figure>
 
-                        <figure class="illu-card">
-                            <img src="../images/about/storyboards/context-fluid-texting.jpg" alt="Six-panel storyboard. Sophia texts her sister about a family dinner and autocorrect overwrites her word 'fam'. She struggles to find the setting to disable it. A context-fluid button stops destructive replacement so she can communicate in her own dialect." loading="lazy">
-                            <figcaption class="illu-caption">
+                        <figure class="holo-card" style="--n:3" data-pos="3" role="group" aria-roledescription="slide" aria-label="4 of 6">
+                            <div class="holo-frame">
+                                <img src="../images/about/storyboards/context-fluid-texting.jpg" alt="Six-panel storyboard. Sophia texts her sister about a family dinner and autocorrect overwrites her word 'fam'. She struggles to find the setting to disable it. A context-fluid button stops destructive replacement so she can communicate in her own dialect." loading="lazy">
+                            </div>
+                            <figcaption class="holo-caption">
                                 <strong>Context-fluid texting</strong>
                                 Autocorrect overwrites Sophia's dialect. A context-fluid button anticipates her sentence structure without replacing her words.
                             </figcaption>
                         </figure>
 
-                        <figure class="illu-card">
-                            <img src="../images/about/storyboards/deaf-asl-gloves.jpg" alt="Six-panel storyboard. Sally, who is deaf, uses ASL gloves to translate her signing to text for a classmate. The gloves misread facial expressions and grammar, so she adjusts her signing, then discovers an edit-translation feature and, combined with audio-to-text from her classmate, can ask peers for help." loading="lazy">
-                            <figcaption class="illu-caption">
+                        <figure class="holo-card" style="--n:4" data-pos="4" role="group" aria-roledescription="slide" aria-label="5 of 6">
+                            <div class="holo-frame">
+                                <img src="../images/about/storyboards/deaf-asl-gloves.jpg" alt="Six-panel storyboard. Sally, who is deaf, uses ASL gloves to translate her signing to text for a classmate. The gloves misread facial expressions and grammar, so she adjusts her signing, then discovers an edit-translation feature and, combined with audio-to-text from her classmate, can ask peers for help." loading="lazy">
+                            </div>
+                            <figcaption class="holo-caption">
                                 <strong>ASL gloves with editable translation</strong>
                                 Sally's gloves sometimes miss facial expression and grammar. Editable translations plus audio-to-text let her ask classmates for help.
                             </figcaption>
                         </figure>
 
-                        <figure class="illu-card">
-                            <img src="../images/about/storyboards/deaf-blind-wristband.jpg" alt="Six-panel storyboard. Hannah, who is deaf-blind, can't use visual or spoken GPS. A tactile-haptic wristband raises micro pins to preview the road shape, vibrates on either side to signal turns, and refreshes to show street names and distance, giving her full navigation awareness." loading="lazy">
-                            <figcaption class="illu-caption">
+                        <figure class="holo-card" style="--n:5" data-pos="5" role="group" aria-roledescription="slide" aria-label="6 of 6">
+                            <div class="holo-frame">
+                                <img src="../images/about/storyboards/deaf-blind-wristband.jpg" alt="Six-panel storyboard. Hannah, who is deaf-blind, can't use visual or spoken GPS. A tactile-haptic wristband raises micro pins to preview the road shape, vibrates on either side to signal turns, and refreshes to show street names and distance, giving her full navigation awareness." loading="lazy">
+                            </div>
+                            <figcaption class="holo-caption">
                                 <strong>Haptic wristband for navigation</strong>
                                 Hannah is deaf-blind, so visual and spoken GPS don't work for her. Tactile pins preview the road and vibration signals each turn.
                             </figcaption>
                         </figure>
+
                     </div>
                 </div>
+            </div>
+
+            <div class="holo-controls">
+                <button type="button" class="holo-btn" id="holo-prev" aria-label="Previous storyboard"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                <div class="holo-dots">
+                    <button type="button" class="holo-dot-btn" aria-label="Show storyboard 1" aria-current="true"></button>
+                    <button type="button" class="holo-dot-btn" aria-label="Show storyboard 2" aria-current="false"></button>
+                    <button type="button" class="holo-dot-btn" aria-label="Show storyboard 3" aria-current="false"></button>
+                    <button type="button" class="holo-dot-btn" aria-label="Show storyboard 4" aria-current="false"></button>
+                    <button type="button" class="holo-dot-btn" aria-label="Show storyboard 5" aria-current="false"></button>
+                    <button type="button" class="holo-dot-btn" aria-label="Show storyboard 6" aria-current="false"></button>
+                </div>
+                <button type="button" class="holo-btn" id="holo-next" aria-label="Next storyboard"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                <button type="button" class="holo-btn" id="holo-play" aria-label="Pause automatic rotation"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+                <span class="holo-count" id="holo-count" aria-live="off">01 / 06</span>
+            </div>
             </section>
+            
         </main>
 
     </div>

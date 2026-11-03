@@ -41,6 +41,34 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
     padding-right: 0 !important;
 }
 
+.accordion-subtitle {
+    margin: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #a0a5b5;
+    transition: max-height .35s ease, opacity .25s ease, margin .35s ease;
+}
+
+/* only the subtitle directly after the hovered header (or the subtitle itself) */
+.accordion-header:hover + .accordion-subtitle,
+.accordion-header:focus-visible + .accordion-subtitle,
+.accordion-subtitle:hover {
+    max-height: 8em;
+    opacity: 1;
+    margin: 0 0 24px;
+}
+
+@media (hover: none) {
+    .accordion-subtitle {
+        max-height: none;
+        opacity: 1;
+        margin: 0 0 24px;
+    }
+}
+
 .hero-badge-wrapper {
   margin-bottom: 20px;
 }

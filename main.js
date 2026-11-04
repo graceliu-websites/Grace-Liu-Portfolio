@@ -432,3 +432,168 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
     start();
 })();
+
+/* ===== FEATURED PROJECTS CAROUSEL (HOME PAGE) ===== */
+
+(function () {
+    var stage = document.querySelector('.proj-stage');
+    if (!stage) return;
+
+    var ring = stage.querySelector('.proj-ring');
+    var cards = [].slice.call(stage.querySelectorAll('.project-card-link'));
+    var controls = document.querySelector('.proj-controls');
+    if (!ring || !cards.length || !controls) return;
+
+    var dots = [].slice.call(controls.querySelectorAll('.proj-dot'));
+    var prevBtn = document.getElementById('proj-prev');
+    var nextBtn = document.getElementById('proj-next');
+    var playBtn = document.getElementById('proj-play');
+    var counter = document.getElementById('proj-count');
+
+    var count = cards.length;
+    var index = 0;
+    var timer = null;
+    var visible = true;
+    var userPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    stage.style.setProperty('--step', (360 / count) + 'deg');
+    cards.forEach(function (c, i) { c.style.setProperty('--n', i); });
+
+    function mod(n, m) { return ((n % m) + m) % m; }
+
+    function render() {
+        ring.style.setProperty('--turn', index);
+        var cur = mod(index, count);
+        cards.forEach(function (c, i) {
+            c.setAttribute('data-pos', mod(i - index, count));
+        });
+        dots.forEach(function (d, i) {
+            d.setAttribute('aria-current', i === cur ? 'true' : 'false');
+        });
+        if (counter) counter.textContent = (cur + 1) + ' / ' + count;
+    }
+
+    function go(d) { index += d; render(); }
+
+    function goTo(target) {
+        var d = mod(target - index + count / 2, count) - count / 2;
+        go(Math.round(d));
+    }
+
+    function start() {
+        if (userPaused || !visible || timer) return;
+        timer = setInterval(function () { go(1); }, 6000);
+    }
+    function stop() {
+        clearInterval(timer);
+        timer = null;
+    }
+
+    function updatePlayUi() {
+        if (!playBtn) return;
+        playBtn.setAttribute('aria-label', userPaused ? 'Play rotation' : 'Pause rotation');
+        var ic = playBtn.querySelector('i');
+        if (ic) {
+            ic.classList.toggle('fa-pause', !userPaused);
+            ic.classList.toggle('fa-play', userPaused);
+        }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(-1); stop(); start(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(1); stop(); start(); });
+    dots.forEach(function (d, i) {
+        d.addEventListener('click', function () { goTo(i); stop(); start(); });
+    });
+    if (playBtn) {
+        playBtn.addEventListener('click', function () {
+            userPaused = !userPaused;
+            updatePlayUi();
+            if (userPaused) stop(); else start();
+        });
+    }
+
+    // clicking a side card brings it to the front instead of opening it
+    cards.forEach(function (c, i) {
+        c.addEventListener('click', function (e) {
+            if (c.getAttribute('data-pos') !== '0') {
+                e.preventDefault();
+                goTo(i);
+                stop(); start();
+            }
+        });
+    });
+
+    stage.addEventListener('mouseenter', stop);
+    stage.addEventListener('mouseleave', start);
+    stage.addEventListener('focusin', stop);
+    stage.addEventListener('focusout', start);
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+            if (visible) start(); else stop();
+        }, { threshold: 0.2 }).observe(stage);
+    }
+
+    updatePlayUi();
+    render();
+    start();
+})();
+
+// Hero title: domino hop
+(function () {
+    var title = document.querySelector('.hero-title');
+    if (!title) return;
+
+    var host = title.querySelector('em') || title;
+    var text = title.textContent.trim();
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // keep the heading readable for screen readers
+    title.setAttribute('aria-label', text);
+    host.textContent = '';
+
+    // wrap each word, then each letter
+    var n = 0;
+    var words = text.split(/\s+/);
+    words.forEach(function (word, w) {
+        var wordEl = document.createElement('span');
+        wordEl.className = 'dw';
+        wordEl.setAttribute('aria-hidden', 'true');
+        word.split('').forEach(function (ch) {
+            var letter = document.createElement('span');
+            letter.className = 'dl';
+            letter.style.setProperty('--i', n++);
+            letter.textContent = ch;
+            wordEl.appendChild(letter);
+        });
+        host.appendChild(wordEl);
+        if (w < words.length - 1) host.appendChild(document.createTextNode(' '));
+    });
+
+        // sparkle icon travels with the last word and jumps last in the wave
+    var sparkle = title.querySelector('.hero-sparkle');
+    if (sparkle) {
+        host.lastChild.appendChild(sparkle);
+        sparkle.classList.add('dl');
+        sparkle.style.setProperty('--i', n++);
+    }
+
+    var letters = title.querySelectorAll('.dl');
+    var last = letters[letters.length - 1];
+    var playing = false;
+
+    function play() {
+        if (reduce || playing) return;
+        playing = true;
+        title.classList.add('is-hopping');
+    }
+
+    last.addEventListener('animationend', function () {
+        title.classList.remove('is-hopping');
+        playing = false;
+    });
+
+    title.addEventListener('mouseenter', play);
+    setTimeout(play, 900);   // wait for the hero to finish sliding in
+})();

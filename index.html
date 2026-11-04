@@ -26,9 +26,7 @@
                         Available for freelance
                     </div>
                     
-                    <h1 class="hero-title"><em>Bringing Everyday Magic to Users</em></h1>
-                    <h2>I am a <span class="role-a">UX/UI designer</span>, <span class="role-b">researcher</span>, and <span class="role-c">front-end developer</span>.</h2>
-                    
+                    <h1 class="hero-title"><em>A Little Magic in Every Interaction</em> <i class="fa-solid fa-wand-magic-sparkles hero-sparkle" aria-hidden="true"></i></h1>                    <h2>I am a <span class="role-a">UX/UI designer</span>, <span class="role-b">researcher</span>, and <span class="role-c">front-end developer</span>.</h2>
                     <div class="hero-specialization">
                         <p><strong>Hi, I’m Grace!</strong> I leverage project management strategies, visual storytelling, and AI-assisted UX workflows to help companies and brands build functional and memorable digital experiences for broad audiences!</p>
                     </div>
@@ -37,12 +35,18 @@
                         <span class="label">PROFESSIONAL DEGREES</span>
                         <div class="degree-container">
                             <div class="degree">
-                                <span class="degree-title">MS in Human-Computer Interaction</span>
-                                <span class="degree-status">UMD, Complete 2027</span>
+                                <span class="degree-logo"><img src="images/education/umd.png" alt=""></span>
+                                <div class="degree-text">
+                                    <span class="degree-title">MS in Human-Computer Interaction</span>
+                                    <span class="degree-status">UMD, Expected 2027</span>
+                                </div>
                             </div>
                             <div class="degree">
-                                <span class="degree-title">User Experience Certificate Program</span>
-                                <span class="degree-status">UCLAX, Completed 2025</span>
+                                <span class="degree-logo"><img src="images/education/ucla-extension.png" alt=""></span>
+                                <div class="degree-text">
+                                    <span class="degree-title">User Experience Certificate Program</span>
+                                    <span class="degree-status">UCLA Extension, Completed 2025</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -79,37 +83,58 @@
                     <h3>Featured Projects</h3>
                 </div>
 
-                <div class="project-grid">
-                    <a href="techtronics/techtronics.html" class="project-card-link reveal-right">
-                        <div class="card-layer layer-fg" style="background-image: url('images/thumbnails/robut.svg')"></div>
-                        <div class="project-card" style="background-image: url('images/thumbnails/techtronics.png')">
-                            <div class="project-overlay">
-                                <span class="category">Techtronics</span>
-                                <h4>Electronics E-commerce Web Application</h4>
-                                <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </a>
+                <div class="proj-stage reveal-right" aria-roledescription="carousel" aria-label="Featured projects">
+                <div class="proj-beam" aria-hidden="true"></div>
+                <div class="proj-base" aria-hidden="true"></div>
 
-                    <a href="shellfund/shellfund.html" class="project-card-link reveal-right">
-                        <div class="project-card" style="background-image: url('images/thumbnails/shellfund.png')">
-                            <div class="project-overlay">
-                                <span class="category">Shellfund</span>
-                                <h4>Personal Finance App for College Students</h4>
-                                <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </a>
+                <div class="proj-viewport">
+                    <div class="proj-ring" id="proj-ring">
 
-                    <a href="simulator/simulator.html" class="project-card-link reveal-right">
-                        <div class="project-card" style="background-image: url('images/thumbnails/simulator.png')">
-                            <div class="project-overlay">
-                                <span class="category">Ben & Jerry's Simulator</span>
-                                <h4>3D Desktop Simulator</h4>
-                                <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                        <a href="techtronics/techtronics.html" class="project-card-link" data-pos="0" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                            <div class="card-layer layer-fg" style="background-image: url('images/thumbnails/robut.svg')"></div>
+                            <div class="project-card" style="background-image: url('images/thumbnails/techtronics.png')">
+                                <div class="project-overlay">
+                                    <span class="category">Techtronics</span>
+                                    <h4>Electronics E-commerce Web Application</h4>
+                                    <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+
+                        <a href="shellfund/shellfund.html" class="project-card-link" data-pos="1" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                            <div class="project-card" style="background-image: url('images/thumbnails/shellfund.png')">
+                                <div class="project-overlay">
+                                    <span class="category">Shellfund</span>
+                                    <h4>Personal Finance App for College Students</h4>
+                                    <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="simulator/simulator.html" class="project-card-link" data-pos="2" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                            <div class="project-card" style="background-image: url('images/thumbnails/simulator.png')">
+                                <div class="project-overlay">
+                                    <span class="category">Ben &amp; Jerry's Simulator</span>
+                                    <h4>3D Desktop Simulator</h4>
+                                    <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                </div>
+
+                <div class="proj-controls">
+                    <button type="button" class="proj-btn" id="proj-prev" aria-label="Previous project"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                    <div class="proj-dots">
+                        <button type="button" class="proj-dot" aria-label="Show project 1" aria-current="true"></button>
+                        <button type="button" class="proj-dot" aria-label="Show project 2" aria-current="false"></button>
+                        <button type="button" class="proj-dot" aria-label="Show project 3" aria-current="false"></button>
+                    </div>
+                    <button type="button" class="proj-btn" id="proj-next" aria-label="Next project"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                    <button type="button" class="proj-btn" id="proj-play" aria-label="Pause automatic rotation"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+                    <span class="proj-count" id="proj-count" aria-live="off">01 / 03</span>
                 </div>
             </section>
 
@@ -151,12 +176,12 @@
 
                     <div class="cta-button-group">
                         <a href="https://www.linkedin.com/in/yanzhenl" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                            <i class="fab fa-linkedin"></i> LinkedIn Profile
+                            <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
                         <a href="./assets/Grace-Liu-Resume.pdf"
                             download="Grace_Liu_Resume.pdf"
                             class="btn-secondary">
-                            Download Resume
+                            <i class="fa-solid fa-download" aria-hidden="true"></i> Download Resume
                         </a>
                     </div>
                 </div>

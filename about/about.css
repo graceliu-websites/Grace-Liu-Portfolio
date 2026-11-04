@@ -50,8 +50,8 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 .illu-section {
     border: 0px solid var(--border-color, #1f2026);
     border-radius: 24px;
-    padding: 2.5rem;
-    margin-bottom: 2.5rem;
+    padding: 0;
+    margin-bottom: 0;
     background: rgba(255, 255, 255, 0.01);
     box-sizing: border-box;
     overflow: hidden;
@@ -59,7 +59,7 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 
 /* space between page sections */
 main section + section {
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .about-container {
@@ -215,7 +215,7 @@ main section + section {
 .banner-intro {
     width: 100%;
     max-width: 900px;
-    margin: 2.5rem 0 3rem;
+    margin: 2rem 0 0;
     text-align: center;
 }
 .banner-intro .main-title {
@@ -239,6 +239,8 @@ main section + section {
 .full-bio {
     max-width: 900px;
     gap: 2rem;
+    display: flex; 
+    flex-direction: column;
 }
 
 .bio-paragraph {
@@ -340,8 +342,34 @@ main section + section {
     grid-template-rows: 1fr 1fr;
     gap: 20px;
     max-width: 800px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 20px;
+}
+
+.collage-caption {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 2.5rem 0.9rem 0.8rem;
+    border-radius: 0 0 3px 3px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+    color: #ffffff;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+.collage-item:hover .collage-caption,
+.collage-item:focus-within .collage-caption,
+.collage-item:focus .collage-caption {
+    opacity: 1;
+    transform: none;
+}
+@media (hover: none) {              /* phones have no hover, so always show it */
+    .collage-caption { opacity: 1; transform: none; }
 }
 
 .collage-item {
@@ -591,21 +619,21 @@ main section + section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    padding: 0;
     margin: 0;
     overflow: hidden;
-    background: #ffffff;
-    border: 2px solid #2b2b30;
-    border-radius: 4px 7px 5px 8px / 7px 4px 8px 5px;   /* slightly wobbly, hand-drawn corners */
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.18);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 .holo-section .holo-frame img {
     display: block;
     width: 100%;
     height: 100%;
     margin: 0;
-    border-radius: 0;
     object-fit: contain;
+    mix-blend-mode: multiply;                       /* the whiteboard takes on the paper color */
+    filter: brightness(1.12) contrast(1.05) saturate(0.85);
 }
 
 /* the sketch "draws in" left to right when its page opens */
@@ -652,7 +680,7 @@ main section + section {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin: 3.5rem 0;
     flex-wrap: wrap;
 }
 .holo-btn {

@@ -664,6 +664,7 @@ video {
   border: 1px solid #23252e;
   border-radius: 10px;
   padding: 24px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -696,6 +697,26 @@ video {
   .pillar-card {
     flex: 1 1 100%; /* Stack cards vertically on smaller devices */
   }
+}
+
+.storyboard-figure {
+  max-width: 460px;
+  margin: 0 auto 32px;
+}
+
+.storyboard-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid #2d313f;
+}
+
+.storyboard-figure figcaption {
+  margin-top: 12px;
+  text-align: center;
+  color: #8a8d93;
+  font-size: 13px;
 }
 
 /* Study Methodology Callout Card */
@@ -2236,6 +2257,12 @@ display: flex;
   color: #ffffff; 
   font-size: 24px; 
   margin: 0 0 6px 0;
+}
+
+.sub-header-block h4 i {
+  color: var(--accent);
+  margin-right: 10px;
+  font-size: 0.85em;
 }
 
 .sub-header-block p {

@@ -2580,11 +2580,163 @@
                 </section>
             </div>
 
-            <div id="cognitive-walkthrough" class="menu-tab-content">
-                <section class="details-section reveal-right">  
-                <div class="content-container">
-                    The content for cognitive walkthrough goes here...
-                </div>
+           <div id="cognitive-walkthrough" class="menu-tab-content">
+                <section class="details-section reveal-right">
+                    <div class="content-container">
+
+                        <div class="section-header-block">
+                            <h2 class="section-title">Cognitive Walkthrough</h2>
+                            <p class="section-subtitle">Testing guided onboarding from the student's view, then from the workers'</p>
+                        </div>
+
+                        <div class="methodology-card">
+                            <div class="methodology-header">
+                                <span class="methodology-tag"><i class="fa-solid fa-users" aria-hidden="true"></i> Method</span>
+                            </div>
+                            <p class="methodology-text">
+                                A group walkthrough with <strong>5 stakeholders</strong> covering <strong>product domain,
+                                software development, UX, marketing, and UI</strong>. ChatGPT helped synthesize the findings.
+                            </p>
+                        </div>
+
+                        <div class="design-goal-banner">
+                            <span class="goal-tag">Scenario</span>
+                            <p>
+                                An <strong>overwhelmed freshman</strong> wants to <strong>negotiate her student loans</strong>
+                                and pick a <strong>repayment plan</strong>. She starts with <strong>guided onboarding</strong>,
+                                which explains budgeting basics and student loans in plain language.
+                            </p>
+                        </div>
+
+                        <figure class="storyboard-figure">
+                            <img src="../images/shellfund/ideation/storyboard.png"
+                                alt="Six-panel storyboard: an overwhelmed freshman opens ShellFund, uses the dashboard to find help, asks ShellAI to explain her student loans, asks for repayment options, sees which plan fits her best, and decides on a repayment plan with next steps.">
+                            <figcaption>Student storyboard: from overwhelmed to a confident repayment plan</figcaption>
+                        </figure>
+
+                        <div class="problem-separator"></div>
+
+                         <section class="walkthrough-section">
+                            <div class="sub-header-block">
+                                <h4><i class="fa-solid fa-user-graduate" aria-hidden="true"></i> Student walkthrough</h4>
+                                <p>What we found, and the design idea each finding led to. <strong>Guidance, clarity, and emotional reassurance</strong> mattered most.</p>
+                            </div>
+
+                            <div class="table-responsive-wrapper">
+                                <table class="insights-table">
+                                    <thead>
+                                        <tr>
+                                            <th>What we found</th>
+                                            <th>Design response</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Loan terms overwhelm freshmen.</strong> Ambiguous language makes it hard to know where to start.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-wand-magic-sparkles feature-icon" aria-hidden="true"></i> Loan Type Wizard</div>
+                                                Simple questions that identify which loan they have.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Students don't always intend to learn.</strong> Motivation has to be created, not assumed.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-bullseye feature-icon" aria-hidden="true"></i> Motivation Framing Blocks</div>
+                                                A short "why this matters" before each step.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Students lose track across steps.</strong> It's hard to keep mental continuity.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-thumbtack feature-icon" aria-hidden="true"></i> Persistent Context Header</div>
+                                                Shows the overall goal on every screen.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Students fear choosing "wrong."</strong> They want actions they can undo.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-shield-alt feature-icon" aria-hidden="true"></i> Safe-to-Explore Mode</div>
+                                                Reversible, low-commitment actions.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Students want the system to anticipate confusion.</strong></td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-lightbulb feature-icon" aria-hidden="true"></i> Confusion Predictors</div>
+                                                Help appears at known friction points.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <div class="problem-separator"></div>
+
+                        <section class="walkthrough-section">
+                            <div class="sub-header-block">
+                                <h4><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Worker-centered walkthrough</h4>
+                                <p>The same walkthrough from the view of the people ShellFund also affects: <strong>University Financial Aid Staff</strong>, <strong>Financial Coaches &amp; Peer Mentors</strong>, and <strong>Customer Support Agents</strong>.</p>
+                            </div>
+                        </section>
+
+                            <div class="table-responsive-wrapper">
+                                <table class="insights-table">
+                                    <thead>
+                                        <tr>
+                                            <th>What we found</th>
+                                            <th>Design response</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Worker workflows should shape the data.</strong> Advisors follow standard processes, so mismatched formats slow them down.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-file-export feature-icon" aria-hidden="true"></i> Worker-Formatted Export Sheets</div>
+                                                Auto-exported summaries that match advisors' intake forms (COA, SAP status, loan breakdown).
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Workers spend time fixing misinformation.</strong> ShellFund has to correct it, not just teach content.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-circle-check feature-icon" aria-hidden="true"></i> Truth-Sync Module</div>
+                                                Institution-verified definitions that flag "common misconceptions" in worker-approved language.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Human handoffs are a safety mechanism.</strong> Students shouldn't lean on a tool when they need an expert.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-handshake feature-icon" aria-hidden="true"></i> Human Handoff Triggers</div>
+                                                Spots situations like SAP risk or consolidation questions and routes the student to an advisor, with prep notes.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reducing workload is a design goal.</strong> Advisors lose 5-10 minutes gathering context before real help begins.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-file-lines feature-icon" aria-hidden="true"></i> Pre-Session Context Pack</div>
+                                                A one-page summary students share before a meeting: budget, aid, risks, and key questions. Pairs with a read-only <strong>Advisor Mode</strong> for live sessions.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Workers need to trust the numbers.</strong> Strict accuracy and compliance rules make "black box" tools a problem.</td>
+                                            <td>
+                                                <div class="feature-title"><i class="fa-solid fa-calculator feature-icon" aria-hidden="true"></i> Transparent Calculation View</div>
+                                                A collapsible panel showing formulas, assumptions, and data sources that advisors can inspect during meetings.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        <div class="design-goal-banner">
+                            <span class="goal-tag">Key takeaway</span>
+                            <p>
+                                Students need <strong>guidance, clarity, and reassurance</strong>. Workers need
+                                <strong>human handoffs, transparency, and a lighter workload</strong>. ShellFund has to serve both.
+                            </p>
+                        </div>
+
+                    </div>
                 </section>
             </div>
 

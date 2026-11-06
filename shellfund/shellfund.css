@@ -542,10 +542,6 @@ video {
   width: 100%;
 }
 
-.section-header-block {
-  margin-bottom: 32px;
-}
-
 .section-title {
   color: #ffffff;
   font-size: 32px;
@@ -701,7 +697,7 @@ video {
 
 .storyboard-figure {
   max-width: 460px;
-  margin: 0 auto 32px;
+  margin: 32px auto 32px;
 }
 
 .storyboard-figure img {
@@ -719,8 +715,8 @@ video {
   font-size: 13px;
 }
 
-/* Study Methodology Callout Card */
-.methodology-card {
+/* Study Panelist Callout Card */
+.panelist-card {
   background-color: #12141a;
   border: 1px solid #252836;
   border-radius: 12px;
@@ -728,13 +724,13 @@ video {
   margin: 35px 0px;
 }
 
-.methodology-header {
+.panelist-header {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
 }
 
-.methodology-tag {
+.panelist-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -745,18 +741,18 @@ video {
   color: var(--accent);
 }
 
-.methodology-tag i {
+.panelist-tag i {
   font-size: 11px;
 }
 
-.methodology-text {
+.panelist-text {
   color: #a0a5b5;
   font-size: 15px;
   line-height: 1.6;
   margin: 0;
 }
 
-.methodology-text strong {
+.panelist-text strong {
   color: #ffffff;
   font-weight: 600;
 }
@@ -811,6 +807,50 @@ video {
 /* Prevent bottom border on final row */
 .insights-table tbody tr:last-child td {
   border-bottom: none;
+}
+
+/* Study methodology card */
+.methodology-card {
+  background-color: #12141a;
+  border: 1px solid #252836;
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin: 32px 0;
+  text-align: left;
+}
+
+.methodology-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  justify-content: flex-start;
+}
+
+.methodology-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent);
+}
+
+.methodology-tag i {
+  font-size: 11px;
+}
+
+.methodology-text {
+  color: #a0a5b5;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.methodology-text strong {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 /* --- Column Styling Details --- */

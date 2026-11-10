@@ -716,6 +716,10 @@ h2 {
   min-width: 0;
   display: block; /* Ensures the anchor tag wraps the card completely */
   position: relative;
+    border: 1px solid rgba(140, 190, 255, 0.9);
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.35),
+              0 0 18px rgba(88, 166, 255, 0.55),
+              0 0 48px rgba(61, 78, 245, 0.35);
 }
 
 /* Base Card Deck Angles */
@@ -874,7 +878,7 @@ h2 {
   z-index: 0;
 }
 
-/* hexagon base */
+/* circular base */
 .proj-base {
   position: absolute;
   left: 50%;
@@ -882,17 +886,20 @@ h2 {
   width: 70%;
   height: 90px;
   transform: translateX(-50%);
-  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  border-radius: 50%;
+  border: 1px solid rgba(140, 190, 255, 0.5);
   background: radial-gradient(ellipse at center,
       rgba(88, 166, 255, 0.55) 0%, rgba(61, 78, 245, 0.22) 50%, rgba(61, 78, 245, 0.08) 100%);
+  box-shadow: 0 0 40px rgba(61, 78, 245, 0.35);
   z-index: 0;
 }
+
 .proj-base::before,
 .proj-base::after {
   content: "";
   position: absolute;
   inset: 0;
-  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  border-radius: 50%;
   background: rgba(88, 166, 255, 0.35);
   animation: proj-hex-pulse 4s ease-out infinite;
 }
@@ -969,9 +976,12 @@ h2 {
 
 .project-card-link[data-pos="0"]:hover .project-card {
   transform: translateY(-10px) scale(1.02);
-  border-color: #58a6ff;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(88, 166, 255, 0.3);
+  border-color: #b8d8ff;
+  box-shadow: 0 0 0 1px rgba(184, 216, 255, 0.5),
+              0 0 26px rgba(88, 166, 255, 0.8),
+              0 0 64px rgba(61, 78, 245, 0.5);
 }
+
 .project-card-link[data-pos="0"]:hover .layer-fg {
   transform: translateY(-6px) scale(1.05);
 }

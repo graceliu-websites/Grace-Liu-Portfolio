@@ -54,13 +54,18 @@ function highlightActiveNav() {
         'about.html': 'nav-about',
         'techtronics.html': 'nav-techtronics',
         'shellfund.html': 'nav-shellfund',
+        'treasora.html': 'nav-treasora',
         'simulator.html': 'nav-simulator'
     };
 
     const targetId = linkMap[currentPage];
     if (targetId) {
         const activeLink = document.getElementById(targetId);
-        if (activeLink) activeLink.classList.add('active');
+        if (activeLink) {
+            activeLink.classList.add('active');
+            const group = activeLink.closest('details');
+            if (group) group.open = true;
+        }
     }
 }
 
@@ -227,19 +232,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal-right').forEach(el => observer.observe(el));
 });
 
-  document.addEventListener('DOMContentLoaded', function () {
+/* ===== UX STORYBOARDS (ABOUT PAGE) ===== */
 (function () {
-    var section = document.querySelector('.holo-section');
+    var section = document.querySelector('.storyboard-section');
     if (!section) return;
 
-    var ring = section.querySelector('.holo-ring');
-    var cards = Array.prototype.slice.call(ring.querySelectorAll('.holo-card'));
-    var dots = Array.prototype.slice.call(section.querySelectorAll('.holo-dot-btn'));
-    var prevBtn = section.querySelector('#holo-prev');
-    var nextBtn = section.querySelector('#holo-next');
-    var playBtn = section.querySelector('#holo-play');
-    var counter = section.querySelector('#holo-count');
-    var stage = section.querySelector('.holo-stage');
+    var ring = section.querySelector('.storyboard-ring');
+    var cards = Array.prototype.slice.call(section.querySelectorAll('.storyboard-card'));
+    var dots = Array.prototype.slice.call(section.querySelectorAll('.storyboard-dot-btn'));
+    var prevBtn = section.querySelector('#storyboard-prev');
+    var nextBtn = section.querySelector('#storyboard-next');
+    var playBtn = section.querySelector('#storyboard-play');
+    var counter = section.querySelector('#storyboard-count');
+    var stage = section.querySelector('.storyboard-stage');
+    if (!ring || !cards.length || !prevBtn || !nextBtn || !playBtn || !counter || !stage) return;
 
     var count = cards.length;
     var index = 0;
@@ -266,11 +272,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function go(delta) { index += delta; render(); }
 
     function goTo(target) {
-        // take the shortest way round the ring
+        // take the shortest way round
         go(mod(target - index + count / 2, count) - count / 2);
     }
 
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function stop() {
+        if (timer) { clearInterval(timer); timer = null; }
+    }
+
     function start() {
         stop();
         if (!userPaused && !hovering && visible) {
@@ -288,14 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     prevBtn.addEventListener('click', function () { go(-1); start(); });
     nextBtn.addEventListener('click', function () { go(1); start(); });
+
     dots.forEach(function (d, i) {
         d.addEventListener('click', function () { goTo(i); start(); });
     });
-    cards.forEach(function (card, i) {
-        card.addEventListener('click', function () {
-            if (card.getAttribute('data-pos') !== '0') { goTo(i); start(); }
-        });
-    });
+
     playBtn.addEventListener('click', function () {
         userPaused = !userPaused;
         syncPlayButton();
@@ -313,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') { go(1); start(); }
     });
 
+    // only rotate while the section is on screen
     if ('IntersectionObserver' in window) {
         new IntersectionObserver(function (entries) {
             visible = entries[0].isIntersecting;
@@ -324,8 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
     start();
 })();
-
-  });
 
 /* ===== HOLOGRAPHIC STORYBOARD ===== */
 

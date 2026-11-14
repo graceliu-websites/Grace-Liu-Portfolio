@@ -1,41 +1,51 @@
 <div class="sidebar-header">
     <img src="../images/sidebar/logo.png" alt="Grace Liu Logo" class="brand-logo">
     <div class="logo-text">Grace Liu</div>
-    <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle Sidebar">
-        <i class="fas fa-chevron-left"></i>
+        <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Close sidebar">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
     </button>
 </div>
 <nav>
     <section class="nav-row">
-        <p class="nav-label">MAIN MENU</p>
-        <a href="../index.html" class="nav-item" id="nav-dashboard">
-            <i class="fa-solid fa-home"></i>
-            <span>Dashboard</span>
-        </a>
-        <a href="../about/about.html" class="nav-item" id="nav-about">
-            <i class="fa-solid fa-comment-dots"></i>
-            <span>About Me</span>
-        </a>
-        
-        <p class="nav-label">CASE STUDIES</p>
-        <a href="../techtronics/techtronics.html" class="nav-item" id="nav-techtronics">
-            <i class="fa-solid fa-screwdriver-wrench"></i>
-            <span>Techtronics</span>
-        </a>
-        <a href="../shellfund/shellfund.html" class="nav-item" id="nav-shellfund">
-            <i class="fa-solid fa-piggy-bank"></i>
-            <span>ShellFund</span>
-        </a>
+        <details class="nav-group" open>
+            <summary class="nav-label">Main Menu</summary>
+            <a href="../index.html" class="nav-item" id="nav-dashboard">
+                <i class="fa-solid fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="../about/about.html" class="nav-item" id="nav-about">
+                <i class="fa-solid fa-comment-dots"></i>
+                <span>About Me</span>
+            </a>
+        </details>
 
-        <p class="nav-label">Creative Coding</p>
-        <a href="../simulator/simulator.html" class="nav-item" id="nav-simulator">
-            <img src="../images/sidebar/simulator.png.avif" alt="3D Simulator" class="nav-custom-icon">
-            <span>3D Simulator</span>
-        </a>
-        <!-- 
-        <a href="../feastly/feastly.html" class="nav-item" id="nav-feastly">Feastly</a>
-        <a href="research.html" class="nav-item" id="nav-research">AI for Mental Wellness</a>
-        -->
+        <details class="nav-group">
+            <summary class="nav-label">Case Studies</summary>
+            <a href="../techtronics/techtronics.html" class="nav-item" id="nav-techtronics">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span>Techtronics</span>
+            </a>
+            <a href="../shellfund/shellfund.html" class="nav-item" id="nav-shellfund">
+                <i class="fa-solid fa-piggy-bank"></i>
+                <span>ShellFund</span>
+            </a>
+        </details>
+
+        <details class="nav-group">
+            <summary class="nav-label">Professional Work</summary>
+            <a href="../treasora/treasora.html" class="nav-item" id="nav-treasora">
+                <i class="fa-solid fa-landmark"></i>
+                <span>Treasora</span>
+            </a>
+        </details>
+
+        <details class="nav-group">
+            <summary class="nav-label">Creative Coding</summary>
+            <a href="../simulator/simulator.html" class="nav-item" id="nav-simulator">
+                <img src="../images/sidebar/simulator.png.avif" alt="3D Simulator" class="nav-custom-icon">
+                <span>3D Simulator</span>
+            </a>
+        </details>
     </section>
 </nav>
 <div class="sidebar-footer">

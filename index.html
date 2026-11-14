@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet"></head>
 <body>
 
-    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open Sidebar">
-         <i class="fas fa-chevron-right"></i>
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open sidebar">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
     
     <div class="container">
@@ -21,11 +21,12 @@
         <main class="content">
             <section class="hero-card reveal-right">
                 <div class="hero-content-left">
-                    <div class="status-badge">
-                        Available for freelance
+
+                     <div class="status-badge">
+                        UX/UI Designer | Researcher Portfolio
                     </div>
                     
-                    <h1 class="hero-title"><em>A Little Magic in every digital experience</em> <i class="fa-solid fa-wand-magic-sparkles hero-sparkle" aria-hidden="true"></i></h1>                    <h2>I am a <span class="role-a">UX/UI designer</span>, <span class="role-b">researcher</span>, and <span class="role-c">front-end developer</span>.</h2>
+                    <h1 class="hero-title"><em>A Little Magic in every Interaction</em> <i class="fa-solid fa-wand-magic-sparkles hero-sparkle" aria-hidden="true"></i></h1>                    <h2>I am a <span class="role-a">UX/UI designer</span>, <span class="role-b">researcher</span>, and <span class="role-c">front-end developer</span>.</h2>
                     <div class="hero-specialization">
                         <p><strong>Hi, I’m Grace!</strong> I leverage project management strategies, visual storytelling, and AI-assisted UX workflows to help companies and brands build functional and memorable digital experiences for broad audiences!</p>
                     </div>
@@ -93,7 +94,7 @@
                             <div class="project-card" style="background-image: url('images/thumbnails/techtronics.png')">
                                 <div class="project-overlay">
                                     <span class="category">Techtronics</span>
-                                    <h4>Electronics E-commerce Web Application</h4>
+                                    <h4>E-commerce WebApp</h4>
                                     <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
                                 </div>
                             </div>
@@ -103,7 +104,7 @@
                             <div class="project-card" style="background-image: url('images/thumbnails/shellfund.png')">
                                 <div class="project-overlay">
                                     <span class="category">Shellfund</span>
-                                    <h4>Personal Finance App for College Students</h4>
+                                    <h4>Student Finance App</h4>
                                     <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
                                 </div>
                             </div>
@@ -113,7 +114,17 @@
                             <div class="project-card" style="background-image: url('images/thumbnails/simulator.png')">
                                 <div class="project-overlay">
                                     <span class="category">Ben &amp; Jerry's Simulator</span>
-                                    <h4>3D Desktop Simulator</h4>
+                                    <h4>3D Desktop Game</h4>
+                                    <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="treasora/treasora.html" class="project-card-link" data-pos="2" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                            <div class="project-card" style="background-image: url('images/thumbnails/treasora.png')">
+                                <div class="project-overlay">
+                                    <span class="category">PFF, LLC Treasora</span>
+                                    <h4>Inter Agency Agreement</h4>
                                     <span class="view-project">Read Case Study <i class="fas fa-chevron-right"></i></span>
                                 </div>
                             </div>
@@ -129,56 +140,60 @@
                         <button type="button" class="proj-dot" aria-label="Show project 1" aria-current="true"></button>
                         <button type="button" class="proj-dot" aria-label="Show project 2" aria-current="false"></button>
                         <button type="button" class="proj-dot" aria-label="Show project 3" aria-current="false"></button>
-                    </div>
-                    <button type="button" class="proj-btn" id="proj-next" aria-label="Next project"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                        <button type="button" class="proj-dot" aria-label="Show project 4" aria-current="false"></button>
+                    </div>                    <button type="button" class="proj-btn" id="proj-next" aria-label="Next project"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
                     <button type="button" class="proj-btn" id="proj-play" aria-label="Pause automatic rotation"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
-                    <span class="proj-count" id="proj-count" aria-live="off">01 / 03</span>
+                    <span class="proj-count" id="proj-count" aria-live="off">1 / 4</span>                
                 </div>
             </section>
 
             <section class="bottom-grid">
                 <div class="card skills-card reveal-right">
-                    <div class="card-header">
-                        <i class="fas fa-tools icon"></i>
-                        <h4>General Skillset</h4>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Javascript</span>
-                        <span class="tag">Figma Prototyping</span>
-                        <span class="tag">Claude AI</span>
-                        <span class="tag">UI Design Systems</span>
-                        <span class="tag">UX Research</span>
-                        <span class="tag">ANDI</span>
+                    <p class="card-eyebrow"><i class="fas fa-tools" aria-hidden="true"></i> Toolkit</p>
+                    <div class="skill-groups">
+                        <div class="skill-group group-design">
+                            <h4>Design</h4>
+                            <div class="skill-tags">
+                                <span class="tag">Figma Prototyping</span>
+                                <span class="tag">UI Design Systems</span>
+                            </div>
+                        </div>
+                        <div class="skill-group group-research">
+                            <h4>Research</h4>
+                            <div class="skill-tags">
+                                <span class="tag">UX Research</span>
+                                <span class="tag">ANDI</span>
+                            </div>
+                        </div>
+                        <div class="skill-group group-build">
+                            <h4>Build</h4>
+                            <div class="skill-tags">
+                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Claude AI</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="card testimonial-card reveal-right">
-                    <div class="quote-icon">“</div>
-                    <p class="quote-text">
-                        If you're waiting to feel ready, you'll design nothing. 
-                        <br><span class="highlight">Start Ugly.</span> 
-                        <br>Ugly is the first step towards obvious.
-                    </p>
-                    <div class="quote-icon">”</div>
-                    <div class="author-info">
-                        <span class="author-name">— David duChemin</span>
-                    </div>
+                    <p class="card-eyebrow"><i class="fas fa-lightbulb" aria-hidden="true"></i> Designer's Motto</p>
+                    <blockquote class="pull-quote">
+                        <p>If you're waiting to feel ready, you'll design nothing. <em>Start ugly.</em> Ugly is the first step towards obvious.</p>
+                    </blockquote>
+                    <p class="author-name">David duChemin</p>
                 </div>
+
                 <div class="card cta-card reveal-right">
-                    <h4>Let's build something fast together.</h4>
-
-                    <div class="cta-icon" aria-hidden="true">
-                        <i class="fa-solid fa-handshake"></i>
+                    <p class="card-eyebrow"><i class="fa-solid fa-handshake" aria-hidden="true"></i> Let's talk</p>
+                    <div class="cta-body">
+                        <h4 class="cta-title">Let's build something <em>appealing</em> and <em>applicable</em> together.</h4>
                     </div>
-
                     <div class="cta-button-group">
                         <a href="https://www.linkedin.com/in/yanzhenl" target="_blank" rel="noopener noreferrer" class="btn-primary">
                             <i class="fab fa-linkedin"></i> LinkedIn
                         </a>
-                        <a href="./assets/Grace-Liu-Resume.pdf"
-                            download="Grace_Liu_Resume.pdf"
-                            class="btn-secondary">
+                        <a href="./assets/Grace-Liu-Resume.pdf" download="Grace_Liu_Resume.pdf" class="btn-secondary">
                             <i class="fa-solid fa-download" aria-hidden="true"></i> Download Resume
                         </a>
                     </div>

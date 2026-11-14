@@ -656,46 +656,51 @@ h2 {
 }
 
 /* Core Mission */
-.mission-bar {
-    background: #0f0f0f;
-    border: 1px solid #222;
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin: 2rem 0;
+.mission {
+    text-align: center;
+    max-width: 880px;
+    margin: 3rem auto;
+    padding: 1rem 0;
 }
 
-.mission-content p {
-    display: flex;
-    flex-direction: column; /* Stacks label above the quote */
-    gap: 4px;
-}
-
-.mission-icon {
-    background: rgba(61, 78, 245, 0.1);
-    color: var(--accent-blue);
-    width: 45px;
-    height: 45px;
+.mission-label {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    font-size: 1.2rem;
-}
-
-/* The Label */
-.mission-content strong {
-    font-size: 0.7rem;
+    gap: 1.25rem;
+    margin: 0 0 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
     color: var(--text-dim);
-    font-weight: 700;
 }
 
-/* The Quote */
-.mission-content {
-    font-size: 1.25rem; /* Larger font for the actual mission statement */
+.mission-label::before,
+.mission-label::after {
+    content: "";
+    width: 56px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35));
+}
+
+.mission-label::after {
+    transform: scaleX(-1);
+}
+
+.mission-quote {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 500;
-    color: #eeeeee;
+    font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+.mission-quote em {
+    font-style: italic;
+    color: #7482ff;
 }
 
 /* Projects Layout Setup */

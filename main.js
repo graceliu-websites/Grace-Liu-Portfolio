@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     var letters = title.querySelectorAll('.dl');
-    var last = letters[letters.length - 1];
+    var last = sparkle ? sparkle.querySelector('.s5') : letters[letters.length - 1];
     var playing = false;
 
     function play() {

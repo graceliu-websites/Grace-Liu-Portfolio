@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techtronics Case Study</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="techtronics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open Sidebar">
+         <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+        <main class="content">
+
+            <!-- ============================================================
+                 HERO (unchanged)
+                 ============================================================ -->
+            <section class="project-hero">
+                <div class="hero-left">
+                    <div class="hero-badge-wrapper">
+                        <span class="badge teal">UX CASE STUDY</span>
+                    </div>
+                    <h1 class="project-title">Techtronics: <br><span class="accent-text">Electronics &amp; E-commerce UX</span></h1>
+                    <p class="hero-description-text">By automating user interviews and auditing existing e-commerce experiences - Amazon and BestBuy, we aim to design an interface that helps users shop electronic products more confidently and efficiently.</p>
+
+                    <div class="meta-group">
+                        <div class="meta-item">
+                            <span class="meta-label">MY ROLE</span>
+                            <strong class="meta-value">Product Researcher &amp; Designer</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">DURATION</span>
+                            <strong class="meta-value">2 Months (2025)</strong>
+                        </div>
+                    </div>
+
+                    <div class="tools-container">
+                        <div class="tool-box">
+                            <span class="tool-label">DESIGN TOOL</span>
+                            <div class="tool-content">
+                                <img src="../images/tools/figma-logo.png" alt="Figma" class="tool-icon">
+                                <span class="tool-name">Figma, FigJam</span>
+                            </div>
+                        </div>
+                        <div class="tool-box">
+                            <span class="tool-label">AI PROTOTYPING</span>
+                            <div class="tool-content">
+                                <img src="../images/tools/visily-logo.png" alt="Visily" class="tool-icon">
+                                <span class="tool-name">Visily</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="mockup-container">
+                        <img src="../images/techtronics/gizmo-thumbnail.png" alt="Techtronics Mockup" id="greenRobot" class="bounce-in-img">
+                        <div class="gizmo-speech-bubble">
+                            <p><strong>Hello!</strong> I'm Gizmo,<br>your personal shopping assistant.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ============================================================
+                 CASE STUDY BODY
+                 Pattern for every step:  <div class="sprint-row"> text + visual </div>
+                   .flip  = visual on the LEFT, text on the right
+                   .stack = text on top, visual full width underneath
+                 ============================================================ -->
+            <div class="case-body">
+
+                <!-- ======================= 01 OVERVIEW ======================= -->
+                <section class="sprint" id="overview" aria-labelledby="h-overview">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">01</span>
+                        <div>
+                            <h2 id="h-overview">Overview</h2>
+                            <p class="sprint-intro">A guided shopping assistant for people who find buying electronics overwhelming.</p>
+                        </div>
+                    </header>
+
+                    <div class="overview-grid reveal-right">
+                        <div class="overview-card card-peach">
+                            <div class="overview-card-icon"><i class="fa-regular fa-face-tired"></i></div>
+                            <h3>Problem</h3>
+                            <p>75% of interviewed shoppers postpone or abandon purchases because of information overload and decision fatigue.</p>
+                        </div>
+                        <div class="overview-card card-blue">
+                            <div class="overview-card-icon"><i class="fa-solid fa-bullseye"></i></div>
+                            <h3>Goal</h3>
+                            <p>Streamlined browsing and confident checkout, without comparing products across countless tabs.</p>
+                        </div>
+                        <div class="overview-card card-green">
+                            <div class="overview-card-icon"><i class="fa-solid fa-robot"></i></div>
+                            <h3>Solution</h3>
+                            <p>Gizmo, a guided shopping assistant that asks a few questions, recommends 3–5 products, and walks users through checkout.</p>
+                        </div>
+                    </div>
+
+                    <div class="problem-intro reveal-right">
+                        <span class="intro-tag"><i class="fa-solid fa-star list-icon"></i>Core Takeaway</span>
+                        <p>Shoppers need a reliable, efficient, personalized way to find products that fit their needs without the overwhelm.</p>
+                    </div>
+                </section>
+
+
+                <!-- ======================= 02 RESEARCH ======================= -->
+                <section class="sprint" id="research" aria-labelledby="h-research">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">02</span>
+                        <div>
+                            <h2 id="h-research">Research</h2>
+                            <p class="sprint-intro">Three interviews and two competitor audits to see how people shop for tech and where today's platforms fall short.</p>
+                        </div>
+                    </header>
+
+                    <!-- 2a. Interviews + affinity map  (text LEFT, visual RIGHT) -->
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Interviews &amp; synthesis</span>
+                            <h3>What we heard</h3>
+                            <p>Our team interviewed three shoppers and captured 12 observations. I grouped them on an affinity map, and four themes kept coming back, from decision overload to wanting more than a plain store.</p>
+                            <p class="takeaway"><strong>Takeaway:</strong> shoppers don't lack options, they lack a way to narrow them down.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <figure class="visual">
+                                <a class="visual-frame light" href="../images/techtronics/ideation/affinity-map-clustered.png" target="_blank" rel="noopener">
+                                    <img src="../images/techtronics/ideation/affinity-map-clustered.png" alt="Affinity map clustered into four themes">
+                                </a>
+                                <figcaption>Affinity map, clustered into four themes (click to enlarge)</figcaption>
+                            </figure>
+                            <details class="evidence">
+                                <summary><i class="fa-solid fa-diagram-project"></i> See the raw interview notes</summary>
+                                <a class="visual-frame light" href="../images/techtronics/ideation/affinity-map.png" target="_blank" rel="noopener">
+                                    <img src="../images/techtronics/ideation/affinity-map.png" alt="Affinity map: 12 raw sticky notes from three interviewers">
+                                </a>
+                            </details>
+                        </div>
+                    </div>
+
+                    <div class="sticky-grid reveal-right">
+                        <div class="sticky-note red">
+                            <div class="icon-wrapper"><img src="../images/doodle-icons/emojis/sad-emoji.svg" alt="" class="doodle-icon"></div>
+                            <h4 class="note-title">Overwhelmed Choices</h4>
+                            <p class="note-content">User get stressed from having too much shopping data to think about.</p>
+                            <span class="note-author">Theme A</span>
+                        </div>
+                        <div class="sticky-note red">
+                            <div class="icon-wrapper"><img src="../images/doodle-icons/hand gestures/thumbs-up.svg" alt="" class="doodle-icon"></div>
+                            <h4 class="note-title">Social Proof &amp; Trust</h4>
+                            <p class="note-content">User needs group consensus/good reviews before purchasing something.</p>
+                            <span class="note-author">Theme B</span>
+                        </div>
+                        <div class="sticky-note red">
+                            <div class="icon-wrapper"><img src="../images/doodle-icons/interface/zap.svg" alt="" class="doodle-icon"></div>
+                            <h4 class="note-title">Convenience &amp; Efficiency</h4>
+                            <p class="note-content">User is busy and finds it handy to get as much as they can from one platform.</p>
+                            <span class="note-author">Theme C</span>
+                        </div>
+                        <div class="sticky-note red">
+                            <div class="icon-wrapper"><img src="../images/doodle-icons/e-commerce/bag-2.svg" alt="" class="doodle-icon"></div>
+                            <h4 class="note-title">Personalized Value</h4>
+                            <p class="note-content">User prefers the notion of e-commerce platforms providing services beyond just retail.</p>
+                            <span class="note-author">Theme D</span>
+                        </div>
+                    </div>
+
+                    <!-- 2b. Personas  (visual LEFT, text RIGHT) -->
+                    <div class="sprint-row flip reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Personas</span>
+                            <h3>Who we designed for</h3>
+                            <p>The interviews gave me two personas. Harry wants something good that fits his budget without the hassle. Zoey overthinks and researches heavily before buying expensive tech. They set the priorities for everything that followed.</p>
+                            <p class="takeaway"><strong>Takeaway:</strong> [one sentence on how these two personas shaped your feature priorities].</p>
+                        </div>
+                        <div class="sprint-visual persona-stack">
+                            <div class="persona-mini">
+                                <img src="../images/techtronics/ideation/harrypham.png" alt="Harry Pham">
+                                <div>
+                                    <strong>Harry Pham</strong>
+                                    <span>Freelance Artist, 26 · Austin, TX</span>
+                                    <p class="persona-line">“I just want something good that fits my budget without the hassle.”</p>
+                                    <p><b>Needs:</b> trusted expert recommendations, frictionless search.</p>
+                                    <p><b>Struggles with:</b> too many options, tech jargon, hard-to-use comparison tools.</p>
+                                </div>
+                            </div>
+                            <div class="persona-mini">
+                                <img src="../images/techtronics/ideation/zoeylin.png" alt="Zoey Lin">
+                                <div>
+                                    <strong>Zoey Lin</strong>
+                                    <span>Postgrad Student, 30 · Greenbelt, MD</span>
+                                    <p class="persona-line">“I tend to overthink. I need to do a lot of research for expensive tech.”</p>
+                                    <p><b>Needs:</b> group consensus and reviews, transparent specs.</p>
+                                    <p><b>Struggles with:</b> [add Zoey's top pain point].</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2c. Competitors  (text on top, cards full width) -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Competitor audit</span>
+                            <h3>What competitors do</h3>
+                            <p>I audited Amazon and Best Buy on onboarding, navigation, discovery, checkout, personalization and unique value. Amazon wins on variety and checkout but feels cluttered. Best Buy is more focused on tech but narrower and slower.</p>
+                            <p class="takeaway"><strong>Takeaway:</strong> neither one helps a hesitant shopper decide.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="comp-cards-grid">
+                                <article class="comp-brand-card">
+                                    <div class="comp-card-top">
+                                        <div class="comp-icon-box comp-icon-amazon">
+                                            <img src="../images/techtronics/ideation/amazon-logo.png" alt="Amazon logo" class="audit-icon">
+                                        </div>
+                                        <div>
+                                            <h4 class="comp-brand-title"><i class="fa-brands fa-amazon brand-title-icon"></i> Amazon</h4>
+                                            <span class="comp-brand-tag">GLOBAL GENERALIST MARKETPLACE</span>
+                                        </div>
+                                    </div>
+                                    <div class="comp-features-area">
+                                        <h5 class="comp-label-heading"><i class="fa-solid fa-list-check"></i> KEY FEATURES</h5>
+                                        <ul class="comp-feature-bubbles">
+                                            <li><i class="fa-solid fa-robot"></i> Virtual assistant</li>
+                                            <li><i class="fa-solid fa-truck-fast"></i> Shipping options</li>
+                                            <li><i class="fa-solid fa-sliders"></i> Product filters</li>
+                                            <li><i class="fa-solid fa-star"></i> Extensive review system</li>
+                                            <li><i class="fa-solid fa-crown"></i> Prime membership benefits</li>
+                                        </ul>
+                                    </div>
+                                    <div class="comp-sw-split">
+                                        <div class="comp-sw-card comp-sw-strength">
+                                            <h6 class="comp-sw-heading comp-text-green"><i class="fa-solid fa-circle-check"></i> STRENGTHS</h6>
+                                            <ul class="comp-bullet-list strength-list">
+                                                <li>Unmatched variety</li>
+                                                <li>Frictionless checkout</li>
+                                                <li>Efficient logistics</li>
+                                            </ul>
+                                        </div>
+                                        <div class="comp-sw-card comp-sw-weakness">
+                                            <h6 class="comp-sw-heading comp-text-red"><i class="fa-solid fa-circle-xmark"></i> WEAKNESSES</h6>
+                                            <ul class="comp-bullet-list weakness-list">
+                                                <li>Counterfeit risks</li>
+                                                <li>UI visual clutter</li>
+                                                <li>Fragmented search</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <article class="comp-brand-card">
+                                    <div class="comp-card-top">
+                                        <div class="comp-icon-box comp-icon-bestbuy">
+                                            <img src="../images/techtronics/ideation/bestbuy-logo.png" alt="Best Buy logo" class="audit-icon">
+                                        </div>
+                                        <div>
+                                            <h4 class="comp-brand-title"><i class="fa-solid fa-tag brand-title-icon"></i> Best Buy</h4>
+                                            <span class="comp-brand-tag">U.S. ELECTRONICS SPECIALIST RETAILER</span>
+                                        </div>
+                                    </div>
+                                    <div class="comp-features-area">
+                                        <h5 class="comp-label-heading"><i class="fa-solid fa-list-check"></i> KEY FEATURES</h5>
+                                        <ul class="comp-feature-bubbles">
+                                            <li><i class="fa-solid fa-robot"></i> Virtual assistant</li>
+                                            <li><i class="fa-solid fa-store"></i> In-store pickup option</li>
+                                            <li><i class="fa-solid fa-magnifying-glass"></i> Large search categories</li>
+                                            <li><i class="fa-solid fa-headset"></i> Live chat &amp; expert support</li>
+                                            <li><i class="fa-solid fa-file-lines"></i> Detailed product pages</li>
+                                        </ul>
+                                    </div>
+                                    <div class="comp-sw-split">
+                                        <div class="comp-sw-card comp-sw-strength">
+                                            <h6 class="comp-sw-heading comp-text-green"><i class="fa-solid fa-circle-check"></i> STRENGTHS</h6>
+                                            <ul class="comp-bullet-list strength-list">
+                                                <li>Quick tech discovery</li>
+                                                <li>Easy returns management</li>
+                                                <li>Omnichannel ease</li>
+                                            </ul>
+                                        </div>
+                                        <div class="comp-sw-card comp-sw-weakness">
+                                            <h6 class="comp-sw-heading comp-text-red"><i class="fa-solid fa-circle-xmark"></i> WEAKNESSES</h6>
+                                            <ul class="comp-bullet-list weakness-list">
+                                                <li>Narrow inventory</li>
+                                                <li>Slower app speed</li>
+                                                <li>Higher price floor</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <details class="evidence">
+                                <summary><i class="fa-solid fa-images"></i> See the feature screenshots I audited</summary>
+                                <div class="shot-group">
+                                    <h4>Amazon</h4>
+                                    <div class="shot-strip">
+                                        <figure><img src="../images/techtronics/comp-features/amazon-assistant.jpg" alt="Amazon virtual assistant"><figcaption>Virtual Assistant</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/amazon-shipping.jpg" alt="Amazon shipping options"><figcaption>Fast Shipping Options</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/amazon-filter.jpg" alt="Amazon smart filters"><figcaption>Smart Filters</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/amazon-reviews.jpg" alt="Amazon customer reviews"><figcaption>Customer Reviews</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/amazon-benefits.jpg" alt="Amazon Prime benefits"><figcaption>Prime Benefits</figcaption></figure>
+                                    </div>
+                                </div>
+                                <div class="shot-group">
+                                    <h4>Best Buy</h4>
+                                    <div class="shot-strip">
+                                        <figure><img src="../images/techtronics/comp-features/bestbuy-assistant.jpg" alt="Best Buy virtual assistant"><figcaption>Virtual Assistant</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/bestbuy-pickup.jpg" alt="Best Buy in-store pickup"><figcaption>In-store Pickup</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/bestbuy-catgories.jpg" alt="Best Buy search categories"><figcaption>Search Categories</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/bestbuy-support.jpg" alt="Best Buy customer support"><figcaption>Customer Support</figcaption></figure>
+                                        <figure><img src="../images/techtronics/comp-features/bestbuy-specs.jpg" alt="Best Buy product specs"><figcaption>Product Specs</figcaption></figure>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- 2d. Opportunities  (text on top, sticky notes full width) -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Synthesis</span>
+                            <h3>Opportunities</h3>
+                            <p>The interview themes and the competitor gaps pointed to four ideas that would make our app stand out. Together they became the backbone of Gizmo.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="sticky-grid">
+                                <div class="sticky-note blue">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/interface/grid.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">A Product Comparison Tool</h4>
+                                    <p class="note-content">Allows users to select items and view them side-by-side, including summarized reviews and key product details.</p>
+                                    <span class="note-author">Opportunity I</span>
+                                </div>
+                                <div class="sticky-note blue">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/interface/search.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">Smart Search Features</h4>
+                                    <p class="note-content">With result quantity selectors to let users choose how many product options they wish to see that best match their search and filter criteria.</p>
+                                    <span class="note-author">Opportunity II</span>
+                                </div>
+                                <div class="sticky-note blue">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/interface/menu.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">Simplified Information Architecture</h4>
+                                    <p class="note-content">And menus that prioritize core features and fewer shopping categories.</p>
+                                    <span class="note-author">Opportunity III</span>
+                                </div>
+                                <div class="sticky-note blue">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/misc/bot.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">Guided Shopping Wizard</h4>
+                                    <p class="note-content">Asks simple questions to gauge the user's needs, provides 3-5 recommendations, and takes the user through checkout.</p>
+                                    <span class="note-author">Opportunity IV</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ======================= 03 DESIGN PROCESS ======================= -->
+                <section class="sprint" id="design-process" aria-labelledby="h-design">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">03</span>
+                        <div>
+                            <h2 id="h-design">Design Process</h2>
+                            <p class="sprint-intro">From user flow and structure to sketches and a first high-fidelity prototype.</p>
+                        </div>
+                    </header>
+
+                    <!-- 3a. User flow  (text LEFT, visual RIGHT) -->
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sprint 1 · Structure</span>
+                            <h3>User flow</h3>
+                            <p>A flat hierarchy connects the main hubs, so core features are never more than a couple of taps away. [Add one or two sentences on how you decided where Gizmo sits in the flow.]</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <figure class="visual">
+                                <a class="visual-frame light" href="../images/techtronics/ideation/techtronics-userflow.png" target="_blank" rel="noopener">
+                                    <img src="../images/techtronics/ideation/techtronics-userflow.png" alt="Techtronics user flow diagram">
+                                </a>
+                                <figcaption>User flow (click to enlarge)</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- 3b. Information architecture with toggle  (visual LEFT, text RIGHT) -->
+                    <div class="sprint-row flip reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sprint 1 · Structure</span>
+                            <h3>Information architecture</h3>
+                            <p>Opportunity III called for fewer categories and menus built around core features. I mapped a separate structure for desktop and mobile so each fits how people actually use it. Toggle between them.</p>
+                            <p class="takeaway"><strong>Takeaway:</strong> [what changed between desktop and mobile, and why].</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="ia-toggle" role="group" aria-label="Choose information architecture view">
+                                <button class="toggle-btn active" id="btn-desktop" onclick="switchGraph('desktop')">
+                                    <i class="fa-solid fa-desktop"></i> Desktop
+                                </button>
+                                <button class="toggle-btn" id="btn-mobile" onclick="switchGraph('mobile')">
+                                    <i class="fa-solid fa-mobile-screen-button"></i> Mobile
+                                </button>
+                            </div>
+                            <div class="graph-viewport">
+                                <div class="graph-slide active" id="slide-desktop">
+                                    <img src="../images/techtronics/ideation/desktop-info-architecture.png" alt="Desktop information architecture" class="graph-img">
+                                </div>
+                                <div class="graph-slide" id="slide-mobile">
+                                    <img src="../images/techtronics/ideation/mobile-info-architecture.png" alt="Mobile information architecture" class="graph-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3c. Wireframes  (text LEFT, pair RIGHT) -->
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sprint 2 · Sketching</span>
+                            <h3>Wireframes</h3>
+                            <p>[What did you sketch first, and what did you decide to drop? Two or three sentences on how the mobile and desktop sketches differ.]</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="visual-pair">
+                                <figure class="visual">
+                                    <a class="visual-frame" href="../images/techtronics/ideation/mobile-wireframe.png" target="_blank" rel="noopener">
+                                        <img src="../images/techtronics/ideation/mobile-wireframe.png" alt="Mobile wireframe sketches">
+                                    </a>
+                                    <figcaption>Mobile</figcaption>
+                                </figure>
+                                <figure class="visual">
+                                    <a class="visual-frame" href="../images/techtronics/ideation/desktop-wireframe.png" target="_blank" rel="noopener">
+                                        <img src="../images/techtronics/ideation/desktop-wireframe.png" alt="Desktop wireframe sketches">
+                                    </a>
+                                    <figcaption>Desktop</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3d. First prototype  (text on top, 3 phones underneath) -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sprint 3 · First prototype</span>
+                            <h3>First high-fidelity pass</h3>
+                            <p>I built the first prototype in Figma around three screens: the dashboard, Gizmo's guided shopping, and the product catalogue. This is the version we put in front of users.</p>
+                            <p class="scroll-hint"><i class="fa-solid fa-hand-pointer"></i> Scroll inside a phone to see the full screen.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="device-row">
+                                <div class="mobile-frame-card">
+                                    <div class="iphone-mockup-wrapper">
+                                        <div class="iphone-camera-notch"></div>
+                                        <div class="iphone-scroll-viewport">
+                                            <img src="../images/techtronics/first-prototype/home-screen.png" alt="First prototype: home screen" class="long-screen-img">
+                                        </div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Main Dashboard</h3></div>
+                                </div>
+                                <div class="mobile-frame-card">
+                                    <div class="iphone-mockup-wrapper">
+                                        <div class="iphone-camera-notch"></div>
+                                        <div class="iphone-scroll-viewport">
+                                            <img src="../images/techtronics/first-prototype/gizmo-screen.png" alt="First prototype: Gizmo guided shopping" class="long-screen-img">
+                                        </div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Guided Shopping</h3></div>
+                                </div>
+                                <div class="mobile-frame-card">
+                                    <div class="iphone-mockup-wrapper">
+                                        <div class="iphone-camera-notch"></div>
+                                        <div class="iphone-scroll-viewport">
+                                            <img src="../images/techtronics/first-prototype/product-catalogue.png" alt="First prototype: product catalogue" class="long-screen-img">
+                                        </div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Product Catalogue</h3></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ================= 04 USABILITY TESTING & ITERATION ================= -->
+                <section class="sprint" id="testing" aria-labelledby="h-testing">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">04</span>
+                        <div>
+                            <h2 id="h-testing">Usability Testing &amp; Iteration</h2>
+                            <p class="sprint-intro">Three interviews on the first prototype showed what confused people, and what to change.</p>
+                        </div>
+                    </header>
+
+                    <!-- 4a. Method + participants  (text LEFT, visual RIGHT) -->
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sprint 4 · Testing</span>
+                            <h3>How we tested</h3>
+                            <p>The goal was to see how usable the high-fidelity prototype really was, especially around three known risks: a confusing site structure, an overwhelming catalogue, and cluttered product pages. We interviewed three people who matched our personas and varied in tech confidence and shopping habits.</p>
+                            <ul class="stat-chips">
+                                <li><strong>3</strong> participants</li>
+                                <li><strong>2</strong> platforms</li>
+                                <li><strong>4</strong> changes made</li>
+                            </ul>
+                            <p class="takeaway"><strong>Takeaway:</strong> users were confused on the homepage and unsure what Gizmo was. [Add your headline finding.]</p>
+                        </div>
+                        <div class="sprint-visual tester-list">
+                            <div class="tester">
+                                <img src="../images/techtronics/ideation/participant-1.png" alt="Participant 1">
+                                <div>
+                                    <strong>Participant 1</strong>
+                                    <span>40 · Female · Retired</span>
+                                    <p>Compares brands and prices at length. Not tech savvy and needs help shopping for tech.</p>
+                                </div>
+                            </div>
+                            <div class="tester">
+                                <img src="../images/techtronics/ideation/participant-2.png" alt="Participant 2">
+                                <div>
+                                    <strong>Participant 2</strong>
+                                    <span>26 · Male · Product Designer</span>
+                                    <p>Very knowledgeable. Researches before buying and likes recommendations and personalization.</p>
+                                </div>
+                            </div>
+                            <div class="tester">
+                                <img src="../images/techtronics/ideation/participant-3.png" alt="Participant 3">
+                                <div>
+                                    <strong>Participant 3</strong>
+                                    <span>21 · Male · Student</span>
+                                    <p>Shops occasionally and isn't confident with electronics. Leans on reviews and overall impression.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4b. What we changed  (text on top, 4 notes full width) -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sprint 5 · Iteration</span>
+                            <h3>What we changed</h3>
+                            <p>Four recommendations came out of testing. Each one went straight into the next version of the design.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="sticky-grid">
+                                <div class="sticky-note green">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/interface/message-2.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">Pop-up Message</h4>
+                                    <p class="note-content">A one-time pop-up introducing Gizmo as Techtronics' AI Shopping Guide to add visual hierarchy and overcome user confusion on Homepage.</p>
+                                    <span class="note-author">Change I</span>
+                                </div>
+                                <div class="sticky-note green">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/interface/rectangle.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">Enriched Product Cards</h4>
+                                    <p class="note-content">Increase card contrast and add rich media, key specs, and accessory clarity to Gizmo Picks for a more personalized, trustworthy, and informed comparison.</p>
+                                    <span class="note-author">Change II</span>
+                                </div>
+                                <div class="sticky-note green">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/interface/photo.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">Image-based Options</h4>
+                                    <p class="note-content">Replace text-only options with image-based cards in Gizmo Questions to add visual clarity when users define their preferences.</p>
+                                    <span class="note-author">Change III</span>
+                                </div>
+                                <div class="sticky-note green">
+                                    <div class="icon-wrapper"><img src="../images/doodle-icons/interface/filter.svg" alt="" class="doodle-icon"></div>
+                                    <h4 class="note-title">Catalogue Filters</h4>
+                                    <p class="note-content">Replace Gizmo Picks in Product Catalog with a persistent filter with an active indicator to satisfy the need for more apparent filter options.</p>
+                                    <span class="note-author">Change IV</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4c. Before / after  (visual LEFT, text RIGHT) -->
+                    <div class="sprint-row flip reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sprint 5 · Iteration</span>
+                            <h3>Before and after</h3>
+                            <p>The pop-up gives the homepage a clear starting point, and image-based answers make Gizmo's questions faster to scan. [Add what you noticed in the second round, if you retested.]</p>
+                        </div>
+                        <div class="sprint-visual ba-stack">
+                            <div class="ba-pair">
+                                <figure class="ba">
+                                    <span class="ba-tag">Before</span>
+                                    <img src="../images/techtronics/first-prototype/home-screen.png" alt="Homepage before: no introduction to Gizmo">
+                                </figure>
+                                <figure class="ba">
+                                    <span class="ba-tag after">After</span>
+                                    <img src="../images/techtronics/final-prototype/Popup.png" alt="Homepage after: pop-up introducing Gizmo">
+                                </figure>
+                            </div>
+                            <div class="ba-pair">
+                                <figure class="ba">
+                                    <span class="ba-tag">Before</span>
+                                    <img src="../images/techtronics/first-prototype/guided-shopping-1.png" alt="Guided shopping question before: text-only options">
+                                </figure>
+                                <figure class="ba">
+                                    <span class="ba-tag after">After</span>
+                                    <img src="../images/techtronics/final-prototype/Gizmo - Guided Shopping Step 1.png" alt="Guided shopping question after: image-based options">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ======================= 05 FINAL SOLUTION ======================= -->
+                <section class="sprint" id="final-solution" aria-labelledby="h-final">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">05</span>
+                        <div>
+                            <h2 id="h-final">Final Solution</h2>
+                            <p class="sprint-intro">The refined design for mobile and desktop, with Gizmo at the center.</p>
+                        </div>
+                    </header>
+
+                    <!-- 5a. Principles  (text on top, 3 boxes) -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Design principles</span>
+                            <h3>What the final design is built on</h3>
+                            <p>The first prototype was improved around three principles, each tied back to what we heard in research and testing.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="principle-row">
+                                <div class="principle-box">
+                                    <i class="fa-solid fa-user principle-icon"></i>
+                                    <h3>User Centric</h3>
+                                    <p>Personalized AI shopping assistants</p>
+                                </div>
+                                <div class="principle-box">
+                                    <i class="fa-solid fa-bolt-lightning principle-icon"></i>
+                                    <h3>Efficiency</h3>
+                                    <p>Streamlined 3-step guided shopping flow</p>
+                                </div>
+                                <div class="principle-box">
+                                    <i class="fa-solid fa-eye principle-icon"></i>
+                                    <h3>Inclusive</h3>
+                                    <p>WCAG 2.1 compliant interface</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5b. Mobile  (text on top, 4 phones) -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Mobile</span>
+                            <h3>Mobile experience</h3>
+                            <p>[Walk through the mobile journey in three sentences: how someone lands, answers Gizmo's questions, and checks out.]</p>
+                            <p class="scroll-hint"><i class="fa-solid fa-hand-pointer"></i> Scroll inside a phone to see the full screen.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="device-row">
+                                <div class="mobile-frame-card">
+                                    <div class="iphone-mockup-wrapper">
+                                        <div class="iphone-camera-notch"></div>
+                                        <div class="iphone-scroll-viewport">
+                                            <img src="../images/techtronics/final-prototype/Popup.png" alt="Final mobile: main dashboard" class="long-screen-img">
+                                        </div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Main Dashboard</h3></div>
+                                </div>
+                                <div class="mobile-frame-card">
+                                    <div class="iphone-mockup-wrapper">
+                                        <div class="iphone-camera-notch"></div>
+                                        <div class="iphone-scroll-viewport">
+                                            <img src="../images/techtronics/final-prototype/Gizmo - Guided Shopping Step 1.png" alt="Final mobile: guided shopping" class="long-screen-img">
+                                        </div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Guided Shopping</h3></div>
+                                </div>
+                                <div class="mobile-frame-card">
+                                    <div class="iphone-mockup-wrapper">
+                                        <div class="iphone-camera-notch"></div>
+                                        <div class="iphone-scroll-viewport">
+                                            <img src="../images/techtronics/final-prototype/Gizmo - Personalized Recommendations.png" alt="Final mobile: personalized recommendations" class="long-screen-img">
+                                        </div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Recommendations</h3></div>
+                                </div>
+                                <div class="mobile-frame-card">
+                                    <div class="iphone-mockup-wrapper">
+                                        <div class="iphone-camera-notch"></div>
+                                        <div class="iphone-scroll-viewport">
+                                            <img src="../images/techtronics/final-prototype/Gizmo Express Checkout.png" alt="Final mobile: express checkout" class="long-screen-img">
+                                        </div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Express Checkout</h3></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5c. Desktop  (text on top, 4 laptops in 2x2) -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Desktop</span>
+                            <h3>Desktop experience</h3>
+                            <p>[Explain what the desktop version does differently: more room for comparison, a persistent filter, anything that uses the bigger screen.]</p>
+                            <p class="scroll-hint"><i class="fa-solid fa-hand-pointer"></i> Scroll inside a screen to see the full page.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="laptop-grid">
+                                <div class="laptop-frame-card">
+                                    <div class="laptop-mockup-wrapper">
+                                        <div class="laptop-screen-viewport">
+                                            <img src="../images/techtronics/desktop-final-prototype/Desktop - Homepage.png" alt="Final desktop: homepage" class="laptop-long-screen-img">
+                                        </div>
+                                        <div class="laptop-base-deck"><div class="laptop-display-notch-groove"></div></div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Main Dashboard</h3></div>
+                                </div>
+                                <div class="laptop-frame-card">
+                                    <div class="laptop-mockup-wrapper">
+                                        <div class="laptop-screen-viewport">
+                                            <img src="../images/techtronics/desktop-final-prototype/Gizmo Desktop Webpage-2.png" alt="Final desktop: guided shopping" class="laptop-long-screen-img">
+                                        </div>
+                                        <div class="laptop-base-deck"><div class="laptop-display-notch-groove"></div></div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Guided Shopping</h3></div>
+                                </div>
+                                <div class="laptop-frame-card">
+                                    <div class="laptop-mockup-wrapper">
+                                        <div class="laptop-screen-viewport">
+                                            <img src="../images/techtronics/desktop-final-prototype/Recommendation Results.png" alt="Final desktop: recommendation results" class="laptop-long-screen-img">
+                                        </div>
+                                        <div class="laptop-base-deck"><div class="laptop-display-notch-groove"></div></div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Recommendations</h3></div>
+                                </div>
+                                <div class="laptop-frame-card">
+                                    <div class="laptop-mockup-wrapper">
+                                        <div class="laptop-screen-viewport">
+                                            <img src="../images/techtronics/desktop-final-prototype/Gizmo Express Checkout.png" alt="Final desktop: express checkout" class="laptop-long-screen-img">
+                                        </div>
+                                        <div class="laptop-base-deck"><div class="laptop-display-notch-groove"></div></div>
+                                    </div>
+                                    <div class="frame-meta"><h3>Express Checkout</h3></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div><!-- /.case-body -->
+
+
+            <section class="next-project-section reveal-right">
+                <a href="../shellfund/shellfund.html" class="card next-project-card">
+                    <div class="next-project-body">
+                        <div class="next-project-text">
+                            <span class="badge red">NEXT PROJECT</span>
+                            <h2>Student Financial App</h2>
+                            <p>Helping college students manage personal finance through integrating Generative Artificial Intelligence tools into key workflows.</p>
+                        </div>
+                        <div class="next-project-media">
+                            <img src="../images/shellfund/shellfund-preview.png" alt="Student Financial App Preview" class="next-project-img">
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

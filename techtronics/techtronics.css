@@ -405,6 +405,16 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td, li, figcaptio
 }
 .sprint-row.stack .sprint-text { max-width: 680px; }
 
+@media (min-width: 861px) {
+    .sprint-row.stack .findings {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 28px;
+        max-width: none;
+    }
+    .sprint-row.stack .findings li { margin: 0; }
+}
+
 /* ---- the paragraph side ---- */
 .sprint-text .step {
     display: block;
@@ -982,6 +992,39 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td, li, figcaptio
 .graph-slide { display: none; }
 .graph-slide.active { display: block; }
 .graph-img { display: block; width: 100%; height: auto; }
+
+/* ---- test findings ---- */
+.findings {
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+    counter-reset: finding;
+}
+.findings li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 38px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #b9bdca;
+    counter-increment: finding;
+}
+.findings li::before {
+    content: counter(finding);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0b0f17;
+    background: var(--accent);
+    border-radius: 50%;
+}
+.findings strong { color: #ffffff; }
 
 /* ---- testers ---- */
 .tester-list { display: flex; flex-direction: column; gap: 14px; }

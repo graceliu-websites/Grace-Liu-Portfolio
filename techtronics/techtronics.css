@@ -469,6 +469,41 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
     margin-bottom: 12px;
 }
 
+.evidence {
+    margin-top: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.evidence summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--accent);
+    list-style: none;
+}
+.evidence summary::-webkit-details-marker { display: none; }
+.evidence summary::after { content: "\f078"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 11px; margin-left: auto; transition: transform 0.2s ease; }
+.evidence[open] summary::after { transform: rotate(180deg); }
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 4px 20px 20px;
+}
+
+.evidence-grid figure { margin: 0; }
+.evidence-grid img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.evidence-grid figcaption { margin-top: 8px; text-align: center; font-size: 13px; color: var(--text-light); }
+
+@media (max-width: 700px) { .evidence-grid { grid-template-columns: 1fr; } }
+
 .persona-pair {
     display: grid;
     grid-template-columns: 1fr 1fr;

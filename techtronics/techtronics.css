@@ -27,34 +27,6 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
     text-align: center;
 }
 
-/* glowing panel + faint grid behind the hero */
-.project-hero::before,
-.project-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0 -40px;
-    z-index: -1;
-    border-radius: 28px;
-    pointer-events: none;
-}
-
-.project-hero::before {
-    border: 1px solid rgba(79, 209, 217, 0.28);
-    background:
-        radial-gradient(circle at 50% 78%, rgba(79, 209, 217, 0.22), transparent 55%),
-        linear-gradient(160deg, #11151b 0%, #0a0c10 100%);
-    box-shadow: 0 0 50px rgba(79, 209, 217, 0.12);
-}
-
-.project-hero::after {
-    background-image:
-        linear-gradient(rgba(79, 209, 217, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 209, 217, 0.07) 1px, transparent 1px);
-    background-size: 44px 44px;
-    -webkit-mask-image: radial-gradient(ellipse at 50% 78%, #000 0%, transparent 70%);
-    mask-image: radial-gradient(ellipse at 50% 78%, #000 0%, transparent 70%);
-}
-
 .hero-left {
     display: flex;
     flex-direction: column;
@@ -145,11 +117,10 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
 }
 
 .meta-label {
-    font-size: 10px;
+    font-size: 12px;                  /* was 10px */
     font-weight: 700;
-    letter-spacing: 0.14em;
-    color: var(--accent);
-    opacity: 0.8;
+    letter-spacing: 0.12em;
+    color: var(--accent);             /* teal #4fd1d9, about 11:1 contrast */
 }
 
 .meta-value {
@@ -170,28 +141,39 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    padding: 14px 24px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.45);       /* visible outline, 3:1+ contrast */
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tool-box:hover {
+    border-color: var(--accent);
+    background: rgba(79, 209, 217, 0.08);
 }
 
 .tool-label {
-    padding-left: 0.14em;             /* balances the trailing letter-spacing */
-    font-size: 10px;
+    width: 100%;
+    padding: 0 0 10px 0.12em;
+    text-align: center;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #626775;
+    letter-spacing: 0.12em;
+    color: #e2e4e9;
     text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);   /* divides the label from the tool */
 }
 
 .tool-content {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    min-height: 48px;
-    padding: 8px 20px 8px 8px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+    min-height: 0;
+    border: none;
+    background: none;
 }
 
 .tool-box:hover .tool-content {
@@ -474,6 +456,60 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
     .two-col {
         grid-template-columns: 1fr;
     }
+}
+
+.sub-block { margin-top: 56px; }
+.sub-block:first-child { margin-top: 0; }
+
+.sub-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.persona-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.persona-mini {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: var(--card-main);
+    border-radius: 16px;
+}
+
+.persona-mini img {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.persona-mini span { display: block; color: var(--text-muted); font-size: 13px; margin-bottom: 8px; }
+.persona-mini p { font-size: 14px; line-height: 1.5; color: var(--text-light); margin: 6px 0 0; }
+.persona-mini .persona-line { font-style: italic; color: #fff; }
+
+.test-table {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1px;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    overflow: hidden;
+}
+.test-table > div { padding: 14px 18px; background: var(--card-main); font-size: 14px; color: var(--text-light); }
+
+@media (max-width: 768px) {
+    .persona-pair { grid-template-columns: 1fr; }
+    .test-table { grid-template-columns: 1fr; }
 }
 
 .problem-card,
@@ -2505,112 +2541,51 @@ comp-icon-box-amazon,
 }
 
 /* Wireframe Layout Component (Three Columns) */
-.wireframe-split-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: stretch;
+.wireframe-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+    max-width: 880px;              /* keeps the pair from getting huge on wide screens */
+    margin: 0 auto;
 }
 
-.block-title {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  color: #ffffff;
-  margin-top: 15px;
-  margin-bottom: 15px;
+.wireframe-item {
+    margin: 0;
+    min-width: 0;
 }
 
-.wireframe-row {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr; /* Text column and image column balanced proportions */
-  gap: 20px;
-  align-items: center;
-}
-
-.annotation-column {
-  display: flex;
-  flex-direction: column;
-  gap: 28px; /* Distinct visual spacing matching the handdrawn heights */
-}
-
-.annotation-sidebar-card {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    background-color: #191b22;
-    border: 1px solid #23252f;
-    border-radius: 16px;
-    padding: 20px;
-    width: 80%;
-    height: fit-content;
-}
-
-.annotation-item h5 { font-size: 14px; font-weight: 600; color: #ffffff; margin-top: 0px; margin-bottom: 0px; }
-.annotation-item p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
-
-.annotation-item h5 {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
-}
-
-.separator-line {
+/* no fixed height, no centering: the box hugs the image */
+.wireframe-item .image-container {
+    padding: 0;
+    height: auto;
+    display: block;
+    background: none;
     border: none;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.15); /* Soft, subtle light line for dark backgrounds */
-    margin: 20px 0; /* Vertical spacing above and below the line */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.wireframe-item .placeholder-img {
+    display: block;
     width: 100%;
+    height: auto;
+    border-radius: 12px;
 }
 
-.sketch-box img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 16px; 
+.wireframe-item .block-title {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
 }
 
-.footer-note {
-  font-size: 13px;
-  color: #63686e;
-  margin-top: 5px;
+@media (max-width: 700px) {
+    .wireframe-pair { grid-template-columns: 1fr; }
 }
 
-/* Site Layout Details Styles */
-.card-description {
-  font-size: 14px;
-  color: #9ba0a6;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  max-width: 800px;
-}
 
-.spacing-top {
-  margin-top: 40px;
-}
-
-/* General Image Containers & Responsiveness */
-.image-container {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.placeholder-img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-
-}
-
-.wireframe-img-box {
-  max-width: 550px;
-}
 
 /* Update your Architecture Graph container rule with these properties */
 .architecture-grid {

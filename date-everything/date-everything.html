@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Everything! Accessibility Codesign</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="date-everything.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open sidebar">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <main class="content">
+
+            <!-- ======================= HERO ======================= -->
+            <section class="project-hero reveal-right">
+                <div class="hero-top">
+                    <div class="hero-badge-wrapper"><span class="badge red">Inclusive Design · Codesign</span></div>
+                    <h1 class="project-title">Date Everything!<br><span class="accent-text">Designing Comfort for Motion-Sensitive Players</span></h1>
+                    <p class="hero-description-text">A codesign project with a player who loves immersive 3D games but gets motion sick from them. Together we shaped a set of camera and comfort settings, then built a playable prototype.</p>
+                        <div class="meta-group">
+                            <div class="meta-item"><span class="meta-label">MY ROLE</span><strong class="meta-value">User Researcher, UX Prototyper</strong></div>
+                            <div class="meta-item"><span class="meta-label">DURATION</span><strong class="meta-value">3 Months (2026)</strong></div>
+                            <div class="meta-item"><span class="meta-label">PROJECT TYPE</span><strong class="meta-value">Team of 3</strong></div>
+                        </div>
+                    <p class="credit-row">With <strong>Jasmine Voon</strong> and <strong>Oluwanifemi Orekoya</strong></p>
+                </div>
+
+                <figure class="hero-figure">
+                    <a class="visual-frame" href="../images/date-everything/codesign/sketch-ghost-avatar.png" target="_blank" rel="noopener">
+                        <img src="../images/date-everything/codesign/sketch-ghost-avatar.png" alt="Whiteboard sketch of the game screen and the settings menu our participant drew">
+                    </a>
+                    <figcaption>The settings menu our participant sketched with us</figcaption>
+                </figure>
+            </section>
+
+            <div class="case-body">
+
+                <!-- ======================= 01 OVERVIEW ======================= -->
+                <section class="sprint" id="overview" aria-labelledby="h-overview">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">01</span>
+                        <div>
+                            <h2 id="h-overview">Overview</h2>
+                            <p class="sprint-intro">Accessibility here means more than reducing discomfort. It means freedom to play the games you love.</p>
+                        </div>
+                    </header>
+
+                    <div class="overview-grid reveal-right">
+                        <div class="overview-card card-peach">
+                            <div class="overview-card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                            <h3>Problem</h3>
+                            <p>Fast or unpredictable camera movement makes our participant nauseous, so she picks games her body can handle instead of the ones she wants.</p>
+                        </div>
+                        <div class="overview-card card-blue">
+                            <div class="overview-card-icon"><i class="fa-solid fa-people-group"></i></div>
+                            <h3>Approach</h3>
+                            <p>An interview, then a codesign session where she chose a concept, listed features and sketched her ideal settings.</p>
+                        </div>
+                        <div class="overview-card card-green">
+                            <div class="overview-card-icon"><i class="fa-solid fa-sliders"></i></div>
+                            <h3>Outcome</h3>
+                            <p>“Comfort Edition,” a playable prototype of Date Everything! with her requested camera and comfort settings.</p>
+                        </div>
+                    </div>
+
+                    <div class="core-takeaway reveal-right">
+                        <span class="ct-tag"><i class="fa-solid fa-circle-question"></i> Design Question</span>
+                        <p class="ct-quote">How might we make camera settings and viewing perspectives <em>accessible and customizable</em> for motion-sensitive players, so they can enjoy more games and play comfortably with others?</p>
+                    </div>
+                </section>
+
+
+                <!-- ======================= 02 RESEARCH ======================= -->
+                <section class="sprint" id="research" aria-labelledby="h-research">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">02</span>
+                        <div>
+                            <h2 id="h-research">Understanding Our Participant</h2>
+                            <p class="sprint-intro">A semi-structured interview that changed what we thought the project was about.</p>
+                        </div>
+                    </header>
+
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Interview</span>
+                            <h3>Starting with transportation, ending with games</h3>
+                            <p>Our participant is a woman in her late 20s with lifelong motion sickness that worsened after concussions. We began by asking about travel and phone use, since riding in a car with her phone made symptoms worse.</p>
+                            <p>I prepared the interview materials, and Jasmine led the conversation. Open-ended questions revealed that gaming was what she cared about most, so we followed her lead and changed the project’s focus.</p>
+                            <p class="takeaway"><strong>Takeaway:</strong> asking about specific games gave better answers than asking about accessibility in general.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <ul class="finding-list">
+                                <li>
+                                    <strong>She picks games by what her body can tolerate</strong>
+                                    <p>She loves quirky, imaginative games, including Date Everything!, but avoids immersive camera work, and defaults to steadier games like Stardew Valley.</p>
+                                </li>
+                                <li>
+                                    <strong>She already makes her own fixes</strong>
+                                    <p>Slower camera speed, a third-person view, less screen movement. But these options are not always available.</p>
+                                </li>
+                                <li>
+                                    <strong>Settings must be easy to find and remembered</strong>
+                                    <p>Re-adjusting every session takes time away from the game.</p>
+                                </li>
+                                <li>
+                                    <strong>It also affects who she can play with</strong>
+                                    <p>She wants to share games with the children in her life, but camera movement stops her.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ======================= 03 CODESIGN ======================= -->
+                <section class="sprint" id="codesign" aria-labelledby="h-codesign">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">03</span>
+                        <div>
+                            <h2 id="h-codesign">Codesign Session</h2>
+                            <p class="sprint-intro">Our participant helped decide what to build, not just react to it.</p>
+                        </div>
+                    </header>
+
+                    <!-- 3a. Session flow -->
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">The session</span>
+                            <h3>Four activities, one decision-maker</h3>
+                            <p>We ran a 60-minute session on a shared Miro board.  It moved from her experience, to our ideas, to her own design, and we avoided VR, flashing effects and fast-moving demos that could make her feel unwell.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <ol class="session-steps">
+                                <li><span><strong>Your gaming experience.</strong> She named what makes games uncomfortable (camera motion that is too quick, strobe lighting, first-person view) and wished she could slow the camera down.</span></li>
+                                <li><span><strong>Explore our ideas.</strong> She reviewed two concept boards, EazyMotion and Cozy Pause, and marked what she liked, would change, and found missing.</span></li>
+                                <li><span><strong>Build your own comfort mode.</strong> She dragged feature cards onto a game screen, added ideas of her own and sketched where the controls should live.</span></li>
+                                <li><span><strong>Your ideal experience.</strong> She picked what to keep, what to change and her top three features.</span></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- 3b. Concepts -->
+
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-visual">
+                            <figure class="visual">
+                                <a class="visual-frame light" href="../images/date-everything/codesign/miro-board.png" target="_blank" rel="noopener">
+                                    <img src="../images/date-everything/codesign/miro-board.png" alt="Miro board with four stations: your gaming experience, explore our ideas, build your own comfort mode, and your ideal experience">
+                                </a>
+                                <figcaption>The Miro board we used to codesign, with her sticky notes</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="sprint-row flip reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Choosing a concept</span>
+                            <h3>She chose EazyMotion</h3>
+                            <p>We offered two ideas and let her pick. She chose motion controls over a rest mode because she doesn’t like to take breaks: she wants to keep playing comfortably, not stop.</p>
+                            <p class="takeaway"><strong>Takeaway:</strong> comfort should come from adjustable settings, not interruptions.</p>
+                            <p>[Add one verbatim quote from her when you have it.]</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="concept-pair">
+                                <div class="concept picked">
+                                    <span class="picked-tag"><i class="fa-solid fa-circle-check"></i> Chosen</span>
+                                    <i class="fa-solid fa-camera-rotate"></i>
+                                    <small>Concept 1</small>
+                                    <h4>EazyMotion</h4>
+                                    <p>Game motion controls: camera speed, viewpoint and motion effects the player can adjust.</p>
+                                </div>
+                                <div class="concept">
+                                    <i class="fa-solid fa-mug-hot"></i>
+                                    <small>Concept 2</small>
+                                    <h4>Cozy Pause</h4>
+                                    <p>An in-game rest mode that offers a calm break when the player needs one.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3c. Sticky notes -->
+
+                    <div class="sprint-row flip reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Concept mockup</span>
+                            <h3>The ghost avatar, shown in the game’s own style</h3>
+                            <p>To make EazyMotion concrete, we mocked up one of its ideas in Date Everything!’s look: a ghost avatar, a semi-transparent version of your character that lets you see yourself in the world, with controls for opacity and camera distance.</p>
+                            <p class="takeaway"><strong>What stuck:</strong> she carried the ghost avatar into her own sticky notes and sketch, and asked for the opacity control.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <figure class="visual">
+                                <a class="visual-frame" href="../images/date-everything/codesign/ghost-avatar-mockup.png" target="_blank" rel="noopener">
+                                    <img src="../images/date-everything/codesign/ghost-avatar-mockup.png" alt="Mockup of Date Everything! settings: an Accessibility screen with a Show Avatar toggle, avatar opacity at 60% and camera distance, plus the game scene without and with a ghost avatar">
+                                </a>
+                                <figcaption>Mockup we showed her: settings, then the scene without and with a ghost avatar</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Building her ideal experience</span>
+                            <h3>Her features, in her words</h3>
+                            <p>On a board titled “Build Your Game Experience,” she wrote the features she likes and marked what mattered most. The ticked and starred notes became our shortlist:</p>
+                            <p class="takeaway"><strong>Must-haves:</strong> remember my settings, no flashing or intense lights, no motion blur, keep my screen steady, camera position, and ghost avatar opacity.</p>
+                            <p>Her rest-related notes (“give me a rest,” “take a quick break when needed”) point to a future direction, even though she chose EazyMotion first.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <figure class="visual">
+                                <a class="visual-frame" href="../images/date-everything/codesign/sticky-notes.png" target="_blank" rel="noopener">
+                                    <img src="../images/date-everything/codesign/sticky-notes.png" alt="Whiteboard titled Build Your Game Experience, covered in sticky notes of features our participant wants">
+                                </a>
+                                <figcaption>Her sticky notes: “Build Your Game Experience”</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- 3d. Sketches -->
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Sketching the settings</span>
+                            <h3>One easy button, one settings menu</h3>
+                            <p>We drew a demo of the game screen. She added her own “one easy button” in the corner, which opens an Extended Settings panel, and sketched what should be inside, one group at a time. This showed us exactly how much control she wants and where she expects to find it.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="sketch-grid">
+                                <figure class="sketch">
+                                    <a class="visual-frame" href="../images/date-everything/codesign/sketch-camera.png" target="_blank" rel="noopener"><img src="../images/date-everything/codesign/sketch-camera.png" alt="Sketch of camera speed, POV, camera position, zoom, steady cam and motion blur controls"></a>
+                                    <figcaption><strong>Camera</strong>Speed, POV, position, zoom, steady cam, motion blur</figcaption>
+                                </figure>
+                                <figure class="sketch">
+                                    <a class="visual-frame" href="../images/date-everything/codesign/sketch-lighting.png" target="_blank" rel="noopener"><img src="../images/date-everything/codesign/sketch-lighting.png" alt="Sketch of a brightness slider and a strobe lighting removed checkbox"></a>
+                                    <figcaption><strong>Lighting</strong>Brightness and strobe lighting removed</figcaption>
+                                </figure>
+                                <figure class="sketch">
+                                    <a class="visual-frame" href="../images/date-everything/codesign/sketch-ghost-avatar.png" target="_blank" rel="noopener"><img src="../images/date-everything/codesign/sketch-ghost-avatar.png" alt="Sketch of a ghost avatar toggle, an opacity slider from 20 to 100 and custom avatar options"></a>
+                                    <figcaption><strong>Avatar</strong>Ghost avatar, opacity, custom avatar</figcaption>
+                                </figure>
+                                <figure class="sketch">
+                                    <a class="visual-frame" href="../images/date-everything/codesign/sketch-save.png" target="_blank" rel="noopener"><img src="../images/date-everything/codesign/sketch-save.png" alt="Sketch of a Save my settings confirmation"></a>
+                                    <figcaption><strong>Save</strong>“Save my settings”</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ======================= 04 PROTOTYPE ======================= -->
+                <section class="sprint" id="prototype" aria-labelledby="h-proto">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">04</span>
+                        <div>
+                            <h2 id="h-proto">Comfort Edition Prototype</h2>
+                            <p class="sprint-intro">Turning her sketches into something playable.</p>
+                        </div>
+                    </header>
+
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">From sketch to build</span>
+                            <h3>Built with Claude, guided by her requests</h3>
+                            <p>I turned our session notes and her sketches into prompts and generated the game prototype with Claude, then checked the result against what she drew. Each setting traces back to something she asked for.</p>
+                            <a class="cta-link" href="https://graceliu-websites.github.io/date-anything/" target="_blank" rel="noopener">Try the prototype <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="sprint-visual">
+                            <div class="trace-head"><span>She asked for</span><span></span><span>We built</span></div>
+                            <ul class="trace">
+                                <li><span>Slower, steadier camera</span><i class="fa-solid fa-arrow-right"></i><strong>Camera speed, Steady cam</strong></li>
+                                <li><span>Camera position</span><i class="fa-solid fa-arrow-right"></i><strong>POV, height, distance, zoom</strong></li>
+                                <li><span>No motion blur</span><i class="fa-solid fa-arrow-right"></i><strong>Motion blur off</strong></li>
+                                <li><span>No intense or flashing lights</span><i class="fa-solid fa-arrow-right"></i><strong>Strobe becomes a steady glow</strong></li>
+                                <li><span>Ghost avatar opacity</span><i class="fa-solid fa-arrow-right"></i><strong>Opacity 20–100%</strong></li>
+                                <li><span>Remember my settings</span><i class="fa-solid fa-arrow-right"></i><strong>[Confirm saving works]</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">The prototype</span>
+                            <h3>Settings that preview live</h3>
+                            <p>Changes show behind the settings window right away, so she can see the effect before leaving the menu.</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <!-- Add a screenshot of the Extended Settings screen and replace this box with an img -->
+                            <div class="demo-frame">
+                                <iframe src="https://graceliu-websites.github.io/date-anything/" title="Date Everything! Comfort Edition prototype" loading="lazy" allow="fullscreen"></iframe>
+                            </div>
+                            <p class="visual-caption">Click inside the game to play. Move with W A S D, open settings with Esc. <a href="https://graceliu-websites.github.io/date-anything/" target="_blank" rel="noopener">Open in a new tab</a> for the full screen.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ======================= 05 NEXT ======================= -->
+                <section class="sprint" id="next" aria-labelledby="h-next">
+                    <header class="sprint-head reveal-right">
+                        <span class="sprint-num">05</span>
+                        <div>
+                            <h2 id="h-next">Next Steps &amp; Reflection</h2>
+                            <p class="sprint-intro">We haven’t tested the prototype with her yet, and that is the next step.</p>
+                        </div>
+                    </header>
+
+                    <div class="sprint-row reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Next steps</span>
+                            <h3>Test it with her</h3>
+                            <p>The next session will have her play the prototype to check whether the settings reduce discomfort and are easy to find. We plan to look at:</p>
+                            <p>[Edit: comfort during a short play session, how quickly she finds the settings, whether saved settings carry over.]</p>
+                        </div>
+                        <div class="sprint-visual">
+                            <ul class="finding-list">
+                                <li><strong>Test the prototype</strong><p>Does it feel comfortable, and are the controls where she expects them?</p></li>
+                                <li><strong>Revisit Cozy Pause</strong><p>Her rest-related sticky notes suggest ideas for a gentle, optional rest mode.</p></li>
+                                <li><strong>Try other players</strong><p>Check whether the same settings help other motion-sensitive players.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="core-takeaway reveal-right">
+                        <span class="ct-tag"><i class="fa-solid fa-star"></i> Key Takeaway</span>
+                        <p class="ct-quote">Her priorities, not our assumptions, set the direction: she wanted <em>control and freedom</em>, not breaks.</p>
+                    </div>
+
+                    <div class="sprint-row stack reveal-right">
+                        <div class="sprint-text">
+                            <span class="step">Reflection</span>
+                            <h3>What I learned</h3>
+                            <p>Letting the participant redirect the project from transportation to gaming gave us a better problem. Using Claude let me turn her sketches into something playable quickly, but I checked every setting against her drawings.</p>
+                            <p>[Add one thing you’d do differently, e.g. shorter interview questions.]</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div><!-- /.case-body -->
+
+            <section class="next-project-section reveal-right">
+                <a href="../simulator/simulator.html" class="card next-project-card">
+                    <div class="next-project-body">
+                        <div class="next-project-text">
+                            <span class="badge badge-pink">NEXT PROJECT</span>
+                            <h2>Ben &amp; Jerry's Ice Cream Simulator</h2>
+                            <p>A simulating 3-Dimensional game in which users explore more than twenty different flavors offered by the global ice cream brand of Ben &amp; Jerry's.</p>
+                            <div class="next-project-tags"><span>3D Game</span><span>20+ Flavors</span><span>Interactive</span></div>
+                        </div>
+                        <div class="next-project-media">
+                            <img src="../images/simulator/flavors/netflix-chilld.png" alt="Ben &amp; Jerry's Ice Cream Simulator preview" class="next-project-img">
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+        </main>
+    </div>
+    <script src="../main.js"></script>
+</body>
+</html>

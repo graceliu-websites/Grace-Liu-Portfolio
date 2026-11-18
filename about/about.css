@@ -116,13 +116,27 @@ main section + section {
 }
 
 .main-title {
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 4rem;
-    font-weight: 800;
+    font-weight: 600;
     margin: 10px 0;
-    line-height: 1.1;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #ffffff;
 }
 
-.main-title span { color: var(--accent); }
+/* the span needs its own font setting, because your global rule sets every span to Inter */
+.main-title span {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    color: #7482ff;
+}
+
+.banner-intro .main-title {
+    font-size: 3rem;
+    margin: 0;
+}
 
 .crab-img {
     height: 1.5em;             /* Scales proportionally with the H1 font size */
@@ -255,6 +269,72 @@ main section + section {
     color: var(--text-light);
 }
 
+/* highlighter-pen marks */
+.hl {
+    padding: 0 0.15em;
+    color: #ffffff;
+    font-weight: 600;
+    background: linear-gradient(transparent 52%, var(--hl) 52% 92%, transparent 92%);
+    border-radius: 3px;
+}
+.hl-yellow { --hl: rgba(255, 210, 63, 0.45); }
+.hl-green  { --hl: rgba(38, 247, 163, 0.38); }
+.hl-blue   { --hl: rgba(73, 231, 255, 0.38); }
+.hl-pink   { --hl: rgba(255, 122, 182, 0.45); }
+
+/* interest chips */
+.bio-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--c);
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+    border-radius: 999px;
+    transition: transform 0.2s ease;
+}
+.chip:nth-child(odd)  { transform: rotate(-1.5deg); }
+.chip:nth-child(even) { transform: rotate(1.5deg); }
+.chip:hover { transform: rotate(0) translateY(-2px) scale(1.05); }
+.chip-yellow { --c: #FFD23F; }
+.chip-green  { --c: #26F7A3; }
+.chip-blue   { --c: #49E7FF; }
+.chip-pink   { --c: #FF7AB6; }
+
+/* colored tape on the polaroids */
+.collage-item::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 84px;
+    height: 22px;
+    margin-left: -42px;
+    background: var(--tape, rgba(255, 210, 63, 0.7));
+    transform: rotate(-3deg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+}
+.collage-item:nth-child(1) { --tape: rgba(255, 210, 63, 0.75); }
+.collage-item:nth-child(2) { --tape: rgba(255, 122, 182, 0.75); }
+.collage-item:nth-child(3) { --tape: rgba(73, 231, 255, 0.75); }
+.collage-item:nth-child(4) { --tape: rgba(38, 247, 163, 0.75); }
+
+@media (prefers-reduced-motion: reduce) {
+    .chip { transition: none; }
+}
+
 /* Two-column side-by-side row */
 .bio-row {
     display: grid;
@@ -292,8 +372,10 @@ main section + section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 1.1rem; 
 }
+
+.bio-block .bio-paragraph { font-size: 1.15rem; line-height: 1.8; }
 
 .bio-block p {
     margin: 0;

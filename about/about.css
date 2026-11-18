@@ -1,158 +1,96 @@
+/* =========================================================
+   ABOUT PAGE
+   1. Base  2. Hero  3. Bio  4. Illustrations  5. Sketchbook
+   ========================================================= */
+
+/* ---------- 1. BASE ---------- */
 :root {
     --accent: #3d4ef5;
-    --card: #111111;
-    --card-main: #191b22;
-    --card-dark: #111111;
     --border-color: #1f2026;
     --text-muted: #a0a5b5;
     --text-light: #e2e4e9;
 }
 
 body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 .reveal-right.delay-1.active { animation-delay: 0.15s; }
 .reveal-right.delay-2.active { animation-delay: 0.3s; }
 
-.badge-blue {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 0.9rem;
-  background: rgba(59, 130, 246, 0.12);
-  color: var(--accent);                        
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  border-radius: 30px;  
-  font-size: 0.9rem;
-  font-weight: 700;
-    letter-spacing: 0.5px;
-  text-transform: uppercase;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
-  line-height: 1;
-  user-select: none;
-
-  margin: 0 0 1.5rem 0;
-  align-self: flex-start;
-    margin-bottom: 2rem;
-}
-
 .content {
-  width: 1100px !important;
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
-}
-
-.about-container,
-.illu-section {
-    border: 0px solid var(--border-color, #1f2026);
-    border-radius: 24px;
-    padding: 0;
-    margin-bottom: 0;
-    background: rgba(255, 255, 255, 0.01);
-    box-sizing: border-box;
-    overflow: hidden;
+    width: 1100px !important;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
 }
 
 /* space between page sections */
-main section + section {
-    margin-top: 3rem;
-}
+main section + section { margin-top: 3rem; }
 
 .about-container {
     width: 100% !important;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-.hero-split {
-    display: grid;
-    grid-template-columns: 1fr;     /* one column, so the headline sits under the banner */
-    justify-items: center;
-    gap: 0;
-    width: 100%;
-    max-width: 900px;
-    margin-bottom: 0;
-}
-
-/* Position image in column 1 */
-.hero-image-area {
-    grid-column: 1;
-    grid-row: 1;
-    filter: drop-shadow(0 0 10px var(--accent));
-}
-
-/* Position main title & badge in column 2 */
-.hero-text-area {
-    grid-column: 2;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-.circle-frame {
-    width: 320px;
-    height: 320px;
-    border: 6px solid color-mix(in srgb, var(--accent) 60%, black);
-    border-radius: 100%; 
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.01);
     overflow: hidden;
 }
 
-.circle-frame img {
-    width: 100%;  /* Scaled up to cover rotated corners without white space */
-    height: 100%;
-    object-fit: cover;
+.badge-blue {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    margin: 0 0 2rem;
+    padding: 0.5rem 0.9rem;
+    background: rgba(59, 130, 246, 0.12);
+    color: #8d99ff;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 30px;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.15);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    text-transform: uppercase;
+    user-select: none;
 }
 
-.main-title {
+/* shared section headings (Playfair, like the page title) */
+.section-heading,
+.storyboard-heading {
+    margin-bottom: 1.5rem;
+    text-align: center;
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 4rem;
     font-weight: 600;
-    margin: 10px 0;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    font-size: 2.2rem;
     color: #ffffff;
 }
 
-/* the span needs its own font setting, because your global rule sets every span to Inter */
-.main-title span {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-weight: 500;
-    color: #7482ff;
+.section-sub {
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
 }
 
-.banner-intro .main-title {
-    font-size: 3rem;
-    margin: 0;
+/* ---------- 2. HERO ---------- */
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 100%;
+    max-width: 900px;
 }
 
-.crab-img {
-    height: 1.5em;             /* Scales proportionally with the H1 font size */
-    width: auto;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 0.35rem;
-    transform: translateY(-4px); /* Aligns nicely with the text baseline */
-    transition: transform 0.2s ease;
-}
-
-.main-title:hover .crab-img {
-    transform: translateY(-4px) scale(1.15) rotate(-5deg); /* Subtle hover effect */
-}
-
-/* ===== Painting banner with portrait in the center ===== */
+/* painting banner with the portrait in the center */
 .paint-banner {
     position: relative;
     display: grid;
@@ -162,9 +100,7 @@ main section + section {
     width: 100%;
     max-width: 900px;
     height: 340px;
-    padding: 0px;
     background: #0b0b0d;
-    border: 0px solid #222;
     border-radius: 24px;
     overflow: hidden;
 }
@@ -187,8 +123,6 @@ main section + section {
 .tile-l1 { grid-column: 1 / 3; grid-row: 1 / 3; }
 .tile-l2 { grid-column: 3;     grid-row: 1; }
 .tile-l3 { grid-column: 3;     grid-row: 2; }
-
-/* right block: mirrored */
 .tile-r3 { grid-column: 5;     grid-row: 1; }
 .tile-r2 { grid-column: 5;     grid-row: 2; }
 .tile-r1 { grid-column: 6 / 8; grid-row: 1 / 3; }
@@ -203,7 +137,6 @@ main section + section {
     background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.5) 100%);
 }
 
-/* portrait, centered on top of the collage */
 .banner-avatar {
     position: absolute;
     z-index: 2;
@@ -215,7 +148,7 @@ main section + section {
     border-radius: 50%;
     overflow: hidden;
     border: 6px solid color-mix(in srgb, var(--accent) 60%, black);
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.7),          /* dark halo separates it from the art */
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.7),
                 0 0 40px rgba(61, 78, 245, 0.5);
 }
 .banner-avatar img {
@@ -232,41 +165,58 @@ main section + section {
     margin: 2rem 0 0;
     text-align: center;
 }
-.banner-intro .main-title {
-    font-size: 3rem;
+.main-title {
     margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+/* spans need their own font, because the global rule above sets every span to Inter */
+.main-title span {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    color: #7482ff;
 }
 
-@media (max-width: 700px) {
-    .paint-banner { height: 260px; }
-    .banner-avatar { width: 170px; height: 170px; margin: -85px 0 0 -85px; }
-    .banner-intro .main-title { font-size: 2.2rem; }
+.crab-img {
+    display: inline-block;
+    height: 1.5em;
+    width: auto;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+    transform: translateY(-4px);
+    transition: transform 0.2s ease;
 }
+.main-title:hover .crab-img { transform: translateY(-4px) scale(1.15) rotate(-5deg); }
 
-@media (prefers-reduced-motion: reduce) {
-    .tile img { transition: none; }
-}
-
-/* FULL BIO */
-
-/* --- Expanded Bio Section with Visuals --- */
+/* ---------- 3. BIO ---------- */
 .full-bio {
-    max-width: 900px;
-    gap: 2rem;
-    display: flex; 
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
 }
 
+.bio-block {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.1rem;
+    width: 100%;
+    max-width: 740px;
+}
 .bio-paragraph {
     margin: 0;
-    font-size: 20px;
-    line-height: 1.85;
+    font-size: 1.15rem;
+    line-height: 1.8;
     color: var(--text-muted);
-}
-
-.bio-paragraph strong {
-    font-weight: 600;
-    color: var(--text-light);
 }
 
 /* highlighter-pen marks */
@@ -286,8 +236,9 @@ main section + section {
 .bio-chips {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
-    margin: 0.5rem 0 0;
+    margin: 0.75rem 0 0;
     padding: 0;
     list-style: none;
 }
@@ -312,130 +263,49 @@ main section + section {
 .chip-blue   { --c: #49E7FF; }
 .chip-pink   { --c: #FF7AB6; }
 
-/* colored tape on the polaroids */
-.collage-item::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    width: 84px;
-    height: 22px;
-    margin-left: -42px;
-    background: var(--tape, rgba(255, 210, 63, 0.7));
-    transform: rotate(-3deg);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-    z-index: 3;
-}
-.collage-item:nth-child(1) { --tape: rgba(255, 210, 63, 0.75); }
-.collage-item:nth-child(2) { --tape: rgba(255, 122, 182, 0.75); }
-.collage-item:nth-child(3) { --tape: rgba(73, 231, 255, 0.75); }
-.collage-item:nth-child(4) { --tape: rgba(38, 247, 163, 0.75); }
-
-@media (prefers-reduced-motion: reduce) {
-    .chip { transition: none; }
-}
-
-/* Two-column side-by-side row */
-.bio-row {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 2.25rem;
-    align-items: center; /* Vertically centers text and image with each other */
-}
-
-/* Reverses order for The Pivot: Text left, Image right */
-.bio-row-reverse {
-    grid-template-columns: 1fr 280px;
-    align-items: center;
-}
-
-.bio-row-reverse .bio-block {
-    grid-column: 1;
-    grid-row: 1; /* Locks onto the same row */
-}
-
-.bio-row-reverse .bio-media {
-    grid-column: 2;
-    grid-row: 1; /* Locks onto the same row */
-}
-
-/* Stacked row for My Focus */
-.bio-row-stacked {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-}
-
-/* Content block styling */
-.bio-block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.1rem; 
-}
-
-.bio-block .bio-paragraph { font-size: 1.15rem; line-height: 1.8; }
-
-.bio-block p {
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--text-muted, #a0a5b5);
-    max-width: 100%;
-}
-
-.bio-subtitle {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--accent);
-}
-
-.bio-subtitle i {
-    font-size: 1.2rem;
-    color: var(--accent);
-    opacity: 0.9;
-}
-
-/* Side photo frame styling */
-.bio-media {
-    width: 100%;
-    height: 190px;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.bio-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
+/* polaroids: frame tint matches the highlight colors */
 .bio-collage {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 28px 24px;
-    align-items: center;         /* photos of different heights line up on their centers */
+    align-items: center;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
+.collage-item {
+    position: relative;
+    margin: 0;
+    padding: 12px 12px 34px;
+    background: var(--frame, #ffffff);
+    border-radius: 4px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.collage-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+.collage-item:nth-child(1) { --frame: #fff6d6; transform: rotate(-2deg); }
+.collage-item:nth-child(2) { --frame: #ffe6f1; transform: rotate(1.5deg); }
+.collage-item:nth-child(3) { --frame: #def8ff; transform: rotate(1.8deg); }
+.collage-item:nth-child(4) { --frame: #dcfbe9; transform: rotate(-1.5deg); }
+.collage-item:hover {
+    transform: rotate(0deg) scale(1.04);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
 
 .collage-caption {
     position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    bottom: 34px;
     padding: 2.5rem 0.9rem 0.8rem;
     border-radius: 0 0 3px 3px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) calc(100% - 2.2rem), rgba(0, 0, 0, 0));
     color: #ffffff;
     font-size: 0.85rem;
     line-height: 1.45;
@@ -450,154 +320,92 @@ main section + section {
     opacity: 1;
     transform: none;
 }
-@media (hover: none) {              /* phones have no hover, so always show it */
+@media (hover: none) {
     .collage-caption { opacity: 1; transform: none; }
 }
 
-.collage-item {
-    margin: 0;
-    padding: 10px;
-    background: #fff;
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+/* ---------- 4. ILLUSTRATIONS ---------- */
+.illustration-section {
+    width: 100%;
+    max-width: 1000px;
+    margin-inline: auto;
 }
-
-.collage-item img {
+.illustration-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 190px;
+    gap: 16px;
+}
+.illu-item {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+}
+.illu-feature { grid-column: span 2; grid-row: span 2; }
+.illu-item a { display: block; width: 100%; height: 100%; }
+.illu-item a:focus-visible { outline: 3px solid #ffffff; outline-offset: -3px; }
+.illu-item img {
     display: block;
     width: 100%;
-    height: auto;                /* natural proportions, so nothing is cropped */
-    border-radius: 3px;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(.22, 1, .36, 1);
 }
+.illu-item:hover img,
+.illu-item:focus-within img { transform: scale(1.05); }
 
-.collage-item:nth-child(1) { transform: rotate(-2deg); }
-.collage-item:nth-child(2) { transform: rotate(1.5deg); }
-.collage-item:nth-child(3) { transform: rotate(1.8deg); }
-.collage-item:nth-child(4) { transform: rotate(-1.5deg); }
-
-.collage-item:hover {
-    transform: rotate(0deg) scale(1.04);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);
-    z-index: 2;
-}
-
-@media (max-width: 640px) {
-    .bio-collage {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-    .collage-item:nth-child(odd)  { transform: rotate(-1deg); }
-    .collage-item:nth-child(even) { transform: rotate(1deg); }
-}
-
-/* Content Grid */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 60px;
-    margin-bottom: 2.5rem;
-}
-
-.grid-section {
-  min-width: 0 !important;
-}
-
-.sub-label {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    color: var(--accent);
-    margin-bottom: 25px;
-    text-transform: uppercase;
-}
-
-.list-card {
-    background: var(--card);
-    padding: 24px;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    border: 1px solid #222;
-}
-
-.list-card p {
-  color: var(--text-muted);
-}
-
-
-.list-card.pink-card .highlight {
-  color: var(--accent); 
-}
-
-.list-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.highlight { color: var(--text-muted); font-weight: 600; font-size: 0.9rem; }
-
-.list-card .slider-track {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-.list-card .illu-card {
-  flex: 0 0 180px; /* Slightly compact card size fitting inside list items */
-  width: 180px;
-}
-
-.list-card .illu-card img {
-  height: 200px;
-}
-
-/* ========== STORYBOARDS: SKETCHBOOK ========== */
-
-/* title, centered */
-.storyboard-head,
-.storyboard-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-.storyboard-heading {
-    margin: 1.5rem 0.4rem;
-    text-align: center;
-    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 2rem;
-    letter-spacing: -0.02em;
+.illu-item figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 14px 12px;
+    font-size: 0.85rem;
+    line-height: 1.4;
     color: #ffffff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) calc(100% - 1.6rem), rgba(0, 0, 0, 0));
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
 }
-.storyboard-tag {
-    display: block;
-    margin: 0 auto 1.8rem;
-    text-align: center;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent);
+.illu-item figcaption strong { display: block; font-size: 0.95rem; }
+.illu-item:hover figcaption,
+.illu-item:focus-within figcaption,
+.illu-feature figcaption { opacity: 1; transform: none; }
+@media (hover: none) {
+    .illu-item figcaption { opacity: 1; transform: none; }
 }
 
+/* ---------- 5. SKETCHBOOK (UX storyboards) ---------- */
+.storyboard-section {
+    width: 100%;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+/* old decorative layers, still in the HTML but hidden.
+   You can delete the two divs (.storyboard-beam / .storyboard-base) and this rule together. */
 .storyboard-beam,
 .storyboard-base { display: none; }
 
 .storyboard-stage {
     position: relative;
-    max-width: 760px;
+    width: 100%;
+    max-width: 960px;
     margin: 0 auto;
     padding: 12px 0 0;
-    height: auto;
 }
-
 .storyboard-viewport {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 11;
 }
 
-/* the ring is now just the book: perspective for the page turns */
+/* the ring is just the book: perspective for the page turns */
 .storyboard-ring {
     position: absolute;
     inset: 0;
@@ -623,16 +431,14 @@ main section + section {
         radial-gradient(circle at 32px 15px, #0b0b0d 0 4.5px, transparent 5px) 0 0 / 44px 30px repeat-y;
 }
 
-/* ---- a page ---- */
+/* a page */
 .storyboard-card {
     position: absolute;
     inset: 0;
-    width: auto;
-    height: auto;
-    margin: 0;
     display: flex;
     flex-direction: column;
-    padding: 28px 28px 18px 58px;       /* extra room on the left for the binding */
+    margin: 0;
+    padding: 32px 32px 20px 64px;          /* extra room on the left for the binding */
     background:
         linear-gradient(to right, rgba(0, 0, 0, 0.10), transparent 6%),
         radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px) 0 0 / 7px 7px,
@@ -640,15 +446,14 @@ main section + section {
     color: #26262b;
     border-radius: 6px 14px 14px 6px;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-    transform-origin: 0 50%;            /* hinge on the left edge, like a real page */
+    transform-origin: 0 50%;
     backface-visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: transform 0.9s cubic-bezier(0.45, 0.05, 0.2, 1),
-                opacity 0.35s ease;
+    transition: transform 0.9s cubic-bezier(0.45, 0.05, 0.2, 1), opacity 0.35s ease;
 }
 
-/* washi tape */
+/* washi tape on the page (the only tape left on this page) */
 .storyboard-card::before {
     content: "";
     position: absolute;
@@ -662,38 +467,15 @@ main section + section {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* page positions (data-pos is set by your existing JS) */
-.storyboard-card[data-pos="0"] {               /* the open page */
-    transform: none;
-    opacity: 1;
-    z-index: 5;
-    pointer-events: auto;
-}
-.storyboard-card[data-pos="1"] {               /* pages underneath */
-    transform: translate(10px, 8px) rotate(1.2deg);
-    opacity: 1;
-    z-index: 4;
-    pointer-events: auto;
-}
-.storyboard-card[data-pos="2"] {
-    transform: translate(20px, 15px) rotate(-1.4deg);
-    opacity: 1;
-    z-index: 3;
-    pointer-events: auto;
-}
+/* page positions (data-pos is set by main.js) */
+.storyboard-card[data-pos="0"] { transform: none; opacity: 1; z-index: 5; pointer-events: auto; }
+.storyboard-card[data-pos="1"] { transform: translate(10px, 8px) rotate(1.2deg); opacity: 1; z-index: 4; pointer-events: auto; }
+.storyboard-card[data-pos="2"] { transform: translate(20px, 15px) rotate(-1.4deg); opacity: 1; z-index: 3; pointer-events: auto; }
 .storyboard-card[data-pos="3"],
-.storyboard-card[data-pos="4"] {               /* hidden in the stack */
-    transform: translate(26px, 20px) rotate(0.8deg);
-    opacity: 0;
-    z-index: 2;
-}
-.storyboard-card[data-pos="5"] {               /* page that was just turned */
-    transform: rotateY(-100deg);
-    opacity: 0;
-    z-index: 6;
-}
+.storyboard-card[data-pos="4"] { transform: translate(26px, 20px) rotate(0.8deg); opacity: 0; z-index: 2; }
+.storyboard-card[data-pos="5"] { transform: rotateY(-100deg); opacity: 0; z-index: 6; }
 
-/* ---- the sketch ---- */
+/* the sketch */
 .storyboard-frame {
     flex: 1;
     min-height: 0;
@@ -701,39 +483,25 @@ main section + section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
     margin: 0;
+    padding: 0;
     overflow: hidden;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
 }
 .storyboard-frame img {
     display: block;
     width: 100%;
     height: 100%;
-    margin: 0;
     object-fit: contain;
-    mix-blend-mode: multiply;                       /* the whiteboard takes on the paper color */
+    mix-blend-mode: multiply;               /* the whiteboard takes on the paper color */
     filter: brightness(1.12) contrast(1.05) saturate(0.85);
 }
 
-/* the sketch "draws in" left to right when its page opens */
-.storyboard-card[data-pos="0"] .holo-frame img {
-    animation: sketch-in 1s cubic-bezier(0.5, 0, 0.2, 1) 0.45s both;
-}
-@keyframes sketch-in {
-    from { clip-path: inset(0 100% 0 0); }
-    to   { clip-path: inset(0 0 0 0); }
-}
-
-/* ---- caption (title + text) on the paper ---- */
+/* caption (title + text) on the paper */
 .storyboard-caption {
     margin: 12px 0 0;
     padding: 0 0.2rem;
     min-height: 4.6em;
     text-align: left;
-    font-family: 'Inter', sans-serif;
     font-size: 0.92rem;
     line-height: 1.5;
     color: #4a4a52;
@@ -746,24 +514,17 @@ main section + section {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.15;
-    letter-spacing: 0;
-    text-transform: none;
     color: #1d1d22;
 }
-.storyboard-card:not([data-pos="0"]) .holo-caption {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0s 0.2s;
-}
 
-/* ---- controls ---- */
+/* controls */
 .storyboard-controls {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     margin: 3.5rem 0;
-    flex-wrap: wrap;
 }
 .storyboard-btn {
     width: 44px;
@@ -815,22 +576,37 @@ main section + section {
 .storyboard-count {
     min-width: 5.5em;
     text-align: center;
-    font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     color: var(--text-muted);
 }
 
-/* ---- small screens ---- */
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+    .illustration-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 170px; }
+    .illu-feature { grid-column: span 2; grid-row: span 2; }
+}
 @media (max-width: 760px) {
     .storyboard-section .storyboard-viewport { aspect-ratio: 4 / 5; }
     .storyboard-section .storyboard-card { padding: 20px 14px 14px 36px; }
-    .storyboard-section .storyboard-heading { font-size: 1.6rem; }
-    .storyboard-section .storyboard-tag { display: none; }
+}
+@media (max-width: 700px) {
+    .paint-banner { height: 260px; }
+    .banner-avatar { width: 170px; height: 170px; margin: -85px 0 0 -85px; }
+    .main-title { font-size: 2.2rem; }
+}
+@media (max-width: 640px) {
+    .bio-collage { grid-template-columns: 1fr; }
+    .collage-item:nth-child(odd)  { transform: rotate(-1deg); }
+    .collage-item:nth-child(even) { transform: rotate(1deg); }
+}
+@media (max-width: 560px) {
+    .illustration-grid { grid-auto-rows: 150px; }
+    .section-heading, .storyboard-heading { font-size: 1.7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .storyboard-section .storyboard-card { transition-duration: 0.01s; }
-    .storyboard-section .storyboard-card[data-pos="0"] .storyboard-frame img { animation: none; }
+    .tile img, .illu-item img { transition: none; }
+    .storyboard-card { transition-duration: 0.01s; }
 }

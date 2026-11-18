@@ -497,23 +497,21 @@ main section + section { margin-top: 3rem; }
 }
 
 /* caption (title + text) on the paper */
+/* title at the top of each page */
 .storyboard-caption {
-    margin: 12px 0 0;
+    margin: 0 0 12px;
     padding: 0 0.2rem;
-    min-height: 4.6em;
     text-align: left;
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: #4a4a52;
     transition: opacity 0.5s ease 0.3s;
 }
+
 .storyboard-caption strong {
     display: block;
-    margin-bottom: 0.15rem;
-    font-family: 'Caveat', 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
-    font-size: 1.5rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
     font-weight: 600;
-    line-height: 1.15;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     color: #1d1d22;
 }
 

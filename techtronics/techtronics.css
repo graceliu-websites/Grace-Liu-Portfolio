@@ -1337,3 +1337,18 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td, li, figcaptio
     .mockup-container { animation: none; }
     .reveal-right { transition: none; opacity: 1; translate: none; }
 }
+
+/* ---- design system: palette ---- */
+.palette { display:grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap:10px; list-style:none; }
+.palette li { display:flex; flex-direction:column; gap:4px; padding:10px 10px 14px; background: var(--card-main); border:1px solid var(--line); border-radius:14px; }
+.swatch-chip { display:block; aspect-ratio: 1 / 1.25; margin-bottom:8px; background: var(--c); border-radius:10px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+.palette strong { font-size:13px; font-weight:700; color:#fff; }
+.palette em { font-style:normal; font-size:12px; color: var(--text-light); }
+.palette small { font-size:11.5px; line-height:1.4; color: var(--text-muted); }
+@media (max-width: 700px) { .palette { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 420px) { .palette { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+/* ---- design system: rule chips ---- */
+.rule-chips { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px; list-style:none; }
+.rule-chips li { padding:6px 14px; font-size:13px; color: var(--text-light); background: rgba(79,209,217,.08); border:1px solid rgba(79,209,217,.3); border-radius:999px; }
+.rule-chips strong { margin-right:4px; color: var(--accent); }

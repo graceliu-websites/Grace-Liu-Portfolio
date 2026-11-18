@@ -1460,6 +1460,8 @@ h2 {
     box-shadow: 0 0 10px var(--dot);
 }
 
+.toolkit-card { justify-content: flex-start; gap: 28px; }
+
 .group-design   { --dot: #FFD23F; }
 .group-research { --dot: #49E7FF; }
 .group-build    { --dot: #26F7A3; }
@@ -1545,6 +1547,18 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Pushes heading to top, buttons to bottom */
+}
+
+.cta-card h4 {
+    font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+}
+
+.cta-card h4 em {
+    font-style: italic;
+    color: #7482ff; /* optional: matches the blue in the quote card */
 }
 
 .cta-icon {

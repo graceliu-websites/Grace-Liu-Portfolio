@@ -701,3 +701,66 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, th, td, li, figcaptio
     .core-takeaway { padding:24px 20px; }
 }
 @media (prefers-reduced-motion: reduce) { .reveal-right { transition:none; opacity:1; translate:none; } }
+
+/* ===== MORE BREATHING ROOM ===== */
+
+/* between sections and rows */
+.case-body { gap: 136px; padding-bottom: 48px; }
+.sprint { gap: 72px; }
+.sprint-head { padding-bottom: 28px; }
+.sprint-row { gap: 64px; }
+.sprint-row.stack { gap: 36px; }
+
+/* text side */
+.sprint-text .step { margin-bottom: 12px; }
+.sprint-text h3 { margin-bottom: 18px; }
+.sprint-text p { margin-bottom: 18px; line-height: 1.8; }
+.sprint-text .takeaway { margin-top: 22px; padding: 6px 0 6px 18px; }
+.sprint-intro { margin-top: 10px; }
+
+/* cards and grids */
+.overview-grid { gap: 24px; }
+.overview-card { padding: 34px 28px; }
+.core-takeaway { padding: 40px 44px; }
+
+.need-grid, .interview-list, .risk-list { gap: 18px; }
+.target-grid { gap: 18px; }
+.guard-grid { gap: 18px; }
+.mood-grid { gap: 24px; }
+.walk-grid { gap: 24px; }
+.ba-stack { gap: 24px; }
+.ba-pair { gap: 20px; }
+.visual-pair { gap: 20px; }
+
+.need-grid li, .interview, .risk-list li { padding: 22px 24px; }
+.target-grid li { padding: 26px; }
+.guard { padding: 24px; gap: 14px; }
+.persona-card-sf { padding: 30px; }
+.persona-card-sf header { margin-bottom: 20px; }
+.persona-cols { gap: 28px; }
+.walk-col { padding: 28px; }
+.walk-col ul { gap: 16px; }
+.mood figcaption { padding: 16px 18px 18px; }
+.evidence { margin-top: 28px; }
+
+/* phones row, hero, next project */
+.device-row { gap: 44px 36px; }
+.project-hero { gap: 72px; }
+.hero-description-text { margin-bottom: 40px; }
+.hero-stage { gap: 64px; }
+.next-project-section { margin-top: 48px; }
+
+/* keep phones from getting too airy */
+@media (max-width: 860px) {
+    .case-body { gap: 96px; }
+    .sprint { gap: 48px; }
+    .sprint-row { gap: 32px; }
+}
+@media (max-width: 560px) {
+    .need-grid li, .interview, .risk-list li { padding: 18px; }
+    .persona-card-sf, .walk-col { padding: 22px; }
+    .core-takeaway { padding: 28px 22px; }
+}
+
+.evidence > .visual-pair { margin: 0 20px 20px; }
+.stat-chips li { background: rgba(228, 70, 47, 0.1); border-color: rgba(228, 70, 47, 0.35); }

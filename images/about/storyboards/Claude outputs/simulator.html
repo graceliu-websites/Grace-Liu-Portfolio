@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben &amp; Jerry's 3D Simulator | Grace Liu</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="simulator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open Sidebar">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <main class="content">
+
+            <!-- ============ HERO ============ -->
+            <section class="retro-hero-section">
+                <div class="badge-container reveal-right">
+                    <span class="interface-badge">Interface Design</span>
+                </div>
+
+                <h1 class="main-title reveal-right delay-1">3D SIMULATOR:</h1>
+                <p class="sub-title-glow reveal-right delay-2">BEN &amp; JERRY'S<br>FLAVOR MENU</p>
+
+                <div class="showcase-frame-container reveal-right delay-3">
+                    <div class="accent-corner top-right"></div>
+                    <div class="accent-corner bottom-left"></div>
+                    <img src="../images/simulator/simulator-thumbnail.png" alt="The 3D ice cream park from the simulator, with the ice cream truck in the middle" class="rect-mockup">
+                </div>
+
+                <p class="hero-body-text reveal-right">
+                    A 3D ice cream park you can walk around in. I turned Ben &amp; Jerry's flavor menu into a game, so exploring the flavors feels like visiting the shop.
+                </p>
+
+                <div class="meta-group reveal-right">
+                    <div class="meta-item">
+                        <span class="meta-label">MY ROLE</span>
+                        <strong class="meta-value">Designer, Developer</strong>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">BUILT WITH</span>
+                        <strong class="meta-value">Three.js, Tone.js, ChatGPT</strong>
+                    </div>
+                </div>
+
+                <div class="action-links-group reveal-right">
+                    <a href="https://yanzliu1225.github.io/Ben-and-Jerrys-Simulator/" target="_blank" rel="noopener noreferrer" class="btn-link-wrapper">
+                        <span class="retro-play-button">PLAY NOW (WEB DEMO) <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ============ PROCESS ============ -->
+            <section class="process-section reveal-right" aria-labelledby="h-process">
+                <h2 class="section-title" id="h-process">How I <span class="section-title-pink">Built It</span></h2>
+                <p class="section-lead">Six steps from a menu on a website to a game you can play. I used ChatGPT to plan and debug along the way.</p>
+
+                <ol class="steps">
+
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">1</span>
+                        <div class="step-body">
+                            <h3>Find the data</h3>
+                            <p>I started with the Ben &amp; Jerry's flavor menu on their official website: flavor names, descriptions, ingredients, allergens, calories and ratings.</p>
+                            <ul class="flavor-strip" aria-label="A few of the flavors in the menu">
+                                <li><img src="../images/simulator/flavors/americone-dream.png" alt="Americone Dream"><span>Americone Dream</span></li>
+                                <li><img src="../images/simulator/flavors/cherry-garcia.png" alt="Cherry Garcia"><span>Cherry Garcia</span></li>
+                                <li><img src="../images/simulator/flavors/chunky-monkey.png" alt="Chunky Monkey"><span>Chunky Monkey</span></li>
+                                <li><img src="../images/simulator/flavors/half-baked.png" alt="Half Baked"><span>Half Baked</span></li>
+                                <li><img src="../images/simulator/flavors/phish-food.png" alt="Phish Food"><span>Phish Food</span></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">2</span>
+                        <div class="step-body">
+                            <h3>Sketch the concept</h3>
+                            <p>I drew the flow by hand first. You arrive at a welcome screen with a freezer, zoom in to a display of flavor cones, and pick a cone to see its nutrition details next to a comparison chart. A refresh button loads more flavors.</p>
+                            <figure class="step-figure portrait">
+                                <img src="../images/simulator/wireframe.png" alt="Hand-drawn wireframe with three screens: a welcome screen with a freezer, a flavors display with ice cream cones, and a detail screen with nutrition information and a comparison chart" onerror="this.closest('figure').hidden=true">
+                                <figcaption>My hand-drawn wireframe</figcaption>
+                            </figure>
+                            <p class="step-note">I first built that idea as an indoor shop. It didn't make it into the final game, so the menu moved outside to an ice cream truck in a park. [Add one sentence on why you changed it.]</p>
+                            <div class="visual-pair">
+                                <figure class="step-figure">
+                                    <img src="../images/simulator/early-shop.png" alt="Early 3D prototype of a shop interior with round tables and a checkered floor" onerror="this.closest('figure').hidden=true">
+                                    <figcaption>Early version: the shop</figcaption>
+                                </figure>
+                                <figure class="step-figure">
+                                    <img src="../images/simulator/early-freezer.png" alt="Early 3D prototype of the freezer, with the text Welcome to Ben and Jerry's" onerror="this.closest('figure').hidden=true">
+                                    <figcaption>Early version: the freezer</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">3</span>
+                        <div class="step-body">
+                            <h3>Build the 3D world</h3>
+                            <p>I used <strong>Three.js</strong> to set up the park, the truck, the characters and the sky in the browser.</p>
+                            <figure class="step-figure">
+                                <img src="../images/simulator/park-screenshot.png" alt="The final game: a pink ice cream truck with the ice cream man and a monkey on the roof, in a park with a gate and benches" onerror="this.closest('figure').hidden=true">
+                                <figcaption>The final game</figcaption>
+                            </figure>
+                            <p class="step-note">Drag any model to turn it around.</p>
+                            <div class="model-row">
+                                <figure class="model-card">
+                                    <model-viewer src="../models/man.glb" alt="3D model of the ice cream man" camera-controls auto-rotate shadow-intensity="1" loading="lazy"></model-viewer>
+                                    <figcaption><strong>The ice cream man</strong><span>Model by [creator name] on Sketchfab</span></figcaption>
+                                </figure>
+                                <figure class="model-card">
+                                    <model-viewer src="../models/truck.glb" alt="3D model of the pink ice cream truck" camera-controls auto-rotate shadow-intensity="1" loading="lazy"></model-viewer>
+                                    <figcaption><strong>The ice cream truck</strong><span>Model by [creator name] on Sketchfab</span></figcaption>
+                                </figure>
+                                <figure class="model-card">
+                                    <model-viewer src="../models/park.glb" alt="3D model of the park with paths, trees and fences" camera-controls auto-rotate shadow-intensity="1" loading="lazy"></model-viewer>
+                                    <figcaption><strong>The park</strong><span>Model by [creator name] on Sketchfab</span></figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">4</span>
+                        <div class="step-body">
+                            <h3>Add sound</h3>
+                            <p>I used <strong>Tone.js</strong> to play a lofi ice cream truck song in the background. The audio came from a YouTube video. Browsers block music that starts on its own, so players click once to turn it on.</p>
+                        </div>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">5</span>
+                        <div class="step-body">
+                            <h3>Make it playable</h3>
+                            <p>Three.js orbit controls and some JavaScript let the player walk around the park with the W, A, S and D keys and look around. On-screen prompts guide them: Enter to continue, Esc to leave the simulator, and a click to turn on the music.</p>
+                            <figure class="step-figure">
+                                <video controls muted loop playsinline preload="metadata" poster="../images/simulator/walk-poster.png">
+                                    <source src="../images/simulator/walkthrough.mp4" type="video/mp4" onerror="this.closest('figure').hidden=true">
+                                </video>
+                                <figcaption>Walking around the park</figcaption>
+                            </figure>
+                        </div>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">6</span>
+                        <div class="step-body">
+                            <h3>Build the menu</h3>
+                            <p>I built the menu with HTML and CSS, then loaded the flavor data from a JSON file so each flavor fills in its own details.</p>
+                            <figure class="step-figure">
+                                <img src="../images/simulator/menu-screenshot.png" alt="The flavor menu open in the simulator, showing a flavor's details" onerror="this.closest('figure').hidden=true">
+                                <figcaption>The flavor menu</figcaption>
+                            </figure>
+                        </div>
+                    </li>
+                </ol>
+
+                <ul class="tool-chips" aria-label="Tools used">
+                    <li>Three.js</li>
+                    <li>Tone.js</li>
+                    <li>JavaScript</li>
+                    <li>HTML &amp; CSS</li>
+                    <li>JSON</li>
+                    <li>ChatGPT</li>
+                </ul>
+            </section>
+
+            <!-- ============ REFLECTION ============ -->
+            <section class="reflection reveal-right" aria-labelledby="h-reflection">
+                <h2 id="h-reflection">What I Learned</h2>
+                <p>[One sentence on what you're proudest of.] [One sentence on what was hardest, and how you worked through it with ChatGPT.] [One thing you'd improve next.]</p>
+            </section>
+
+            <!-- ============ CREDITS ============ -->
+            <section class="credits reveal-right" aria-label="Credits">
+                <p><strong>Credits.</strong>
+                    3D models are from <a href="https://sketchfab.com" target="_blank" rel="noopener noreferrer">Sketchfab</a> under CC BY 4.0, credited to their creators.
+                    Music is from <a href="https://youtu.be/vD0K8TDO7-w" target="_blank" rel="noopener noreferrer">YouTube</a>, and rights belong to its creators.
+                    Flavor data comes from the <a href="https://www.benjerry.com" target="_blank" rel="noopener noreferrer">Ben &amp; Jerry's website</a>, and all trademarks belong to Ben &amp; Jerry's Homemade Inc.
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>

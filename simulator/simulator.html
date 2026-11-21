@@ -63,7 +63,7 @@
             <!-- ============ PROCESS ============ -->
             <section class="process-section reveal-right" aria-labelledby="h-process">
                 <h2 class="section-title" id="h-process">How I <span class="section-title-pink">Built It</span></h2>
-                <p class="section-lead">Six steps from a menu on a website to a game you can play. I used ChatGPT to plan and debug along the way.</p>
+                <p class="section-lead">Six steps from a menu on a website to a game you can play. I consulted ChatGPT to plan and debug along the way.</p>
 
                 <ol class="steps">
 
@@ -72,7 +72,11 @@
                         <div class="step-body">
                             <h3>Find the data</h3>
                             <p>I started with the Ben &amp; Jerry's flavor menu on their official website: flavor names, descriptions, ingredients, allergens, calories and ratings.</p>
-                            <ul class="flavor-strip" aria-label="A few of the flavors in the menu">
+                            <p class="step-note">
+                                My data source was the flavor pages on
+                                <a class="source-link" href="https://www.benjerry.com/flavors/americone-dream-ice-cream/pint?utm_campaign=BJ_Core&utm_medium=paidsearch&utm_source=google&utm_content=serp&utm_term=ben+and+jerry%27s">benjerry.com</a>,
+                                like this one for Americone Dream.
+                            </p>                            <ul class="flavor-strip" aria-label="A few of the flavors in the menu">
                                 <li><img src="../images/simulator/flavors/americone-dream.png" alt="Americone Dream"><span>Americone Dream</span></li>
                                 <li><img src="../images/simulator/flavors/cherry-garcia.png" alt="Cherry Garcia"><span>Cherry Garcia</span></li>
                                 <li><img src="../images/simulator/flavors/chunky-monkey.png" alt="Chunky Monkey"><span>Chunky Monkey</span></li>
@@ -92,7 +96,7 @@
                                 <figcaption>My hand-drawn wireframe</figcaption>
                             </figure>
                             <p class="step-note">I first built that idea as an indoor shop. It didn't make it into the final game, so the menu moved outside to an ice cream truck in a park. [Add one sentence on why you changed it.]</p>
-                            <div class="visual-pair">
+                            <div class="visual-pair menu-pair">
                                 <figure class="step-figure">
                                     <img src="../images/simulator/early-shop.png" alt="Early 3D prototype of a shop interior with round tables and a checkered floor" onerror="this.closest('figure').hidden=true">
                                     <figcaption>Early version: the shop</figcaption>
@@ -118,17 +122,26 @@
                             <div class="model-row">
                                 <figure class="model-card">
                                     <model-viewer src="../models/man.glb" alt="3D model of the ice cream man" camera-controls auto-rotate shadow-intensity="1" loading="lazy"></model-viewer>
-                                    <figcaption><strong>The ice cream man</strong><span>Model by [creator name] on Sketchfab</span></figcaption>
+                                    <figcaption>
+                                        <strong><a class="model-link" href="https://skfb.ly/psrGy" target="_blank" rel="noopener">Swedish Chef</a></strong>
+                                        <span>Model by <em>ThisIsntAPerson</em> on Sketchfab</span>
+                                    </figcaption>
                                 </figure>
                                 <figure class="model-card">
                                     <model-viewer src="../models/truck.glb" alt="3D model of the pink ice cream truck" camera-controls auto-rotate shadow-intensity="1" loading="lazy"></model-viewer>
-                                    <figcaption><strong>The ice cream truck</strong><span>Model by [creator name] on Sketchfab</span></figcaption>
+                                    <figcaption>
+                                        <strong><a class="model-link" href="https://skfb.ly/o9TvU" target="_blank" rel="noopener">The Ice Cream Truck</a></strong>
+                                        <span>Model by <em>Bogdan Strielecki</em> on Sketchfab</span>
+                                    </figcaption>
                                 </figure>
                                 <figure class="model-card">
                                     <model-viewer src="../models/park.glb" alt="3D model of the park with paths, trees and fences" camera-controls auto-rotate shadow-intensity="1" loading="lazy"></model-viewer>
-                                    <figcaption><strong>The park</strong><span>Model by [creator name] on Sketchfab</span></figcaption>
+                                    <figcaption>
+                                        <strong><a class="model-link" href="https://skfb.ly/orJxS" target="_blank" rel="noopener">City Park at Sunset</a></strong>
+                                        <span>Model by <em>Virginia Vidonis</em> on Sketchfab</span>
+                                    </figcaption>
                                 </figure>
-                            </div>                        
+                            </div>                      
                         </div>
                     </li>
 
@@ -163,7 +176,7 @@
                         <div class="step-body">
                             <h3>Build the menu</h3>
                             <p>I built the menu with HTML and CSS, then loaded the flavor data from a JSON file so each flavor fills in its own details.</p>
-                            <div class="visual-pair">
+                            <div class="visual-pair menu-pair">
                                 <figure class="step-figure">
                                     <img src="../images/simulator/menu-screenshot.png" alt="The flavor menu showing Half Baked, with a photo of the pint, a 4.8 star rating, 370 calories per serving, a description and allergen information">
                                     <figcaption>Half Baked</figcaption>
@@ -191,7 +204,7 @@
             <!-- ============ REFLECTION ============ -->
             <section class="reflection reveal-right" aria-labelledby="h-reflection">
                 <h2 id="h-reflection">What I Learned</h2>
-                <p>[One sentence on what you're proudest of.] [One sentence on what was hardest, and how you worked through it with ChatGPT.] [One thing you'd improve next.]</p>
+                <p>I'm most proud of bringing my 3D ice cream shop to life and turning a simple idea into an interactive experience. One of the biggest challenges was working with Three.js, especially positioning 3D models, adjusting orbit, and getting everything to work together. I used ChatGPT to troubleshoot my code, understand errors, and experiment with different solutions. If I were to continue developing this project, I'd love to add more food trucks and menus to make the experience feel even more immersive.</p>
             </section>
 
             <!-- ============ CREDITS ============ -->

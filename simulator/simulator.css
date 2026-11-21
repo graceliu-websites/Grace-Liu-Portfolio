@@ -257,17 +257,32 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, li, figcaption {
     width: 100%;
     height: auto;
     background: #ffffff;
-    border: 1px solid var(--line);
+    border: 0px solid var(--line);
     border-radius: 14px;
 }
 .step-figure figcaption { margin-top: 10px; text-align: center; font-size: 13px; color: var(--text-muted); }
 
 .step-figure.portrait img { max-width: 420px; margin: 0 auto; }
 .step-note { margin-top: 20px !important; }
-.visual-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
-.visual-pair .step-figure { margin: 0; }
+.visual-pair { align-items: start; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.visual-pair .step-figure { 
+    margin: 0;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center; }
 .step-figure[hidden] { display: none; }
 .step-figure video { display: block; width: 100%; height: auto; background: #000; border: 1px solid var(--line); border-radius: 14px; }
+.visual-pair.menu-pair .step-figure img { aspect-ratio: 3 / 2; }
+
+.source-link {
+    color: #ff7ebd;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.source-link:hover,
+.source-link:focus-visible { color: #fff; }
 
 /* tool chips */
 .tool-chips {
@@ -337,3 +352,12 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, li, figcaption {
 .visual-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
 .visual-pair .step-figure { margin: 0; }
 @media (max-width: 700px) { .visual-pair { grid-template-columns: 1fr; } }
+
+.model-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #ff7ebd;
+    text-underline-offset: 3px;
+}
+.model-link:hover,
+.model-link:focus-visible { color: #ff7ebd; }

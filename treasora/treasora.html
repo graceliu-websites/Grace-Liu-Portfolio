@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasora Case Study</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="treasora.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open sidebar">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <main class="content tre">
+
+            <!-- HERO -->
+            <section class="tre-hero reveal-right">
+                <span class="tre-badge">Client Capstone · In Progress</span>
+                <h1>Treasora: <span class="accent">Interagency Agreement Module</span></h1>
+                <p class="tre-lede">
+                    Treasora is a budgeting tool that is integrating AI assistance for government agencies, nonprofits and small
+                    businesses, including teams working on emergency response. With PFF, LLC, our team is
+                    designing a new module that lets these agencies create, track and approve agreements between
+                    organizations in one place, on web and mobile.
+                </p>
+
+                <div class="meta-group">
+                    <div class="meta-item"><span class="meta-label">MY ROLE</span><strong class="meta-value">UX Researcher &amp; Designer</strong></div>
+                    <div class="meta-item"><span class="meta-label">CLIENT</span><strong class="meta-value">PFF, LLC</strong></div>
+                    <div class="meta-item"><span class="meta-label">PROGRAM</span><strong class="meta-value">UMD iConsultancy capstone</strong></div>
+                    <div class="meta-item"><span class="meta-label">TIMELINE</span><strong class="meta-value">Sep 2026 – May 2027</strong></div>
+                    <div class="meta-item"><span class="meta-label">TOOLS</span><strong class="meta-value">Notion, FigJam, Claude</strong></div>
+                </div>
+
+                <p class="tre-status"><i class="fa-solid fa-circle" aria-hidden="true"></i>
+                    <span><strong>Status:</strong> early in the project. We have finished domain research and our first wireframes, and we are running user interviews. Final designs are planned for May 2027.</span>
+                </p>
+            </section>
+
+            <!-- PROBLEM -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-problem">
+                <p class="tre-eyebrow">The problem</p>
+                <h2 id="tre-problem">Agencies had no way to track money moving between organizations.</h2>
+                <div class="tre-cols">
+                    <div class="tre-pair natural">
+                        <figure class="tre-figure" data-slot="Add: InCEP record screen (blur names)">
+                            <img src="../images/treasora/incep-register.png" alt="InCEP commitment register screen for an interagency agreement, with long stacked sections for document information, routing, HCAS record and additional fields" onerror="this.closest('figure').classList.add('empty')">
+                            <figcaption>One agreement in InCEP: a long page of stacked sections</figcaption>
+                        </figure>
+                        <figure class="tre-figure" data-slot="Add: InCEP spend plan screen (blur names)">
+                            <img src="../images/treasora/incep-spend-plan.png" alt="InCEP spend plan detail screen with allocation and commitment register tables and a pop-up showing a funded request" onerror="this.closest('figure').classList.add('empty')">
+                            <figcaption>Funding details sit on a different screen again</figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <p>
+                            An interagency agreement (IAA) is an arrangement in which one agency or organization
+                            reimburses another for work done on its behalf. Treasora can plan and forecast a budget,
+                            but it can't process or track these agreements, so teams rely on outside tools and manual workarounds.
+                        </p>
+                        <p>
+                            Today the process is spread across Forms 7600A and 7600B, G-Invoicing and InCEP.
+                            There is no one-to-one match between them, so people stitch the workflow together themselves.
+                        </p>
+                    </div>
+                    <ul class="tre-risks">
+                        <li><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><span><strong>Compliance violations</strong> from agreements tracked by hand</span></li>
+                        <li><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i><span><strong>Slow approvals</strong> that hold up emergency work</span></li>
+                        <li><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span><strong>Financial risk</strong> from scattered records</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SOLUTION -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-solution">
+                <p class="tre-eyebrow">The goal</p>
+                <h2 id="tre-solution">One module to manage, track and monitor every agreement.</h2>
+                <div class="tre-cards">
+                    <article class="tre-card">
+                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                        <h3>Manage</h3>
+                        <p>Create agreements and keep their documents and forms in one place.</p>
+                    </article>
+                    <article class="tre-card">
+                        <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+                        <h3>Track</h3>
+                        <p>Follow tasks, approvals and the money that goes with them.</p>
+                    </article>
+                    <article class="tre-card">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <h3>Monitor</h3>
+                        <p>See progress and financial status across an agreement's whole life.</p>
+                    </article>
+                </div>
+                <p class="tre-small">The module follows federal requirements and extends Treasora's existing design system, so web and mobile feel like one product.</p>
+
+                <p class="tre-small"><strong>A key question:</strong> how much AI help is useful, and when should a person decide?</p>
+
+                <p class="tre-eyebrow tre-sub">Who it's for</p>
+                <ul class="tre-chips">
+                    <li>Program Budget Analyst</li>
+                    <li>Director, Emergency Finance Services</li>
+                    <li>Financial Manager</li>
+                    <li>Financial Analyst</li>
+                </ul>
+            </section>
+
+            <!-- THE AI QUESTION -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-ai">
+                <p class="tre-eyebrow">The AI question</p>
+                <h2 id="tre-ai">AI that assists, with people still in charge</h2>
+                <p>PFF wants AI to act like a helpful expert inside the module. The agreements involve federal agencies, sensitive government information and financial data from systems like G-Invoicing, so how much to trust it is a design question, not only a technical one.</p>
+
+                <div class="tre-two">
+                    <article class="tre-card">
+                        <h3>What PFF imagines AI doing</h3>
+                        <ul class="tre-list">
+                            <li>Suggesting next steps and fixes</li>
+                            <li>Spotting information that looks wrong or inconsistent</li>
+                            <li>Reading documents and filling in fields</li>
+                            <li>Catching errors before they cause rejections</li>
+                        </ul>
+                    </article>
+                    <article class="tre-card">
+                        <h3>What we are still finding out</h3>
+                        <ul class="tre-list">
+                            <li>How the AI works and where it falls short</li>
+                            <li>Which model to use, and whether it runs locally or externally (not decided yet)</li>
+                            <li>Cybersecurity and data privacy risks for government financial data</li>
+                            <li>Which jobs AI can take on, and which stay with a person</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="tre-small">[One sentence on how this shapes your design so far, for example "In our wireframes, AI suggestions are always shown for a person to confirm."]</p>
+            </section>
+
+            <!-- PROCESS -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-process">
+                <p class="tre-eyebrow">My process</p>
+                <h2 id="tre-process">Five sprints, from learning the domain to handoff</h2>
+
+                <ol class="tre-plan" aria-label="Project plan">
+                    <li class="is-now"><span>Sprint 1</span><strong>Understand</strong><small>Process discovery and requirements</small></li>
+                    <li><span>Sprint 2</span><strong>Define &amp; sketch</strong><small>Workflow redesign and concepts</small></li>
+                    <li><span>Sprint 3</span><strong>Prototype</strong><small>Interactive web and mobile prototypes</small></li>
+                    <li><span>Sprint 4</span><strong>Validate</strong><small>Usability testing and refinement</small></li>
+                    <li><span>Sprint 5</span><strong>Handoff</strong><small>Final prototype and delivery to PFF (planned May 2027)</small></li>
+                </ol>
+
+                <ol class="steps">
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">1</span>
+                        <div class="step-body">
+                            <h3>Learn the domain and frame the problem <span class="tag done">Done</span></h3>
+                            <p>None of us knew government finance, so we started with the client. We met with PFF's CEO and design systems team, studied Forms 7600A and 7600B, G-Invoicing and InCEP, and compared existing tools. Then we pulled it together in a Lean UX Canvas.</p>
+                            <p class="tre-small">The canvas lists who we're designing for, what we believe will make the module succeed, and our riskiest assumption: what pain points users have in today's agreement and reimbursement process.</p>
+                            <figure class="tre-figure" data-slot="Add: Lean UX Canvas">
+                                <a href="../images/treasora/lean-ux-canvas.png" target="_blank" rel="noopener">
+                                    <img src="../images/treasora/lean-ux-canvas.png" alt="Lean UX Canvas for the PFF Interagency Agreement Module, with boxes for business problem, users, solutions, outcomes, hypotheses and what to learn first" onerror="this.closest('figure').classList.add('empty')">
+                                </a>
+                                <figcaption>Our Lean UX Canvas (first iteration, September 2026)</figcaption>
+                                <p class="tre-hint">Click to view full size</p>
+                            </figure>
+                            <figure class="tre-figure" data-slot="Add: competitive analysis grid">
+                                <img src="../images/treasora/competitive-grid.png" alt="Positioning grid comparing Treasora with Euna Solutions, OpenGov, G-Invoicing, Significance Inc. and Pebble Impact by breadth of features and focus of users" onerror="this.closest('figure').classList.add('empty')">
+                                <figcaption>Where Treasora sits among similar tools: a specialized platform with a niche user focus</figcaption>
+                            </figure>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">2</span>
+                        <div class="step-body">
+                            <h3>Talk to the people who do this work <span class="tag now">In progress</span></h3>
+                            <p>We are recruiting and interviewing agency staff about their daily work, the tools they use, what slows them down and how they feel about AI help. We cluster notes from each interview in FigJam to find patterns the whole team can agree on.</p>
+                            <p class="tre-small">Early themes are not final requirements until we have talked to more people.</p>
+                                <ul class="tre-chips">
+                                    <li>[N] people invited</li>
+                                    <li>[N] interviews scheduled</li>
+                                    <li>[N] completed</li>
+                                </ul>
+                                <figure class="tre-figure" data-slot="Add: FigJam interview board, text blurred">
+                                    <img src="../images/treasora/affinity-map.png" alt="FigJam board with one row of sticky notes per interview participant, color-coded for quotes, insights and questions" onerror="this.closest('figure').classList.add('empty')">
+                                    <figcaption>Interpreting each interview together in FigJam (details blurred)</figcaption>
+                                </figure>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">3</span>
+                        <div class="step-body">
+                            <h3>Map the module, then sketch it <span class="tag done">Done</span></h3>
+                            <p>We mapped the module from a dashboard that shows what needs attention and what is waiting for you, to creating a new agreement, to each agreement's orders, payments, amendments, documents, history and closeout. Color marks where we added quality checks (yellow), AI support (blue) and client suggestions (orange).</p>
+                            <figure class="tre-figure" data-slot="Add: information architecture">
+                                <a href="../images/treasora/information-architecture.png" target="_blank" rel="noopener">
+                                    <img src="../images/treasora/information-architecture.png" alt="Information architecture diagram: an IAA module dashboard branching into needs attention, awaiting your action, create new, and a table of agreements, each with its own steps" onerror="this.closest('figure').classList.add('empty')">
+                                </a>
+                                <figcaption>Information architecture of the IAA module</figcaption>
+                                <p class="tre-hint">Click to view full size</p>
+                            </figure>
+                            <p>Low-fidelity wireframes then explore two ideas: a dashboard that shows every agreement's money at a glance, and a form that helps fill in a new transaction.</p>
+                            <div class="tre-pair">
+                                <figure class="tre-figure" data-slot="Add: dashboard wireframe">
+                                    <img src="../images/treasora/wireframe-dashboard.png" alt="Low-fidelity wireframe of an interagency agreements dashboard with funding totals, a reimbursement chart, items needing attention and a table of agreements" onerror="this.closest('figure').classList.add('empty')">
+                                    <figcaption>Dashboard</figcaption>
+                                </figure>
+                                <figure class="tre-figure" data-slot="Add: form wireframe">
+                                    <img src="../images/treasora/wireframe-form.png" alt="Low-fidelity wireframe of a new transaction form with an agreement snapshot panel beside it" onerror="this.closest('figure').classList.add('empty')">
+                                    <figcaption>Form assistance</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">4</span>
+                        <div class="step-body">
+                            <h3>Next: prototype and test <span class="tag next">Next</span></h3>
+                            <p>We will turn our interview findings into prioritized requirements, build clickable web and mobile prototypes, and test them with users from February 2027.</p>
+                            <p class="tre-small">We plan to test these tasks: finding and opening agreements, reviewing and approving requests, checking AI-filled information, and tracking financial activity.</p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- USER RESEARCH -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-research">
+                <p class="tre-eyebrow">User research</p>
+                <h2 id="tre-research">Learning from the people who do this work</h2>
+                <p>None of us had worked in government finance, so interviews were how we learned how interagency agreements really move: who touches them, which systems they use, and where things go wrong. We held nine one-on-one interviews. After each one, we put the notes into FigJam, read them together as a team, and grouped similar notes to find patterns across people, so one person's opinion never became a requirement.</p>
+
+                <ul class="tre-chips">
+                    <li>9 interviews</li>
+                    <li>Semi-structured, one-on-one</li>
+                    <li>Affinity mapping in FigJam</li>
+                </ul>
+
+                <figure class="tre-figure" data-slot="Add: FigJam themes or affinity groups (text blurred)">
+                    <img src="../images/treasora/affinity-groups.png" alt="FigJam board where interview notes are grouped into themes" onerror="this.closest('figure').classList.add('empty')">
+                    <figcaption>Interview notes grouped into themes in FigJam (details blurred)</figcaption>
+                </figure>
+
+                <h3 class="tre-h3">Who we spoke with</h3>
+                <div class="tre-people">
+                    <article class="tre-card">
+                        <span class="tre-role-tag">Client stakeholder</span>
+                        <h4>CEO of PFF</h4>
+                        <p class="tre-small"><strong>Why:</strong> to understand what the client wants the module to achieve and where it fits in Treasora.</p>
+                        <p class="tre-small"><strong>What we learned:</strong> [one or two sentences]</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-role-tag">End user</span>
+                        <h4>Program Budget Analyst</h4>
+                        <p class="tre-small"><strong>Why:</strong> they handle agreements and funding in their daily work.</p>
+                        <p class="tre-small"><strong>What we learned:</strong> InCEP asks for the same details as the PDF form, and errors are only caught when G-Invoicing rejects a record, which sends it back to the start. Everyone also sees the same options in InCEP, whatever their role.</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-role-tag">End user</span>
+                        <h4>Financial Analyst</h4>
+                        <p class="tre-small"><strong>Why:</strong> they track funding, spending and reimbursement.</p>
+                        <p class="tre-small"><strong>What we learned:</strong> InCEP feels almost like duplicated work, since G-Invoicing already captures the financial data.</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-role-tag">Subject expert</span>
+                        <h4>Program Director of Cybersecurity &amp; Emerging Technologies</h4>
+                        <p class="tre-small"><strong>Why:</strong> to understand the security and privacy risks of bringing AI into government financial work.</p>
+                        <p class="tre-small"><strong>What we learned:</strong> [one or two sentences]</p>
+                    </article>
+                </div>
+
+                <h3 class="tre-h3">Key findings</h3>
+                <div class="tre-themes">
+                    <article class="tre-card">
+                        <span class="tre-num">1</span>
+                        <h4>The same details are entered three times</h4>
+                        <p>People fill in the PDF form, then the InCEP record, then G-Invoicing. Several said they would rather store everything once and fill G-Invoicing straight from that record.</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-num">2</span>
+                        <h4>Errors are caught too late</h4>
+                        <p>Nothing checks a record before it goes to G-Invoicing. Wrong accounting codes, the wrong funding period or an amount off by a penny only show up after a rejection, which sends the agreement back to the start and can take days to fix.</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-num">3</span>
+                        <h4>Not enough guardrails</h4>
+                        <p>In InCEP, everyone sees the same menu no matter their role. G-Invoicing uses dropdowns and role limits, which participants trusted more.</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-num">4</span>
+                        <h4>Workarounds fill the gaps</h4>
+                        <p>Directors still sign on paper, and finance staff keep their own Excel trackers because the official tools lack flexibility, history and easy-to-read views.</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-num">5</span>
+                        <h4>People want to see where things stand</h4>
+                        <p>Users want clear status and feedback: what stage an agreement is in, who it is waiting on, and familiar words for each step.</p>
+                    </article>
+                    <article class="tre-card">
+                        <span class="tre-num">6</span>
+                        <h4>AI could help, but trust is the issue</h4>
+                        <p>Participants saw value in AI help, but worried about governance, security and reliability. [Add detail from the rest of your summary.]</p>
+                    </article>
+                </div>
+
+                <h3 class="tre-h3">Design opportunities</h3>
+                <p>Each finding pointed to something we could design.</p>
+
+                <div class="tre-opps">
+                    <article class="tre-card">
+                        <h4>Enter details once</h4>
+                        <p class="tre-small">Responds to: the same details typed three times.</p>
+                        <ul class="tre-list">
+                            <li><strong>Split-screen view:</strong> the original PDF beside the entry form, like a cheat sheet.</li>
+                            <li><strong>Field audit:</strong> check which fields are required and remove ones that are collected but not needed.</li>
+                        </ul>
+                    </article>
+                    <article class="tre-card">
+                        <h4>Catch errors before sending</h4>
+                        <p class="tre-small">Responds to: mistakes found too late.</p>
+                        <ul class="tre-list">
+                            <li><strong>Review screen before submitting:</strong> highlights the fields that matter most, like accounting numbers, object class codes and amounts.</li>
+                            <li><strong>Autocomplete and dropdowns:</strong> for accounting numbers and funding labels, to cut typos and inconsistent names.</li>
+                        </ul>
+                    </article>
+                    <article class="tre-card">
+                        <h4>See where things stand</h4>
+                        <p class="tre-small">Responds to: guessing, asking and workarounds.</p>
+                        <ul class="tre-list">
+                            <li><strong>Status at a glance:</strong> see where an agreement is in the approval chain without asking anyone.</li>
+                            <li><strong>Funding history in context:</strong> past funding visible without leaving the current screen.</li>
+                            <li><strong>Help where you need it:</strong> short tooltips appear at the cursor instead of a separate user guide.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p>Our wireframes put two of these ideas to work: advisory checks that point out problems without blocking the user, and a live snapshot of the agreement beside the form.</p>
+            </section>
+
+            <!-- DELIVERABLES -->
+            <section class="tre-section tre-end reveal-right" aria-labelledby="tre-deliver">
+                <div>
+                    <p class="tre-eyebrow">Planned handoff</p>
+                    <h2 id="tre-deliver">What we will deliver</h2>
+                    <ul class="tre-list">
+                        <li>Market research and competitive analysis</li>
+                        <li>Design concepts and high-level designs</li>
+                        <li>Results of user research and testing</li>
+                        <li>Web and mobile prototypes</li>
+                        <li>Final report with recommendations</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="tre-eyebrow">Looking back</p>
+                    <h2>My takeaway so far</h2>
+                    <p>[One sentence about what this project has taught you so far.]</p>
+                </div>
+            </section>
+
+            <p class="tre-confidential">
+                Client work in progress. Some details are simplified or left out to respect PFF's confidentiality.
+            </p>
+
+        </main>
+    </div>
+    <script src="../main.js"></script>
+</body>
+</html>

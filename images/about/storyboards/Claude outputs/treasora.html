@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasora Case Study</title>
+    <link rel="stylesheet" href="../landing.css">
+    <link rel="stylesheet" href="treasora.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <button class="sidebar-open-btn hidden" id="sidebar-open-btn" aria-label="Open sidebar">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <div class="container">
+        <aside class="sidebar" id="sidebar-container"></aside>
+
+        <main class="content tre">
+
+            <!-- HERO -->
+            <section class="tre-hero reveal-right">
+                <span class="tre-badge">Client Capstone · In Progress</span>
+                <h1>Treasora: <span class="accent">Interagency Agreement Module</span></h1>
+                <p class="tre-lede">
+                    Treasora is an AI-enhanced budgeting tool for government agencies, nonprofits and small
+                    businesses, including teams working on emergency response. With PFF, LLC, our team is
+                    designing a new module that lets them create, track and approve agreements between
+                    organizations in one place, on web and mobile.
+                </p>
+
+                <div class="meta-group">
+                    <div class="meta-item"><span class="meta-label">MY ROLE</span><strong class="meta-value">[Your role, e.g. UX Researcher &amp; Designer]</strong></div>
+                    <div class="meta-item"><span class="meta-label">CLIENT</span><strong class="meta-value">PFF, LLC</strong></div>
+                    <div class="meta-item"><span class="meta-label">PROGRAM</span><strong class="meta-value">UMD iConsultancy capstone</strong></div>
+                    <div class="meta-item"><span class="meta-label">TIMELINE</span><strong class="meta-value">Fall 2026 – May 2027</strong></div>
+                    <div class="meta-item"><span class="meta-label">TOOLS</span><strong class="meta-value">Figma, FigJam</strong></div>
+                </div>
+
+                <p class="tre-status"><i class="fa-solid fa-circle" aria-hidden="true"></i>
+                    <span><strong>Status:</strong> early in the project. We have finished domain research and our first wireframes, and we are running user interviews. Final designs are planned for May 2027.</span>
+                </p>
+            </section>
+
+            <!-- PROBLEM -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-problem">
+                <p class="tre-eyebrow">The problem</p>
+                <h2 id="tre-problem">Agencies had no way to track money moving between organizations.</h2>
+                <div class="tre-cols">
+                    <div>
+                        <p>
+                            An interagency agreement (IAA) is an arrangement in which one agency or organization
+                            reimburses another for work done on its behalf. Treasora can plan and forecast a budget,
+                            but it can't process or track these agreements, so teams rely on outside tools and manual workarounds.
+                        </p>
+                        <p>
+                            Today the process is spread across Forms 7600A and 7600B, G-Invoicing and InCEP.
+                            There is no one-to-one match between them, so people stitch the workflow together themselves.
+                        </p>
+                    </div>
+                    <ul class="tre-risks">
+                        <li><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><span><strong>Compliance violations</strong> from agreements tracked by hand</span></li>
+                        <li><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i><span><strong>Slow approvals</strong> that hold up emergency work</span></li>
+                        <li><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span><strong>Financial risk</strong> from scattered records</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SOLUTION -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-solution">
+                <p class="tre-eyebrow">The goal</p>
+                <h2 id="tre-solution">One module to manage, track and monitor every agreement.</h2>
+                <div class="tre-cards">
+                    <article class="tre-card">
+                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                        <h3>Manage</h3>
+                        <p>Create agreements and keep their documents and forms in one place.</p>
+                    </article>
+                    <article class="tre-card">
+                        <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+                        <h3>Track</h3>
+                        <p>Follow tasks, approvals and the money that goes with them.</p>
+                    </article>
+                    <article class="tre-card">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <h3>Monitor</h3>
+                        <p>See progress and financial status across an agreement's whole life.</p>
+                    </article>
+                </div>
+                <p class="tre-small">The module follows federal requirements and extends Treasora's existing design system, so web and mobile feel like one product.</p>
+
+                <p class="tre-eyebrow tre-sub">Who it's for</p>
+                <ul class="tre-chips">
+                    <li>Program Budget Analyst</li>
+                    <li>Director, Emergency Finance Services</li>
+                    <li>Financial Manager</li>
+                    <li>Financial Analyst</li>
+                </ul>
+            </section>
+
+            <!-- PROCESS -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-process">
+                <p class="tre-eyebrow">My process</p>
+                <h2 id="tre-process">Five sprints, from learning the domain to handoff</h2>
+
+                <ol class="tre-plan" aria-label="Project plan">
+                    <li class="is-now"><span>Sprint 1</span><strong>Understand</strong><small>Process discovery and requirements</small></li>
+                    <li><span>Sprint 2</span><strong>Define &amp; sketch</strong><small>Workflow redesign and concepts</small></li>
+                    <li><span>Sprint 3</span><strong>Prototype</strong><small>Interactive web and mobile prototypes</small></li>
+                    <li><span>Sprint 4</span><strong>Validate</strong><small>Usability testing and refinement</small></li>
+                    <li><span>Sprint 5</span><strong>Handoff</strong><small>Final prototype and delivery to PFF (planned May 2027)</small></li>
+                </ol>
+
+                <ol class="steps">
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">1</span>
+                        <div class="step-body">
+                            <h3>Learn the domain first <span class="tag done">Done</span></h3>
+                            <p>None of us knew government finance, so we started with the client. We met with PFF's CEO and design systems team, studied Forms 7600A and 7600B, G-Invoicing and InCEP, and compared existing tools.</p>
+                            <p class="tre-small">Result: market research, first client requirements and a set of interview questions.</p>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">2</span>
+                        <div class="step-body">
+                            <h3>Talk to the people who do this work <span class="tag now">In progress</span></h3>
+                            <p>We are recruiting and interviewing agency staff about their daily work, the tools they use, what slows them down and how they feel about AI help. We cluster notes from each interview in FigJam to find patterns the whole team can agree on.</p>
+                            <p class="tre-small">Early themes are not final requirements until we have talked to more people.</p>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">3</span>
+                        <div class="step-body">
+                            <h3>Sketch the first screens <span class="tag done">Done</span></h3>
+                            <p>Low-fidelity wireframes explore two ideas: a dashboard that shows every agreement's money at a glance, and a form that helps fill in a new transaction.</p>
+                            <div class="tre-pair">
+                                <figure class="tre-figure"><img src="../images/treasora/wireframe-dashboard.png" alt="Low-fidelity wireframe of an interagency agreements dashboard with funding totals, a reimbursement chart, items needing attention and a table of agreements" onerror="this.closest('figure').hidden=true"><figcaption>Dashboard</figcaption></figure>
+                                <figure class="tre-figure"><img src="../images/treasora/wireframe-form.png" alt="Low-fidelity wireframe of a new transaction form with an agreement snapshot panel beside it" onerror="this.closest('figure').hidden=true"><figcaption>Form assistance</figcaption></figure>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">4</span>
+                        <div class="step-body">
+                            <h3>Next: prototype and test <span class="tag next">Next</span></h3>
+                            <p>We will turn our interview findings into prioritized requirements, build clickable web and mobile prototypes, and test them with users from February 2027.</p>
+                            <p class="tre-small">We plan to test these tasks: finding and opening agreements, reviewing and approving requests, checking AI-filled information, and tracking financial activity.</p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- WHAT I'M LEARNING -->
+            <section class="tre-section reveal-right" aria-labelledby="tre-learn">
+                <p class="tre-eyebrow">What I'm learning</p>
+                <h2 id="tre-learn">Designing for a world I didn't know</h2>
+                <div class="tre-challenges">
+                    <article class="tre-card">
+                        <h3>Start with humility</h3>
+                        <p>The client staff are the experts. We know design and user flow, so our job is to ask good questions and learn from them.</p>
+                    </article>
+                    <article class="tre-card">
+                        <h3>Depth over breadth</h3>
+                        <p>The module is one part of a much larger platform. We go deep on this one workflow and know when we have enough research to start designing.</p>
+                    </article>
+                    <article class="tre-card">
+                        <h3>Consulting is different</h3>
+                        <p>PFF wants a fresh view, research-backed advice and options, not a finished brief. That means taking initiative.</p>
+                    </article>
+                    <article class="tre-card">
+                        <h3>Working with the design systems team</h3>
+                        <p>PFF's design systems team looks across the whole product. We build one module in depth and keep it consistent with theirs.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- DELIVERABLES -->
+            <section class="tre-section tre-end reveal-right" aria-labelledby="tre-deliver">
+                <div>
+                    <p class="tre-eyebrow">Planned handoff</p>
+                    <h2 id="tre-deliver">What we will deliver</h2>
+                    <ul class="tre-list">
+                        <li>Market research and competitive analysis</li>
+                        <li>Design concepts and high-level designs</li>
+                        <li>Results of user research and testing</li>
+                        <li>Web and mobile prototypes</li>
+                        <li>Final report with recommendations</li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="tre-eyebrow">Looking back</p>
+                    <h2>My takeaway so far</h2>
+                    <p>[One sentence about what this project has taught you so far.]</p>
+                </div>
+            </section>
+
+            <p class="tre-confidential">
+                Client work in progress. Some details are simplified or left out to respect PFF's confidentiality.
+            </p>
+
+        </main>
+    </div>
+    <script src="../main.js"></script>
+</body>
+</html>

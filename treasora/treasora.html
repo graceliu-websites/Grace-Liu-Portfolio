@@ -144,6 +144,21 @@
                 <p class="tre-small">[One sentence on how this shapes your design so far, for example "In our wireframes, AI suggestions are always shown for a person to confirm."]</p>
             </section>
 
+            <!-- DELIVERABLES -->
+            <section class="tre-section tre-end reveal-right" aria-labelledby="tre-deliver">
+                <div>
+                    <p class="tre-eyebrow">Planned handoff</p>
+                    <h2 id="tre-deliver">What we will deliver</h2>
+                    <ul class="tre-list">
+                        <li>Market research and competitive analysis</li>
+                        <li>Design concepts and high-level designs</li>
+                        <li>Results of user research and testing</li>
+                        <li>Web and mobile prototypes</li>
+                        <li>Final report with recommendations</li>
+                    </ul>
+                </div>
+            </section>
+
             <!-- PROCESS -->
             <section class="tre-section reveal-right" aria-labelledby="tre-process">
                 <p class="tre-eyebrow">My process</p>
@@ -162,7 +177,7 @@
                         <span class="step-num" aria-hidden="true">1</span>
                         <div class="step-body">
                             <h3>Learn the domain and frame the problem <span class="tag done">Done</span></h3>
-                            <p>None of us knew government finance, so we started with the client. We met with PFF's CEO and design systems team, studied Forms 7600A and 7600B, G-Invoicing and InCEP, and compared existing tools. Then we pulled it together in a Lean UX Canvas.</p>
+                            <p>We started with the client: we met with PFF's CEO and design systems team, so we started with the client. We met with PFF's CEO and design systems team, studied Forms 7600A and 7600B, G-Invoicing and InCEP, and compared existing tools. Then we pulled it together in a Lean UX Canvas.</p>
                             <p class="tre-small">The canvas lists who we're designing for, what we believe will make the module succeed, and our riskiest assumption: what pain points users have in today's agreement and reimbursement process.</p>
                             <figure class="tre-figure" data-slot="Add: Lean UX Canvas">
                                 <a href="../images/treasora/lean-ux-canvas.png" target="_blank" rel="noopener">
@@ -233,45 +248,35 @@
             <!-- USER RESEARCH -->
             <section class="tre-section reveal-right" aria-labelledby="tre-research">
                 <p class="tre-eyebrow">User research</p>
-                <h2 id="tre-research">Learning from the people who do this work</h2>
-                <p>None of us had worked in government finance, so interviews were how we learned how interagency agreements really move: who touches them, which systems they use, and where things go wrong. We held nine one-on-one interviews. After each one, we put the notes into FigJam, read them together as a team, and grouped similar notes to find patterns across people, so one person's opinion never became a requirement.</p>
-
-                <ul class="tre-chips">
-                    <li>9 interviews</li>
-                    <li>Semi-structured, one-on-one</li>
-                    <li>Affinity mapping in FigJam</li>
-                </ul>
+                <h2 id="tre-research">What interviews showed us</h2>
+                <p>We interviewed nine people across the agreement process, then grouped their notes into patterns in FigJam.</p>
 
                 <figure class="tre-figure" data-slot="Add: FigJam themes or affinity groups (text blurred)">
                     <img src="../images/treasora/affinity-groups.png" alt="FigJam board where interview notes are grouped into themes" onerror="this.closest('figure').classList.add('empty')">
-                    <figcaption>Interview notes grouped into themes in FigJam (details blurred)</figcaption>
+                    <figcaption>Interview notes grouped into themes (details blurred)</figcaption>
                 </figure>
 
                 <h3 class="tre-h3">Who we spoke with</h3>
                 <div class="tre-people">
                     <article class="tre-card">
-                        <span class="tre-role-tag">Client stakeholder</span>
+                        <span class="tre-role-tag">Client</span>
                         <h4>CEO of PFF</h4>
-                        <p class="tre-small"><strong>Why:</strong> to understand what the client wants the module to achieve and where it fits in Treasora.</p>
-                        <p class="tre-small"><strong>What we learned:</strong> [one or two sentences]</p>
+                        <p class="tre-small">Goals for the module and where it fits in Treasora</p>
                     </article>
                     <article class="tre-card">
                         <span class="tre-role-tag">End user</span>
                         <h4>Program Budget Analyst</h4>
-                        <p class="tre-small"><strong>Why:</strong> they handle agreements and funding in their daily work.</p>
-                        <p class="tre-small"><strong>What we learned:</strong> InCEP asks for the same details as the PDF form, and errors are only caught when G-Invoicing rejects a record, which sends it back to the start. Everyone also sees the same options in InCEP, whatever their role.</p>
+                        <p class="tre-small">Day-to-day agreement and funding work</p>
                     </article>
                     <article class="tre-card">
                         <span class="tre-role-tag">End user</span>
                         <h4>Financial Analyst</h4>
-                        <p class="tre-small"><strong>Why:</strong> they track funding, spending and reimbursement.</p>
-                        <p class="tre-small"><strong>What we learned:</strong> InCEP feels almost like duplicated work, since G-Invoicing already captures the financial data.</p>
+                        <p class="tre-small">Funding, tracking and reimbursement</p>
                     </article>
                     <article class="tre-card">
-                        <span class="tre-role-tag">Subject expert</span>
-                        <h4>Program Director of Cybersecurity &amp; Emerging Technologies</h4>
-                        <p class="tre-small"><strong>Why:</strong> to understand the security and privacy risks of bringing AI into government financial work.</p>
-                        <p class="tre-small"><strong>What we learned:</strong> [one or two sentences]</p>
+                        <span class="tre-role-tag">Expert</span>
+                        <h4>Program Director, Cybersecurity &amp; Emerging Technologies</h4>
+                        <p class="tre-small">Security and privacy risks of AI</p>
                     </article>
                 </div>
 
@@ -279,87 +284,60 @@
                 <div class="tre-themes">
                     <article class="tre-card">
                         <span class="tre-num">1</span>
-                        <h4>The same details are entered three times</h4>
-                        <p>People fill in the PDF form, then the InCEP record, then G-Invoicing. Several said they would rather store everything once and fill G-Invoicing straight from that record.</p>
+                        <h4>Triple data entry</h4>
+                        <p>The same details go into a PDF, InCEP and G-Invoicing.</p>
                     </article>
                     <article class="tre-card">
                         <span class="tre-num">2</span>
-                        <h4>Errors are caught too late</h4>
-                        <p>Nothing checks a record before it goes to G-Invoicing. Wrong accounting codes, the wrong funding period or an amount off by a penny only show up after a rejection, which sends the agreement back to the start and can take days to fix.</p>
+                        <h4>Late error catching</h4>
+                        <p>Mistakes surface only after G-Invoicing rejects a record.</p>
                     </article>
                     <article class="tre-card">
                         <span class="tre-num">3</span>
-                        <h4>Not enough guardrails</h4>
-                        <p>In InCEP, everyone sees the same menu no matter their role. G-Invoicing uses dropdowns and role limits, which participants trusted more.</p>
+                        <h4>Weak guardrails</h4>
+                        <p>Everyone sees the same options, whatever their role.</p>
                     </article>
                     <article class="tre-card">
                         <span class="tre-num">4</span>
-                        <h4>Workarounds fill the gaps</h4>
-                        <p>Directors still sign on paper, and finance staff keep their own Excel trackers because the official tools lack flexibility, history and easy-to-read views.</p>
+                        <h4>Workarounds</h4>
+                        <p>Paper signatures and Excel trackers fill the gaps.</p>
                     </article>
                     <article class="tre-card">
                         <span class="tre-num">5</span>
-                        <h4>People want to see where things stand</h4>
-                        <p>Users want clear status and feedback: what stage an agreement is in, who it is waiting on, and familiar words for each step.</p>
+                        <h4>Unclear status</h4>
+                        <p>Users can't easily see where an agreement stands.</p>
                     </article>
                     <article class="tre-card">
                         <span class="tre-num">6</span>
-                        <h4>AI could help, but trust is the issue</h4>
-                        <p>Participants saw value in AI help, but worried about governance, security and reliability. [Add detail from the rest of your summary.]</p>
+                        <h4>AI needs trust</h4>
+                        <p>Useful, but raises security and reliability concerns.</p>
                     </article>
                 </div>
 
                 <h3 class="tre-h3">Design opportunities</h3>
-                <p>Each finding pointed to something we could design.</p>
-
                 <div class="tre-opps">
                     <article class="tre-card">
                         <h4>Enter details once</h4>
-                        <p class="tre-small">Responds to: the same details typed three times.</p>
                         <ul class="tre-list">
-                            <li><strong>Split-screen view:</strong> the original PDF beside the entry form, like a cheat sheet.</li>
-                            <li><strong>Field audit:</strong> check which fields are required and remove ones that are collected but not needed.</li>
+                            <li>PDF beside the form</li>
+                            <li>Remove unneeded fields</li>
                         </ul>
                     </article>
                     <article class="tre-card">
-                        <h4>Catch errors before sending</h4>
-                        <p class="tre-small">Responds to: mistakes found too late.</p>
+                        <h4>Catch errors early</h4>
                         <ul class="tre-list">
-                            <li><strong>Review screen before submitting:</strong> highlights the fields that matter most, like accounting numbers, object class codes and amounts.</li>
-                            <li><strong>Autocomplete and dropdowns:</strong> for accounting numbers and funding labels, to cut typos and inconsistent names.</li>
+                            <li>Review screen before sending</li>
+                            <li>Autocomplete for accounting numbers</li>
                         </ul>
                     </article>
                     <article class="tre-card">
-                        <h4>See where things stand</h4>
-                        <p class="tre-small">Responds to: guessing, asking and workarounds.</p>
+                        <h4>Show where things stand</h4>
                         <ul class="tre-list">
-                            <li><strong>Status at a glance:</strong> see where an agreement is in the approval chain without asking anyone.</li>
-                            <li><strong>Funding history in context:</strong> past funding visible without leaving the current screen.</li>
-                            <li><strong>Help where you need it:</strong> short tooltips appear at the cursor instead of a separate user guide.</li>
+                            <li>Status at a glance</li>
+                            <li>Funding history in context</li>
+                            <li>Tooltips instead of manuals</li>
                         </ul>
                     </article>
-                </div>
-
-                <p>Our wireframes put two of these ideas to work: advisory checks that point out problems without blocking the user, and a live snapshot of the agreement beside the form.</p>
-            </section>
-
-            <!-- DELIVERABLES -->
-            <section class="tre-section tre-end reveal-right" aria-labelledby="tre-deliver">
-                <div>
-                    <p class="tre-eyebrow">Planned handoff</p>
-                    <h2 id="tre-deliver">What we will deliver</h2>
-                    <ul class="tre-list">
-                        <li>Market research and competitive analysis</li>
-                        <li>Design concepts and high-level designs</li>
-                        <li>Results of user research and testing</li>
-                        <li>Web and mobile prototypes</li>
-                        <li>Final report with recommendations</li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="tre-eyebrow">Looking back</p>
-                    <h2>My takeaway so far</h2>
-                    <p>[One sentence about what this project has taught you so far.]</p>
                 </div>
             </section>
 

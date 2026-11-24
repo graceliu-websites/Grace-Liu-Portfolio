@@ -95,7 +95,7 @@
                                 <img src="../images/simulator/wireframe.png" alt="Hand-drawn wireframe with three screens: a welcome screen with a freezer, a flavors display with ice cream cones, and a detail screen with nutrition information and a comparison chart" onerror="this.closest('figure').hidden=true">
                                 <figcaption>My hand-drawn wireframe</figcaption>
                             </figure>
-                            <p class="step-note">I first built that idea as an indoor shop. It didn't make it into the final game, so the menu moved outside to an ice cream truck in a park. [Add one sentence on why you changed it.]</p>
+                            <p class="step-note">I first built that idea as an indoor shop. It didn't make it into the final game because opening the freezer model would be too complex, so the menu moved outside to an ice cream truck in a park. </p>
                             <div class="visual-pair menu-pair">
                                 <figure class="step-figure">
                                     <img src="../images/simulator/early-shop.png" alt="Early 3D prototype of a shop interior with round tables and a checkered floor" onerror="this.closest('figure').hidden=true">
@@ -116,7 +116,7 @@
                             <p>I used <strong>Three.js</strong> to set up the park, the truck, the characters and the sky in the browser.</p>
                             <figure class="step-figure">
                                 <img src="../images/simulator/park-screenshot.png" alt="The final game: a pink ice cream truck with the ice cream man and a monkey on the roof, in a park with a gate and benches" onerror="this.closest('figure').hidden=true">
-                                <figcaption>The final game</figcaption>
+                                <figcaption>The final game setup</figcaption>
                             </figure>
                             <p class="step-note">Drag any model to turn it around.</p>
                             <div class="model-row">
@@ -176,17 +176,29 @@
                         <div class="step-body">
                             <h3>Build the menu</h3>
                             <p>I built the menu with HTML and CSS, then loaded the flavor data from a JSON file so each flavor fills in its own details.</p>
-                            <div class="visual-pair menu-pair">
-                                <figure class="step-figure">
-                                    <img src="../images/simulator/menu-screenshot.png" alt="The flavor menu showing Half Baked, with a photo of the pint, a 4.8 star rating, 370 calories per serving, a description and allergen information">
-                                    <figcaption>Half Baked</figcaption>
-                                </figure>
-                                <figure class="step-figure">
-                                    <img src="../images/simulator/menu-screenshot-2.png" alt="The flavor menu showing Strawberry Cheesecake, with a photo of the pint, a 4.2 star rating, 350 calories per serving, a description and allergen information">
-                                    <figcaption>Strawberry Cheesecake</figcaption>
-                                </figure>
-                            </div>
-                            <p class="step-note">Each card is filled in from the JSON file, and the arrows move to the next flavor.</p>
+                        <div class="menu-scroller" role="region" aria-label="Flavor menu screenshots, scroll sideways" tabindex="0">
+                            <figure class="menu-card">
+                                <img src="../images/simulator/menu/americone-dream.png" alt="Flavor menu card for Americone Dream with a photo of the pint, rating, calories per serving, description and allergens" onerror="this.closest('figure').hidden=true">
+                                <figcaption>Americone Dream</figcaption>
+                            </figure>
+                            <figure class="menu-card">
+                                <img src="../images/simulator/menu/cherry-garcia.png" alt="Flavor menu card for Cherry Garcia with a photo of the pint, rating, calories per serving, description and allergens" onerror="this.closest('figure').hidden=true">
+                                <figcaption>Cherry Garcia</figcaption>
+                            </figure>
+                            <figure class="menu-card">
+                                <img src="../images/simulator/menu/chunky-monkey.png" alt="Flavor menu card for Chunky Monkey with a photo of the pint, rating, calories per serving, description and allergens" onerror="this.closest('figure').hidden=true">
+                                <figcaption>Chunky Monkey</figcaption>
+                            </figure>
+                            <figure class="menu-card">
+                                <img src="../images/simulator/menu/half-baked.png" alt="Flavor menu card for Half Baked with a photo of the pint, rating, calories per serving, description and allergens" onerror="this.closest('figure').hidden=true">
+                                <figcaption>Half Baked</figcaption>
+                            </figure>
+                            <figure class="menu-card">
+                                <img src="../images/simulator/menu/phish-food.png" alt="Flavor menu card for Phish Food with a photo of the pint, rating, calories per serving, description and allergens" onerror="this.closest('figure').hidden=true">
+                                <figcaption>Phish Food</figcaption>
+                            </figure>
+                        </div>
+                        <p class="step-note">Each card is filled in from the JSON file. Scroll sideways to see more flavors.</p>                        
                         </div>
                     </li>
                 </ol>

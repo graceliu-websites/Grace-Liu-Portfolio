@@ -361,3 +361,33 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, li, figcaption {
 }
 .model-link:hover,
 .model-link:focus-visible { color: #ff7ebd; }
+
+/* sideways-scrolling menu screenshots */
+.menu-scroller {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  padding-bottom: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #c72a78 #15151a;
+}
+.menu-scroller:focus-visible { outline: 2px solid #ff7ebd; outline-offset: 4px; border-radius: 16px; }
+.menu-card {
+  flex: 0 0 min(560px, 85%);   /* 85% lets the next card peek in, so people know to scroll */
+  margin: 0;
+  scroll-snap-align: start;
+}
+.menu-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.menu-card figcaption { margin-top: 10px; text-align: center; }
+.menu-card[hidden] { display: none; }
+.menu-scroller::-webkit-scrollbar { height: 8px; }
+.menu-scroller::-webkit-scrollbar-track { background: #15151a; border-radius: 8px; }
+.menu-scroller::-webkit-scrollbar-thumb { background: #c72a78; border-radius: 8px; }
